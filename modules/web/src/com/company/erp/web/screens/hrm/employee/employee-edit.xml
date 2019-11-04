@@ -18,10 +18,10 @@
         </collection>
     </data>
     <dialogMode modal="true"
-                forceDialog="true" positionY="0" width="auto" height="auto"/>
+                forceDialog="true" width="auto" height="auto"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" width="100%">
-            <tabSheet id="tabSheet" width="100%" responsive="true">
+            <tabSheet id="tabSheet" width="100%" responsive="true" align="MIDDLE_CENTER">
                 <tab caption="Personal Details" id="personaldetails" spacing="true" margin="true,false,false,false">
                     <form id="form" dataContainer="employeeDc">
                         <column width="250px">
