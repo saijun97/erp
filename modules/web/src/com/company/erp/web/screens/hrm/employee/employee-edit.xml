@@ -35,6 +35,15 @@
                         </column>
                     </form>
                 </tab>
+                <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactdetails">
+                    <form id="form_2">
+                        <column id="column_1">
+                            <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"/>
+                            <textField id="homePhoneField" property="homePhone" caption="Home Phone"/>
+                            <textField id="emailField" property="email" caption="E-Mail"/>
+                        </column>
+                    </form>
+                </tab>
                 <tab caption="Department" margin="true,false,false,false" spacing="true" id="department">
                     <form id="form_1">
                         <column id="column">
@@ -47,15 +56,6 @@
                             </lookupPickerField>
                             <lookupField property="subunit" id="subunitField" caption="Subunit">
                             </lookupField>
-                        </column>
-                    </form>
-                </tab>
-                <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactdetails">
-                    <form id="form_2">
-                        <column id="column_1">
-                            <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"/>
-                            <textField id="homePhoneField" property="homePhone" caption="Home Phone"/>
-                            <textField id="emailField" property="email" caption="E-Mail"/>
                         </column>
                     </form>
                 </tab>
