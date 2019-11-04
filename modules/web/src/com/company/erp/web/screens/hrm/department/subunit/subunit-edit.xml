@@ -2,7 +2,7 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
         focusComponent="form"
-        messagesPack="com.company.erp.web.screens.subunit">
+        messagesPack="com.company.erp.web.screens.hrm.department.subunit">
     <data>
         <instance id="subunitDc"
                   class="com.company.erp.entity.hrm.dept.Subunit"
