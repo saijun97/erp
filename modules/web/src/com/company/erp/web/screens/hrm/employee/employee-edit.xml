@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.hrm.employee">
+    <data>
+        <instance id="employeeDc"
+                  class="com.company.erp.entity.hrm.Employee"
+                  view="employee-view-details">
+            <loader/>
+        </instance>
+        <collection id="departmentsDc" class="com.company.erp.entity.hrm.dept.Department" view="_minimal">
+            <loader id="departmentsLc">
+                <query>
+                    <![CDATA[select e from erp_Department e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="employeeDc">
+                <column width="250px">
+                    <textField id="empIdField" property="empId"/>
+                    <textField id="nicField" property="nic"/>
+                    <textField id="firstNameField" property="firstName"/>
+                    <textField id="middleNameField" property="middleName"/>
+                    <textField id="lastNameField" property="lastName"/>
+                    <lookupField id="genderField" property="gender"/>
+                    <dateField id="dobField" property="dob"/>
+                    <lookupPickerField id="departmentField" optionsContainer="departmentsDc" property="department">
+                        <actions>
+                            <action id="lookup" type="picker_lookup"/>
+                            <action id="open" type="picker_open"/>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </lookupPickerField>
+                    <textField id="mobilePhoneField" property="mobilePhone"/>
+                    <textField id="homePhoneField" property="homePhone"/>
+                    <textField id="emailField" property="email"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

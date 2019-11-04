@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="employeesTable"
+        messagesPack="com.company.erp.web.screens.hrm.employee">
+    <data readOnly="true">
+        <collection id="employeesDc"
+                    class="com.company.erp.entity.hrm.Employee"
+                    view="_local">
+            <loader id="employeesDl">
+                <query>
+                    <![CDATA[select e from erp_Employee e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="employeesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="employeesTable"
+                dataLoader="employeesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="employeesTable"
+                    width="100%"
+                    dataContainer="employeesDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="empId"/>
+                <column id="nic"/>
+                <column id="firstName"/>
+                <column id="middleName"/>
+                <column id="lastName"/>
+                <column id="gender"/>
+                <column id="dob"/>
+                <column id="mobilePhone"/>
+                <column id="homePhone"/>
+                <column id="email"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="employeesTable.create"/>
+                <button id="editBtn" action="employeesTable.edit"/>
+                <button id="removeBtn" action="employeesTable.remove"/>
+                <button id="excelBtn" action="employeesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
