@@ -1,7 +1,7 @@
 package com.company.erp.web.screens.hrm.department;
 
-import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.hrm.dept.Department;
+import com.haulmont.cuba.gui.screen.*;
 
 @UiController("erp_Department.edit")
 @UiDescriptor("department-edit.xml")
