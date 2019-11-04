@@ -1,6 +1,7 @@
 package com.company.erp.entity.hrm.dept;
 
 import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@NamePattern("%s|department")
 @Table(name = "ERP_DEPARTMENT")
 @Entity(name = "erp_Department")
 public class Department extends StandardEntity {
