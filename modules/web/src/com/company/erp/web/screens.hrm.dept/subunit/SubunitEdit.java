@@ -1,4 +1,4 @@
-package com.company.erp.web.screens.subunit;
+package com.company.erp.web.screens.hrm.dept.subunit;
 
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.hrm.dept.Subunit;
