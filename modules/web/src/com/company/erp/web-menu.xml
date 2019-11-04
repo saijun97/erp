@@ -4,5 +4,6 @@
         <menu id="hrm">
         </menu>
         <item screen="erp_Department.browse"/>
+        <item screen="erp_Employee.browse"/>
     </menu>
 </menu-config>
