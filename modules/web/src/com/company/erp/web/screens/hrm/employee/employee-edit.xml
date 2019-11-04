@@ -21,29 +21,47 @@
                 width="AUTO"
                 modal="true"
                 forceDialog="true"/>
-    <layout expand="scrollBox" spacing="true">
-        <scrollBox id="scrollBox" spacing="true">
-            <form id="form" dataContainer="employeeDc">
-                <column width="250px">
-                    <textField id="empIdField" property="empId"/>
-                    <textField id="nicField" property="nic"/>
-                    <textField id="firstNameField" property="firstName"/>
-                    <textField id="middleNameField" property="middleName"/>
-                    <textField id="lastNameField" property="lastName"/>
-                    <lookupField id="genderField" property="gender"/>
-                    <dateField id="dobField" property="dob"/>
-                    <lookupPickerField id="departmentField" optionsContainer="departmentsDc" property="department">
-                        <actions>
-                            <action id="lookup" type="picker_lookup"/>
-                            <action id="open" type="picker_open"/>
-                            <action id="clear" type="picker_clear"/>
-                        </actions>
-                    </lookupPickerField>
-                    <textField id="mobilePhoneField" property="mobilePhone"/>
-                    <textField id="homePhoneField" property="homePhone"/>
-                    <textField id="emailField" property="email"/>
-                </column>
-            </form>
+    <layout spacing="true">
+        <scrollBox width="AUTO">
+            <tabSheet>
+                <tab caption="Personal Details" id="personaldetails" spacing="true" margin="true,false,false,false">
+                    <form id="form" dataContainer="employeeDc">
+                        <column width="250px">
+                            <textField id="empIdField" property="empId"/>
+                            <textField id="nicField" property="nic"/>
+                            <textField id="firstNameField" property="firstName"/>
+                            <textField id="middleNameField" property="middleName"/>
+                            <textField id="lastNameField" property="lastName"/>
+                            <lookupField id="genderField" property="gender"/>
+                            <dateField id="dobField" property="dob"/>
+                        </column>
+                    </form>
+                </tab>
+                <tab caption="Department" margin="true,false,false,false" spacing="true" id="department">
+                    <form id="form_1">
+                        <column id="column">
+                            <lookupPickerField optionsContainer="departmentsDc" property="department" id="deptField">
+                                <actions>
+                                    <action id="lookup" type="picker_lookup"/>
+                                    <action id="open" type="picker_open"/>
+                                    <action id="clear" type="picker_clear"/>
+                                </actions>
+                            </lookupPickerField>
+                            <lookupField property="subunit" id="subunitField" caption="Subunit">
+                            </lookupField>
+                        </column>
+                    </form>
+                </tab>
+                <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactdetails">
+                    <form id="form_2">
+                        <column id="column_1">
+                            <textField id="mobilePhoneField" property="mobilePhone"/>
+                            <textField id="homePhoneField" property="homePhone"/>
+                            <textField id="emailField" property="email"/>
+                        </column>
+                    </form>
+                </tab>
+            </tabSheet>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
