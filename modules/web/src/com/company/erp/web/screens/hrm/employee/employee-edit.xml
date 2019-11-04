@@ -38,7 +38,7 @@
                 <tab caption="Department" margin="true,false,false,false" spacing="true" id="department">
                     <form id="form_1">
                         <column id="column">
-                            <lookupPickerField optionsContainer="departmentsDc" property="department" id="deptField"
+                            <lookupPickerField optionsContainer="departmentsDc" property="department" id="departmentField"
                                                caption="Department">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
