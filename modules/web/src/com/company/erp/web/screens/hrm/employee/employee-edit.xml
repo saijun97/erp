@@ -17,30 +17,29 @@
             </loader>
         </collection>
     </data>
-    <dialogMode height="AUTO"
-                width="AUTO"
-                modal="true"
-                forceDialog="true"/>
-    <layout spacing="true">
-        <scrollBox width="AUTO">
-            <tabSheet>
+    <dialogMode modal="true"
+                forceDialog="true" positionY="0" width="auto" height="auto"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" width="100%">
+            <tabSheet id="tabSheet" width="100%" responsive="true">
                 <tab caption="Personal Details" id="personaldetails" spacing="true" margin="true,false,false,false">
                     <form id="form" dataContainer="employeeDc">
                         <column width="250px">
-                            <textField id="empIdField" property="empId"/>
-                            <textField id="nicField" property="nic"/>
-                            <textField id="firstNameField" property="firstName"/>
-                            <textField id="middleNameField" property="middleName"/>
-                            <textField id="lastNameField" property="lastName"/>
-                            <lookupField id="genderField" property="gender"/>
-                            <dateField id="dobField" property="dob"/>
+                            <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
+                            <textField id="nicField" property="nic" caption="NIC"/>
+                            <textField id="firstNameField" property="firstName" caption="First Name"/>
+                            <textField id="middleNameField" property="middleName" caption="Middle Name"/>
+                            <textField id="lastNameField" property="lastName" caption="Last Name"/>
+                            <lookupField id="genderField" property="gender" caption="Gender"/>
+                            <dateField id="dobField" property="dob" caption="Date Of Birth"/>
                         </column>
                     </form>
                 </tab>
                 <tab caption="Department" margin="true,false,false,false" spacing="true" id="department">
                     <form id="form_1">
                         <column id="column">
-                            <lookupPickerField optionsContainer="departmentsDc" property="department" id="deptField">
+                            <lookupPickerField optionsContainer="departmentsDc" property="department" id="deptField"
+                                               caption="Department">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
                                     <action id="open" type="picker_open"/>
@@ -55,9 +54,9 @@
                 <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactdetails">
                     <form id="form_2">
                         <column id="column_1">
-                            <textField id="mobilePhoneField" property="mobilePhone"/>
-                            <textField id="homePhoneField" property="homePhone"/>
-                            <textField id="emailField" property="email"/>
+                            <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"/>
+                            <textField id="homePhoneField" property="homePhone" caption="Home Phone"/>
+                            <textField id="emailField" property="email" caption="E-Mail"/>
                         </column>
                     </form>
                 </tab>
