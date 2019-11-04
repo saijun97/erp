@@ -1,5 +1,6 @@
 package com.company.erp.entity.hrm.dept;
 
+import com.company.erp.entity.hrm.Employee;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
@@ -19,6 +20,17 @@ public class Subunit extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "DEPARTMENT_ID")
     protected Department department;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "EMPLOYEE_ID")
+    protected Employee employee;
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public Department getDepartment() {
         return department;
