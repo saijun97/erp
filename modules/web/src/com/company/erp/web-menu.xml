@@ -3,7 +3,7 @@
     <menu id="application-erp" insertBefore="administration">
         <menu id="hrm">
         </menu>
-        <item screen="erp_Department.browse"/>
         <item screen="erp_Employee.browse"/>
+        <item screen="erp_Department.browse"/>
     </menu>
 </menu-config>
