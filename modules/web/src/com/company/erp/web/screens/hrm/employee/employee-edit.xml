@@ -16,13 +16,21 @@
                 </query>
             </loader>
         </collection>
+        <collection id="subunitsDc" class="com.company.erp.entity.hrm.dept.Subunit" view="_minimal">
+            <loader id="subunitsDl">
+                <query>
+                    <![CDATA[select e from erp_Subunit e ]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <dialogMode modal="true"
-                forceDialog="true" width="auto" height="auto"/>
+                forceDialog="true"/>
     <layout expand="scrollBox" spacing="true">
-        <scrollBox id="scrollBox" width="100%">
-            <tabSheet id="tabSheet" width="100%" responsive="true" align="MIDDLE_CENTER">
-                <tab caption="Personal Details" id="personaldetails" spacing="true" margin="true,false,false,false">
+        <scrollBox id="scrollBox">
+            <tabSheet id="tabSheet" responsive="true" align="MIDDLE_CENTER">
+                <tab caption="Personal Details" id="personaldetails" spacing="true" margin="true,false,false,false"
+                     expand="form">
                     <form id="form" dataContainer="employeeDc">
                         <column width="250px">
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
@@ -35,16 +43,20 @@
                         </column>
                     </form>
                 </tab>
-                <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactdetails">
+                <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactdetails"
+                     expand="form_2">
                     <form id="form_2">
                         <column id="column_1">
-                            <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"/>
-                            <textField id="homePhoneField" property="homePhone" caption="Home Phone"/>
-                            <textField id="emailField" property="email" caption="E-Mail"/>
+                            <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"
+                                       align="TOP_LEFT"/>
+                            <textField id="homePhoneField" property="homePhone" caption="Home Phone"
+                                       align="TOP_LEFT"/>
+                            <textField id="emailField" property="email" caption="E-Mail" align="TOP_LEFT"/>
                         </column>
                     </form>
                 </tab>
-                <tab caption="Department" margin="true,false,false,false" spacing="true" id="department">
+                <tab caption="Department" margin="true,false,false,false" spacing="true" id="department"
+                     expand="subunitBox">
                     <form id="form_1">
                         <column id="column">
                             <lookupPickerField optionsContainer="departmentsDc" property="department" id="departmentField"
@@ -54,10 +66,23 @@
                                     <action id="clear" type="picker_clear"/>
                                 </actions>
                             </lookupPickerField>
-                            <lookupField property="subunit" id="subunitField" caption="Subunit">
-                            </lookupField>
                         </column>
                     </form>
+                    <groupBox id="subunitBox" caption="Subunit">
+                        <table id="subunitTable" dataContainer="subunitsDc" width="100%" height="200px" >
+                            <columns>
+                                <column id="subunit"/>
+                            </columns>
+                            <actions>
+                                <action id="add" type="add"/>
+                                <action type="remove" id="remove"/>
+                            </actions>
+                            <buttonsPanel>
+                                <button action="subunitTable.add"/>
+                                <button action="subunitTable.remove"/>
+                            </buttonsPanel>
+                        </table>
+                    </groupBox>
                 </tab>
             </tabSheet>
         </scrollBox>
