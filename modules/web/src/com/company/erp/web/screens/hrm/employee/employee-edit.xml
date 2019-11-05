@@ -8,7 +8,6 @@
                   class="com.company.erp.entity.hrm.Employee"
                   view="employee-view-details">
             <loader/>
-            <collection id="subunitDc" property="subunit"/>
         </instance>
         <collection id="departmentsDc" class="com.company.erp.entity.hrm.dept.Department" view="_minimal">
             <loader id="departmentsLc">
@@ -18,7 +17,7 @@
             </loader>
         </collection>
         <collection id="subunitsDc" class="com.company.erp.entity.hrm.dept.Subunit" view="_minimal">
-            <loader id="subunitsDl">
+            <loader>
                 <query>
                     <![CDATA[select e from erp_Subunit e where e.department = :container_departmentsDc]]>
                 </query>
@@ -59,8 +58,7 @@
                         </column>
                     </form>
                 </tab>
-                <tab caption="Department" margin="true,false,false,false" spacing="true" id="department"
-                     expand="subunitBox">
+                <tab caption="Department" margin="true,false,false,false" spacing="true" id="department">
                     <form id="form_1">
                         <column id="column">
                             <lookupPickerField optionsContainer="departmentsDc" property="department"
@@ -71,25 +69,10 @@
                                     <action id="clear" type="picker_clear"/>
                                 </actions>
                             </lookupPickerField>
+                            <lookupField id="subunitField" property="subunit" optionsContainer="subunitsDc"
+                                         caption="Subunit"/>
                         </column>
                     </form>
-                    <groupBox id="subunitBox" caption="msg://com.company.erp.entity.hrm/Employee.subunit"
-                    >
-                        <table id="subunitTable" dataContainer="subunitDc" width="300px" height="200px"
-                               multiselect="true">
-                            <actions>
-                                <action id="add" type="add"/>
-                                <action id="exclude" type="exclude"/>
-                            </actions>
-                            <columns>
-                                <column id="subunit"/>
-                            </columns>
-                            <buttonsPanel>
-                                <button id="addButton" action="subunitTable.add"/>
-                                <button action="subunitTable.exclude"/>
-                            </buttonsPanel>
-                        </table>
-                    </groupBox>
                 </tab>
             </tabSheet>
         </scrollBox>
