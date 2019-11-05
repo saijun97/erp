@@ -24,14 +24,14 @@
             </loader>
         </collection>
     </data>
-    <dialogMode modal="true"
-                forceDialog="true"/>
+    <dialogMode
+            forceDialog="true" width="auto" height="auto"/>
     <layout expand="scrollBox" spacing="true">
-        <scrollBox id="scrollBox">
+        <scrollBox id="scrollBox" width="100%">
             <tabSheet id="tabSheet" responsive="true" align="MIDDLE_CENTER">
-                <tab caption="Personal Details" id="personaldetails" spacing="true" margin="true,false,false,false"
+                <tab caption="Personal Details" id="personalDetails" spacing="true" margin="true,false,false,false"
                      expand="form">
-                    <form id="form" dataContainer="employeeDc">
+                    <form id="form" dataContainer="employeeDc" align="TOP_LEFT">
                         <column width="250px">
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
                             <textField id="nicField" property="nic" caption="NIC"/>
@@ -43,9 +43,9 @@
                         </column>
                     </form>
                 </tab>
-                <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactdetails"
+                <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactDetails"
                      expand="form_2">
-                    <form id="form_2">
+                    <form id="form_2" align="TOP_LEFT">
                         <column id="column_1">
                             <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"
                                        align="TOP_LEFT"/>
@@ -60,7 +60,7 @@
                     <form id="form_1">
                         <column id="column">
                             <lookupPickerField optionsContainer="departmentsDc" property="department" id="departmentField"
-                                               caption="Department">
+                                               caption="Department" align="TOP_LEFT">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
                                     <action id="clear" type="picker_clear"/>
@@ -68,8 +68,9 @@
                             </lookupPickerField>
                         </column>
                     </form>
-                    <groupBox id="subunitBox" caption="Subunit">
-                        <table id="subunitTable" dataContainer="subunitsDc" width="100%" height="200px" >
+                    <groupBox id="subunitBox" caption="Subunit" width="auto">
+                        <table id="subunitTable" dataContainer="subunitsDc" height="200px" width="300px"
+                               responsive="true">
                             <columns>
                                 <column id="subunit"/>
                             </columns>
