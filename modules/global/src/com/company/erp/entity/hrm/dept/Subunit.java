@@ -22,20 +22,6 @@ public class Subunit extends StandardEntity {
     @JoinColumn(name = "DEPARTMENT_ID")
     protected Department department;
 
-    @JoinTable(name = "ERP_EMPLOYEE_SUBUNIT_LINK",
-            joinColumns = @JoinColumn(name = "SUBUNIT_ID"),
-            inverseJoinColumns = @JoinColumn(name = "EMPLOYEE_ID"))
-    @ManyToMany
-    protected List<Employee> employees;
-
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
-
     public Department getDepartment() {
         return department;
     }
