@@ -18,9 +18,9 @@
               maxTotal="20"
               maxWaitMillis="5000"
               name="jdbc/CubaDS"
-              password="cuba"
+              password="e7c23833b5525e8078424a8a2c6c8e762785dae77095bc376c936668f9f2b16a"
               type="javax.sql.DataSource"
-              url="jdbc:postgresql://localhost/erp"
-              username="cuba"/>
+              url="jdbc:postgresql://ec2-54-221-214-3.compute-1.amazonaws.com/d7j7jkjjqlbcgb"
+              username="jwmyxafpvszxli"/>
 
 </Context>
