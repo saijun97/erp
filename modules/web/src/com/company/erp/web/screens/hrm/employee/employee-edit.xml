@@ -85,7 +85,7 @@
                                 <column id="subunit"/>
                             </columns>
                             <buttonsPanel>
-                                <button id="addButton" action="subunitTable.add" invoke="onAddButtonClick"/>
+                                <button id="addButton" action="subunitTable.add"/>
                                 <button action="subunitTable.exclude"/>
                             </buttonsPanel>
                         </table>
