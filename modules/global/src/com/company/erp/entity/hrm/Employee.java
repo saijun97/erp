@@ -14,7 +14,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.util.Date;
-import java.util.List;
 
 @NamePattern("%s %s %s|empId,firstName,lastName")
 @Table(name = "ERP_EMPLOYEE")
@@ -57,9 +56,10 @@ public class Employee extends StandardEntity {
     @JoinColumn(name = "DEPARTMENT_ID")
     protected Department department;
 
-    @JoinTable(name = "ERP_EMPLOYEE_SUBUNIT_LINK", joinColumns = @JoinColumn(name = "EMPLOYEE_ID"), inverseJoinColumns = @JoinColumn(name = "SUBUNIT_ID"))
-    @ManyToMany
-    protected List<Subunit> subunit;
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SUBUNIT_ID")
+    protected Subunit subunit;
 
     @Column(name = "MOBILE_PHONE", unique = true)
     protected String mobilePhone;
@@ -71,12 +71,12 @@ public class Employee extends StandardEntity {
     @Column(name = "EMAIL", unique = true)
     protected String email;
 
-    public void setSubunit(List<Subunit> subunit) {
-        this.subunit = subunit;
+    public Subunit getSubunit() {
+        return subunit;
     }
 
-    public List<Subunit> getSubunit() {
-        return subunit;
+    public void setSubunit(Subunit subunit) {
+        this.subunit = subunit;
     }
 
     public String getEmail() {
