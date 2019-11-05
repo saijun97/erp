@@ -5,6 +5,5 @@
         </menu>
         <item screen="erp_Employee.browse"/>
         <item screen="erp_Department.browse"/>
-        <item screen="erp_Subunit.browse"/>
     </menu>
 </menu-config>
