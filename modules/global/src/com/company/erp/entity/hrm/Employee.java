@@ -57,7 +57,8 @@ public class Employee extends StandardEntity {
     @JoinColumn(name = "DEPARTMENT_ID")
     protected Department department;
 
-    @OneToMany(mappedBy = "employee")
+    @JoinTable(name = "ERP_EMPLOYEE_SUBUNIT_LINK", joinColumns = @JoinColumn(name = "EMPLOYEE_ID"), inverseJoinColumns = @JoinColumn(name = "SUBUNIT_ID"))
+    @ManyToMany
     protected List<Subunit> subunit;
 
     @Column(name = "MOBILE_PHONE", unique = true)
@@ -69,6 +70,14 @@ public class Employee extends StandardEntity {
     @Email(message = "Not an email!")
     @Column(name = "EMAIL", unique = true)
     protected String email;
+
+    public void setSubunit(List<Subunit> subunit) {
+        this.subunit = subunit;
+    }
+
+    public List<Subunit> getSubunit() {
+        return subunit;
+    }
 
     public String getEmail() {
         return email;
@@ -92,14 +101,6 @@ public class Employee extends StandardEntity {
 
     public void setMobilePhone(String mobilePhone) {
         this.mobilePhone = mobilePhone;
-    }
-
-    public List<Subunit> getSubunit() {
-        return subunit;
-    }
-
-    public void setSubunit(List<Subunit> subunit) {
-        this.subunit = subunit;
     }
 
     public GenderSelect getGender() {

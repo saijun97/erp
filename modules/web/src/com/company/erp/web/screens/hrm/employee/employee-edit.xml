@@ -8,6 +8,7 @@
                   class="com.company.erp.entity.hrm.Employee"
                   view="employee-view-details">
             <loader/>
+            <collection id="subunitDc" property="subunit"/>
         </instance>
         <collection id="departmentsDc" class="com.company.erp.entity.hrm.dept.Department" view="_minimal">
             <loader id="departmentsLc">
@@ -19,13 +20,16 @@
         <collection id="subunitsDc" class="com.company.erp.entity.hrm.dept.Subunit" view="_minimal">
             <loader id="subunitsDl">
                 <query>
-                    <![CDATA[select e from erp_Subunit e ]]>
+                    <![CDATA[select e from erp_Subunit e where e.department = :container_departmentsDc]]>
                 </query>
             </loader>
         </collection>
     </data>
     <dialogMode
             forceDialog="true" width="auto" height="auto"/>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" width="100%">
             <tabSheet id="tabSheet" responsive="true" align="MIDDLE_CENTER">
@@ -59,7 +63,8 @@
                      expand="subunitBox">
                     <form id="form_1">
                         <column id="column">
-                            <lookupPickerField optionsContainer="departmentsDc" property="department" id="departmentField"
+                            <lookupPickerField optionsContainer="departmentsDc" property="department"
+                                               id="departmentField"
                                                caption="Department" align="TOP_LEFT">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
@@ -68,19 +73,20 @@
                             </lookupPickerField>
                         </column>
                     </form>
-                    <groupBox id="subunitBox" caption="Subunit" width="auto">
-                        <table id="subunitTable" dataContainer="subunitsDc" height="200px" width="300px"
-                               responsive="true">
+                    <groupBox id="subunitBox" caption="msg://com.company.erp.entity.hrm/Employee.subunit"
+                    >
+                        <table id="subunitTable" dataContainer="subunitDc" width="300px" height="200px"
+                               multiselect="true">
+                            <actions>
+                                <action id="add" type="add"/>
+                                <action id="exclude" type="exclude"/>
+                            </actions>
                             <columns>
                                 <column id="subunit"/>
                             </columns>
-                            <actions>
-                                <action id="add" type="add"/>
-                                <action type="remove" id="remove"/>
-                            </actions>
                             <buttonsPanel>
-                                <button action="subunitTable.add"/>
-                                <button action="subunitTable.remove"/>
+                                <button id="addButton" action="subunitTable.add" invoke="onAddButtonClick"/>
+                                <button action="subunitTable.exclude"/>
                             </buttonsPanel>
                         </table>
                     </groupBox>

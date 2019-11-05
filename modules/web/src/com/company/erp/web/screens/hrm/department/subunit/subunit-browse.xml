@@ -14,10 +14,9 @@
             </loader>
         </collection>
     </data>
-    <dialogMode height="600"
-                width="800"/>
+    <dialogMode/>
     <layout expand="subunitsTable"
-            spacing="true">
+            spacing="true" width="100%">
         <groupTable id="subunitsTable"
                     width="100%"
                     dataContainer="subunitsDc"

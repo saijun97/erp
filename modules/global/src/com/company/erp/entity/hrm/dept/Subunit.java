@@ -6,6 +6,7 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @NamePattern("%s|subunit")
 @Table(name = "ERP_SUBUNIT")
@@ -20,16 +21,19 @@ public class Subunit extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "DEPARTMENT_ID")
     protected Department department;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "EMPLOYEE_ID")
-    protected Employee employee;
 
-    public Employee getEmployee() {
-        return employee;
+    @JoinTable(name = "ERP_EMPLOYEE_SUBUNIT_LINK",
+            joinColumns = @JoinColumn(name = "SUBUNIT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "EMPLOYEE_ID"))
+    @ManyToMany
+    protected List<Employee> employees;
+
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     public Department getDepartment() {
