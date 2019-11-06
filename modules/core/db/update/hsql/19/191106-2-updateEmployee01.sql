@@ -1,2 +1,0 @@
-alter table ERP_EMPLOYEE add constraint FK_ERP_EMPLOYEE_ON_SUBUNIT foreign key (SUBUNIT_ID) references ERP_SUBUNIT(ID);
-create index IDX_ERP_EMPLOYEE_ON_SUBUNIT on ERP_EMPLOYEE (SUBUNIT_ID);

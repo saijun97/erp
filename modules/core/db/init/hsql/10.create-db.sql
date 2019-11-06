@@ -33,6 +33,7 @@ create table ERP_EMPLOYEE (
     GENDER integer not null,
     DOB date not null,
     DEPARTMENT_ID varchar(36) not null,
+    SUBUNIT_ID varchar(36),
     MOBILE_PHONE varchar(255),
     HOME_PHONE varchar(255),
     EMAIL varchar(255),
@@ -53,7 +54,6 @@ create table ERP_SUBUNIT (
     --
     SUBUNIT varchar(255) not null,
     DEPARTMENT_ID varchar(36) not null,
-    EMPLOYEE_ID varchar(36) not null,
     --
     primary key (ID)
 )^
