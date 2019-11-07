@@ -1,1 +1,0 @@
-create unique index IDX_ERP_DEPARTMENT_UK_DEPARTMENT on ERP_DEPARTMENT (DEPARTMENT) where DELETE_TS is null ;
