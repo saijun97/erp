@@ -1,6 +1,6 @@
 -- begin ERP_DEPARTMENT
 create table ERP_DEPARTMENT (
-    ID varchar(36) not null,
+    ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
@@ -16,7 +16,7 @@ create table ERP_DEPARTMENT (
 -- end ERP_DEPARTMENT
 -- begin ERP_EMPLOYEE
 create table ERP_EMPLOYEE (
-    ID varchar(36) not null,
+    ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
@@ -32,8 +32,8 @@ create table ERP_EMPLOYEE (
     LAST_NAME varchar(255) not null,
     GENDER integer not null,
     DOB date not null,
-    DEPARTMENT_ID varchar(36) not null,
-    SUBUNIT_ID varchar(36),
+    DEPARTMENT_ID uuid not null,
+    SUBUNIT_ID uuid,
     MOBILE_PHONE varchar(255),
     HOME_PHONE varchar(255),
     EMAIL varchar(255),
@@ -43,7 +43,7 @@ create table ERP_EMPLOYEE (
 -- end ERP_EMPLOYEE
 -- begin ERP_SUBUNIT
 create table ERP_SUBUNIT (
-    ID varchar(36) not null,
+    ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
@@ -53,7 +53,7 @@ create table ERP_SUBUNIT (
     DELETED_BY varchar(50),
     --
     SUBUNIT varchar(255) not null,
-    DEPARTMENT_ID varchar(36) not null,
+    DEPARTMENT_ID uuid not null,
     --
     primary key (ID)
 )^

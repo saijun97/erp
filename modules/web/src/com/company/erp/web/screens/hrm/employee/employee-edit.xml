@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.hrm.employee">
+    <data>
+        <instance id="employeeDc"
+                  class="com.company.erp.entity.hrm.Employee"
+                  view="employee-view-details">
+            <loader/>
+        </instance>
+        <collection id="departmentsDc" class="com.company.erp.entity.hrm.dept.Department" view="_minimal">
+            <loader id="departmentsLc">
+                <query>
+                    <![CDATA[select e from erp_Department e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="subunitsDc" class="com.company.erp.entity.hrm.dept.Subunit" view="_minimal">
+            <loader>
+                <query>
+                    <![CDATA[select e from erp_Subunit e where e.department = :container_departmentsDc]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode
+            forceDialog="true" width="auto" height="auto"/>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" width="100%">
+            <tabSheet id="tabSheet" responsive="true" align="MIDDLE_CENTER">
+                <tab caption="Personal Details" id="personalDetails" spacing="true" margin="true,false,false,false"
+                     expand="form">
+                    <form id="form" dataContainer="employeeDc" align="TOP_LEFT">
+                        <column width="250px">
+                            <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
+                            <textField id="nicField" property="nic" caption="NIC"/>
+                            <textField id="firstNameField" property="firstName" caption="First Name"/>
+                            <textField id="middleNameField" property="middleName" caption="Middle Name"/>
+                            <textField id="lastNameField" property="lastName" caption="Last Name"/>
+                            <lookupField id="genderField" property="gender" caption="Gender"/>
+                            <dateField id="dobField" property="dob" caption="Date Of Birth"/>
+                        </column>
+                    </form>
+                </tab>
+                <tab caption="Contact Details" margin="true,false,false,false" spacing="true" id="contactDetails"
+                     expand="form_2">
+                    <form id="form_2" align="TOP_LEFT">
+                        <column id="column_1">
+                            <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"
+                                       align="TOP_LEFT"/>
+                            <textField id="homePhoneField" property="homePhone" caption="Home Phone"
+                                       align="TOP_LEFT"/>
+                            <textField id="emailField" property="email" caption="E-Mail" align="TOP_LEFT"/>
+                        </column>
+                    </form>
+                </tab>
+                <tab caption="Department" margin="true,false,false,false" spacing="true" id="department">
+                    <form id="form_1">
+                        <column id="column">
+                            <lookupPickerField optionsContainer="departmentsDc" property="department"
+                                               id="departmentField"
+                                               caption="Department" align="TOP_LEFT">
+                                <actions>
+                                    <action id="lookup" type="picker_lookup"/>
+                                    <action id="clear" type="picker_clear"/>
+                                </actions>
+                            </lookupPickerField>
+                            <lookupField id="subunitField" property="subunit" optionsContainer="subunitsDc"
+                                         caption="Subunit"/>
+                        </column>
+                    </form>
+                </tab>
+            </tabSheet>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
