@@ -1,1 +1,0 @@
-drop table if exists ERP_COUNTRY__U83779 cascade ;
