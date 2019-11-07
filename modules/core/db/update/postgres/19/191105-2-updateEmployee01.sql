@@ -1,0 +1,1 @@
+create unique index IDX_ERP_EMPLOYEE_UK_MOBILE_PHONE on ERP_EMPLOYEE (MOBILE_PHONE) where DELETE_TS is null ;

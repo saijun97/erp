@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="subunitsTable"
+        messagesPack="com.company.erp.web.screens.hrm.department.subunit">
+    <data readOnly="true">
+        <collection id="subunitsDc"
+                    class="com.company.erp.entity.hrm.dept.Subunit"
+                    view="_local">
+            <loader id="subunitsDl">
+                <query>
+                    <![CDATA[select e from erp_Subunit e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode/>
+    <layout expand="subunitsTable"
+            spacing="true" width="100%">
+        <groupTable id="subunitsTable"
+                    width="100%"
+                    dataContainer="subunitsDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="subunit"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="subunitsTable.create"/>
+                <button id="editBtn" action="subunitsTable.edit"/>
+                <button id="removeBtn" action="subunitsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

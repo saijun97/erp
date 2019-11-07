@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
 
+    <view entity="erp_Department" name="department-view-details" extends="_local">
+        <property name="subunit" view="_minimal"/>
+    </view>
+    <view entity="erp_Employee" name="employee-view-details" extends="_local">
+        <property name="department" view="_minimal"/>
+        <property name="subunit" view="_minimal"/>
+    </view>
 </views>
