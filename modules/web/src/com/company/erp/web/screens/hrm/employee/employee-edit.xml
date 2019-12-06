@@ -31,7 +31,12 @@
     </facets>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" width="100%">
-            expand="form">
+            expand="tabSheet">
+            <tabSheet id="tabSheet" width="100%">
+                expand="form1"
+                expand="form2"
+                expand="form3"
+                <tab id="tab1" caption="General">
                     <form id="form" dataContainer="employeeDc" align="TOP_LEFT">
                         <column width="250px">
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
@@ -41,11 +46,24 @@
                             <textField id="lastNameField" property="lastName" caption="Last Name"/>
                             <lookupField id="genderField" property="gender" caption="Gender"/>
                             <dateField id="dobField" property="dob" caption="Date Of Birth"/>
+                        </column>
+                    </form>
+                </tab>
+                <tab id="tab2" caption="Contact">
+                    <form id="form2" dataContainer="employeeDc" align="TOP_LEFT">
+                    <column width="250px">
                             <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"
                                        align="TOP_LEFT"/>
                             <textField id="homePhoneField" property="homePhone" caption="Home Phone"
                                        align="TOP_LEFT"/>
                             <textField id="emailField" property="email" caption="E-Mail" align="TOP_LEFT"/>
+                    </column>
+                    </form>
+                </tab>
+
+                <tab id="tab3" caption="Job">
+                    <form id="form3" dataContainer="employeeDc" align="TOP_LEFT">
+                    <column width="250px">
                             <lookupPickerField optionsContainer="departmentsDc" property="department"
                                                id="departmentField"
                                                caption="Department" align="TOP_LEFT">
@@ -56,8 +74,10 @@
                             </lookupPickerField>
                             <lookupField id="subunitField" property="subunit" optionsContainer="subunitsDc"
                                          caption="Subunit"/>
-                        </column>
+                    </column>
                     </form>
+                </tab>
+            </tabSheet>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
