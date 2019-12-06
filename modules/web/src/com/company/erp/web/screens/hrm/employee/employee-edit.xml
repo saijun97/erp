@@ -33,10 +33,7 @@
         <scrollBox id="scrollBox" width="100%">
             expand="tabSheet">
             <tabSheet id="tabSheet" width="100%">
-                expand="form1"
-                expand="form2"
-                expand="form3"
-                <tab id="tab1" caption="General">
+                <tab id="tab1" caption="General" margin="true" spacing="true">
                     <form id="form" dataContainer="employeeDc" align="TOP_LEFT">
                         <column width="250px">
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
@@ -49,7 +46,7 @@
                         </column>
                     </form>
                 </tab>
-                <tab id="tab2" caption="Contact">
+                <tab id="tab2" caption="Contact" margin="true" spacing="true">
                     <form id="form2" dataContainer="employeeDc" align="TOP_LEFT">
                     <column width="250px">
                             <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"
@@ -61,7 +58,7 @@
                     </form>
                 </tab>
 
-                <tab id="tab3" caption="Job">
+                <tab id="tab3" caption="Job" margin="true" spacing="true">
                     <form id="form3" dataContainer="employeeDc" align="TOP_LEFT">
                     <column width="250px">
                             <lookupPickerField optionsContainer="departmentsDc" property="department"
