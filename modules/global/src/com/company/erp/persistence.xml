@@ -5,5 +5,6 @@
         <class>com.company.erp.entity.hrm.Employee</class>
         <class>com.company.erp.entity.hrm.dept.Subunit</class>
         <class>com.company.erp.entity.hrm.dept.Department</class>
+        <class>com.company.erp.entity.general.Person</class>
     </persistence-unit>
 </persistence>

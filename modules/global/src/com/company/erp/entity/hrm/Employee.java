@@ -1,10 +1,10 @@
 package com.company.erp.entity.hrm;
 
 import com.company.erp.entity.general.GenderSelect;
+import com.company.erp.entity.general.Person;
 import com.company.erp.entity.hrm.dept.Department;
 import com.company.erp.entity.hrm.dept.Subunit;
 import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.CaseConversion;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
@@ -18,7 +18,7 @@ import java.util.Date;
 @NamePattern("%s %s %s|empId,firstName,lastName")
 @Table(name = "ERP_EMPLOYEE")
 @Entity(name = "erp_Employee")
-public class Employee extends StandardEntity {
+public class Employee extends Person {
     private static final long serialVersionUID = 5786142805887575707L;
 
     @CaseConversion
@@ -28,17 +28,6 @@ public class Employee extends StandardEntity {
 
     @Column(name = "NIC", unique = true)
     protected String nic;
-
-    @NotNull
-    @Column(name = "FIRST_NAME", nullable = false)
-    protected String firstName;
-
-    @Column(name = "MIDDLE_NAME")
-    protected String middleName;
-
-    @NotNull
-    @Column(name = "LAST_NAME", nullable = false)
-    protected String lastName;
 
     @NotNull
     @Column(name = "GENDER", nullable = false)
