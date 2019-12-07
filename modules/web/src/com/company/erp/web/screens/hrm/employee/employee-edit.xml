@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        focusComponent="form"
+        focusComponent="tabSheet"
         messagesPack="com.company.erp.web.screens.hrm.employee">
     <data>
         <instance id="employeeDc"
@@ -34,7 +34,7 @@
             expand="tabSheet">
             <tabSheet id="tabSheet" width="100%">
                 <tab id="tab1" caption="General" margin="true" spacing="true">
-                    <form id="form" dataContainer="employeeDc" align="TOP_LEFT">
+                    <form id="generalDetails" dataContainer="employeeDc" align="TOP_LEFT">
                         <column width="250px">
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
                             <textField id="nicField" property="nic" caption="NIC"/>
@@ -47,7 +47,7 @@
                     </form>
                 </tab>
                 <tab id="tab2" caption="Contact" margin="true" spacing="true">
-                    <form id="form2" dataContainer="employeeDc" align="TOP_LEFT">
+                    <form id="contactDetails" dataContainer="employeeDc" align="TOP_LEFT">
                     <column width="250px">
                             <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"
                                        align="TOP_LEFT"/>
@@ -59,7 +59,7 @@
                 </tab>
 
                 <tab id="tab3" caption="Job" margin="true" spacing="true">
-                    <form id="form3" dataContainer="employeeDc" align="TOP_LEFT">
+                    <form id="jobDetails" dataContainer="employeeDc" align="TOP_LEFT">
                     <column width="250px">
                             <lookupPickerField optionsContainer="departmentsDc" property="department"
                                                id="departmentField"
@@ -72,6 +72,11 @@
                             <lookupField id="subunitField" property="subunit" optionsContainer="subunitsDc"
                                          caption="Subunit"/>
                     </column>
+                    </form>
+                </tab>
+
+                <tab id="tab4" caption="Qualifications" margin="true" spacing="true">
+                    <form id="qualificationDetails" dataContainer="employeeDc" align="TOP_LEFT">
                     </form>
                 </tab>
             </tabSheet>
