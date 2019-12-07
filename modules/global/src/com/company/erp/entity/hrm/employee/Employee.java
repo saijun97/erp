@@ -1,4 +1,4 @@
-package com.company.erp.entity.hrm;
+package com.company.erp.entity.hrm.employee;
 
 import com.company.erp.entity.general.GenderSelect;
 import com.company.erp.entity.general.Person;
