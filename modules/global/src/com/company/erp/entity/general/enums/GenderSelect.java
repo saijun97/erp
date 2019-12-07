@@ -1,4 +1,4 @@
-package com.company.erp.entity.general;
+package com.company.erp.entity.general.enums;
 
 import com.haulmont.chile.core.datatypes.impl.EnumClass;
 
