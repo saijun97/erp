@@ -2,9 +2,9 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
     <persistence-unit name="erp" transaction-type="RESOURCE_LOCAL">
 
-        <class>com.company.erp.entity.hrm.Employee</class>
+        <class>com.company.erp.entity.hrm.employee.Employee</class>
         <class>com.company.erp.entity.hrm.dept.Subunit</class>
         <class>com.company.erp.entity.hrm.dept.Department</class>
-        <class>com.company.erp.entity.general.Person</class>
+        <class>com.company.erp.entity.general.superclasses.Person</class>
     </persistence-unit>
 </persistence>

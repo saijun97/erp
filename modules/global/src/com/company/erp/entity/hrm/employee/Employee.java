@@ -1,7 +1,7 @@
 package com.company.erp.entity.hrm.employee;
 
-import com.company.erp.entity.general.GenderSelect;
-import com.company.erp.entity.general.Person;
+import com.company.erp.entity.general.enums.GenderSelect;
+import com.company.erp.entity.general.superclasses.Person;
 import com.company.erp.entity.hrm.dept.Department;
 import com.company.erp.entity.hrm.dept.Subunit;
 import com.haulmont.chile.core.annotations.NamePattern;

@@ -1,4 +1,4 @@
-package com.company.erp.entity.general;
+package com.company.erp.entity.general.superclasses;
 
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
