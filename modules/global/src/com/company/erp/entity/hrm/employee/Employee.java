@@ -4,16 +4,21 @@ import com.company.erp.entity.general.enums.GenderSelect;
 import com.company.erp.entity.general.superclasses.Person;
 import com.company.erp.entity.hrm.dept.Department;
 import com.company.erp.entity.hrm.dept.Subunit;
+import com.company.erp.entity.hrm.employee.joined.Employee_Skill;
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.annotation.CaseConversion;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.util.Date;
+import java.util.List;
 
 @NamePattern("%s %s %s|empId,firstName,lastName")
 @Table(name = "ERP_EMPLOYEE")
@@ -59,6 +64,19 @@ public class Employee extends Person {
     @Email(message = "Not an email!")
     @Column(name = "EMAIL", unique = true)
     protected String email;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "employee")
+    protected List<Employee_Skill> skill;
+
+    public List<Employee_Skill> getSkill() {
+        return skill;
+    }
+
+    public void setSkill(List<Employee_Skill> skill) {
+        this.skill = skill;
+    }
 
     public Subunit getSubunit() {
         return subunit;
