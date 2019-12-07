@@ -6,5 +6,8 @@
         <class>com.company.erp.entity.hrm.dept.Subunit</class>
         <class>com.company.erp.entity.hrm.dept.Department</class>
         <class>com.company.erp.entity.general.superclasses.Person</class>
+        <class>com.company.erp.entity.general.superclasses.NamedEntity</class>
+        <class>com.company.erp.entity.hrm.qualifications.Skill</class>
+        <class>com.company.erp.entity.hrm.employee.joined.Employee_Skill</class>
     </persistence-unit>
 </persistence>
