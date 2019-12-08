@@ -5,7 +5,7 @@
         messagesPack="com.company.erp.web.screens.hrm.employee">
     <data>
         <instance id="employeeDc"
-                  class="com.company.erp.entity.hrm.Employee"
+                  class="com.company.erp.entity.hrm.employee.Employee"
                   view="employee-view-details">
             <loader/>
         </instance>
@@ -33,8 +33,8 @@
         <scrollBox id="scrollBox" width="100%">
             expand="tabSheet">
             <tabSheet id="tabSheet" width="100%">
-                <tab id="tab1" caption="General" margin="true" spacing="true">
-                    <form id="generalDetails" dataContainer="employeeDc" align="TOP_LEFT">
+                <tab id="tab1" caption="General Details" margin="true" spacing="true">
+                    <form id="generalDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
                         <column width="250px">
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
                             <textField id="nicField" property="nic" caption="NIC"/>
@@ -46,8 +46,8 @@
                         </column>
                     </form>
                 </tab>
-                <tab id="tab2" caption="Contact" margin="true" spacing="true">
-                    <form id="contactDetails" dataContainer="employeeDc" align="TOP_LEFT">
+                <tab id="tab2" caption="Contact Details" margin="true" spacing="true">
+                    <form id="contactDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
                     <column width="250px">
                             <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"
                                        align="TOP_LEFT"/>
@@ -58,8 +58,8 @@
                     </form>
                 </tab>
 
-                <tab id="tab3" caption="Job" margin="true" spacing="true">
-                    <form id="jobDetails" dataContainer="employeeDc" align="TOP_LEFT">
+                <tab id="tab3" caption="Job Details" margin="true" spacing="true">
+                    <form id="jobDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
                     <column width="250px">
                             <lookupPickerField optionsContainer="departmentsDc" property="department"
                                                id="departmentField"
@@ -76,7 +76,7 @@
                 </tab>
 
                 <tab id="tab4" caption="Qualifications" margin="true" spacing="true">
-                    <form id="qualificationDetails" dataContainer="employeeDc" align="TOP_LEFT">
+                    <form id="qualificationDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
                     </form>
                 </tab>
             </tabSheet>
