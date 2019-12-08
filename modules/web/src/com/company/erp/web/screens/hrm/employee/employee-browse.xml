@@ -5,7 +5,7 @@
         messagesPack="com.company.erp.web.screens.hrm.employee">
     <data readOnly="true">
         <collection id="employeesDc"
-                    class="com.company.erp.entity.hrm.Employee"
+                    class="com.company.erp.entity.hrm.employee.Employee"
                     view="_local">
             <loader id="employeesDl">
                 <query>
