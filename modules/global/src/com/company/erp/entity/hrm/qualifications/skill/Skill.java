@@ -1,4 +1,4 @@
-package com.company.erp.entity.hrm.qualifications;
+package com.company.erp.entity.hrm.qualifications.skill;
 
 import com.company.erp.entity.general.superclasses.NamedEntity;
 import com.company.erp.entity.hrm.employee.joined.Employee_Skill;

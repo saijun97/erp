@@ -13,14 +13,18 @@ import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.util.Date;
 import java.util.List;
 
-@NamePattern("%s %s %s|empId,firstName,lastName")
+@NamePattern("%s - %s %s|empId,firstName,lastName")
 @Table(name = "ERP_EMPLOYEE")
 @Entity(name = "erp_Employee")
 public class Employee extends Person {
