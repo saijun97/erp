@@ -8,6 +8,7 @@
                   class="com.company.erp.entity.hrm.employee.Employee"
                   view="employee-view-details">
             <loader/>
+            <collection id="skillDc" property="skill"/>
         </instance>
         <collection id="departmentsDc" class="com.company.erp.entity.hrm.dept.Department" view="_minimal">
             <loader id="departmentsLc">
@@ -25,7 +26,8 @@
         </collection>
     </data>
     <dialogMode
-            forceDialog="true" width="auto" height="auto"/>
+            modal="true"
+            forceDialog="true"/>
     <facets>
         <dataLoadCoordinator auto="true"/>
     </facets>
@@ -36,11 +38,11 @@
                 <tab id="tab1" caption="General Details" margin="true" spacing="true">
                     <form id="generalDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
                         <column width="250px">
+                            <textField id="firstNameField" property="firstName"/>
+                            <textField id="middleNameField" property="middleName"/>
+                            <textField id="lastNameField" property="lastName"/>
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
                             <textField id="nicField" property="nic" caption="NIC"/>
-                            <textField id="firstNameField" property="firstName" caption="First Name"/>
-                            <textField id="middleNameField" property="middleName" caption="Middle Name"/>
-                            <textField id="lastNameField" property="lastName" caption="Last Name"/>
                             <lookupField id="genderField" property="gender" caption="Gender"/>
                             <dateField id="dobField" property="dob" caption="Date Of Birth"/>
                         </column>
@@ -48,19 +50,18 @@
                 </tab>
                 <tab id="tab2" caption="Contact Details" margin="true" spacing="true">
                     <form id="contactDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
-                    <column width="250px">
+                        <column width="250px">
                             <textField id="mobilePhoneField" property="mobilePhone" caption="Mobile Phone"
                                        align="TOP_LEFT"/>
                             <textField id="homePhoneField" property="homePhone" caption="Home Phone"
                                        align="TOP_LEFT"/>
                             <textField id="emailField" property="email" caption="E-Mail" align="TOP_LEFT"/>
-                    </column>
+                        </column>
                     </form>
                 </tab>
-
                 <tab id="tab3" caption="Job Details" margin="true" spacing="true">
                     <form id="jobDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
-                    <column width="250px">
+                        <column width="250px">
                             <lookupPickerField optionsContainer="departmentsDc" property="department"
                                                id="departmentField"
                                                caption="Department" align="TOP_LEFT">
@@ -71,13 +72,31 @@
                             </lookupPickerField>
                             <lookupField id="subunitField" property="subunit" optionsContainer="subunitsDc"
                                          caption="Subunit"/>
-                    </column>
+                        </column>
                     </form>
                 </tab>
-
                 <tab id="tab4" caption="Qualifications" margin="true" spacing="true">
                     <form id="qualificationDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
                     </form>
+                    <groupBox id="skillBox" caption="msg://com.company.erp.entity.hrm.employee/Employee.skill">
+                        <table id="skillTable" dataContainer="skillDc" width="100%" height="200px">
+                            <actions>
+                                <action id="create" type="create"/>
+                                <action id="edit" type="edit"/>
+                                <action id="remove" type="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="skill"/>
+                                <column id="yearsOfExperience"/>
+                                <column id="comment"/>
+                            </columns>
+                            <buttonsPanel>
+                                <button action="skillTable.create"/>
+                                <button action="skillTable.edit"/>
+                                <button action="skillTable.remove"/>
+                            </buttonsPanel>
+                        </table>
+                    </groupBox>
                 </tab>
             </tabSheet>
         </scrollBox>
