@@ -5,7 +5,6 @@ import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.PostPersist;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
