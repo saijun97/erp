@@ -3,5 +3,6 @@
     <menu id="hrm" insertBefore="administration">
         <item screen="erp_Employee.browse"/>
         <item screen="erp_Department.browse"/>
+        <item screen="erp_Skill.browse"/>
     </menu>
 </menu-config>

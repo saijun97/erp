@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.hrm.employee.joined.qualifications.employee_skill">
+    <data>
+        <instance id="employee_SkillDc"
+                  class="com.company.erp.entity.hrm.employee.joined.Employee_Skill"
+                  view="employee_Skill-view">
+            <loader/>
+        </instance>
+        <collection id="skillsDc" class="com.company.erp.entity.hrm.qualifications.skill.Skill" view="_minimal">
+            <loader id="skillsLc">
+                <query>
+                    <![CDATA[select e from erp_Skill e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="employee_SkillDc">
+            <column width="250px">
+                <lookupPickerField id="skillField" optionsContainer="skillsDc" property="skill">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="yearsOfExperienceField" property="yearsOfExperience"/>
+                <textField id="commentField" property="comment"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
