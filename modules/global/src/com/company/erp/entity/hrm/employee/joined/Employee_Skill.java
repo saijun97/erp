@@ -1,7 +1,7 @@
 package com.company.erp.entity.hrm.employee.joined;
 
 import com.company.erp.entity.hrm.employee.Employee;
-import com.company.erp.entity.hrm.qualifications.Skill;
+import com.company.erp.entity.hrm.qualifications.skill.Skill;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;

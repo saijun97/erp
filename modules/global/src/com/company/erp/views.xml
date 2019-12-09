@@ -4,8 +4,15 @@
     <view entity="erp_Department" name="department-view-details" extends="_local">
         <property name="subunit" view="_minimal"/>
     </view>
-    <view entity="erp_Employee" name="employee-view-details" extends="_local">
+    <view entity="erp_Employee" name="employee-view-details" extends="_base">
         <property name="department" view="_minimal"/>
         <property name="subunit" view="_minimal"/>
+        <property name="skill" view="_minimal">
+            <property name="yearsOfExperience"/>
+            <property name="comment"/>
+        </property>
+    </view>
+    <view entity="erp_Employee_Skill" name="employee_Skill-view" extends="_local">
+        <property name="skill" view="_minimal"/>
     </view>
 </views>
