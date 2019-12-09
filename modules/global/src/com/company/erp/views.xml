@@ -4,7 +4,7 @@
     <view entity="erp_Department" name="department-view-details" extends="_local">
         <property name="subunit" view="_minimal"/>
     </view>
-    <view entity="erp_Employee" name="employee-view-details" extends="_base">
+    <view entity="erp_Employee" name="employee-view-details" extends="_local">
         <property name="department" view="_minimal"/>
         <property name="subunit" view="_minimal"/>
         <property name="skill" view="_minimal">
