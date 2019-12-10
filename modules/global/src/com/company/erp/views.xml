@@ -19,11 +19,15 @@
             <property name="endDate"/>
             <property name="comment"/>
         </property>
+        <property name="language" view="_local"/>
     </view>
     <view entity="erp_Employee_Skill" name="employee_Skill-view" extends="_local">
         <property name="skill" view="_minimal"/>
     </view>
     <view entity="erp_Employee_Education" name="employee_Education-view" extends="_local">
         <property name="education" view="_minimal"/>
+    </view>
+    <view entity="erp_Employee_Language" name="employee_Language-view" extends="_local">
+        <property name="language" view="_minimal"/>
     </view>
 </views>

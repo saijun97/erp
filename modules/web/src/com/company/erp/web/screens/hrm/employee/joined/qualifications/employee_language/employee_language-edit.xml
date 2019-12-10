@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.hrm.employee.joined.qualifications.employee_language">
+    <data>
+        <instance id="employee_LanguageDc"
+                  class="com.company.erp.entity.hrm.employee.joined.Employee_Language"
+                  view="employee_Language-view">
+            <loader/>
+        </instance>
+        <collection id="languagesDc" class="com.company.erp.entity.hrm.qualifications.language.Language"
+                    view="_minimal">
+            <loader id="languagesLc">
+                <query>
+                    <![CDATA[select e from erp_Language e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="employee_LanguageDc">
+            <column width="250px">
+                <lookupPickerField id="languageField" optionsContainer="languagesDc" property="language">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="fluencyField" property="fluency"/>
+                <textField id="competencyField" property="competency"/>
+                <textArea id="commentsField" property="comments" rows="5"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
