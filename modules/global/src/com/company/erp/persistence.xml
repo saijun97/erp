@@ -12,5 +12,7 @@
         <class>com.company.erp.entity.hrm.qualifications.education.Education</class>
         <class>com.company.erp.entity.hrm.employee.joined.Employee_Education</class>
         <class>com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience</class>
+        <class>com.company.erp.entity.hrm.qualifications.language.Language</class>
+        <class>com.company.erp.entity.hrm.employee.joined.Employee_Language</class>
     </persistence-unit>
 </persistence>

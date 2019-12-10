@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="employee_LanguagesTable"
+        messagesPack="com.company.erp.web.screens.hrm.employee.joined.qualifications.employee_language">
+    <data readOnly="true">
+        <collection id="employee_LanguagesDc"
+                    class="com.company.erp.entity.hrm.employee.joined.Employee_Language"
+                    view="employee_Language-view">
+            <loader id="employee_LanguagesDl">
+                <query>
+                    <![CDATA[select e from erp_Employee_Language e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="employee_LanguagesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="employee_LanguagesTable"
+                dataLoader="employee_LanguagesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="employee_LanguagesTable"
+                    width="100%"
+                    dataContainer="employee_LanguagesDc"
+                    multiselect="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="language"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="employee_LanguagesTable.create"/>
+                <button id="editBtn" action="employee_LanguagesTable.edit"/>
+                <button id="removeBtn" action="employee_LanguagesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

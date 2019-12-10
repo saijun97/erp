@@ -1,0 +1,1 @@
+create unique index IDX_ERP_LANGUAGE_UNIQ_NAME on ERP_LANGUAGE (NAME) ;
