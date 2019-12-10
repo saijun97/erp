@@ -1,22 +1,3 @@
--- begin ERP_EMPLOYEE_SKILL
-create table ERP_EMPLOYEE_SKILL (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    EMPLOYEE_ID uuid not null,
-    SKILL_ID uuid not null,
-    YEARS_OF_EXPERIENCE integer,
-    COMMENT varchar(255),
-    --
-    primary key (ID)
-)^
--- end ERP_EMPLOYEE_SKILL
 -- begin ERP_DEPARTMENT
 create table ERP_DEPARTMENT (
     ID uuid,
@@ -50,6 +31,23 @@ create table ERP_SUBUNIT (
     primary key (ID)
 )^
 -- end ERP_SUBUNIT
+-- begin ERP_SKILL
+create table ERP_SKILL (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    DESCRIPTION varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_SKILL
 -- begin ERP_EMPLOYEE
 create table ERP_EMPLOYEE (
     ID uuid,
@@ -77,8 +75,8 @@ create table ERP_EMPLOYEE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE
--- begin ERP_SKILL
-create table ERP_SKILL (
+-- begin ERP_EMPLOYEE_SKILL
+create table ERP_EMPLOYEE_SKILL (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -87,10 +85,16 @@ create table ERP_SKILL (
     UPDATED_BY varchar(50),
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
-    NAME varchar(255) not null,
     --
-    DESCRIPTION varchar(255),
+    EMPLOYEE_ID uuid not null,
+    SKILL_ID uuid not null,
+    YEARS_OF_EXPERIENCE integer,
+    COMMENT varchar(255),
     --
     primary key (ID)
 )^
--- end ERP_SKILL
+-- end ERP_EMPLOYEE_SKILL
+
+
+
+
