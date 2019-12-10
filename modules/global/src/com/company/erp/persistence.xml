@@ -9,5 +9,8 @@
         <class>com.company.erp.entity.general.superclasses.NamedEntity</class>
         <class>com.company.erp.entity.hrm.qualifications.skill.Skill</class>
         <class>com.company.erp.entity.hrm.employee.joined.Employee_Skill</class>
+        <class>com.company.erp.entity.hrm.qualifications.education.Education</class>
+        <class>com.company.erp.entity.hrm.employee.joined.Employee_Education</class>
+        <class>com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience</class>
     </persistence-unit>
 </persistence>

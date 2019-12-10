@@ -1,0 +1,1 @@
+create unique index IDX_ERP_EDUCATION_UNIQ_NAME on ERP_EDUCATION (NAME) ;

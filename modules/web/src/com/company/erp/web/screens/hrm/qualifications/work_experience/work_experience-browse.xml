@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="work_ExperiencesTable"
+        messagesPack="com.company.erp.web.screens.hrm.qualifications.work_experience">
+    <data readOnly="true">
+        <collection id="work_ExperiencesDc"
+                    class="com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience"
+                    view="_local">
+            <loader id="work_ExperiencesDl">
+                <query>
+                    <![CDATA[select e from erp_Work_Experience e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="work_ExperiencesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="work_ExperiencesTable"
+                dataLoader="work_ExperiencesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="work_ExperiencesTable"
+                    width="100%"
+                    dataContainer="work_ExperiencesDc"
+                    multiselect="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="company"/>
+                <column id="jobTitle"/>
+                <column id="startDate"/>
+                <column id="endDate"/>
+                <column id="comment"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="work_ExperiencesTable.create"/>
+                <button id="editBtn" action="work_ExperiencesTable.edit"/>
+                <button id="removeBtn" action="work_ExperiencesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

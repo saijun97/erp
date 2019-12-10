@@ -4,7 +4,9 @@ import com.company.erp.entity.general.enums.GenderSelect;
 import com.company.erp.entity.general.superclasses.Person;
 import com.company.erp.entity.hrm.dept.Department;
 import com.company.erp.entity.hrm.dept.Subunit;
+import com.company.erp.entity.hrm.employee.joined.Employee_Education;
 import com.company.erp.entity.hrm.employee.joined.Employee_Skill;
+import com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.annotation.CaseConversion;
@@ -73,6 +75,32 @@ public class Employee extends Person {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "employee")
     protected List<Employee_Skill> skill;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "employee")
+    protected List<Employee_Education> education;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "employee")
+    protected List<Work_Experience> workExperience;
+
+    public List<Work_Experience> getWorkExperience() {
+        return workExperience;
+    }
+
+    public void setWorkExperience(List<Work_Experience> workExperience) {
+        this.workExperience = workExperience;
+    }
+
+    public List<Employee_Education> getEducation() {
+        return education;
+    }
+
+    public void setEducation(List<Employee_Education> education) {
+        this.education = education;
+    }
 
     public List<Employee_Skill> getSkill() {
         return skill;

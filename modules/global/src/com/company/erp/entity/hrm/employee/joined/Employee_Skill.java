@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class Employee_Skill extends StandardEntity {
 
     private static final long serialVersionUID = -3739092663768331185L;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "EMPLOYEE_ID")
     protected Employee employee;
