@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.hrm.employee.joined.qualifications.employee_education">
+    <data>
+        <instance id="employee_EducationDc"
+                  class="com.company.erp.entity.hrm.employee.joined.Employee_Education"
+                  view="employee_Education-view">
+            <loader/>
+        </instance>
+        <collection id="educationsDc" class="com.company.erp.entity.hrm.qualifications.education.Education"
+                    view="_minimal">
+            <loader id="educationsLc">
+                <query>
+                    <![CDATA[select e from erp_Education e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="employee_EducationDc">
+            <column width="250px">
+                <lookupPickerField id="educationField" optionsContainer="educationsDc" property="education"
+                                   caption="Education Level">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="instituteField" property="institute"/>
+                <textField id="majorSpecializationField" property="majorSpecialization" caption="Major/Specialization"/>
+                <dateField id="yearField" property="year"/>
+                <textField id="gpaScoreField" property="gpaScore" caption="GPA Score"/>
+                <dateField id="startDateField" property="startDate"/>
+                <dateField id="endDateField" property="endDate"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

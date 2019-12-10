@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="educationsTable"
+        messagesPack="com.company.erp.web.screens.hrm.qualifications.education">
+    <data readOnly="true">
+        <collection id="educationsDc"
+                    class="com.company.erp.entity.hrm.qualifications.education.Education"
+                    view="_local">
+            <loader id="educationsDl">
+                <query>
+                    <![CDATA[select e from erp_Education e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="educationsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="educationsTable"
+                dataLoader="educationsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="educationsTable"
+                    width="100%"
+                    dataContainer="educationsDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="name" caption="Education Level"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="educationsTable.create"/>
+                <button id="editBtn" action="educationsTable.edit"/>
+                <button id="removeBtn" action="educationsTable.remove"/>
+                <button id="excelBtn" action="educationsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

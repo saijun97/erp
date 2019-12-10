@@ -4,5 +4,6 @@
         <item screen="erp_Employee.browse"/>
         <item screen="erp_Department.browse"/>
         <item screen="erp_Skill.browse"/>
+        <item screen="erp_Education.browse"/>
     </menu>
 </menu-config>

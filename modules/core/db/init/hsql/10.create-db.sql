@@ -94,3 +94,35 @@ create table ERP_SKILL (
     primary key (ID)
 )^
 -- end ERP_SKILL
+-- begin ERP_EDUCATION
+create table ERP_EDUCATION (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_EDUCATION
+-- begin ERP_EMPLOYEE_EDUCATION
+create table ERP_EMPLOYEE_EDUCATION (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    EMPLOYEE_ID varchar(36) not null,
+    EDUCATION_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_EDUCATION

@@ -11,8 +11,19 @@
             <property name="yearsOfExperience"/>
             <property name="comment"/>
         </property>
+        <property name="education" view="_local"/>
+        <property name="workExperience" view="_minimal">
+            <property name="company"/>
+            <property name="jobTitle"/>
+            <property name="startDate"/>
+            <property name="endDate"/>
+            <property name="comment"/>
+        </property>
     </view>
     <view entity="erp_Employee_Skill" name="employee_Skill-view" extends="_local">
         <property name="skill" view="_minimal"/>
+    </view>
+    <view entity="erp_Employee_Education" name="employee_Education-view" extends="_local">
+        <property name="education" view="_minimal"/>
     </view>
 </views>
