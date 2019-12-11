@@ -7,5 +7,6 @@
         <item screen="erp_Education.browse"/>
         <item screen="erp_Language.browse"/>
         <item screen="erp_License.browse"/>
+        <item screen="erp_Country.browse"/>
     </menu>
 </menu-config>

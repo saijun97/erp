@@ -38,4 +38,10 @@
     <view entity="erp_Employee_License" name="employee_License-view" extends="_local">
         <property name="license" view="_minimal"/>
     </view>
+    <view entity="erp_Country" name="country-view" extends="_local">
+        <property name="city" view="_minimal">
+            <property name="city"/>
+            <property name="coordinates"/>
+        </property>
+    </view>
 </views>

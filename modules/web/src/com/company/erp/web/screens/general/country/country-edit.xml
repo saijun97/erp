@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.general.country">
+    <data>
+        <instance id="countryDc"
+                  class="com.company.erp.entity.general.country.Country"
+                  view="country-view">
+            <loader/>
+            <collection id="cityDc" property="city"/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="countryDc">
+            <column width="250px">
+                <textField id="countryCodeField" property="countryCode"/>
+                <textField id="countryField" property="country"/>
+            </column>
+        </form>
+        <groupBox id="cityBox" caption="msg://com.company.erp.entity.general.country/Country.city">
+            <table id="cityTable" dataContainer="cityDc" width="100%" height="200px">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="city"/>
+                    <column id="coordinates"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="cityTable.create"/>
+                    <button action="cityTable.edit"/>
+                    <button action="cityTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,3 +1,11 @@
+-- begin ERP_COUNTRY
+create table ERP_COUNTRY (
+    COUNTRY_CODE varchar(10) not null,
+    COUNTRY varchar(255) not null,
+    --
+    primary key (COUNTRY_CODE)
+)^
+-- end ERP_COUNTRY
 -- begin ERP_SUBUNIT
 create table ERP_SUBUNIT (
     ID varchar(36) not null,
@@ -114,6 +122,59 @@ create table ERP_DEPARTMENT (
     primary key (ID)
 )^
 -- end ERP_DEPARTMENT
+-- begin ERP_CITY
+create table ERP_CITY (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    CITY varchar(255) not null,
+    COORDINATES varchar(255),
+    COUNTRY_ID varchar(10) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_CITY
+-- begin ERP_EMPLOYEE_LICENSE
+create table ERP_EMPLOYEE_LICENSE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    LICENSE_ID varchar(36) not null,
+    EMPLOYEE_ID varchar(36) not null,
+    LICENSE_NUMBER varchar(255) not null,
+    ISSUED_DATE date,
+    EXPIRY_DATE date,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_LICENSE
+-- begin ERP_LICENSE
+create table ERP_LICENSE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_LICENSE
 -- begin ERP_LANGUAGE
 create table ERP_LANGUAGE (
     ID varchar(36) not null,
