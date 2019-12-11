@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="employee_LicensesTable"
+        messagesPack="com.company.erp.web.screens.hrm.employee.joined.qualifications.employee_license">
+    <data readOnly="true">
+        <collection id="employee_LicensesDc"
+                    class="com.company.erp.entity.hrm.employee.joined.Employee_License"
+                    view="employee_License-view">
+            <loader id="employee_LicensesDl">
+                <query>
+                    <![CDATA[select e from erp_Employee_License e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="employee_LicensesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="employee_LicensesTable"
+                dataLoader="employee_LicensesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="employee_LicensesTable"
+                    width="100%"
+                    dataContainer="employee_LicensesDc"
+                    multiselect="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="license"/>
+                <column id="licenseNumber"/>
+                <column id="issuedDate"/>
+                <column id="expiryDate"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="employee_LicensesTable.create"/>
+                <button id="editBtn" action="employee_LicensesTable.edit"/>
+                <button id="removeBtn" action="employee_LicensesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
