@@ -32,8 +32,8 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </lookupPickerField>
-                <textField id="fluencyField" property="fluency"/>
-                <textField id="competencyField" property="competency"/>
+                <lookupField id="fluencyField" property="fluency" dataContainer="employee_LanguageDc"/>
+                <lookupField id="competencyField" property="competency" dataContainer="employee_LanguageDc"/>
                 <textArea id="commentsField" property="comments" rows="5"/>
             </column>
         </form>

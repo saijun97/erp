@@ -12,6 +12,7 @@
             <collection id="educationDc" property="education"/>
             <collection id="workExperienceDc" property="workExperience"/>
             <collection id="languageDc" property="language"/>
+            <collection id="licenseDc" property="license"/>
         </instance>
         <collection id="departmentsDc" class="com.company.erp.entity.hrm.dept.Department" view="_minimal">
             <loader id="departmentsLc">
@@ -80,7 +81,6 @@
                 <tab id="tab4" caption="Qualifications" margin="true" spacing="true">
                     <form id="qualificationDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
                     </form>
-
                     <accordion id="qualificationsAccordion">
                         <tab id="educationTab" caption="Education" margin="true" spacing="true">
                             <groupTable id="educationTable" dataContainer="educationDc" width="100%" height="126px">
@@ -142,7 +142,8 @@
                             </groupTable>
                         </tab>
                         <tab id="languagesTab" caption="Languages" margin="true" spacing="true">
-                            <groupBox id="languageBox" caption="msg://com.company.erp.entity.hrm.employee/Employee.language">
+                            <groupBox id="languageBox"
+                                      caption="msg://com.company.erp.entity.hrm.employee/Employee.language">
                                 <table id="languageTable" dataContainer="languageDc" width="100%" height="126px">
                                     <actions>
                                         <action id="create" type="create"/>
@@ -158,6 +159,27 @@
                                         <button action="languageTable.create"/>
                                         <button action="languageTable.edit"/>
                                         <button action="languageTable.remove"/>
+                                    </buttonsPanel>
+                                </table>
+                            </groupBox>
+                        </tab>
+                        <tab id="licensesTab" caption="Licenses" margin="true" spacing="true">
+                            <groupBox id="licenseBox" caption="msg://com.company.erp.entity.hrm.employee/Employee.license">
+                                <table id="licenseTable" dataContainer="licenseDc" width="100%" height="126px">
+                                    <actions>
+                                        <action id="create" type="create"/>
+                                        <action id="edit" type="edit"/>
+                                        <action id="remove" type="remove"/>
+                                    </actions>
+                                    <columns>
+                                        <column id="license"/>
+                                        <column id="licenseNumber"/>
+                                        <column id="expiryDate"/>
+                                    </columns>
+                                    <buttonsPanel>
+                                        <button action="licenseTable.create"/>
+                                        <button action="licenseTable.edit"/>
+                                        <button action="licenseTable.remove"/>
                                     </buttonsPanel>
                                 </table>
                             </groupBox>

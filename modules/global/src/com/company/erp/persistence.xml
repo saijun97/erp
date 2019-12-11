@@ -14,5 +14,9 @@
         <class>com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience</class>
         <class>com.company.erp.entity.hrm.qualifications.language.Language</class>
         <class>com.company.erp.entity.hrm.employee.joined.Employee_Language</class>
+        <class>com.company.erp.entity.hrm.qualifications.license.License</class>
+        <class>com.company.erp.entity.hrm.employee.joined.Employee_License</class>
+        <class>com.company.erp.entity.general.country.Country</class>
+        <class>com.company.erp.entity.general.country.City</class>
     </persistence-unit>
 </persistence>

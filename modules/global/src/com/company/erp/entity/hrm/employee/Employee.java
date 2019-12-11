@@ -6,6 +6,7 @@ import com.company.erp.entity.hrm.dept.Department;
 import com.company.erp.entity.hrm.dept.Subunit;
 import com.company.erp.entity.hrm.employee.joined.Employee_Education;
 import com.company.erp.entity.hrm.employee.joined.Employee_Language;
+import com.company.erp.entity.hrm.employee.joined.Employee_License;
 import com.company.erp.entity.hrm.employee.joined.Employee_Skill;
 import com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience;
 import com.haulmont.chile.core.annotations.Composition;
@@ -91,6 +92,19 @@ public class Employee extends Person {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "employee")
     protected List<Employee_Language> language;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "employee")
+    protected List<Employee_License> license;
+
+    public List<Employee_License> getLicense() {
+        return license;
+    }
+
+    public void setLicense(List<Employee_License> license) {
+        this.license = license;
+    }
 
     public List<Employee_Language> getLanguage() {
         return language;

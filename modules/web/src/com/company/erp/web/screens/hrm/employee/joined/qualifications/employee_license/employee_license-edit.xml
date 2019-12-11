@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.hrm.employee.joined.qualifications.employee_license">
+    <data>
+        <instance id="employee_LicenseDc"
+                  class="com.company.erp.entity.hrm.employee.joined.Employee_License"
+                  view="employee_License-view">
+            <loader/>
+        </instance>
+        <collection id="licensesDc" class="com.company.erp.entity.hrm.qualifications.license.License" view="_minimal">
+            <loader id="licensesLc">
+                <query>
+                    <![CDATA[select e from erp_License e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="employee_LicenseDc">
+            <column width="250px">
+                <lookupPickerField id="licenseField" optionsContainer="licensesDc" property="license"/>
+                <textField id="licenseNumberField" property="licenseNumber"/>
+                <dateField id="issuedDateField" property="issuedDate"/>
+                <dateField id="expiryDateField" property="expiryDate"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
