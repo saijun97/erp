@@ -231,6 +231,23 @@ create table ERP_SKILL (
     primary key (ID)
 )^
 -- end ERP_SKILL
+-- begin ERP_JOB_POSITION
+create table ERP_JOB_POSITION (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    RESPONSIBILITIES longvarchar,
+    --
+    primary key (ID)
+)^
+-- end ERP_JOB_POSITION
 -- begin ERP_EMPLOYEE
 create table ERP_EMPLOYEE (
     ID varchar(36) not null,
@@ -256,6 +273,7 @@ create table ERP_EMPLOYEE (
     MOBILE_PHONE varchar(255),
     HOME_PHONE varchar(255),
     EMAIL varchar(255),
+    JOB_POSITION_ID varchar(36),
     --
     primary key (ID)
 )^

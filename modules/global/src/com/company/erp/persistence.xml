@@ -18,5 +18,6 @@
         <class>com.company.erp.entity.hrm.employee.joined.Employee_License</class>
         <class>com.company.erp.entity.general.country.Country</class>
         <class>com.company.erp.entity.general.country.City</class>
+        <class>com.company.erp.entity.hrm.job_positions.Job_Position</class>
     </persistence-unit>
 </persistence>

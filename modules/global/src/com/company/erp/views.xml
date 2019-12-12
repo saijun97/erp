@@ -29,6 +29,7 @@
             <property name="issuedDate"/>
             <property name="expiryDate"/>
         </property>
+        <property name="jobPosition" view="_minimal"/>
     </view>
     <view entity="erp_Employee_Skill" name="employee_Skill-view" extends="_local">
         <property name="skill" view="_minimal"/>
