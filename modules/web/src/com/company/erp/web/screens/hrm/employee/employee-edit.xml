@@ -28,6 +28,16 @@
                 </query>
             </loader>
         </collection>
+        <collection id="nationalitiesDc" class="com.company.erp.entity.general.country.Country" view="_minimal">
+            <loader>
+                <query>select e from erp_Country e</query>
+            </loader>
+        </collection>
+        <collection id="citiesDc" class="com.company.erp.entity.general.country.City" view="_minimal">
+            <loader>
+                <query>select e from erp_City e where e.country = :container_nationalitiesDc</query>
+            </loader>
+        </collection>
     </data>
     <dialogMode
             modal="true"
@@ -48,6 +58,15 @@
                             <textField id="lastNameField" property="lastName"/>
                             <lookupField id="genderField" property="gender" caption="Gender"/>
                             <dateField id="dobField" property="dob" caption="Date Of Birth"/>
+                            <lookupPickerField id="nationalityField" property="nationality"
+                                               optionsContainer="nationalitiesDc"
+                                               caption="Nationality" align="TOP_LEFT">
+                                <actions>
+                                    <action id="lookup" type="picker_lookup"/>
+                                    <action id="clear" type="picker_clear"/>
+                                </actions>
+                            </lookupPickerField>
+                            <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
                         </column>
                     </form>
                 </tab>
@@ -164,7 +183,8 @@
                             </groupBox>
                         </tab>
                         <tab id="licensesTab" caption="Licenses" margin="true" spacing="true">
-                            <groupBox id="licenseBox" caption="msg://com.company.erp.entity.hrm.employee/Employee.license">
+                            <groupBox id="licenseBox"
+                                      caption="msg://com.company.erp.entity.hrm.employee/Employee.license">
                                 <table id="licenseTable" dataContainer="licenseDc" width="100%" height="126px">
                                     <actions>
                                         <action id="create" type="create"/>
