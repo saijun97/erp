@@ -249,6 +249,8 @@ create table ERP_EMPLOYEE (
     NIC varchar(255),
     GENDER integer not null,
     DOB date not null,
+    NATIONALITY_ID varchar(36),
+    CITY_ID varchar(36),
     DEPARTMENT_ID varchar(36) not null,
     SUBUNIT_ID varchar(36),
     MOBILE_PHONE varchar(255),
