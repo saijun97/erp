@@ -1,11 +1,3 @@
--- begin ERP_COUNTRY
-create table ERP_COUNTRY (
-    COUNTRY_CODE varchar(10) not null,
-    COUNTRY varchar(255) not null,
-    --
-    primary key (COUNTRY_CODE)
-)^
--- end ERP_COUNTRY
 -- begin ERP_SUBUNIT
 create table ERP_SUBUNIT (
     ID varchar(36) not null,
@@ -135,11 +127,28 @@ create table ERP_CITY (
     --
     CITY varchar(255) not null,
     COORDINATES varchar(255),
-    COUNTRY_ID varchar(10) not null,
+    COUNTRY_ID varchar(36) not null,
     --
     primary key (ID)
 )^
 -- end ERP_CITY
+-- begin ERP_COUNTRY
+create table ERP_COUNTRY (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    COUNTRY_CODE varchar(5) not null,
+    COUNTRY varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_COUNTRY
 -- begin ERP_EMPLOYEE_LICENSE
 create table ERP_EMPLOYEE_LICENSE (
     ID varchar(36) not null,

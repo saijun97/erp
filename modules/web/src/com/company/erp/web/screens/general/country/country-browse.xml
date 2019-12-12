@@ -34,7 +34,6 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="countryCode"/>
                 <column id="country"/>
             </columns>
             <rowsCount/>
