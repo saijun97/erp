@@ -238,3 +238,5 @@ task stage(dependsOn: ['setupTomcat', ':app-core:deploy', ':app-web:deploy']) {
         webProperties.text = ''' cuba.webContextName = / '''
     }
 }
+
+void main(Closure<Boolean> booleanClosure) {}
