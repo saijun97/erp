@@ -11,9 +11,7 @@
             <collection id="cityDc" property="city"/>
         </instance>
     </data>
-    <dialogMode height="AUTO"
-                width="AUTO"
-                modal="true"
+    <dialogMode modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="countryDc">
