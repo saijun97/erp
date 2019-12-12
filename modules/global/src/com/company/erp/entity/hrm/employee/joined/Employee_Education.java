@@ -24,7 +24,7 @@ public class Employee_Education extends StandardEntity {
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "EDUCATION_ID", unique = true)
+    @JoinColumn(name = "EDUCATION_ID")
     protected Education education;
 
     @Column(name = "INSTITUTE", nullable = false)
