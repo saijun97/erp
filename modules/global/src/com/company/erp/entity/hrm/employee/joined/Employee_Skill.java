@@ -32,6 +32,7 @@ public class Employee_Skill extends StandardEntity {
         return yearsOfExperience;
     }
 
+    @Lob
     @Column(name = "COMMENT")
     protected String comment;
 

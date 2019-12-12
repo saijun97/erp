@@ -32,7 +32,7 @@
                     </actions>
                 </lookupPickerField>
                 <textField id="yearsOfExperienceField" property="yearsOfExperience"/>
-                <textField id="commentField" property="comment"/>
+                <textArea id="commentField" property="comment" rows="5"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
