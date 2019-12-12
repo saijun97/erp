@@ -10,6 +10,7 @@ import com.company.erp.entity.hrm.employee.joined.Employee_Education;
 import com.company.erp.entity.hrm.employee.joined.Employee_Language;
 import com.company.erp.entity.hrm.employee.joined.Employee_License;
 import com.company.erp.entity.hrm.employee.joined.Employee_Skill;
+import com.company.erp.entity.hrm.job_positions.Job_Position;
 import com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
@@ -109,6 +110,19 @@ public class Employee extends Person {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "employee")
     protected List<Employee_License> license;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "JOB_POSITION_ID")
+    protected Job_Position jobPosition;
+
+    public Job_Position getJobPosition() {
+        return jobPosition;
+    }
+
+    public void setJobPosition(Job_Position jobPosition) {
+        this.jobPosition = jobPosition;
+    }
 
     public City getCity() {
         return city;
