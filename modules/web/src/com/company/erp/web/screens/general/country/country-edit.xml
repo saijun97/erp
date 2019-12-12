@@ -6,7 +6,7 @@
     <data>
         <instance id="countryDc"
                   class="com.company.erp.entity.general.country.Country"
-                  view="country-view">
+                  view="country-view-details">
             <loader/>
             <collection id="cityDc" property="city"/>
         </instance>

@@ -1,9 +1,11 @@
 package com.company.erp.entity.general.country;
 
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
 
+@NamePattern("%s|city")
 @Table(name = "ERP_CITY")
 @Entity(name = "erp_City")
 public class City extends StandardEntity {

@@ -1,5 +1,7 @@
 package com.company.erp.entity.hrm.employee;
 
+import com.company.erp.entity.general.country.City;
+import com.company.erp.entity.general.country.Country;
 import com.company.erp.entity.general.enums.GenderSelect;
 import com.company.erp.entity.general.superclasses.Person;
 import com.company.erp.entity.hrm.dept.Department;
@@ -53,6 +55,16 @@ public class Employee extends Person {
     protected Date dob;
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "NATIONALITY_ID")
+    protected Country nationality;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CITY_ID")
+    protected City city;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "DEPARTMENT_ID")
@@ -97,6 +109,22 @@ public class Employee extends Person {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "employee")
     protected List<Employee_License> license;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Country getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(Country nationality) {
+        this.nationality = nationality;
+    }
 
     public List<Employee_License> getLicense() {
         return license;
