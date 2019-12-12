@@ -21,7 +21,7 @@ public class Employee_Language extends StandardEntity {
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "LANGUAGE_ID", unique = true)
+    @JoinColumn(name = "LANGUAGE_ID")
     protected Language language;
 
     @Column(name = "FLUENCY", nullable = false)
