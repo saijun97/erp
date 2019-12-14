@@ -6,7 +6,7 @@
     <data readOnly="true">
         <collection id="employeesDc"
                     class="com.company.erp.entity.hrm.employee.Employee"
-                    view="_local">
+                    view="employee-view-details">
             <loader id="employeesDl">
                 <query>
                     <![CDATA[select e from erp_Employee e]]>
@@ -21,7 +21,11 @@
         <filter id="filter"
                 applyTo="employeesTable"
                 dataLoader="employeesDl">
-            <properties include=".*"/>
+
+            <properties include=".*"
+                        exclude="(id)|(country.id)|(Department.ID)|(jobPosition.id)"
+                        excludeRecursively="true"
+                        excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"/>
         </filter>
         <groupTable id="employeesTable"
                     width="100%"
@@ -35,11 +39,11 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="empId"/>
+                <column id="empId" caption="EMP-ID"/>
+                <column id="fullName" caption="Full Name"/>
                 <column id="gender"/>
-                <column id="dob"/>
-                <column id="mobilePhone"/>
-                <column id="homePhone"/>
+                <column id="department"/>
+                <column id="jobPosition"/>
                 <column id="email"/>
             </columns>
             <rowsCount/>
