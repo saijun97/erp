@@ -2818,3 +2818,17 @@ INSERT INTO PUBLIC.ERP_LICENSE (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, U
 INSERT INTO PUBLIC.ERP_LICENSE (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME) VALUES ('f0ebe3f8-435c-c4e0-8b85-29421a38afd5', 1, '2019-12-12 15:34:33.992000', 'admin', '2019-12-12 15:34:33.992000', null, null, null, 'Autocycle(Manual)');
 INSERT INTO PUBLIC.ERP_EMPLOYEE_LICENSE (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, LICENSE_ID, EMPLOYEE_ID, LICENSE_NUMBER, ISSUED_DATE, EXPIRY_DATE) VALUES ('d330aaf3-7c2b-7640-4ba3-67713485f527', 1, '2019-12-12 15:35:04.369000', 'admin', '2019-12-12 15:35:04.369000', null, null, null, 'f0ebe3f8-435c-c4e0-8b85-29421a38afd5', '70bb56b3-3c96-0adc-dcb7-ccdd4fffaefd', 'f3rf4f34f23', null, null);
 --end use case data
+
+--begin sec_filter data
+INSERT INTO PUBLIC.SEC_FILTER (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, COMPONENT, NAME, CODE, XML, USER_ID, GLOBAL_DEFAULT) VALUES ('b0e70d48-8d6f-8265-4d71-816628ef51f6', '2019-12-14 13:05:30.397000', 'admin', 3, '2019-12-14 13:06:53.967000', 'admin', null, null, '[erp_Employee.browse].filter', 'Skill', null, '<?xml version="1.0" encoding="UTF-8"?>
+
+<filter>
+  <and>
+    <c name="YqrqzsqqgG" class="com.company.erp.entity.hrm.employee.joined.Employee_Skill" width="1" type="CUSTOM" locCaption="Skill" entityAlias="e"><![CDATA[s.id like :component$filter.YqrqzsqqgG25796]]>
+      <param name="component$filter.YqrqzsqqgG25796" javaClass="com.company.erp.entity.hrm.employee.joined.Employee_Skill">NULL</param>
+      <join><![CDATA[{E}.skill s]]></join>
+    </c>
+  </and>
+</filter>
+', '60885987-1b61-4247-94c7-dff348347f93', false);
+--end sec_filter data
