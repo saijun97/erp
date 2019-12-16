@@ -19,5 +19,10 @@
         <class>com.company.erp.entity.general.country.Country</class>
         <class>com.company.erp.entity.general.country.City</class>
         <class>com.company.erp.entity.hrm.job_positions.Job_Position</class>
+        <class>com.company.erp.entity.crm.client.superclasses.Client</class>
+        <class>com.company.erp.entity.crm.client.subclasses.company.ClientCompany</class>
+        <class>com.company.erp.entity.crm.client.subclasses.person.ClientPerson</class>
+        <class>com.company.erp.entity.crm.order.Order</class>
+        <class>com.company.erp.entity.crm.contact_person.ContactPerson</class>
     </persistence-unit>
 </persistence>
