@@ -55,6 +55,12 @@ public class Person extends StandardEntity {
         String fullName;
         fullName = firstName;
 
+        if (middleName != null) {
+
+            fullName += " " + middleName;
+
+        }
+
         if (lastName != null) {
 
             fullName += " " + lastName;
