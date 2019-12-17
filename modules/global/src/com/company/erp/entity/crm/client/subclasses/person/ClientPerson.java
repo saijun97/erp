@@ -5,7 +5,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 
 import javax.persistence.*;
 
-@NamePattern("%s|displayName")
+@NamePattern("%s %s %s|firstName,middleName,lastName")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
 @DiscriminatorValue("PERSON")
 @Table(name = "ERP_CLIENT_PERSON")
@@ -67,4 +67,16 @@ public class ClientPerson extends Client {
     public void setHomePhone(String homePhone) {
         this.homePhone = homePhone;
     }
+
+    @Column(name = "WORK_PHONE")
+    protected String workPhone;
+
+    public String getWorkPhone() {
+        return workPhone;
+    }
+
+    public void setWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+    }
+
 }

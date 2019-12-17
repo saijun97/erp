@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
-@NamePattern("#getfullName|firstName,lastName")
+@NamePattern("#getfullName|firstName,middleName,lastName")
 @MappedSuperclass
 public class Person extends StandardEntity {
     private static final long serialVersionUID = 6929497339503047073L;
@@ -49,7 +49,7 @@ public class Person extends StandardEntity {
     }
 
     @Transient
-    @MetaProperty(related = "firstName,lastName")
+    @MetaProperty(related = "firstName,middleName,lastName")
     public String getfullName() {
 
         String fullName;

@@ -49,4 +49,8 @@
             <property name="coordinates"/>
         </property>
     </view>
+    <view entity="erp_Client" name="client-view-details" extends="_local">
+    </view>
+    <view entity="erp_ClientPerson" name="clientPerson-view-details" extends="_local"/>
+    <view entity="erp_ClientCompany" name="clientCompany-view-details" extends="_local"/>
 </views>
