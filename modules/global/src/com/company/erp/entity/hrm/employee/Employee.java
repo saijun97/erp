@@ -76,16 +76,6 @@ public class Employee extends Person {
     @JoinColumn(name = "SUBUNIT_ID")
     protected Subunit subunit;
 
-    @Column(name = "MOBILE_PHONE", unique = true)
-    protected String mobilePhone;
-
-    @Column(name = "HOME_PHONE")
-    protected String homePhone;
-
-    @Email(message = "Not an email!")
-    @Column(name = "EMAIL", unique = true)
-    protected String email;
-
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "employee")
@@ -186,30 +176,6 @@ public class Employee extends Person {
 
     public void setSubunit(Subunit subunit) {
         this.subunit = subunit;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getHomePhone() {
-        return homePhone;
-    }
-
-    public void setHomePhone(String homePhone) {
-        this.homePhone = homePhone;
-    }
-
-    public String getMobilePhone() {
-        return mobilePhone;
-    }
-
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
     }
 
     public GenderSelect getGender() {

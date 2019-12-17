@@ -6,12 +6,15 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 @NamePattern("#getfullName|firstName,middleName,lastName")
 @MappedSuperclass
 public class Person extends StandardEntity {
     private static final long serialVersionUID = 6929497339503047073L;
+
+
 
     @NotNull
     @Column(name = "FIRST_NAME", nullable = false)
@@ -23,6 +26,16 @@ public class Person extends StandardEntity {
     @NotNull
     @Column(name = "LAST_NAME", nullable = false)
     protected String lastName;
+
+    @Column(name = "MOBILE_PHONE", unique = true)
+    protected String mobilePhone;
+
+    @Column(name = "HOME_PHONE")
+    protected String homePhone;
+
+    @Email(message = "Not an email!")
+    @Column(name = "EMAIL", unique = true)
+    protected String email;
 
     public String getLastName() {
         return lastName;
@@ -46,6 +59,30 @@ public class Person extends StandardEntity {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Transient
