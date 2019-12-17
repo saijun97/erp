@@ -299,6 +299,9 @@ create table ERP_EMPLOYEE (
     FIRST_NAME varchar(255) not null,
     MIDDLE_NAME varchar(255),
     LAST_NAME varchar(255) not null,
+    MOBILE_PHONE varchar(255),
+    HOME_PHONE varchar(255),
+    EMAIL varchar(255),
     --
     EMP_ID varchar(255) not null,
     NIC varchar(255),
@@ -308,9 +311,6 @@ create table ERP_EMPLOYEE (
     CITY_ID varchar(36),
     DEPARTMENT_ID varchar(36) not null,
     SUBUNIT_ID varchar(36),
-    MOBILE_PHONE varchar(255),
-    HOME_PHONE varchar(255),
-    EMAIL varchar(255),
     JOB_POSITION_ID varchar(36),
     --
     primary key (ID)
@@ -329,6 +329,9 @@ create table ERP_CONTACT_PERSON (
     FIRST_NAME varchar(255) not null,
     MIDDLE_NAME varchar(255),
     LAST_NAME varchar(255) not null,
+    MOBILE_PHONE varchar(255),
+    HOME_PHONE varchar(255),
+    EMAIL varchar(255),
     --
     JOB_POSITION varchar(255),
     --
