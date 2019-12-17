@@ -14,8 +14,6 @@ import javax.validation.constraints.NotNull;
 public class Person extends StandardEntity {
     private static final long serialVersionUID = 6929497339503047073L;
 
-
-
     @NotNull
     @Column(name = "FIRST_NAME", nullable = false)
     protected String firstName;
