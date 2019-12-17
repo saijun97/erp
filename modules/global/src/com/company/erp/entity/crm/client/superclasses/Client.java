@@ -37,19 +37,6 @@ public class Client extends StandardEntity {
     @Column(name = "BILLING_ADDRESS")
     protected String billingAddress;
 
-    @Composition
-    @OnDelete(DeletePolicy.CASCADE)
-    @OneToMany(mappedBy = "client")
-    protected List<ContactPerson> contactPerson;
-
-    public List<ContactPerson> getContactPerson() {
-        return contactPerson;
-    }
-
-    public void setContactPerson(List<ContactPerson> contactPerson) {
-        this.contactPerson = contactPerson;
-    }
-
     public String getDisplayName() {
         return displayName;
     }

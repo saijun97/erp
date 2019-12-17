@@ -14,17 +14,6 @@ public class ContactPerson extends Person {
 
     @Column(name = "JOB_POSITION")
     protected String jobPosition;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "CLIENT_ID")
-    protected Client client;
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
 
     public String getJobPosition() {
         return jobPosition;
