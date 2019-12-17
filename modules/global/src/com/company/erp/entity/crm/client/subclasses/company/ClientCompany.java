@@ -2,11 +2,9 @@ package com.company.erp.entity.crm.client.subclasses.company;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.core.entity.StandardEntity;
-
 import javax.persistence.*;
 
-@NamePattern("%s|displayName")
+@NamePattern("%s|companyName")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
 @DiscriminatorValue("COMPANY")
 @Table(name = "ERP_CLIENT_COMPANY")
@@ -15,7 +13,7 @@ import javax.persistence.*;
 public class ClientCompany extends Client {
     private static final long serialVersionUID = 7311058099581783252L;
 
-    @Column(name = "COMPANY_NAME", nullable = false, unique = true)
+    @Column(name = "COMPANY_NAME", nullable = false)
     protected String companyName;
 
     public String getCompanyName() {
@@ -36,6 +34,5 @@ public class ClientCompany extends Client {
     public void setCompanyAddress(String companyAddress) {
         this.companyAddress = companyAddress;
     }
-
 
 }
