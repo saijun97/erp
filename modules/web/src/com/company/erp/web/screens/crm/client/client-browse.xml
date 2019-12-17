@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="clientsTable"
+        messagesPack="com.company.erp.web.screens.crm.client">
+    <data readOnly="true">
+        <collection id="clientsDc"
+                    class="com.company.erp.entity.crm.client.superclasses.Client"
+                    view="client-view-details">
+            <loader id="clientsDl">
+                <query>
+                    <![CDATA[select e from erp_Client e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="clientsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="clientsTable"
+                dataLoader="clientsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="clientsTable"
+                    width="100%"
+                    dataContainer="clientsDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="displayName"/>
+                <column id="email"/>
+                <column id="preferredContactPhone"/>
+                <column id="shippingAddress"/>
+                <column id="billingAddress"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <popupButton id="createBtn" caption="msg://createClient">
+                    <actions>
+                        <action id="createCompany" caption="msg://createCompany"/>
+                        <action id="createPerson" caption="msg://createPerson"/>
+                    </actions>
+                </popupButton>
+                <button id="editBtn" action="clientsTable.edit"/>
+                <button id="removeBtn" action="clientsTable.remove"/>
+                <button id="excelBtn" action="clientsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

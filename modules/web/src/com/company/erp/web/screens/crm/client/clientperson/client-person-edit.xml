@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.crm.client.clientperson">
+    <data>
+        <instance id="clientPersonDc"
+                  class="com.company.erp.entity.crm.client.subclasses.person.ClientPerson"
+                  view="clientPerson-view-details">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode modal="true"
+                forceDialog="true"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="clientPersonDc">
+                <column width="250px">
+                    <textField id="displayNameField" property="displayName" visible="false"/>
+                    <textField id="firstNameField" property="firstName"/>
+                    <textField id="middleNameField" property="middleName"/>
+                    <textField id="lastNameField" property="lastName"/>
+                    <textField id="mobilePhoneField" property="mobilePhone"/>
+                    <textField id="homePhoneField" property="homePhone"/>
+                    <textField id="workPhoneField" property="workPhone"/>
+                    <textField id="emailField" property="email"/>
+                    <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
+                    <textField id="shippingAddressField" property="shippingAddress"/>
+                    <textField id="billingAddressField" property="billingAddress"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="clientPersonSaveCloseBtn" action="windowCommitAndClose"/>
+            <button id="clientPersonSaveBtn" action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.crm.client.clientcompany">
+    <data>
+        <instance id="clientCompanyDc"
+                  class="com.company.erp.entity.crm.client.subclasses.company.ClientCompany"
+                  view="clientCompany-view-details">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="clientCompanyDc">
+            <column width="250px">
+                <textField id="displayNameField" property="displayName" visible="false"/>
+                <textField id="companyNameField" property="companyName"/>
+                <textField id="companyAddressField" property="companyAddress"/>
+                <textField id="emailField" property="email"/>
+                <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
+                <textField id="shippingAddressField" property="shippingAddress"/>
+                <textField id="billingAddressField" property="billingAddress"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
