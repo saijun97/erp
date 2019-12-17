@@ -21,8 +21,6 @@ import java.util.List;
 public class Client extends StandardEntity {
     private static final long serialVersionUID = 4780989409314858228L;
 
-
-
     @Column(name = "DISPLAY_NAME")
     protected String displayName;
 
