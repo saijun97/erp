@@ -56,8 +56,8 @@ create table ERP_EMPLOYEE_LANGUAGE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_LANGUAGE
--- begin ERP_EMPLOYEE_SKILL
-create table ERP_EMPLOYEE_SKILL (
+-- begin ERP_ORDER
+create table ERP_ORDER (
     ID varchar(36) not null,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -67,14 +67,12 @@ create table ERP_EMPLOYEE_SKILL (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    EMPLOYEE_ID varchar(36) not null,
-    SKILL_ID varchar(36) not null,
-    YEARS_OF_EXPERIENCE integer,
-    COMMENT longvarchar,
+    CLIENT_ID varchar(36) not null,
+    ORDER_NUM varchar(255) not null,
     --
     primary key (ID)
 )^
--- end ERP_EMPLOYEE_SKILL
+-- end ERP_ORDER
 -- begin ERP_EMPLOYEE_EDUCATION
 create table ERP_EMPLOYEE_EDUCATION (
     ID varchar(36) not null,
@@ -98,6 +96,25 @@ create table ERP_EMPLOYEE_EDUCATION (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_EDUCATION
+-- begin ERP_EMPLOYEE_SKILL
+create table ERP_EMPLOYEE_SKILL (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    EMPLOYEE_ID varchar(36) not null,
+    SKILL_ID varchar(36) not null,
+    YEARS_OF_EXPERIENCE integer,
+    COMMENT longvarchar,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_SKILL
 -- begin ERP_DEPARTMENT
 create table ERP_DEPARTMENT (
     ID varchar(36) not null,
@@ -169,6 +186,27 @@ create table ERP_EMPLOYEE_LICENSE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_LICENSE
+-- begin ERP_CLIENT
+create table ERP_CLIENT (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    DTYPE varchar(31),
+    --
+    DISPLAY_NAME varchar(255),
+    EMAIL varchar(255),
+    PREFERRED_CONTACT_PHONE varchar(255),
+    SHIPPING_ADDRESS varchar(255),
+    BILLING_ADDRESS varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_CLIENT
 -- begin ERP_LICENSE
 create table ERP_LICENSE (
     ID varchar(36) not null,
@@ -184,21 +222,6 @@ create table ERP_LICENSE (
     primary key (ID)
 )^
 -- end ERP_LICENSE
--- begin ERP_EDUCATION
-create table ERP_EDUCATION (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    NAME varchar(255) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_EDUCATION
 -- begin ERP_LANGUAGE
 create table ERP_LANGUAGE (
     ID varchar(36) not null,
@@ -214,6 +237,21 @@ create table ERP_LANGUAGE (
     primary key (ID)
 )^
 -- end ERP_LANGUAGE
+-- begin ERP_EDUCATION
+create table ERP_EDUCATION (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_EDUCATION
 -- begin ERP_SKILL
 create table ERP_SKILL (
     ID varchar(36) not null,
@@ -278,3 +316,46 @@ create table ERP_EMPLOYEE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE
+-- begin ERP_CONTACT_PERSON
+create table ERP_CONTACT_PERSON (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    FIRST_NAME varchar(255) not null,
+    MIDDLE_NAME varchar(255),
+    LAST_NAME varchar(255) not null,
+    --
+    JOB_POSITION varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_CONTACT_PERSON
+-- begin ERP_CLIENT_PERSON
+create table ERP_CLIENT_PERSON (
+    ID varchar(36) not null,
+    --
+    FIRST_NAME varchar(255) not null,
+    MIDDLE_NAME varchar(255),
+    LAST_NAME varchar(255) not null,
+    MOBILE_PHONE varchar(255),
+    HOME_PHONE varchar(255),
+    WORK_PHONE varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_CLIENT_PERSON
+-- begin ERP_CLIENT_COMPANY
+create table ERP_CLIENT_COMPANY (
+    ID varchar(36) not null,
+    --
+    COMPANY_NAME varchar(255) not null,
+    COMPANY_ADDRESS varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_CLIENT_COMPANY
