@@ -53,4 +53,5 @@
     </view>
     <view entity="erp_ClientPerson" name="clientPerson-view-details" extends="_local"/>
     <view entity="erp_ClientCompany" name="clientCompany-view-details" extends="_local"/>
+    <view entity="erp_ContactPerson" name="contactPerson-view-details" extends="_local"/>
 </views>

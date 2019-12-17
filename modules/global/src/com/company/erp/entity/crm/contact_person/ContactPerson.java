@@ -1,12 +1,10 @@
 package com.company.erp.entity.crm.contact_person;
 
+import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.general.superclasses.Person;
 import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.core.entity.StandardEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @NamePattern("#getFullName,firstName,middleName,lastName")
 @Table(name = "ERP_CONTACT_PERSON")
@@ -16,6 +14,17 @@ public class ContactPerson extends Person {
 
     @Column(name = "JOB_POSITION")
     protected String jobPosition;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "CLIENT_ID")
+    protected Client client;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     public String getJobPosition() {
         return jobPosition;
