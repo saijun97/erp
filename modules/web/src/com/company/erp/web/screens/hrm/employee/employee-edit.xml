@@ -58,6 +58,7 @@
                         <column width="250px">
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
                             <textField id="nicField" property="nic" caption="NIC"/>
+                            <textField id="fullNameField" property="fullName" visible="false"/>
                             <textField id="firstNameField" property="firstName"/>
                             <textField id="middleNameField" property="middleName"/>
                             <textField id="lastNameField" property="lastName"/>
