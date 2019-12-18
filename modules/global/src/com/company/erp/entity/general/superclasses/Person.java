@@ -1,16 +1,17 @@
 package com.company.erp.entity.general.superclasses;
 
-import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-@NamePattern("#getfullName|firstName,middleName,lastName")
-@MappedSuperclass
+@NamePattern("%s|fullName")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "ERP_PERSON")
+@Entity(name = "erp_Person")
+
 public class Person extends StandardEntity {
     private static final long serialVersionUID = 6929497339503047073L;
 
@@ -24,6 +25,9 @@ public class Person extends StandardEntity {
     @NotNull
     @Column(name = "LAST_NAME", nullable = false)
     protected String lastName;
+
+    @Column(name = "FULL_NAME",nullable = false)
+    protected String fullName;
 
     @Column(name = "MOBILE_PHONE", unique = true)
     protected String mobilePhone;
@@ -63,6 +67,12 @@ public class Person extends StandardEntity {
         return homePhone;
     }
 
+    public String getFullName() { return fullName;}
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public void setHomePhone(String homePhone) {
         this.homePhone = homePhone;
     }
@@ -81,29 +91,6 @@ public class Person extends StandardEntity {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Transient
-    @MetaProperty(related = "firstName,middleName,lastName")
-    public String getfullName() {
-
-        String fullName;
-        fullName = firstName;
-
-        if (middleName != null) {
-
-            fullName += " " + middleName;
-
-        }
-
-        if (lastName != null) {
-
-            fullName += " " + lastName;
-
-        }
-
-        return fullName;
-
     }
 
 }
