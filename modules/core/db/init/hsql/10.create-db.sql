@@ -186,6 +186,29 @@ create table ERP_EMPLOYEE_LICENSE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_LICENSE
+-- begin ERP_PERSON
+create table ERP_PERSON (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    DTYPE varchar(100),
+    --
+    FIRST_NAME varchar(255) not null,
+    MIDDLE_NAME varchar(255),
+    LAST_NAME varchar(255) not null,
+    FULL_NAME varchar(255) not null,
+    MOBILE_PHONE varchar(255),
+    HOME_PHONE varchar(255),
+    EMAIL varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_PERSON
 -- begin ERP_CLIENT
 create table ERP_CLIENT (
     ID varchar(36) not null,
@@ -289,19 +312,6 @@ create table ERP_JOB_POSITION (
 -- begin ERP_EMPLOYEE
 create table ERP_EMPLOYEE (
     ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    FIRST_NAME varchar(255) not null,
-    MIDDLE_NAME varchar(255),
-    LAST_NAME varchar(255) not null,
-    MOBILE_PHONE varchar(255),
-    HOME_PHONE varchar(255),
-    EMAIL varchar(255),
     --
     EMP_ID varchar(255) not null,
     NIC varchar(255),
@@ -316,28 +326,6 @@ create table ERP_EMPLOYEE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE
--- begin ERP_CONTACT_PERSON
-create table ERP_CONTACT_PERSON (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    FIRST_NAME varchar(255) not null,
-    MIDDLE_NAME varchar(255),
-    LAST_NAME varchar(255) not null,
-    MOBILE_PHONE varchar(255),
-    HOME_PHONE varchar(255),
-    EMAIL varchar(255),
-    --
-    JOB_POSITION varchar(255),
-    --
-    primary key (ID)
-)^
--- end ERP_CONTACT_PERSON
 -- begin ERP_CLIENT_PERSON
 create table ERP_CLIENT_PERSON (
     ID varchar(36) not null,
