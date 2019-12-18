@@ -2,7 +2,6 @@ package com.company.erp.entity.hrm.employee.joined;
 
 import com.company.erp.entity.hrm.employee.Employee;
 import com.company.erp.entity.hrm.qualifications.education.Education;
-import com.company.erp.entity.hrm.qualifications.language.Language;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
@@ -16,7 +15,6 @@ import java.util.Date;
 @Entity(name = "erp_Employee_Education")
 public class Employee_Education extends StandardEntity {
     private static final long serialVersionUID = 2073399229770567617L;
-
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "EMPLOYEE_ID")
