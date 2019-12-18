@@ -40,7 +40,7 @@
             </actions>
             <columns>
                 <column id="empId" caption="EMP-ID"/>
-                <column id="fullName" caption="Full Name"/>
+                <column id="fullName"/>
                 <column id="gender"/>
                 <column id="department"/>
                 <column id="jobPosition"/>
