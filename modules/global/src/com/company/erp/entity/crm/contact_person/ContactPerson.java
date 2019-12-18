@@ -12,14 +12,4 @@ import javax.persistence.*;
 public class ContactPerson extends Person {
     private static final long serialVersionUID = -4028025489066728451L;
 
-    @Column(name = "JOB_POSITION")
-    protected String jobPosition;
-
-    public String getJobPosition() {
-        return jobPosition;
-    }
-
-    public void setJobPosition(String jobPosition) {
-        this.jobPosition = jobPosition;
-    }
 }
