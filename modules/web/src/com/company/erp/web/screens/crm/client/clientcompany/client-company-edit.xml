@@ -8,6 +8,7 @@
                   class="com.company.erp.entity.crm.client.subclasses.company.ClientCompany"
                   view="clientCompany-view-details">
             <loader/>
+            <collection id="contactPersonDc" property="contactPerson"/>
         </instance>
     </data>
     <dialogMode modal="true"
@@ -24,6 +25,26 @@
                 <textField id="billingAddressField" property="billingAddress"/>
             </column>
         </form>
+        <groupBox id="contactPersonBox"
+                  caption="msg://com.company.erp.entity.crm.client.subclasses.company/ClientCompany.contactPerson">
+            <table id="contactPersonTable" dataContainer="contactPersonDc" width="100%" height="200px">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="contactPerson"/>
+                    <column id="workPhone"/>
+                    <column id="preferredEmail"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="contactPersonTable.create"/>
+                    <button action="contactPersonTable.edit"/>
+                    <button action="contactPersonTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>

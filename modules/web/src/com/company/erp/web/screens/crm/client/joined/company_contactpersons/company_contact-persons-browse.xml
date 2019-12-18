@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="company_ContactPersonsesTable"
+        messagesPack="com.company.erp.web.screens.crm.client.joined.company_contactpersons">
+    <data readOnly="true">
+        <collection id="company_ContactPersonsesDc"
+                    class="com.company.erp.entity.crm.client.subclasses.company.joined.Company_ContactPersons"
+                    view="company_ContactPersons-view">
+            <loader id="company_ContactPersonsesDl">
+                <query>
+                    <![CDATA[select e from erp_Company_ContactPersons e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="company_ContactPersonsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="company_ContactPersonsesTable"
+                dataLoader="company_ContactPersonsesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="company_ContactPersonsesTable"
+                    width="100%"
+                    dataContainer="company_ContactPersonsesDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="contactPerson"/>
+                <column id="workPhone"/>
+                <column id="preferredEmail"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="company_ContactPersonsesTable.create"/>
+                <button id="editBtn" action="company_ContactPersonsesTable.edit"/>
+                <button id="removeBtn" action="company_ContactPersonsesTable.remove"/>
+                <button id="excelBtn" action="company_ContactPersonsesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

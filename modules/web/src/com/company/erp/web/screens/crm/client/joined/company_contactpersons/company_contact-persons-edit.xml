@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.crm.client.joined.company_contactpersons">
+    <data>
+        <instance id="company_ContactPersonsDc"
+                  class="com.company.erp.entity.crm.client.subclasses.company.joined.Company_ContactPersons"
+                  view="company_ContactPersons-view">
+            <loader/>
+        </instance>
+        <collection id="contactPersonsDc" class="com.company.erp.entity.crm.contact_person.ContactPerson"
+                    view="_minimal">
+            <loader id="contactPersonsLc">
+                <query>
+                    <![CDATA[select e from erp_ContactPerson e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="company_ContactPersonsDc">
+            <column width="250px">
+                <lookupPickerField id="contactPersonField" optionsContainer="contactPersonsDc" property="contactPerson">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="workPhoneField" property="workPhone"/>
+                <textField id="preferredEmailField" property="preferredEmail"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

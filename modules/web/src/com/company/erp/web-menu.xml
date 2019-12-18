@@ -15,6 +15,7 @@
     </menu>
     <menu id="crm" insertBefore="administration" insertAfter="hrm">
             <item screen="erp_Client.browse"/>
+        <item screen="erp_ContactPerson.browse"/>
     </menu>
     <menu id="general" insertBefore="administration" insertAfter="hrm">
          <item screen="erp_Country.browse"/>
