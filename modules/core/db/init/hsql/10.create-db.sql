@@ -36,6 +36,25 @@ create table ERP_WORK_EXPERIENCE (
     primary key (ID)
 )^
 -- end ERP_WORK_EXPERIENCE
+-- begin ERP_COMPANY_CONTACT_PERSONS
+create table ERP_COMPANY_CONTACT_PERSONS (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    CLIENT_COMPANY_ID varchar(36) not null,
+    CONTACT_PERSON_ID varchar(36) not null,
+    WORK_PHONE varchar(255),
+    PREFERRED_EMAIL varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_COMPANY_CONTACT_PERSONS
 -- begin ERP_EMPLOYEE_LANGUAGE
 create table ERP_EMPLOYEE_LANGUAGE (
     ID varchar(36) not null,
@@ -326,6 +345,13 @@ create table ERP_EMPLOYEE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE
+-- begin ERP_CONTACT_PERSON
+create table ERP_CONTACT_PERSON (
+    ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_CONTACT_PERSON
 -- begin ERP_CLIENT_PERSON
 create table ERP_CLIENT_PERSON (
     ID varchar(36) not null,

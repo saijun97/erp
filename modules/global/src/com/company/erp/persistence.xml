@@ -23,6 +23,7 @@
         <class>com.company.erp.entity.crm.client.subclasses.company.ClientCompany</class>
         <class>com.company.erp.entity.crm.client.subclasses.person.ClientPerson</class>
         <class>com.company.erp.entity.crm.order.Order</class>
+        <class>com.company.erp.entity.crm.client.subclasses.company.joined.Company_ContactPersons</class>
         <class>com.company.erp.entity.crm.contact_person.ContactPerson</class>
     </persistence-unit>
 </persistence>
