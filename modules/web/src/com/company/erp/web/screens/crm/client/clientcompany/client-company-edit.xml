@@ -15,9 +15,18 @@
                 <query>select e from erp_Country e</query>
             </loader>
         </collection>
+        <collection id="citiesDc" class="com.company.erp.entity.general.country.City"
+                    view="_local">
+            <loader id="citiesDl">
+                <query><![CDATA[select e from erp_City e where e.country = :container_countriesDc]]></query>
+            </loader>
+        </collection>
     </data>
     <dialogMode modal="true"
                 forceDialog="true"/>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="clientCompanyDc">
             <column width="250px">
