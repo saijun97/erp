@@ -9,6 +9,16 @@
                   view="clientPerson-view-details">
             <loader/>
         </instance>
+        <collection id="countriesDc" class="com.company.erp.entity.general.country.Country" view="_minimal">
+            <loader>
+                <query>select e from erp_Country e</query>
+            </loader>
+        </collection>
+        <collection id="citiesDc" class="com.company.erp.entity.general.country.City" view="_minimal">
+            <loader>
+                <query>select e from erp_City e</query>
+            </loader>
+        </collection>
     </data>
     <dialogMode modal="true"
                 forceDialog="true"/>
@@ -27,6 +37,8 @@
                     <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
                     <textField id="shippingAddressField" property="shippingAddress"/>
                     <textField id="billingAddressField" property="billingAddress"/>
+                    <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
+                    <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
                 </column>
             </form>
         </scrollBox>

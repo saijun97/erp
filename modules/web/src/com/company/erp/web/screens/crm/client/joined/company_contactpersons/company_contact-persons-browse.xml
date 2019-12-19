@@ -38,6 +38,7 @@
                 <column id="contactPerson"/>
                 <column id="workPhone"/>
                 <column id="preferredEmail"/>
+                <column id="jobPosition"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

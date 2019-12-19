@@ -6,6 +6,7 @@
     </view>
     <view entity="erp_Employee" name="employee-view-details" extends="_local">
         <property name="nationality" view="_minimal"/>
+        <property name="countryOfResidence" view="_minimal"/>
         <property name="city" view="_minimal"/>
         <property name="department" view="_minimal"/>
         <property name="subunit" view="_minimal"/>
@@ -50,8 +51,13 @@
         </property>
     </view>
     <view entity="erp_Client" name="client-view-details" extends="_local">
+        <property name="country" view="_minimal"/>
+        <property name="city" view="_minimal"/>
     </view>
-    <view entity="erp_ClientPerson" name="clientPerson-view-details" extends="_local"/>
+    <view entity="erp_ClientPerson" name="clientPerson-view-details" extends="_local">
+        <property name="country" view="_minimal"/>
+        <property name="city" view="_minimal"/>
+    </view>
     <view entity="erp_ClientCompany" name="clientCompany-view-details" extends="_local">
         <property name="contactPerson" view="_local">
             <property name="contactPerson" view="_minimal">
@@ -63,6 +69,8 @@
                 <property name="email"/>
             </property>
         </property>
+        <property name="country" view="_minimal"/>
+        <property name="city" view="_minimal"/>
     </view>
     <view entity="erp_ContactPerson" name="contactPerson-view" extends="_local"/>
     <view entity="erp_Company_ContactPersons" name="company_ContactPersons-view" extends="_local">

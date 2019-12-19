@@ -35,6 +35,17 @@ public class Company_ContactPersons extends StandardEntity {
     @Column(name = "PREFERRED_EMAIL")
     protected String preferredEmail;
 
+    @Column(name = "JOB_POSITION")
+    protected String jobPosition;
+
+    public String getJobPosition() {
+        return jobPosition;
+    }
+
+    public void setJobPosition(String jobPosition) {
+        this.jobPosition = jobPosition;
+    }
+
     public String getPreferredEmail() {
         return preferredEmail;
     }
