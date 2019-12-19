@@ -51,6 +51,7 @@ create table ERP_COMPANY_CONTACT_PERSONS (
     CONTACT_PERSON_ID varchar(36) not null,
     WORK_PHONE varchar(255),
     PREFERRED_EMAIL varchar(255),
+    JOB_POSITION varchar(255),
     --
     primary key (ID)
 )^
@@ -243,8 +244,10 @@ create table ERP_CLIENT (
     DISPLAY_NAME varchar(255),
     EMAIL varchar(255),
     PREFERRED_CONTACT_PHONE varchar(255),
-    SHIPPING_ADDRESS varchar(255),
-    BILLING_ADDRESS varchar(255),
+    COUNTRY_ID varchar(36),
+    CITY_ID varchar(36),
+    SHIPPING_ADDRESS longvarchar,
+    BILLING_ADDRESS longvarchar,
     --
     primary key (ID)
 )^
@@ -337,7 +340,10 @@ create table ERP_EMPLOYEE (
     GENDER integer not null,
     DOB date not null,
     NATIONALITY_ID varchar(36),
+    COUNTRY_OF_RESIDENCE_ID varchar(36),
     CITY_ID varchar(36),
+    STREET_ADDRESS_APARTMENT longvarchar,
+    ADDRESS longvarchar,
     DEPARTMENT_ID varchar(36) not null,
     SUBUNIT_ID varchar(36),
     JOB_POSITION_ID varchar(36),

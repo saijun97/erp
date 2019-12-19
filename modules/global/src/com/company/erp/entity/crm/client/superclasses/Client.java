@@ -1,7 +1,11 @@
 package com.company.erp.entity.crm.client.superclasses;
 
+import com.company.erp.entity.general.country.City;
+import com.company.erp.entity.general.country.Country;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.Lookup;
+import com.haulmont.cuba.core.entity.annotation.LookupType;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -26,11 +30,39 @@ public class Client extends StandardEntity {
     @Column(name = "PREFERRED_CONTACT_PHONE")
     protected String preferredContactPhone;
 
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COUNTRY_ID")
+    protected Country country;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CITY_ID")
+    protected City city;
+
+    @Lob
     @Column(name = "SHIPPING_ADDRESS")
     protected String shippingAddress;
 
+    @Lob
     @Column(name = "BILLING_ADDRESS")
     protected String billingAddress;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
     public String getDisplayName() {
         return displayName;

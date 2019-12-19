@@ -21,7 +21,11 @@
         <filter id="filter"
                 applyTo="clientsTable"
                 dataLoader="clientsDl">
-            <properties include=".*"/>
+            <property name="displayName" caption="Full Name"/>
+            <properties  include=".*"
+                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                         excludeRecursively="true"
+                         exclude="(id)|(displayName)"/>
         </filter>
         <groupTable id="clientsTable"
                     width="100%"
@@ -35,7 +39,7 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="displayName"/>
+                <column id="displayName" caption="Full Name"/>
                 <column id="email"/>
                 <column id="preferredContactPhone"/>
                 <column id="shippingAddress"/>

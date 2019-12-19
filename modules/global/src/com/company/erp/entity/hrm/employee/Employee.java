@@ -59,10 +59,23 @@ public class Employee extends Person {
     @JoinColumn(name = "NATIONALITY_ID")
     protected Country nationality;
 
-    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup"})
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COUNTRY_OF_RESIDENCE_ID")
+    protected Country countryOfResidence;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CITY_ID")
     protected City city;
+
+    @Lob
+    @Column(name = "STREET_ADDRESS_APARTMENT")
+    protected String streetAddressApartment;
+
+    @Lob
+    @Column(name = "ADDRESS")
+    protected String address;
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @NotNull
@@ -104,6 +117,30 @@ public class Employee extends Person {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "JOB_POSITION_ID")
     protected Job_Position jobPosition;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getStreetAddressApartment() {
+        return streetAddressApartment;
+    }
+
+    public void setStreetAddressApartment(String streetAddressApartment) {
+        this.streetAddressApartment = streetAddressApartment;
+    }
+
+    public Country getCountryOfResidence() {
+        return countryOfResidence;
+    }
+
+    public void setCountryOfResidence(Country countryOfResidence) {
+        this.countryOfResidence = countryOfResidence;
+    }
 
     public Job_Position getJobPosition() {
         return jobPosition;

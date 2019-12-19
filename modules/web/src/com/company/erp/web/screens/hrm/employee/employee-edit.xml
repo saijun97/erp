@@ -35,12 +35,17 @@
         </collection>
         <collection id="citiesDc" class="com.company.erp.entity.general.country.City" view="_minimal">
             <loader>
-                <query>select e from erp_City e where e.country = :container_nationalitiesDc</query>
+                <query>select e from erp_City e where e.country = :container_countryOfResidencesDc</query>
             </loader>
         </collection>
         <collection id="jobPositionsDc" class="com.company.erp.entity.hrm.job_positions.Job_Position" view="_minimal">
             <loader>
                 <query>select e from erp_Job_Position e</query>
+            </loader>
+        </collection>
+        <collection id="countryOfResidencesDc" class="com.company.erp.entity.general.country.Country" view="_minimal">
+            <loader>
+                <query>select e from erp_Country e</query>
             </loader>
         </collection>
     </data>
@@ -72,7 +77,6 @@
                                     <action id="clear" type="picker_clear"/>
                                 </actions>
                             </lookupPickerField>
-                            <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
                         </column>
                     </form>
                 </tab>
@@ -84,6 +88,24 @@
                             <textField id="homePhoneField" property="homePhone" caption="Home Phone"
                                        align="TOP_LEFT"/>
                             <textField id="emailField" property="email" caption="E-Mail" align="TOP_LEFT"/>
+                            <lookupPickerField id="countryOfResidenceField"
+                                               property="countryOfResidence"
+                                               optionsContainer="countryOfResidencesDc">
+                                <actions>
+                                    <action id="lookup" type="picker_lookup"/>
+                                    <action id="clear" type="picker_clear"/>
+                                </actions>
+                            </lookupPickerField>
+                            <lookupPickerField id="cityField"
+                                               property="city"
+                                               optionsContainer="citiesDc">
+                                <actions>
+                                    <action id="lookup" type="picker_lookup"/>
+                                    <action id="clear" type="picker_clear"/>
+                                </actions>
+                            </lookupPickerField>
+                            <textArea rows="5" id="streetAddressApartmentField" property="streetAddressApartment" caption="Street Address/Apartment"/>
+                            <textArea rows="5" id="addressField" property="address" visible="false"/>
                         </column>
                     </form>
                 </tab>
@@ -99,9 +121,9 @@
                                 </actions>
                             </lookupPickerField>
                             <lookupPickerField id="subunitField" property="subunit" optionsContainer="subunitsDc"
-                                         caption="Subunit"/>
+                                               caption="Subunit"/>
                             <lookupPickerField id="jobPositionField" property="jobPosition"
-                                         optionsContainer="jobPositionsDc">
+                                               optionsContainer="jobPositionsDc">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
                                     <action id="clear" type="picker_clear"/>
