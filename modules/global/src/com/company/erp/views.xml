@@ -83,5 +83,8 @@
             <property name="email"/>
         </property>
     </view>
+    <view entity="erp_City" name="city-view-details" extends="_local">
+        <property name="country" view="_minimal"/>
+    </view>
 
 </views>
