@@ -43,12 +43,12 @@ public class ClientCompanyEdit extends StandardEditor<ClientCompany> {
 
             if (companyAddressField.getValue() != null) {
 
-                displayNameValue = companyNameField.getValue() + "\n";
+                billingAddressValue = companyNameField.getValue() + "\n";
             }
 
             if (cityField.getValue() != null) {
 
-                displayNameValue += cityField.getValue().getCity() + "\n" + countryField.getValue().getCountry() + "\n";
+                billingAddressValue += cityField.getValue().getCity() + "\n" + countryField.getValue().getCountry() + "\n";
             }
 
             billingAddressField.setValue(billingAddressValue);
