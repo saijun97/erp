@@ -35,7 +35,7 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="fullName"/>
+                <column id="fullName" caption="Full Name"/>
                 <column id="mobilePhone"/>
                 <column id="homePhone"/>
                 <column id="email"/>
