@@ -4,6 +4,7 @@ import com.company.erp.entity.crm.client.subclasses.company.joined.Company_Conta
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.annotation.CaseConversion;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
@@ -25,10 +26,33 @@ public class ClientCompany extends Client {
     @Column(name = "COMPANY_ADDRESS")
     protected String companyAddress;
 
+    @Column(name = "BRN", unique = true)
+    protected String brn;
+
+    @CaseConversion
+    @Column(name = "VAT_NUMBER", unique = true)
+    protected String vatNumber;
+
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "clientCompany")
     protected List<Company_ContactPersons> contactPerson;
+
+    public String getVatNumber() {
+        return vatNumber;
+    }
+
+    public void setVatNumber(String vatNumber) {
+        this.vatNumber = vatNumber;
+    }
+
+    public String getBrn() {
+        return brn;
+    }
+
+    public void setBrn(String brn) {
+        this.brn = brn;
+    }
 
     public List<Company_ContactPersons> getContactPerson() {
         return contactPerson;

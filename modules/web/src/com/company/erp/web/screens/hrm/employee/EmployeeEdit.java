@@ -77,9 +77,14 @@ public class EmployeeEdit extends StandardEditor<Employee> {
 
             if (cityField.getValue() != null) {
 
-                addressValue += cityField.getValue().getCity() + "," + "\n" + countryOfResidenceField.getValue().getCountry();
+                addressValue += cityField.getValue().getCity() + "," + "\n";
 
             }
+
+        if(countryOfResidenceField.getValue() != null) {
+
+            addressValue +=  countryOfResidenceField.getValue().getCountry() + "," + "\n";
+        }
 
             //setting value to addressField
             addressField.setValue(addressValue);
