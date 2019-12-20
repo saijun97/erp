@@ -35,20 +35,28 @@ public class ClientCompanyEdit extends StandardEditor<ClientCompany> {
     @Subscribe
     protected void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
 
+        //setting value of displayName
         displayNameValue = companyNameField.getValue();
 
         displayNameField.setValue(displayNameValue);
 
+
+        //setting value of billingAddress
         if(billingAddressField.getValue() == null) {
 
             if (companyAddressField.getValue() != null) {
 
-                billingAddressValue = companyNameField.getValue() + "\n";
+                billingAddressValue = companyNameField.getValue() + ","  + "\n";
             }
 
             if (cityField.getValue() != null) {
 
-                billingAddressValue += cityField.getValue().getCity() + "\n" + countryField.getValue().getCountry() + "\n";
+                billingAddressValue += cityField.getValue().getCity() + "," + "\n";
+            }
+
+            if(countryField.getValue() != null) {
+
+                billingAddressValue +=  countryField.getValue().getCountry() + "," + "\n";
             }
 
             billingAddressField.setValue(billingAddressValue);

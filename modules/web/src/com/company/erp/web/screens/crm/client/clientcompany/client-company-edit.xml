@@ -28,62 +28,65 @@
         <dataLoadCoordinator auto="true"/>
     </facets>
     <layout expand="editActions" spacing="true">
-       <tabSheet id="tabSheet" width="100%">
-           <tab id="tab1" caption="General Details" margin="true" spacing="true">
-        <form id="generalDetail" dataContainer="clientCompanyDc">
-            <column width="250px">
-                <textField id="displayNameField" property="displayName" visible="false"/>
-                <textField id="companyNameField" property="companyName"/>
-                 <textField id="emailField" property="email"/>
-                <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
-                <lookupPickerField id="countryField"
-                                   property="country"
-                                   optionsContainer="countriesDc">
-                    <actions>
-                        <action id="lookup" type="picker_lookup"/>
-                        <action id="clear" type="picker_clear"/>
-                    </actions>
-                </lookupPickerField>
-                <lookupPickerField id="cityField"
-                                   property="city"
-                                   optionsContainer="citiesDc">
-                    <actions>
-                        <action id="lookup" type="picker_lookup"/>
-                        <action id="clear" type="picker_clear"/>
-                    </actions>
-                </lookupPickerField>
-                <textField id="companyAddressField" property="companyAddress"/>
-                <textArea rows="5" id="shippingAddressField" property="shippingAddress"/>
-                <textArea rows="5" id="billingAddressField" property="billingAddress" caption="Invoice/Billing Address"/>
-            </column>
-        </form>
-           </tab>
-           <tab id="tab2" caption="Contact Persons" margin="true" spacing="true">
-               <form id="ContactPersonsDetail" dataContainer="clientCompanyDc">
-               </form>
-        <groupBox id="contactPersonBox"
-                  caption="msg://com.company.erp.entity.crm.client.subclasses.company/ClientCompany.contactPerson">
-            <table id="contactPersonTable" dataContainer="contactPersonDc" width="100%" height="200px">
-                <actions>
-                    <action id="create" type="create"/>
-                    <action id="edit" type="edit"/>
-                    <action id="remove" type="remove"/>
-                </actions>
-                <columns>
-                    <column id="contactPerson"/>
-                    <column id="workPhone"/>
-                    <column id="preferredEmail"/>
-                    <column id="jobPosition"/>
-                </columns>
-                <buttonsPanel>
-                    <button action="contactPersonTable.create"/>
-                    <button action="contactPersonTable.edit"/>
-                    <button action="contactPersonTable.remove"/>
-                </buttonsPanel>
-            </table>
-        </groupBox>
-           </tab>
-       </tabSheet>
+        <tabSheet id="tabSheet" width="100%">
+            <tab id="tab1" caption="General Details" margin="true" spacing="true">
+                <form id="generalDetail" dataContainer="clientCompanyDc">
+                    <column width="250px">
+                        <textField id="displayNameField" property="displayName" visible="false"/>
+                        <textField id="companyNameField" property="companyName"/>
+                        <textField id="brnField" property="brn" caption="BRN"/>
+                        <textField id="vatNumberField" property="vatNumber" caption="VAT Registration Number"/>
+                        <textField id="emailField" property="email"/>
+                        <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
+                        <lookupPickerField id="countryField"
+                                           property="country"
+                                           optionsContainer="countriesDc">
+                            <actions>
+                                <action id="lookup" type="picker_lookup"/>
+                                <action id="clear" type="picker_clear"/>
+                            </actions>
+                        </lookupPickerField>
+                        <lookupPickerField id="cityField"
+                                           property="city"
+                                           optionsContainer="citiesDc">
+                            <actions>
+                                <action id="lookup" type="picker_lookup"/>
+                                <action id="clear" type="picker_clear"/>
+                            </actions>
+                        </lookupPickerField>
+                        <textField id="companyAddressField" property="companyAddress"/>
+                        <textArea rows="5" id="shippingAddressField" property="shippingAddress"/>
+                        <textArea rows="5" id="billingAddressField" property="billingAddress"
+                                  caption="Invoice/Billing Address"/>
+                    </column>
+                </form>
+            </tab>
+            <tab id="tab2" caption="Contact Persons" margin="true" spacing="true">
+                <form id="ContactPersonsDetail" dataContainer="clientCompanyDc">
+                </form>
+                <groupBox id="contactPersonBox"
+                          caption="msg://com.company.erp.entity.crm.client.subclasses.company/ClientCompany.contactPerson">
+                    <table id="contactPersonTable" dataContainer="contactPersonDc" width="100%" height="200px">
+                        <actions>
+                            <action id="create" type="create"/>
+                            <action id="edit" type="edit"/>
+                            <action id="remove" type="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="contactPerson"/>
+                            <column id="workPhone"/>
+                            <column id="preferredEmail"/>
+                            <column id="jobPosition"/>
+                        </columns>
+                        <buttonsPanel>
+                            <button action="contactPersonTable.create"/>
+                            <button action="contactPersonTable.edit"/>
+                            <button action="contactPersonTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+            </tab>
+        </tabSheet>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>

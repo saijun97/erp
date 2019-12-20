@@ -93,6 +93,25 @@ create table ERP_ORDER (
     primary key (ID)
 )^
 -- end ERP_ORDER
+-- begin ERP_EMPLOYEE_SKILL
+create table ERP_EMPLOYEE_SKILL (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    EMPLOYEE_ID varchar(36) not null,
+    SKILL_ID varchar(36) not null,
+    YEARS_OF_EXPERIENCE integer,
+    COMMENT longvarchar,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_SKILL
 -- begin ERP_EMPLOYEE_EDUCATION
 create table ERP_EMPLOYEE_EDUCATION (
     ID varchar(36) not null,
@@ -116,25 +135,6 @@ create table ERP_EMPLOYEE_EDUCATION (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_EDUCATION
--- begin ERP_EMPLOYEE_SKILL
-create table ERP_EMPLOYEE_SKILL (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    EMPLOYEE_ID varchar(36) not null,
-    SKILL_ID varchar(36) not null,
-    YEARS_OF_EXPERIENCE integer,
-    COMMENT longvarchar,
-    --
-    primary key (ID)
-)^
--- end ERP_EMPLOYEE_SKILL
 -- begin ERP_DEPARTMENT
 create table ERP_DEPARTMENT (
     ID varchar(36) not null,
@@ -267,21 +267,6 @@ create table ERP_LICENSE (
     primary key (ID)
 )^
 -- end ERP_LICENSE
--- begin ERP_LANGUAGE
-create table ERP_LANGUAGE (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    NAME varchar(255) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_LANGUAGE
 -- begin ERP_EDUCATION
 create table ERP_EDUCATION (
     ID varchar(36) not null,
@@ -297,6 +282,21 @@ create table ERP_EDUCATION (
     primary key (ID)
 )^
 -- end ERP_EDUCATION
+-- begin ERP_LANGUAGE
+create table ERP_LANGUAGE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_LANGUAGE
 -- begin ERP_SKILL
 create table ERP_SKILL (
     ID varchar(36) not null,
@@ -378,6 +378,8 @@ create table ERP_CLIENT_COMPANY (
     --
     COMPANY_NAME varchar(255) not null,
     COMPANY_ADDRESS varchar(255),
+    BRN varchar(255),
+    VAT_NUMBER varchar(255),
     --
     primary key (ID)
 )^
