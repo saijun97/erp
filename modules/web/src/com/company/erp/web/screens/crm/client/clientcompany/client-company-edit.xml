@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        focusComponent="form"
+        focusComponent="tabSheet"
         messagesPack="com.company.erp.web.screens.crm.client.clientcompany">
     <data>
         <instance id="clientCompanyDc"
@@ -28,7 +28,9 @@
         <dataLoadCoordinator auto="true"/>
     </facets>
     <layout expand="editActions" spacing="true">
-        <form id="form" dataContainer="clientCompanyDc">
+       <tabSheet id="tabSheet" width="100%">
+           <tab id="tab1" caption="General Details" margin="true" spacing="true">
+        <form id="generalDetail" dataContainer="clientCompanyDc">
             <column width="250px">
                 <textField id="displayNameField" property="displayName" visible="false"/>
                 <textField id="companyNameField" property="companyName"/>
@@ -55,6 +57,10 @@
                 <textArea rows="5" id="billingAddressField" property="billingAddress" caption="Invoice/Billing Address"/>
             </column>
         </form>
+           </tab>
+           <tab id="tab2" caption="Contact Persons" margin="true" spacing="true">
+               <form id="ContactPersonsDetail" dataContainer="clientCompanyDc">
+               </form>
         <groupBox id="contactPersonBox"
                   caption="msg://com.company.erp.entity.crm.client.subclasses.company/ClientCompany.contactPerson">
             <table id="contactPersonTable" dataContainer="contactPersonDc" width="100%" height="200px">
@@ -76,6 +82,8 @@
                 </buttonsPanel>
             </table>
         </groupBox>
+           </tab>
+       </tabSheet>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>
