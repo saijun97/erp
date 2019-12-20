@@ -6,15 +6,28 @@
     <data>
         <instance id="cityDc"
                   class="com.company.erp.entity.general.country.City"
-                  view="_local">
+                  view="city-view-details">
             <loader/>
         </instance>
+        <collection id="CountriesDc" class="com.company.erp.entity.general.country.Country" view="_minimal">
+            <loader>
+                <query>select e from erp_Country e</query>
+            </loader>
+        </collection>
     </data>
     <dialogMode modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="cityDc">
             <column width="250px">
+                <lookupPickerField id="countryField"
+                                   property="country"
+                                   optionsContainer = "CountriesDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
                 <textField id="cityField" property="city"/>
                 <textField id="coordinatesField" property="coordinates"/>
             </column>
