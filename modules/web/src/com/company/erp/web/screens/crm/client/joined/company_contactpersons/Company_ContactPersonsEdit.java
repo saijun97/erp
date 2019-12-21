@@ -21,12 +21,18 @@ public class Company_ContactPersonsEdit extends StandardEditor<Company_ContactPe
     @Subscribe
     protected void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
 
-        String contactPersonEmailValue = contactPersonField.getValue().getEmail();
+        if (contactPersonField.getValue().getEmail() != null) {
 
-        if (preferredEmailField.getValue() == null) {
+            String contactPersonEmailValue = contactPersonField.getValue().getEmail();
 
-            preferredEmailField.setValue(contactPersonEmailValue);
+            if (preferredEmailField.getValue() == null) {
+
+                preferredEmailField.setValue(contactPersonEmailValue);
+            }
+
         }
+
+
 
     }
 
