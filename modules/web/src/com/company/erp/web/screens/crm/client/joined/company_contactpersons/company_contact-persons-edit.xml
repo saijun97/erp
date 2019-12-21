@@ -10,7 +10,7 @@
             <loader/>
         </instance>
         <collection id="contactPersonsDc" class="com.company.erp.entity.crm.contact_person.ContactPerson"
-                    view="_minimal">
+                    view="_local">
             <loader id="contactPersonsLc">
                 <query>
                     <![CDATA[select e from erp_ContactPerson e]]>
