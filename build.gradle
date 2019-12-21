@@ -1,6 +1,6 @@
 
 buildscript {
-    ext.cubaVersion = '7.1.2'
+    ext.cubaVersion = '7.1.3'
     repositories {
         maven {
             url 'https://dl.bintray.com/cuba-platform/main'
