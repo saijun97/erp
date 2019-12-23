@@ -2,15 +2,17 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
         focusComponent="form"
-        messagesPack="com.company.erp.web.screens.crm.contactperson">
+        messagesPack="com.company.erp.web.screens.general.contactperson">
     <data>
         <instance id="contactPersonDc"
-                  class="com.company.erp.entity.crm.contact_person.ContactPerson"
-                  view="contactPerson-view">
+                  class="com.company.erp.entity.general.contact_person.ContactPerson"
+                  view="contactPerson-view-details">
             <loader/>
         </instance>
     </data>
-    <dialogMode modal="true"
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="contactPersonDc">

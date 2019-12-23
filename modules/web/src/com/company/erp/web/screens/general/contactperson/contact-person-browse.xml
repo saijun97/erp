@@ -2,11 +2,11 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
         focusComponent="contactPersonsTable"
-        messagesPack="com.company.erp.web.screens.crm.contactperson">
+        messagesPack="com.company.erp.web.screens.general.contactperson">
     <data readOnly="true">
         <collection id="contactPersonsDc"
-                    class="com.company.erp.entity.crm.contact_person.ContactPerson"
-                    view="contactPerson-view">
+                    class="com.company.erp.entity.general.contact_person.ContactPerson"
+                    view="contactPerson-view-details">
             <loader id="contactPersonsDl">
                 <query>
                     <![CDATA[select e from erp_ContactPerson e]]>
@@ -35,7 +35,10 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="fullName" caption="Full Name"/>
+                <column id="firstName"/>
+                <column id="middleName"/>
+                <column id="lastName"/>
+                <column id="fullName"/>
                 <column id="mobilePhone"/>
                 <column id="homePhone"/>
                 <column id="email"/>

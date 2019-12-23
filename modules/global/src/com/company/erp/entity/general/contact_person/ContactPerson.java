@@ -1,4 +1,4 @@
-package com.company.erp.entity.crm.contact_person;
+package com.company.erp.entity.general.contact_person;
 
 import com.company.erp.entity.crm.client.subclasses.company.joined.Company_ContactPersons;
 import com.company.erp.entity.general.superclasses.Person;

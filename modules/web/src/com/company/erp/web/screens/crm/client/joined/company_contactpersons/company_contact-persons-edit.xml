@@ -9,7 +9,7 @@
                   view="company_ContactPersons-view">
             <loader/>
         </instance>
-        <collection id="contactPersonsDc" class="com.company.erp.entity.crm.contact_person.ContactPerson"
+        <collection id="contactPersonsDc" class="com.company.erp.entity.general.contact_person.ContactPerson"
                     view="_local">
             <loader id="contactPersonsLc">
                 <query>
