@@ -1,7 +1,7 @@
 package com.company.erp.entity.crm.client.subclasses.company.joined;
 
 import com.company.erp.entity.crm.client.subclasses.company.ClientCompany;
-import com.company.erp.entity.crm.contact_person.ContactPerson;
+import com.company.erp.entity.general.contact_person.ContactPerson;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
