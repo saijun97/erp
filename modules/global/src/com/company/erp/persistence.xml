@@ -25,5 +25,7 @@
         <class>com.company.erp.entity.crm.order.Order</class>
         <class>com.company.erp.entity.crm.client.subclasses.company.joined.Company_ContactPersons</class>
         <class>com.company.erp.entity.general.contact_person.ContactPerson</class>
+        <class>com.company.erp.entity.general.superclasses.Item</class>
+        <class>com.company.erp.entity.inventory.Product</class>
     </persistence-unit>
 </persistence>
