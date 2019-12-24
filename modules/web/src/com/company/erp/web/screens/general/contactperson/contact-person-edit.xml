@@ -15,7 +15,7 @@
                 modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
-        <form id="form" dataContainer="contactPersonDc">
+        <form id="form" dataContainer="contactPersonDc" >
             <column width="250px">
                 <textField id="firstNameField" property="firstName"/>
                 <textField id="middleNameField" property="middleName"/>

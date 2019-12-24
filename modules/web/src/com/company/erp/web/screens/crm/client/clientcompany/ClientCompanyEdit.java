@@ -40,26 +40,43 @@ public class ClientCompanyEdit extends StandardEditor<ClientCompany> {
 
         displayNameField.setValue(displayNameValue);
 
-
         //setting value of billingAddress
         if(billingAddressField.getValue() == null) {
 
+            billingAddressValue = companyNameField.getValue() + ","  + "\n";
+
             if (companyAddressField.getValue() != null) {
 
-                billingAddressValue = companyNameField.getValue() + ","  + "\n";
+                billingAddressValue = companyAddressField.getValue() + "," + "\n";
+
+                if (cityField.getValue() != null) {
+
+                    billingAddressValue += cityField.getValue().getCity() + "," + "\n";
+                }
+
+                if(countryField.getValue() != null) {
+
+                    billingAddressValue +=  countryField.getValue().getCountry() + "," + "\n";
+                }
+
             }
 
-            if (cityField.getValue() != null) {
+            if (companyAddressField.getValue() == null) {
 
-                billingAddressValue += cityField.getValue().getCity() + "," + "\n";
-            }
+                if (cityField.getValue() != null) {
 
-            if(countryField.getValue() != null) {
+                    billingAddressValue = cityField.getValue().getCity() + "," + "\n";
+                }
 
-                billingAddressValue +=  countryField.getValue().getCountry() + "," + "\n";
+                if(countryField.getValue() != null) {
+
+                    billingAddressValue +=  countryField.getValue().getCountry() + "," + "\n";
+                }
+
             }
 
             billingAddressField.setValue(billingAddressValue);
+
         }
 
     }
