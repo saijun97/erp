@@ -13,4 +13,39 @@ import javax.inject.Inject;
 public class ContactPersonEdit extends StandardEditor<ContactPerson> {
     @Inject
     private TextField<String> firstNameField;
+    @Inject
+    private TextField<String> middleNameField;
+    @Inject
+    private TextField<String> lastNameField;
+    @Inject
+    private TextField<String> fullNameField;
+
+    String fullNameValue;
+
+    @Subscribe
+    public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
+
+        //computing fullName value
+        if (firstNameField.getValue() != null) {
+
+            fullNameValue = firstNameField.getValue();
+        }
+
+        if (middleNameField.getValue() != null) {
+
+            fullNameValue += " " + middleNameField.getValue();
+
+        }
+
+        if (lastNameField.getValue() != null) {
+
+            fullNameValue += " " + lastNameField.getValue();
+
+        }
+
+        //setting value to fullNameField
+        fullNameField.setValue(fullNameValue);
+
+    }
+
 }
