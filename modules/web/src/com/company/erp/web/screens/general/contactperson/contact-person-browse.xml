@@ -21,7 +21,10 @@
         <filter id="filter"
                 applyTo="contactPersonsTable"
                 dataLoader="contactPersonsDl">
-            <properties include=".*"/>
+            <properties  include=".*"
+                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                         excludeRecursively="true"
+                         exclude="(id)"/>
         </filter>
         <groupTable id="contactPersonsTable"
                     width="100%"
@@ -35,10 +38,7 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="firstName"/>
-                <column id="middleName"/>
-                <column id="lastName"/>
-                <column id="fullName"/>
+                <column id="fullName" caption="Full Name"/>
                 <column id="mobilePhone"/>
                 <column id="homePhone"/>
                 <column id="email"/>
