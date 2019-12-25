@@ -16,9 +16,12 @@
     <menu id="crm" insertBefore="administration" insertAfter="hrm">
             <item screen="erp_Client.browse"/>
     </menu>
+    <menu id="inventory" insertBefore="administration" insertAfter="hrm">
+        <item screen="erp_Product.browse"/>
+    </menu>
     <menu id="general" insertBefore="administration" insertAfter="hrm">
-         <item screen="erp_Country.browse"/>
         <item screen="erp_ContactPerson.browse"/>
+         <item screen="erp_Country.browse"/>
     </menu>
 
 </menu-config>
