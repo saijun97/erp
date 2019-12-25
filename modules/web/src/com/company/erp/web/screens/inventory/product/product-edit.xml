@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.inventory.product">
+    <data>
+        <instance id="productDc"
+                  class="com.company.erp.entity.inventory.Product"
+                  view="product-view-details">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="productDc">
+            <column width="250px">
+                <textField id="itemField" property="item"/>
+                <textArea id="descriptionField" property="description" rows="5"/>
+                <textField id="costField" property="cost"/>
+                <textField id="priceField" property="price"/>
+                <textField id="qtyStore1Field" property="qtyStore1"/>
+                <textField id="qtyStore2Field" property="qtyStore2"/>
+                <textField id="qtyStore3Field" property="qtyStore3"/>
+                <textField id="qtyTotalField" property="qtyTotal"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

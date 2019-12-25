@@ -86,5 +86,8 @@
     <view entity="erp_City" name="city-view-details" extends="_local">
         <property name="country" view="_minimal"/>
     </view>
+    <view entity="erp_Product" name="product-view-details" extends="_local">
+        <property name="qtyTotal"/>
+    </view>
 
 </views>
