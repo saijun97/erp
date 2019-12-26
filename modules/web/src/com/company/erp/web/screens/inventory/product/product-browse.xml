@@ -36,7 +36,6 @@
             </actions>
             <columns>
                 <column id="item"/>
-                <column id="description"/>
                 <column id="cost"/>
                 <column id="price"/>
                 <column id="qtyStore1"/>
