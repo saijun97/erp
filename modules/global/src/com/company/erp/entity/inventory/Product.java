@@ -28,13 +28,9 @@ public class Product extends Item {
     @MetaProperty(related = {"qtyStore1", "qtyStore2", "qtyStore3"})
     protected Integer qtyTotal;
 
-    public Integer getQtyTotal() {
-        return qtyTotal;
-    }
+    public Integer getQtyTotal() { return qtyTotal; }
 
-    public void setQtyTotal(Integer qtyTotal) {
-        this.qtyTotal = qtyTotal;
-    }
+    public void setQtyTotal(Integer qtyTotal) {this.qtyTotal = qtyTotal;}
 
     public Integer getQtyStore3() {
         return qtyStore3;
