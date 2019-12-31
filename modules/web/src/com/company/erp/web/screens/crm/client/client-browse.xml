@@ -21,7 +21,7 @@
         <filter id="filter"
                 applyTo="clientsTable"
                 dataLoader="clientsDl">
-            <property name="displayName" caption="Full Name"/>
+            <property name="displayName" caption="Name"/>
             <properties  include=".*"
                          excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
                          excludeRecursively="true"
@@ -39,7 +39,7 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="displayName" caption="Full Name"/>
+                <column id="displayName" caption="Name"/>
                 <column id="email"/>
                 <column id="preferredContactPhone"/>
                 <column id="shippingAddress"/>
