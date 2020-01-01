@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
-@NamePattern("%s - %s|name,description")
+@NamePattern("%s|name")
 @Table(name = "ERP_SKILL")
 @Entity(name = "erp_Skill")
 public class Skill extends NamedEntity {
