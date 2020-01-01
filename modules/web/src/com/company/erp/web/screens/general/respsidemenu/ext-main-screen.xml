@@ -45,11 +45,14 @@
                     </hbox>
                     <timeZoneIndicator id="timeZoneIndicator"
                                        width="100%"/>
+                    <vbox id="mainVisualBox" margin="true">
+                        <ftsField id="ftsField"
+                                  width="100%"/>
+                    </vbox>
+                    <hbox spacing="true"/>
                     <sideMenu id="sideMenu"
                               sidePanel="sideMenuPanel"
                               sidePanelToggleButton="mobileMenuButton"/>
-                    <ftsField id="ftsField"
-                              width="100%"/>
                 </cssLayout>
             </cssLayout>
             <workArea id="workArea"
