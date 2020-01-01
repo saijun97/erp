@@ -53,6 +53,7 @@
                 <button id="editBtn" action="employeesTable.edit"/>
                 <button id="removeBtn" action="employeesTable.remove"/>
                 <button id="excelBtn" action="employeesTable.excel"/>
+                <relatedEntities for="employeesTable" openType="DIALOG" />
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
