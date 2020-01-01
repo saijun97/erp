@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fts-config xmlns="http://schemas.haulmont.com/cuba/fts.xsd">
+    <entities>
+        <entity class="com.company.erp.entity.general.superclasses.Item">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.dept.Subunit">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.crm.client.subclasses.company.joined.Company_ContactPersons">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.employee.joined.Employee_Language">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.crm.order.Order">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.employee.joined.Employee_Skill">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.employee.joined.Employee_Education">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.dept.Department">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.general.country.City">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.general.country.Country">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.employee.joined.Employee_License">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.general.superclasses.Person">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.crm.client.superclasses.Client">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.inventory.Product">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.qualifications.license.License">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.qualifications.education.Education">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.qualifications.language.Language">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.qualifications.skill.Skill">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.job_positions.Job_Position">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.hrm.employee.Employee">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.general.contact_person.ContactPerson">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.crm.client.subclasses.person.ClientPerson">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.crm.client.subclasses.company.ClientCompany">
+            <include re=".*"/>
+        </entity>
+    </entities>
+</fts-config>
