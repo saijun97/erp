@@ -19,11 +19,11 @@
             <column width="250px">
                 <textField id="itemField" property="item"/>
                 <textArea id="descriptionField" property="description" rows="5"/>
-                <currencyField id="costField" property="cost"/>
-                <currencyField id="priceField" property="price"/>
-                <textField id="qtyStore1Field" property="qtyStore1"/>
-                <textField id="qtyStore2Field" property="qtyStore2"/>
-                <textField id="qtyStore3Field" property="qtyStore3"/>
+                <currencyField id="costField" property="cost" datatype="decimal" currency="MUR" />
+                <currencyField id="priceField" property="price" datatype="decimal" currency="MUR"/>
+                <textField id="qtyStore1Field" property="qtyStore1" datatype="int" />
+                <textField id="qtyStore2Field" property="qtyStore2" datatype="int"/>
+                <textField id="qtyStore3Field" property="qtyStore3" datatype="int"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
