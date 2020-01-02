@@ -41,10 +41,10 @@
             <columns>
                 <column id="empId" caption="EMP-ID"/>
                 <column id="fullName" caption="Full Name"/>
-                <column id="gender"/>
-                <column id="department"/>
-                <column id="jobPosition"/>
-                <column id="email"/>
+                <column id="gender" sortable="false"/>
+                <column id="department" sortable="false"/>
+                <column id="jobPosition" sortable="false"/>
+                <column id="email" sortable="false"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
@@ -53,7 +53,7 @@
                 <button id="editBtn" action="employeesTable.edit"/>
                 <button id="removeBtn" action="employeesTable.remove"/>
                 <button id="excelBtn" action="employeesTable.excel"/>
-                <relatedEntities for="employeesTable" openType="DIALOG" />
+                <relatedEntities for="employeesTable" openType="DIALOG"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
