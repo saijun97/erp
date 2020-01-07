@@ -26,20 +26,20 @@ public class ContactPersonEdit extends StandardEditor<ContactPerson> {
     public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
 
         //computing fullName value
+        if (lastNameField.getValue() != null) {
+
+            fullNameValue = lastNameField.getValue();
+        }
+
         if (firstNameField.getValue() != null) {
 
-            fullNameValue = firstNameField.getValue();
+            fullNameValue += " " + firstNameField.getValue();
+
         }
 
         if (middleNameField.getValue() != null) {
 
             fullNameValue += " " + middleNameField.getValue();
-
-        }
-
-        if (lastNameField.getValue() != null) {
-
-            fullNameValue += " " + lastNameField.getValue();
 
         }
 
