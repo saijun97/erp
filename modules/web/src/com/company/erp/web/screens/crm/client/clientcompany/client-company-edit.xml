@@ -39,6 +39,8 @@
                         <textField id="emailField" property="email"/>
                         <textField id="secondaryEmailField" property="secondaryEmail"/>
                         <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
+                        <textField id="alternatePhoneField" property="alternatePhone"/>
+                        <textField id="faxNumberField" property="faxNumber"/>
                         <lookupPickerField id="countryField"
                                            property="country"
                                            optionsContainer="countriesDc">

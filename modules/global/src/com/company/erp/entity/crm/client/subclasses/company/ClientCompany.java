@@ -9,6 +9,7 @@ import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.List;
 
 @NamePattern("%s|companyName")
@@ -33,10 +34,25 @@ public class ClientCompany extends Client {
     @Column(name = "VAT_NUMBER", unique = true)
     protected String vatNumber;
 
+    @Email(message = "Not an email!")
+    @Column(name = "SECONDARY_EMAIL")
+    protected String secondaryEmail;
+
+    @Column(name = "ALTERNATE_PHONE")
+    protected String alternatePhone;
+
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "clientCompany")
     protected List<Company_ContactPersons> contactPerson;
+
+    public String getSecondaryEmail() {
+        return secondaryEmail;
+    }
+
+    public void setSecondaryEmail(String secondaryEmail) {
+        this.secondaryEmail = secondaryEmail;
+    }
 
     public String getVatNumber() {
         return vatNumber;
@@ -76,6 +92,14 @@ public class ClientCompany extends Client {
 
     public void setCompanyAddress(String companyAddress) {
         this.companyAddress = companyAddress;
+    }
+
+    public String getAlternatePhone() {
+        return alternatePhone;
+    }
+
+    public void setAlternatePhone(String alternatePhone) {
+        this.alternatePhone = alternatePhone;
     }
 
 }
