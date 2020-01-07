@@ -30,6 +30,9 @@ public class Client extends StandardEntity {
     @Column(name = "PREFERRED_CONTACT_PHONE")
     protected String preferredContactPhone;
 
+    @Column(name = "FAX_NUMBER")
+    protected String faxNumber;
+
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COUNTRY_ID")
@@ -47,6 +50,14 @@ public class Client extends StandardEntity {
     @Lob
     @Column(name = "BILLING_ADDRESS")
     protected String billingAddress;
+
+    public String getFaxNumber() {
+        return faxNumber;
+    }
+
+    public void setFaxNumber(String faxNumber) {
+        this.faxNumber = faxNumber;
+    }
 
     public City getCity() {
         return city;

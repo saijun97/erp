@@ -33,6 +33,7 @@
                     <textField id="mobilePhoneField" property="mobilePhone"/>
                     <textField id="homePhoneField" property="homePhone"/>
                     <textField id="workPhoneField" property="workPhone"/>
+                    <textField id="faxNumberField" property="faxNumber"/>
                     <textField id="emailField" property="email"/>
                     <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
                     <textField id="shippingAddressField" property="shippingAddress"/>
