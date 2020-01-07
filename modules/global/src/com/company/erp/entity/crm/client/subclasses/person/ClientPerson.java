@@ -5,7 +5,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 
 import javax.persistence.*;
 
-@NamePattern("%s %s %s|firstName,middleName,lastName")
+@NamePattern("%s %s %s|lastName,firstName,middleName")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
 @DiscriminatorValue("PERSON")
 @Table(name = "ERP_CLIENT_PERSON")

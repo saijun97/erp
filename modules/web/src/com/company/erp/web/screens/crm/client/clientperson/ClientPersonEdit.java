@@ -31,20 +31,20 @@ public class ClientPersonEdit extends StandardEditor<ClientPerson> {
     @Subscribe
     protected void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
 
+        if (lastNameField.getValue() != null) {
+
+            displayNameValue = lastNameField.getValue();
+        }
+
         if (firstNameField.getValue() != null) {
 
-            displayNameValue = firstNameField.getValue();
+            displayNameValue += " " + firstNameField.getValue();
+
         }
 
         if (middleNameField.getValue() != null) {
 
             displayNameValue += " " + middleNameField.getValue();
-
-        }
-
-        if (lastNameField.getValue() != null) {
-
-            displayNameValue += " " + lastNameField.getValue();
 
         }
 
