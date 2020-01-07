@@ -37,6 +37,7 @@
                         <textField id="brnField" property="brn" caption="BRN"/>
                         <textField id="vatNumberField" property="vatNumber" caption="VAT Registration Number"/>
                         <textField id="emailField" property="email"/>
+                        <textField id="secondaryEmailField" property="secondaryEmail"/>
                         <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
                         <lookupPickerField id="countryField"
                                            property="country"
@@ -55,7 +56,8 @@
                             </actions>
                         </lookupPickerField>
                         <textField id="companyAddressField" property="companyAddress"/>
-                        <textArea rows="5" id="shippingAddressField" property="shippingAddress"/>
+                        <textArea rows="5" id="shippingAddressField" property="shippingAddress" responsive="true"
+                                  resizable="true"/>
                         <textArea rows="5" id="billingAddressField" property="billingAddress"
                                   caption="Invoice/Billing Address"/>
                     </column>

@@ -42,8 +42,7 @@
                 <column id="displayName" caption="Name"/>
                 <column id="email"/>
                 <column id="preferredContactPhone"/>
-                <column id="shippingAddress"/>
-                <column id="billingAddress"/>
+                <column id="city"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
