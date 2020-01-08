@@ -2,7 +2,6 @@ package com.company.erp.entity.hrm.employee;
 
 import com.company.erp.entity.general.country.City;
 import com.company.erp.entity.general.country.Country;
-import com.company.erp.entity.general.enums.GenderSelect;
 import com.company.erp.entity.general.superclasses.Person;
 import com.company.erp.entity.hrm.dept.Department;
 import com.company.erp.entity.hrm.dept.Subunit;
@@ -43,10 +42,6 @@ public class Employee extends Person {
 
     @Column(name = "NIC", unique = true)
     protected String nic;
-
-    @NotNull
-    @Column(name = "GENDER", nullable = false)
-    protected Integer gender;
 
     @Past(message = "Date of birth should be in the past.")
     @Temporal(TemporalType.DATE)
@@ -214,15 +209,7 @@ public class Employee extends Person {
         this.subunit = subunit;
     }
 
-    public GenderSelect getGender() {
-        return gender == null ? null : GenderSelect.fromId(gender);
-    }
-
-    public void setGender(GenderSelect gender) {
-        this.gender = gender == null ? null : gender.getId();
-    }
-
-    public Department getDepartment() {
+     public Department getDepartment() {
         return department;
     }
 
