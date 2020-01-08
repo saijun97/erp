@@ -31,7 +31,7 @@ public class ClientCompany extends Client {
     protected String brn;
 
     @CaseConversion
-    @Column(name = "VAT_NUMBER", unique = true)
+    @Column(name = "VAT_NUMBER")
     protected String vatNumber;
 
     @Email(message = "Not an email!")
