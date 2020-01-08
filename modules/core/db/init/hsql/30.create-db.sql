@@ -499,3 +499,138 @@ INSERT INTO PUBLIC.SEC_FILTER (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UP
 </filter>
 ', '60885987-1b61-4247-94c7-dff348347f93', false);
 --end sec_filter data
+
+--begin sec_user_setting data
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('12579df6-4fd8-ff69-a855-04aad2a0d97a', '2019-12-31 21:32:11.567000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Employee.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="filter">
+      <defaultFilter/>
+    </component>
+    <component name="employeesTable" presentation=""/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('284c5d91-ade2-00cf-a283-aec0eddb13d8', '2020-01-01 18:16:00.681000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Education.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="filter">
+      <defaultFilter/>
+    </component>
+    <component name="educationsTable" presentation=""/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('37e00d06-822f-df27-a451-540a8c65b739', '2020-01-01 19:24:31.402000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'sys$ScheduledTask.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="tasksFilter">
+      <defaultFilter/>
+    </component>
+    <component name="tasksTable" presentation=""/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('5fbf9fa4-3bb3-dae2-0511-e57b195aed6a', '2020-01-01 00:43:35.715000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_ContactPerson.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="filter">
+      <defaultFilter/>
+    </component>
+    <component name="contactPersonsTable" presentation=""/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('75690f4c-aaa7-ab54-5ca9-1def3a50aced', '2019-12-31 21:31:57.626000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Country.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="filter">
+      <defaultFilter/>
+      <maxResults>50</maxResults>
+    </component>
+    <component name="countriesTable" presentation=""/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('7aba3bf2-910c-c88a-e75b-b39309d005c3', '2020-01-01 19:03:55.598000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Skill.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="filter">
+      <defaultFilter/>
+      <maxResults>50</maxResults>
+    </component>
+    <component name="skillsTable" presentation=""/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('a7719c7f-1633-3b62-e695-667265be7eea', '2020-01-01 18:15:33.055000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_City.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="filter">
+      <defaultFilter/>
+    </component>
+    <component name="citiesTable"/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('d0b8547d-930b-5d1b-2c28-fd1fd344128f', '2020-01-01 18:57:46.085000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'appProperties', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="paramsTable">
+      <columns sortProperty="name" sortAscending="true">
+        <columns id="name" width="309" visible="true"/>
+        <columns id="displayedCurrentValue" width="264" visible="true"/>
+        <columns id="updateTs" width="297" visible="true"/>
+        <columns id="updatedBy" width="302" visible="true"/>
+      </columns>
+    </component>
+    <component name="hintBox"/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('d2d5acfd-c4ff-6a23-96dc-c183a1099dd7', '2019-12-31 21:32:20.217000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Client.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="filter">
+      <defaultFilter/>
+    </component>
+    <component name="clientsTable" presentation=""/>
+  </components>
+</settings>
+');
+INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('f63dd3f4-7f2d-0061-4a88-f550debd5cf6', '2019-12-31 21:32:28.239000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Product.browse', '<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <components>
+    <component name="filter">
+      <defaultFilter/>
+    </component>
+    <component name="productsTable" presentation=""/>
+  </components>
+</settings>
+');
+--end sec_user_setting data
+
+--begin sys_config data
+INSERT INTO PUBLIC.SYS_CONFIG (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, NAME, VALUE_) VALUES ('a9c712ff-4927-764c-9612-aa5bf3a01f30', '2020-01-01 18:56:13.677000', 'admin', 1, '2020-01-01 18:56:13.677000', null, 'fts.enabled', 'true');
+--end sys_config data
+
+--begin sys_scheduled_task data
+INSERT INTO PUBLIC.SYS_SCHEDULED_TASK (ID, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, BEAN_NAME, METHOD_NAME, METHOD_PARAMS, DEFINED_BY, CLASS_NAME, SCRIPT_NAME, USER_NAME, IS_SINGLETON, IS_ACTIVE, PERIOD_, TIMEOUT, START_DATE, TIME_FRAME, START_DELAY, PERMITTED_SERVERS, LOG_START, LOG_FINISH, LAST_START_TIME, LAST_START_SERVER, DESCRIPTION, CRON, SCHEDULING_TYPE) VALUES ('0f5c2c9d-e88e-f87a-7c35-917dc2698779', '2020-01-01 19:17:19.598000', 'admin', '2020-01-01 22:06:43.407000', 'admin', null, null, 'cuba_FtsManager', 'processQueue', '<?xml version="1.0" encoding="UTF-8"?>
+
+<params/>
+', 'B', null, null, null, true, true, 30, null, null, null, null, null, null, null, '2020-01-01 22:06:43.406000', 'localhost:8080/app-core', null, null, 'P');
+--end sys_scheduled_task data
+
+--begin sys_server data
+INSERT INTO PUBLIC.SYS_SERVER (ID, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, NAME, IS_RUNNING, DATA) VALUES ('cdd92020-1417-e163-adb4-f50da045cdcf', '2019-12-31 21:31:44.638000', null, '2020-01-01 22:05:30.060000', null, 'localhost:8080/app-core', true, null);
+--end sys_server data
