@@ -1,5 +1,6 @@
 package com.company.erp.entity.general.superclasses;
 
+import com.company.erp.entity.general.enums.GenderSelect;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
@@ -28,6 +29,10 @@ public class Person extends StandardEntity {
 
     @Column(name = "FULL_NAME",nullable = false)
     protected String fullName;
+
+    @NotNull
+    @Column(name = "GENDER", nullable = false)
+    protected Integer gender;
 
     @Column(name = "MOBILE_PHONE", unique = true)
     protected String mobilePhone;
@@ -93,4 +98,11 @@ public class Person extends StandardEntity {
         this.email = email;
     }
 
+    public void setGender(GenderSelect gender) {
+        this.gender = gender == null ? null : gender.getId();
+    }
+
+    public GenderSelect getGender() {
+        return gender == null ? null : GenderSelect.fromId(gender);
+    }
 }
