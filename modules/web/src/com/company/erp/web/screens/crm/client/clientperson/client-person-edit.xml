@@ -36,8 +36,8 @@
                     <textField id="faxNumberField" property="faxNumber"/>
                     <textField id="emailField" property="email"/>
                     <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
-                    <textField id="shippingAddressField" property="shippingAddress"/>
-                    <textField id="billingAddressField" property="billingAddress"/>
+                    <resizableTextArea id="shippingAddressField" property="shippingAddress"/>
+                    <resizableTextArea id="billingAddressField" property="billingAddress"/>
                     <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
                     <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
                 </column>
