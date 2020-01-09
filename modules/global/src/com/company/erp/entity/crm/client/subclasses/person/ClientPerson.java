@@ -1,9 +1,11 @@
 package com.company.erp.entity.crm.client.subclasses.person;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
+import com.company.erp.entity.general.enums.GenderSelect;
 import com.haulmont.chile.core.annotations.NamePattern;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @NamePattern("%s %s %s|lastName,firstName,middleName")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
@@ -38,12 +40,25 @@ public class ClientPerson extends Client {
     @Column(name = "LAST_NAME", nullable = false)
     protected String lastName;
 
+
     public String getLastName() {
         return lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @NotNull
+    @Column(name = "GENDER", nullable = false)
+    protected Integer gender;
+
+    public void setGender(GenderSelect gender) {
+        this.gender = gender == null ? null : gender.getId();
+    }
+
+    public GenderSelect getGender() {
+        return gender == null ? null : GenderSelect.fromId(gender);
     }
 
     @Column(name = "MOBILE_PHONE")
