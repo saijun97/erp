@@ -24,6 +24,7 @@
                 <lookupField id="genderField" property="gender" caption="Gender"/>
                 <textField id="mobilePhoneField" property="mobilePhone"/>
                 <textField id="homePhoneField" property="homePhone"/>
+                <textField id="workPhoneField" property="workPhone"/>
                 <textField id="emailField" property="email"/>
             </column>
         </form>
