@@ -34,14 +34,14 @@ public class Person extends StandardEntity {
     @Column(name = "GENDER", nullable = false)
     protected Integer gender;
 
-    @Column(name = "MOBILE_PHONE", unique = true)
+    @Column(name = "MOBILE_PHONE")
     protected String mobilePhone;
 
     @Column(name = "HOME_PHONE")
     protected String homePhone;
 
     @Email(message = "Not an email!")
-    @Column(name = "EMAIL", unique = true)
+    @Column(name = "EMAIL")
     protected String email;
 
     public String getLastName() {
