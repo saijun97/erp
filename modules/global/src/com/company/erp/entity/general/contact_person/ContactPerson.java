@@ -7,6 +7,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,10 +20,21 @@ import java.util.List;
 public class ContactPerson extends Person {
     private static final long serialVersionUID = -4028025489066728451L;
 
+    @Column(name = "WORK_PHONE")
+    protected String workPhone;
+
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "contactPerson")
     protected List<Company_ContactPersons> clientCompany;
+
+    public String getWorkPhone() {
+        return workPhone;
+    }
+
+    public void setWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+    }
 
     public List<Company_ContactPersons> getClientCompany() {
         return clientCompany;
