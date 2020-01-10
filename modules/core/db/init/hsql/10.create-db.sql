@@ -242,6 +242,7 @@ create table ERP_PERSON (
     MIDDLE_NAME varchar(255),
     LAST_NAME varchar(255) not null,
     FULL_NAME varchar(255) not null,
+    GENDER integer not null,
     MOBILE_PHONE varchar(255),
     HOME_PHONE varchar(255),
     EMAIL varchar(255),
@@ -369,7 +370,6 @@ create table ERP_EMPLOYEE (
     --
     EMP_ID varchar(255) not null,
     NIC varchar(255),
-    GENDER integer not null,
     DOB date not null,
     NATIONALITY_ID varchar(36),
     COUNTRY_OF_RESIDENCE_ID varchar(36),
@@ -387,6 +387,8 @@ create table ERP_EMPLOYEE (
 create table ERP_CONTACT_PERSON (
     ID varchar(36) not null,
     --
+    WORK_PHONE varchar(255),
+    --
     primary key (ID)
 )^
 -- end ERP_CONTACT_PERSON
@@ -397,6 +399,7 @@ create table ERP_CLIENT_PERSON (
     FIRST_NAME varchar(255) not null,
     MIDDLE_NAME varchar(255),
     LAST_NAME varchar(255) not null,
+    GENDER integer not null,
     MOBILE_PHONE varchar(255),
     HOME_PHONE varchar(255),
     WORK_PHONE varchar(255),
