@@ -5,6 +5,7 @@ import com.company.erp.entity.crm.client.superclasses.Client;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.annotation.CaseConversion;
+import com.haulmont.cuba.core.entity.annotation.ConversionType;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
@@ -27,10 +28,11 @@ public class ClientCompany extends Client {
     @Column(name = "COMPANY_ADDRESS")
     protected String companyAddress;
 
+    @CaseConversion(type = ConversionType.UPPER)
     @Column(name = "BRN", unique = true)
     protected String brn;
 
-    @CaseConversion
+    @CaseConversion(type = ConversionType.UPPER)
     @Column(name = "VAT_NUMBER")
     protected String vatNumber;
 
