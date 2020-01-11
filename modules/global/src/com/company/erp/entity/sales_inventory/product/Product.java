@@ -1,8 +1,12 @@
 package com.company.erp.entity.sales_inventory.product;
 
 import com.company.erp.entity.general.superclasses.Item;
+import com.company.erp.entity.sales_inventory.product.master_data.make_manufacturer.Make_Manufacturer;
+import com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory;
 import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.annotation.Lookup;
+import com.haulmont.cuba.core.entity.annotation.LookupType;
 
 import javax.persistence.*;
 
@@ -14,6 +18,16 @@ import javax.persistence.*;
 public class Product extends Item {
 
     private static final long serialVersionUID = -301243273538645092L;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_CATEGORY_ID")
+    protected ProductCategory productCategory;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MAKE_MANUFACTURER_ID")
+    protected Make_Manufacturer make_manufacturer;
 
     @Column(name = "QTY_STORE1")
     protected Integer qtyStore1;
@@ -27,6 +41,22 @@ public class Product extends Item {
     @Transient
     @MetaProperty(related = {"qtyStore1", "qtyStore2", "qtyStore3"})
     protected Integer qtyTotal;
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public Make_Manufacturer getMake_manufacturer() {
+        return make_manufacturer;
+    }
+
+    public void setMake_manufacturer(Make_Manufacturer make_manufacturer) {
+        this.make_manufacturer = make_manufacturer;
+    }
 
     public Integer getQtyTotal() { return qtyTotal; }
 

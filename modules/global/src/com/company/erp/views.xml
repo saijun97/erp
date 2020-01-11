@@ -87,6 +87,8 @@
         <property name="country" view="_minimal"/>
     </view>
     <view entity="erp_Product" name="product-view-details" extends="_local">
+        <property name="productCategory" view="_minimal"/>
+        <property name="make_manufacturer" view="_minimal"/>
         <property name="qtyTotal"/>
     </view>
 
