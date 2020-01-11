@@ -1,4 +1,4 @@
-package com.company.erp.entity.crm.order;
+package com.company.erp.entity.inventory.order;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.haulmont.chile.core.annotations.NamePattern;
