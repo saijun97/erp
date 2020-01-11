@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="productCategoriesTable"
+        messagesPack="com.company.erp.web.screens.sales_inventory.product.master_data.productcategory">
+    <data readOnly="true">
+        <collection id="productCategoriesDc"
+                    class="com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory"
+                    view="_local">
+            <loader id="productCategoriesDl">
+                <query>
+                    <![CDATA[select e from erp_ProductCategory e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="productCategoriesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="productCategoriesTable"
+                dataLoader="productCategoriesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="productCategoriesTable"
+                    width="100%"
+                    dataContainer="productCategoriesDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="productCategoriesTable.create"/>
+                <button id="editBtn" action="productCategoriesTable.edit"/>
+                <button id="removeBtn" action="productCategoriesTable.remove"/>
+                <button id="excelBtn" action="productCategoriesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
