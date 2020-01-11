@@ -16,8 +16,7 @@
     <menu id="crm" insertBefore="administration" insertAfter="hrm">
             <item screen="erp_Client.browse"/>
     </menu>
-    <menu id="inventory" insertBefore="administration" insertAfter="hrm">
-        <item screen="erp_Product.browse"/>
+    <menu id="sales_inventory" insertBefore="administration" insertAfter="hrm">
     </menu>
     <menu id="general" insertBefore="administration" insertAfter="hrm">
         <item screen="erp_ContactPerson.browse"/>
