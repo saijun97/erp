@@ -13,10 +13,7 @@ import com.company.erp.entity.hrm.job_positions.Job_Position;
 import com.company.erp.entity.hrm.qualifications.work_exp.Work_Experience;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.core.entity.annotation.CaseConversion;
-import com.haulmont.cuba.core.entity.annotation.Lookup;
-import com.haulmont.cuba.core.entity.annotation.LookupType;
-import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.entity.annotation.*;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 
@@ -35,8 +32,8 @@ import java.util.List;
 public class Employee extends Person {
     private static final long serialVersionUID = 5786142805887575707L;
 
-    @CaseConversion
-    @NotNull
+    @CaseConversion(type = ConversionType.UPPER)
+    @NotNull(message = "Please enter employee ID!")
     @Column(name = "EMP_ID", nullable = false, unique = true)
     protected String empId;
 
@@ -45,7 +42,7 @@ public class Employee extends Person {
 
     @Past(message = "Date of birth should be in the past.")
     @Temporal(TemporalType.DATE)
-    @NotNull
+    @NotNull(message = "Please enter date of birth!")
     @Column(name = "DOB", nullable = false)
     protected Date dob;
 
