@@ -1,4 +1,4 @@
-package com.company.erp.entity.inventory;
+package com.company.erp.entity.inventory.product;
 
 import com.company.erp.entity.general.superclasses.Item;
 import com.haulmont.chile.core.annotations.MetaProperty;
