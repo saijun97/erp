@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.sales_inventory.product">
+    <data>
+        <instance id="productDc"
+                  class="com.company.erp.entity.sales_inventory.product.Product"
+                  view="product-view-details">
+            <loader/>
+        </instance>
+        <collection id="productCategoriesDc"
+                    class="com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory"
+                    view="_minimal">
+            <loader id="productCategoriesLc">
+                <query>
+                    <![CDATA[select e from erp_ProductCategory e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="make_manufacturersDc"
+                    class="com.company.erp.entity.sales_inventory.product.master_data.make_manufacturer.Make_Manufacturer"
+                    view="_minimal">
+            <loader id="make_manufacturersLc">
+                <query>
+                    <![CDATA[select e from erp_Make_Manufacturer e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="productDc">
+            <column width="250px">
+                <textField id="itemField" property="item"/>
+                <textArea id="descriptionField" property="description" rows="5"/>
+                <textField id="costField" property="cost"/>
+                <textField id="priceField" property="price"/>
+                <lookupPickerField id="productCategoryField" optionsContainer="productCategoriesDc"
+                                   property="productCategory">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <lookupPickerField id="make_manufacturerField" optionsContainer="make_manufacturersDc"
+                                   property="make_manufacturer">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="qtyStore1Field" property="qtyStore1"/>
+                <textField id="qtyStore2Field" property="qtyStore2"/>
+                <textField id="qtyStore3Field" property="qtyStore3"/>
+                <textField id="qtyTotalField" property="qtyTotal"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="make_ManufacturersTable"
+        messagesPack="com.company.erp.web.screens.sales_inventory.product.master_data.make_manufacturer">
+    <data readOnly="true">
+        <collection id="make_ManufacturersDc"
+                    class="com.company.erp.entity.sales_inventory.product.master_data.make_manufacturer.Make_Manufacturer"
+                    view="_local">
+            <loader id="make_ManufacturersDl">
+                <query>
+                    <![CDATA[select e from erp_Make_Manufacturer e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="make_ManufacturersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="make_ManufacturersTable"
+                dataLoader="make_ManufacturersDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="make_ManufacturersTable"
+                    width="100%"
+                    dataContainer="make_ManufacturersDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="make_ManufacturersTable.create"/>
+                <button id="editBtn" action="make_ManufacturersTable.edit"/>
+                <button id="removeBtn" action="make_ManufacturersTable.remove"/>
+                <button id="excelBtn" action="make_ManufacturersTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
