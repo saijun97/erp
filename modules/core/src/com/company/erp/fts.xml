@@ -16,7 +16,7 @@
         <entity class="com.company.erp.entity.hrm.employee.joined.Employee_Language">
             <include re=".*"/>
         </entity>
-        <entity class="com.company.erp.entity.crm.order.Order">
+        <entity class="com.company.erp.entity.sales_inventory.order.Order">
             <include re=".*"/>
         </entity>
         <entity class="com.company.erp.entity.hrm.employee.joined.Employee_Skill">
@@ -43,7 +43,7 @@
         <entity class="com.company.erp.entity.crm.client.superclasses.Client">
             <include re=".*"/>
         </entity>
-        <entity class="com.company.erp.entity.inventory.Product">
+        <entity class="com.company.erp.entity.sales_inventory.product.Product">
             <include re=".*"/>
         </entity>
         <entity class="com.company.erp.entity.hrm.qualifications.license.License">
@@ -71,6 +71,18 @@
             <include re=".*"/>
         </entity>
         <entity class="com.company.erp.entity.crm.client.subclasses.company.ClientCompany">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.crm.srf.ServiceRequest">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.crm.srf.Equipment">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.sales_inventory.product.master_data.make_manufacturer.Make_Manufacturer">
             <include re=".*"/>
         </entity>
     </entities>
