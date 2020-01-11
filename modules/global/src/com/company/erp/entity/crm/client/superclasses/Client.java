@@ -23,7 +23,7 @@ public class Client extends StandardEntity {
     @Column(name = "DISPLAY_NAME")
     protected String displayName;
 
-    @Email(message = "Not an email!")
+    @Email(message = "Please enter a valid email address!")
     @Column(name = "EMAIL")
     protected String email;
 
