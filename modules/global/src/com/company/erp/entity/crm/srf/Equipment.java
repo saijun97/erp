@@ -1,0 +1,110 @@
+package com.company.erp.entity.crm.srf;
+
+import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.CaseConversion;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+
+@NamePattern("%s - %s|makeModel,status")
+@Table(name = "ERP_EQUIPMENT")
+@Entity(name = "erp_Equipment")
+public class Equipment extends StandardEntity {
+    private static final long serialVersionUID = -4511887263169691755L;
+
+    @NotNull(message = "Please enter the make and model of equipment!")
+    @Column(name = "MAKE_MODEL", nullable = false)
+    protected String makeModel;
+
+    @CaseConversion
+    @Column(name = "SERIAL_NUMBER")
+    protected String serialNumber;
+
+    @Lob
+    @Column(name = "VISIBLE_DEFECT")
+    protected String visibleDefect;
+
+    @Lob
+    @Column(name = "PROBLEM_DESCRIPTION")
+    protected String problemDescription;
+
+    @Lob
+    @Column(name = "TECHNICIAN_REPORT")
+    protected String technicianReport;
+
+    @Column(name = "PRICE")
+    protected BigDecimal price;
+
+    @Column(name = "STATUS", nullable = false)
+    protected String status;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "SERVICE_REQUEST_ID")
+    protected ServiceRequest serviceRequest;
+
+    public ServiceRequest getServiceRequest() {
+        return serviceRequest;
+    }
+
+    public void setServiceRequest(ServiceRequest serviceRequest) {
+        this.serviceRequest = serviceRequest;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public String getTechnicianReport() {
+        return technicianReport;
+    }
+
+    public void setTechnicianReport(String technicianReport) {
+        this.technicianReport = technicianReport;
+    }
+
+    public String getProblemDescription() {
+        return problemDescription;
+    }
+
+    public void setProblemDescription(String problemDescription) {
+        this.problemDescription = problemDescription;
+    }
+
+    public String getVisibleDefect() {
+        return visibleDefect;
+    }
+
+    public void setVisibleDefect(String visibleDefect) {
+        this.visibleDefect = visibleDefect;
+    }
+
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
+    public String getMakeModel() {
+        return makeModel;
+    }
+
+    public void setMakeModel(String makeModel) {
+        this.makeModel = makeModel;
+    }
+}
