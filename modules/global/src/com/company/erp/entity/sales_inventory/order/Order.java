@@ -14,13 +14,13 @@ import javax.persistence.*;
 public class Order extends StandardEntity {
     private static final long serialVersionUID = -9089137288481687275L;
 
+    @Column(name = "ORDER_NUM", nullable = false, unique = false)
+    protected String orderNum;
+
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CLIENT_ID")
     protected Client client;
-
-    @Column(name = "ORDER_NUM", nullable = false)
-    protected String orderNum;
 
     public String getOrderNum() {
         return orderNum;
