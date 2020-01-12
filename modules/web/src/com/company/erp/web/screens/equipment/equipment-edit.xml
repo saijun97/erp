@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.equipment">
+    <data>
+        <instance id="equipmentDc"
+                  class="com.company.erp.entity.crm.srf.Equipment"
+                  view="equipment-view-details">
+            <loader/>
+        </instance>
+        <collection id="productCategoriesDc"
+                    class="com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory"
+                    view="_minimal">
+            <loader id="productCategoriesLc">
+                <query>
+                    <![CDATA[select e from erp_ProductCategory e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="equipmentDc">
+            <column width="250px">
+                <lookupPickerField id="productCategoryField" optionsContainer="productCategoriesDc"
+                                   property="productCategory">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="makeModelField" property="makeModel"/>
+                <textField id="serialNumberField" property="serialNumber"/>
+                <textArea id="visibleDefectField" property="visibleDefect" rows="5"/>
+                <textArea id="problemDescriptionField" property="problemDescription" rows="5"/>
+                <textArea id="technicianReportField" property="technicianReport" rows="5"/>
+                <textField id="priceField" property="price"/>
+                <textField id="statusField" property="status"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
