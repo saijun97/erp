@@ -2,6 +2,7 @@
 <metadata xmlns="http://schemas.haulmont.com/cuba/metadata.xsd">
 
     <metadata-model root-package="com.company.erp" namespace="erp">
+        <class>com.company.erp.entity.general.embeddables.PersonName</class>
     </metadata-model>
 
 </metadata>
