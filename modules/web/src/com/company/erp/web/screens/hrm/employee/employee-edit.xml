@@ -64,9 +64,9 @@
                             <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
                             <textField id="nicField" property="nic" caption="NIC"/>
                             <textField id="fullNameField" property="fullName" visible="false"/>
-                            <textField id="firstNameField" property="firstName"/>
-                            <textField id="middleNameField" property="middleName"/>
-                            <textField id="lastNameField" property="lastName"/>
+                            <textField id="firstNameField" property="name.firstName"/>
+                            <textField id="middleNameField" property="name.middleName"/>
+                            <textField id="lastNameField" property="name.lastName"/>
                             <lookupField id="genderField" property="gender" caption="Gender"/>
                             <dateField id="dobField" property="dob" caption="Date Of Birth"/>
                             <lookupPickerField id="nationalityField" property="nationality"

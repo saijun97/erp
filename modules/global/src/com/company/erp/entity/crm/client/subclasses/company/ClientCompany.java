@@ -13,7 +13,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.List;
 
-@NamePattern("%s|companyName")
+@NamePattern("%s|displayName")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
 @DiscriminatorValue("COMPANY")
 @Table(name = "ERP_CLIENT_COMPANY")
