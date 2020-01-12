@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Order extends StandardEntity {
     private static final long serialVersionUID = -9089137288481687275L;
 
-    @Column(name = "ORDER_NUM", nullable = false, unique = false)
+    @Column(name = "ORDER_NUM", nullable = false, unique = true)
     protected String orderNum;
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
