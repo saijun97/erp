@@ -27,9 +27,9 @@
             <form id="form" dataContainer="clientPersonDc">
                 <column width="250px">
                     <textField id="displayNameField" property="displayName" visible="false"/>
-                    <textField id="firstNameField" property="firstName"/>
-                    <textField id="middleNameField" property="middleName"/>
-                    <textField id="lastNameField" property="lastName"/>
+                    <textField id="firstNameField" property="name.firstName"/>
+                    <textField id="middleNameField" property="name.middleName"/>
+                    <textField id="lastNameField" property="name.lastName"/>
                     <lookupField id="genderField" property="gender"/>
                     <textField id="mobilePhoneField" property="mobilePhone"/>
                     <textField id="homePhoneField" property="homePhone"/>

@@ -1,8 +1,10 @@
 package com.company.erp.entity.general.superclasses;
 
+import com.company.erp.entity.general.embeddables.PersonName;
 import com.company.erp.entity.general.enums.GenderSelect;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.EmbeddedParameters;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -16,16 +18,14 @@ import javax.validation.constraints.NotNull;
 public class Person extends StandardEntity {
     private static final long serialVersionUID = 6929497339503047073L;
 
-    @NotNull
-    @Column(name = "FIRST_NAME", nullable = false)
-    protected String firstName;
-
-    @Column(name = "MIDDLE_NAME")
-    protected String middleName;
-
-    @NotNull
-    @Column(name = "LAST_NAME", nullable = false)
-    protected String lastName;
+    @Embedded
+    @EmbeddedParameters(nullAllowed = false)
+    @AttributeOverrides({
+            @AttributeOverride(name = "firstName", column = @Column(name = "NAME_FIRST_NAME")),
+            @AttributeOverride(name = "middleName", column = @Column(name = "NAME_MIDDLE_NAME")),
+            @AttributeOverride(name = "lastName", column = @Column(name = "NAME_LAST_NAME"))
+    })
+    protected PersonName name;
 
     @Column(name = "FULL_NAME",nullable = false)
     protected String fullName;
@@ -44,28 +44,12 @@ public class Person extends StandardEntity {
     @Column(name = "EMAIL")
     protected String email;
 
-    public String getLastName() {
-        return lastName;
+    public PersonName getName() {
+        return name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(PersonName name) {
+        this.name = name;
     }
 
     public String getHomePhone() {

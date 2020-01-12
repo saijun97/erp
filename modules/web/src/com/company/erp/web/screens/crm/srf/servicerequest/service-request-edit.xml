@@ -19,9 +19,7 @@
             </loader>
         </collection>
     </data>
-    <dialogMode height="AUTO"
-                width="AUTO"
-                modal="true"
+    <dialogMode modal="true"
                 forceDialog="true"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">

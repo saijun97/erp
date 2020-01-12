@@ -1,13 +1,15 @@
 package com.company.erp.entity.crm.client.subclasses.person;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
+import com.company.erp.entity.general.embeddables.PersonName;
 import com.company.erp.entity.general.enums.GenderSelect;
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.annotation.EmbeddedParameters;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@NamePattern("%s %s %s|lastName,firstName,middleName")
+@NamePattern("%s|displayName")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
 @DiscriminatorValue("PERSON")
 @Table(name = "ERP_CLIENT_PERSON")
@@ -15,39 +17,14 @@ import javax.validation.constraints.NotNull;
 public class ClientPerson extends Client {
     private static final long serialVersionUID = 3109903081173547114L;
 
-    @Column(name = "FIRST_NAME", nullable = false)
-    protected String firstName;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    @Column(name = "MIDDLE_NAME")
-    protected String middleName;
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    @Column(name = "LAST_NAME", nullable = false)
-    protected String lastName;
-
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    @Embedded
+    @EmbeddedParameters(nullAllowed = false)
+    @AttributeOverrides({
+            @AttributeOverride(name = "firstName", column = @Column(name = "NAME_FIRST_NAME")),
+            @AttributeOverride(name = "middleName", column = @Column(name = "NAME_MIDDLE_NAME")),
+            @AttributeOverride(name = "lastName", column = @Column(name = "NAME_LAST_NAME"))
+    })
+    protected PersonName name;
 
     @NotNull
     @Column(name = "GENDER", nullable = false)
@@ -85,6 +62,14 @@ public class ClientPerson extends Client {
 
     @Column(name = "WORK_PHONE")
     protected String workPhone;
+
+    public PersonName getName() {
+        return name;
+    }
+
+    public void setName(PersonName name) {
+        this.name = name;
+    }
 
     public String getWorkPhone() {
         return workPhone;
