@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="serviceRequestsTable"
+        messagesPack="com.company.erp.web.screens.crm.srf.servicerequest">
+    <data readOnly="true">
+        <collection id="serviceRequestsDc"
+                    class="com.company.erp.entity.crm.srf.ServiceRequest"
+                    view="serviceRequest-view-details">
+            <loader id="serviceRequestsDl">
+                <query>
+                    <![CDATA[select e from erp_ServiceRequest e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="serviceRequestsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="serviceRequestsTable"
+                dataLoader="serviceRequestsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="serviceRequestsTable"
+                    width="100%"
+                    dataContainer="serviceRequestsDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="referenceNumber"/>
+                <column id="existingClient"/>
+                <column id="customerName"/>
+                <column id="mobilePhone"/>
+                <column id="homePhone"/>
+                <column id="workPhone"/>
+                <column id="email"/>
+                <column id="address"/>
+                <column id="invoiceNumber"/>
+                <column id="totalPrice"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="serviceRequestsTable.create"/>
+                <button id="editBtn" action="serviceRequestsTable.edit"/>
+                <button id="removeBtn" action="serviceRequestsTable.remove"/>
+                <button id="excelBtn" action="serviceRequestsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

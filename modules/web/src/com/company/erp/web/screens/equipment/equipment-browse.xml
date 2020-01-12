@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="equipmentsTable"
+        messagesPack="com.company.erp.web.screens.equipment">
+    <data readOnly="true">
+        <collection id="equipmentsDc"
+                    class="com.company.erp.entity.crm.srf.Equipment"
+                    view="equipment-view-details">
+            <loader id="equipmentsDl">
+                <query>
+                    <![CDATA[select e from erp_Equipment e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="equipmentsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="equipmentsTable"
+                dataLoader="equipmentsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="equipmentsTable"
+                    width="100%"
+                    dataContainer="equipmentsDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="productCategory"/>
+                <column id="makeModel"/>
+                <column id="serialNumber"/>
+                <column id="visibleDefect"/>
+                <column id="problemDescription"/>
+                <column id="technicianReport"/>
+                <column id="price"/>
+                <column id="status"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="equipmentsTable.create"/>
+                <button id="editBtn" action="equipmentsTable.edit"/>
+                <button id="removeBtn" action="equipmentsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
