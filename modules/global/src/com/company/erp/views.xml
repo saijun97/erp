@@ -91,5 +91,19 @@
         <property name="make_manufacturer" view="_minimal"/>
         <property name="qtyTotal"/>
     </view>
+    <view entity="erp_Equipment" name="equipment-view-details" extends="_local">
+        <property name="productCategory" view="_minimal"/>
+    </view>
+    <view entity="erp_ServiceRequest" name="serviceRequest-view-details" extends="_local">
+        <property name="existingClient" view="_minimal"/>
+        <property name="equipment" view="_minimal">
+            <property name="productCategory" view="_minimal"/>
+            <property name="serialNumber"/>
+            <property name="visibleDefect"/>
+            <property name="problemDescription"/>
+            <property name="technicianReport"/>
+            <property name="price"/>
+        </property>
+    </view>
 
 </views>

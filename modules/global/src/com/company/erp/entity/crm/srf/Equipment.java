@@ -1,8 +1,11 @@
 package com.company.erp.entity.crm.srf;
 
+import com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.CaseConversion;
+import com.haulmont.cuba.core.entity.annotation.Lookup;
+import com.haulmont.cuba.core.entity.annotation.LookupType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,6 +16,11 @@ import java.math.BigDecimal;
 @Entity(name = "erp_Equipment")
 public class Equipment extends StandardEntity {
     private static final long serialVersionUID = -4511887263169691755L;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_CATEGORY_ID")
+    protected ProductCategory productCategory;
 
     @NotNull(message = "Please enter the make and model of equipment!")
     @Column(name = "MAKE_MODEL", nullable = false)
@@ -43,6 +51,14 @@ public class Equipment extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "SERVICE_REQUEST_ID")
     protected ServiceRequest serviceRequest;
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
+    }
 
     public ServiceRequest getServiceRequest() {
         return serviceRequest;
