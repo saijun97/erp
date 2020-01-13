@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
 
-    <menu id="hrm"  insertBefore="administration">
-        <item screen="erp_Employee.browse"/>
-        <item screen="erp_Department.browse"/>
-        <menu id="qualifications">
+    <menu id="hrm"  insertBefore="administration" icon="font-icon:BRIEFCASE">
+        <item screen="erp_Employee.browse" icon="font-icon:ID_BADGE"/>
+        <menu id="qualifications" icon="font-icon:GRADUATION_CAP">
             <item screen="erp_Skill.browse"/>
             <item screen="erp_Education.browse"/>
             <item screen="erp_Language.browse"/>
             <item screen="erp_License.browse"/>
         </menu>
-        <item screen="erp_Job_Position.browse"/>
+        <menu id="hrmMasterData" icon="font-icon:DATABASE">
+            <item screen="erp_Department.browse"/>
+            <item screen="erp_Job_Position.browse"/>
+        </menu>
 
     </menu>
-    <menu id="crm" insertBefore="administration" insertAfter="hrm">
-            <item screen="erp_Client.browse"/>
-        <item screen="erp_ServiceRequest.browse"/>
+    <menu id="crm" insertBefore="administration" insertAfter="hrm" icon="font-icon:HANDSHAKE_O">
+            <item screen="erp_Client.browse" icon="font-icon:GROUP"/>
+        <item screen="erp_ServiceRequest.browse" icon="font-icon:GEARS"/>
     </menu>
-    <menu id="sales_inventory" insertBefore="administration" insertAfter="hrm">
-        <item screen="erp_Product.browse"/>
+
+    <menu id="sales_inventory" insertBefore="administration" insertAfter="hrm" icon="font-icon:BOOK">
+        <menu id="productManagement" icon="font-icon:DROPBOX">
+        <item screen="erp_Product.browse" icon="font-icon:PRODUCT_HUNT"/>
+        <menu id="productMasterData" icon="font-icon:DATABASE">
         <item screen="erp_Make_Manufacturer.browse"/>
         <item screen="erp_ProductCategory.browse"/>
+        </menu>
+        </menu>
     </menu>
+
     <menu id="general" insertBefore="administration" insertAfter="hrm">
-        <item screen="erp_ContactPerson.browse"/>
-         <item screen="erp_Country.browse"/>
+        <item screen="erp_ContactPerson.browse" icon="font-icon:ADDRESS_BOOK"/>
+        <menu id="generalMasterData" icon="font-icon:DATABASE">
+        <item screen="erp_Country.browse"/>
+        </menu>
     </menu>
 
 </menu-config>
