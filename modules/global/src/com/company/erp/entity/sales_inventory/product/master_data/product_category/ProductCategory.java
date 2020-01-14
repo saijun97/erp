@@ -2,8 +2,6 @@ package com.company.erp.entity.sales_inventory.product.master_data.product_categ
 
 import com.company.erp.entity.general.superclasses.NamedEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.core.entity.StandardEntity;
-import jdk.jfr.Name;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

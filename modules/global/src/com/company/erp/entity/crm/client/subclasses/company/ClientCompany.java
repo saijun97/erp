@@ -29,7 +29,7 @@ public class ClientCompany extends Client {
     protected String companyAddress;
 
     @CaseConversion(type = ConversionType.UPPER)
-    @Column(name = "BRN", unique = true)
+    @Column(name = "BRN")
     protected String brn;
 
     @CaseConversion(type = ConversionType.UPPER)
