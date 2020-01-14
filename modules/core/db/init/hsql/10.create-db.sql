@@ -60,6 +60,27 @@ create table ERP_SERVICE_REQUEST (
     primary key (ID)
 )^
 -- end ERP_SERVICE_REQUEST
+-- begin ERP_WORK_EXPERIENCE
+create table ERP_WORK_EXPERIENCE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    COMPANY varchar(255) not null,
+    JOB_TITLE varchar(255) not null,
+    START_DATE date,
+    END_DATE date,
+    COMMENT_ longvarchar,
+    EMPLOYEE_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_WORK_EXPERIENCE
 -- begin ERP_COMPANY_CONTACT_PERSONS
 create table ERP_COMPANY_CONTACT_PERSONS (
     ID varchar(36) not null,
@@ -80,26 +101,6 @@ create table ERP_COMPANY_CONTACT_PERSONS (
     primary key (ID)
 )^
 -- end ERP_COMPANY_CONTACT_PERSONS
--- begin ERP_WORK_EXPERIENCE
-create table ERP_WORK_EXPERIENCE (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    COMPANY varchar(255) not null,
-    JOB_TITLE varchar(255) not null,
-    START_DATE date,
-    END_DATE date,
-    COMMENT_ longvarchar,
-    --
-    primary key (ID)
-)^
--- end ERP_WORK_EXPERIENCE
 -- begin ERP_EMPLOYEE_LANGUAGE
 create table ERP_EMPLOYEE_LANGUAGE (
     ID varchar(36) not null,
@@ -111,6 +112,7 @@ create table ERP_EMPLOYEE_LANGUAGE (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    EMPLOYEE_ID varchar(36) not null,
     LANGUAGE_ID varchar(36) not null,
     FLUENCY varchar(255) not null,
     COMPETENCY varchar(255) not null,
@@ -130,6 +132,7 @@ create table ERP_EMPLOYEE_SKILL (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    EMPLOYEE_ID varchar(36) not null,
     SKILL_ID varchar(36) not null,
     YEARS_OF_EXPERIENCE integer,
     COMMENT longvarchar,
@@ -148,6 +151,7 @@ create table ERP_EMPLOYEE_EDUCATION (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    EMPLOYEE_ID varchar(36) not null,
     EDUCATION_ID varchar(36) not null,
     INSTITUTE varchar(255) not null,
     MAJOR_SPECIALIZATION varchar(255),
@@ -239,6 +243,7 @@ create table ERP_EMPLOYEE_LICENSE (
     DELETED_BY varchar(50),
     --
     LICENSE_ID varchar(36) not null,
+    EMPLOYEE_ID varchar(36) not null,
     LICENSE_NUMBER varchar(255) not null,
     ISSUED_DATE date,
     EXPIRY_DATE date,
@@ -362,21 +367,6 @@ create table ERP_LICENSE (
     primary key (ID)
 )^
 -- end ERP_LICENSE
--- begin ERP_LANGUAGE
-create table ERP_LANGUAGE (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    NAME varchar(255) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_LANGUAGE
 -- begin ERP_EDUCATION
 create table ERP_EDUCATION (
     ID varchar(36) not null,
@@ -392,6 +382,21 @@ create table ERP_EDUCATION (
     primary key (ID)
 )^
 -- end ERP_EDUCATION
+-- begin ERP_LANGUAGE
+create table ERP_LANGUAGE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_LANGUAGE
 -- begin ERP_PRODUCT_CATEGORY
 create table ERP_PRODUCT_CATEGORY (
     ID varchar(36) not null,
@@ -441,6 +446,25 @@ create table ERP_JOB_POSITION (
     primary key (ID)
 )^
 -- end ERP_JOB_POSITION
+-- begin ERP_EMPLOYEE
+create table ERP_EMPLOYEE (
+    ID varchar(36) not null,
+    --
+    EMP_ID varchar(255) not null,
+    NIC varchar(255),
+    DOB date not null,
+    NATIONALITY_ID varchar(36),
+    COUNTRY_OF_RESIDENCE_ID varchar(36),
+    CITY_ID varchar(36),
+    STREET_ADDRESS_APARTMENT longvarchar,
+    ADDRESS longvarchar,
+    DEPARTMENT_ID varchar(36) not null,
+    SUBUNIT_ID varchar(36),
+    JOB_POSITION_ID varchar(36),
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE
 -- begin ERP_CONTACT_PERSON
 create table ERP_CONTACT_PERSON (
     ID varchar(36) not null,
