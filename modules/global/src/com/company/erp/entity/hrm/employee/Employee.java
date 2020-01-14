@@ -34,10 +34,10 @@ public class Employee extends Person {
 
     @CaseConversion(type = ConversionType.UPPER)
     @NotNull(message = "Please enter employee ID!")
-    @Column(name = "EMP_ID", nullable = false, unique = true)
+    @Column(name = "EMP_ID", nullable = false)
     protected String empId;
 
-    @Column(name = "NIC", unique = true)
+    @Column(name = "NIC")
     protected String nic;
 
     @Past(message = "Date of birth should be in the past.")
