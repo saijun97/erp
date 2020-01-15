@@ -23,13 +23,14 @@
         </collection>
     </data>
     <dialogMode modal="true"
-                forceDialog="true"/>
+                forceDialog="true" resizable="true" height="480px" width="886"/>
     <facets>
         <dataLoadCoordinator auto="true"/>
     </facets>
     <layout expand="editActions" spacing="true">
         <tabSheet id="tabSheet" width="100%">
             <tab id="tab1" caption="General Details" margin="true" spacing="true">
+                <hbox spacing="true" responsive="true" width="AUTO">
                 <form id="generalDetail" dataContainer="clientCompanyDc">
                     <column width="250px">
                         <textField id="displayNameField" property="displayName" visible="false"/>
@@ -41,6 +42,10 @@
                         <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
                         <textField id="alternatePhoneField" property="alternatePhone"/>
                         <textField id="faxNumberField" property="faxNumber"/>
+                    </column>
+                </form>
+                <form id="addressDetail" dataContainer="clientCompanyDc">
+                    <column width="250px">
                         <lookupPickerField id="countryField"
                                            property="country"
                                            optionsContainer="countriesDc">
@@ -58,19 +63,19 @@
                             </actions>
                         </lookupPickerField>
                         <textField id="companyAddressField" property="companyAddress"/>
-                        <textArea rows="5" id="shippingAddressField" property="shippingAddress" responsive="true"
-                                  resizable="true"/>
-                        <textArea rows="5" id="billingAddressField" property="billingAddress"
+                        <resizableTextArea rows="5" id="shippingAddressField" property="shippingAddress" responsive="true"/>
+                        <resizableTextArea rows="5" id="billingAddressField" property="billingAddress"
                                   caption="Invoice/Billing Address"/>
                     </column>
                 </form>
+                </hbox>
             </tab>
             <tab id="tab2" caption="Contact Persons" margin="true" spacing="true">
                 <form id="ContactPersonsDetail" dataContainer="clientCompanyDc">
                 </form>
                 <groupBox id="contactPersonBox"
                           caption="msg://com.company.erp.entity.crm.client.subclasses.company/ClientCompany.contactPerson">
-                    <table id="contactPersonTable" dataContainer="contactPersonDc" width="100%" height="200px">
+                    <table id="contactPersonTable" dataContainer="contactPersonDc" width="100%" height="250px">
                         <actions>
                             <action id="create" type="create"/>
                             <action id="edit" type="edit"/>
