@@ -20,7 +20,7 @@
             spacing="true">
         <filter id="filter"
                 applyTo="clientsTable"
-                dataLoader="clientsDl">
+                dataLoader="clientsDl" defaultMode="fts">
             <property name="displayName" caption="Name"/>
             <properties  include=".*"
                          excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
@@ -42,7 +42,7 @@
                 <column id="displayName" caption="Name"/>
                 <column id="email"/>
                 <column id="preferredContactPhone"/>
-                <column id="city"/>
+                <column id="city" />
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
