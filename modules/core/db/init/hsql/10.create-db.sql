@@ -94,7 +94,7 @@ create table ERP_COMPANY_CONTACT_PERSONS (
     --
     CLIENT_COMPANY_ID varchar(36) not null,
     CONTACT_PERSON_ID varchar(36) not null,
-    WORK_PHONE varchar(255),
+    PREFERRED_COMPANY_PHONE varchar(255),
     PREFERRED_EMAIL varchar(255),
     JOB_POSITION varchar(255),
     --

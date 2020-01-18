@@ -10,7 +10,7 @@
             <loader/>
         </instance>
         <collection id="contactPersonsDc" class="com.company.erp.entity.general.contact_person.ContactPerson"
-                    view="_local">
+                    view="contactPerson-view-details">
             <loader id="contactPersonsLc">
                 <query>
                     <![CDATA[select e from erp_ContactPerson e]]>
@@ -32,7 +32,7 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </lookupPickerField>
-                <textField id="workPhoneField" property="workPhone"/>
+                <textField id="preferredCompanyPhoneField" property="preferredCompanyPhone"/>
                 <textField id="preferredEmailField" property="preferredEmail"/>
                 <textField id="jobPositionField" property="jobPosition"/>
             </column>
