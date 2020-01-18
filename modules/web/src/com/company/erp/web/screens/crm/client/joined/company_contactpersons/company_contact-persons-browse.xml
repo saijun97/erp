@@ -36,7 +36,7 @@
             </actions>
             <columns>
                 <column id="contactPerson"/>
-                <column id="workPhone"/>
+                <column id="preferredCompanyPhone"/>
                 <column id="preferredEmail"/>
                 <column id="jobPosition"/>
             </columns>

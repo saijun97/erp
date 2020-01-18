@@ -28,8 +28,8 @@ public class Company_ContactPersons extends StandardEntity {
     @JoinColumn(name = "CONTACT_PERSON_ID")
     protected ContactPerson contactPerson;
 
-    @Column(name = "WORK_PHONE")
-    protected String workPhone;
+    @Column(name = "PREFERRED_COMPANY_PHONE")
+    protected String preferredCompanyPhone;
 
     @Email(message = "Please enter a valid E-mail Address.")
     @Column(name = "PREFERRED_EMAIL")
@@ -37,6 +37,14 @@ public class Company_ContactPersons extends StandardEntity {
 
     @Column(name = "JOB_POSITION")
     protected String jobPosition;
+
+    public String getPreferredCompanyPhone() {
+        return preferredCompanyPhone;
+    }
+
+    public void setPreferredCompanyPhone(String preferredCompanyPhone) {
+        this.preferredCompanyPhone = preferredCompanyPhone;
+    }
 
     public String getJobPosition() {
         return jobPosition;
@@ -52,14 +60,6 @@ public class Company_ContactPersons extends StandardEntity {
 
     public void setPreferredEmail(String preferredEmail) {
         this.preferredEmail = preferredEmail;
-    }
-
-    public String getWorkPhone() {
-        return workPhone;
-    }
-
-    public void setWorkPhone(String workPhone) {
-        this.workPhone = workPhone;
     }
 
     public ContactPerson getContactPerson() {

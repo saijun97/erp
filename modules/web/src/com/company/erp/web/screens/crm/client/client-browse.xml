@@ -31,7 +31,8 @@
                     width="100%"
                     dataContainer="clientsDc"
                     multiselect="true"
-                    presentations="true">
+                    presentations="true"
+                    multiLineCells="true">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
