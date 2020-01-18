@@ -11,7 +11,7 @@
             <collection id="equipmentDc" property="equipment"/>
         </instance>
         <collection id="existingClientsDc" class="com.company.erp.entity.crm.client.superclasses.Client"
-                    view="_minimal">
+                    view="client-view-details">
             <loader id="existingClientsLc">
                 <query>
                     <![CDATA[select e from erp_Client e]]>
@@ -45,21 +45,17 @@
                 </column>
             </form>
             <groupBox id="equipmentBox" caption="msg://com.company.erp.entity.crm.srf/ServiceRequest.equipment">
-                <table id="equipmentTable" dataContainer="equipmentDc" width="100%" height="200px">
+                <table id="equipmentTable" dataContainer="equipmentDc" width="100%" height="200px" multiLineCells="true">
                     <actions>
                         <action id="create" type="create"/>
                         <action id="edit" type="edit"/>
                         <action id="remove" type="remove"/>
                     </actions>
                     <columns>
-                        <column id="makeModel"/>
-                        <column id="status"/>
                         <column id="productCategory"/>
-                        <column id="serialNumber"/>
-                        <column id="visibleDefect"/>
-                        <column id="problemDescription"/>
-                        <column id="technicianReport"/>
+                        <column id="makeModel"/>
                         <column id="price"/>
+                        <column id="status"/>
                     </columns>
                     <buttonsPanel>
                         <button action="equipmentTable.create"/>
