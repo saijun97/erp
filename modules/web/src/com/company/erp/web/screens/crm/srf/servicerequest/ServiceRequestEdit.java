@@ -34,6 +34,15 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
     @Subscribe("existingClientField")
     public void onExistingClientFieldValueChange(HasValue.ValueChangeEvent<Client> event) {
 
+        if (existingClientField.getValue() == null) {
+
+            customerNameField.clear();
+            addressField.clear();
+            homePhoneField.clear();
+            mobilePhoneField.clear();
+
+        }
+
         customerNameField.setValue(existingClientField.getValue().getDisplayName());
 
         addressField.setValue(existingClientField.getValue().getBillingAddress());
@@ -51,6 +60,5 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
         }
 
     }
-
 
 }
