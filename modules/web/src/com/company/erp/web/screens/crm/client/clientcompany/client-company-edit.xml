@@ -22,6 +22,10 @@
             </loader>
         </collection>
     </data>
+    <dialogMode modal="true"
+                forceDialog="true"
+                width="AUTO"
+                height="AUTO"/>
     <facets>
         <dataLoadCoordinator auto="true"/>
     </facets>
@@ -61,10 +65,10 @@
                                 </actions>
                             </lookupPickerField>
                             <textField id="companyAddressField" property="companyAddress"/>
-                            <resizableTextArea rows="5" id="shippingAddressField" property="shippingAddress"
-                                               responsive="true"/>
                             <resizableTextArea rows="5" id="billingAddressField" property="billingAddress"
                                                caption="Invoice/Billing Address"/>
+                            <resizableTextArea rows="5" id="shippingAddressField" property="shippingAddress"
+                                               responsive="true"/>
                         </column>
                     </form>
                 </hbox>
