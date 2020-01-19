@@ -23,10 +23,21 @@ public class ContactPerson extends Person {
     @Column(name = "WORK_PHONE")
     protected String workPhone;
 
+    @Column(name = "PREFERRED_PHONE")
+    protected String preferredPhone;
+
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "contactPerson")
     protected List<Company_ContactPersons> clientCompany;
+
+    public String getPreferredPhone() {
+        return preferredPhone;
+    }
+
+    public void setPreferredPhone(String preferredPhone) {
+        this.preferredPhone = preferredPhone;
+    }
 
     public String getWorkPhone() {
         return workPhone;

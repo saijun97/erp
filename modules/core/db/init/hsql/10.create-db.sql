@@ -470,6 +470,7 @@ create table ERP_CONTACT_PERSON (
     ID varchar(36) not null,
     --
     WORK_PHONE varchar(255),
+    PREFERRED_PHONE varchar(255),
     --
     primary key (ID)
 )^

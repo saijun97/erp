@@ -78,7 +78,7 @@
                 </form>
                 <groupBox id="contactPersonBox"
                           caption="msg://com.company.erp.entity.crm.client.subclasses.company/ClientCompany.contactPerson">
-                    <table id="contactPersonTable" dataContainer="contactPersonDc" width="100%" height="250px"
+                    <table id="contactPersonTable" dataContainer="contactPersonDc" width="885px" height="250px"
                            multiLineCells="true">
                         <actions>
                             <action id="create" type="create"/>
@@ -87,10 +87,8 @@
                         </actions>
                         <columns>
                             <column id="contactPerson"/>
-                            <column id="preferredCompanyPhone"/>
+                            <column id="preferredCompanyPhone" caption="Preferred Phone"/>
                             <column id="contactPerson.mobilePhone"/>
-                            <column id="contactPerson.homePhone"/>
-                            <column id="contactPerson.workPhone"/>
                             <column id="preferredEmail"/>
                             <column id="jobPosition"/>
                         </columns>
