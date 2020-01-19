@@ -67,9 +67,11 @@
     <view entity="erp_ClientCompany" name="clientCompany-view-details" extends="_local">
         <property name="contactPerson" view="_local">
             <property name="contactPerson" view="_minimal">
+                <property name="workPhone"/>
                 <property name="name" view="_minimal">
                     <property name="middleName"/>
                 </property>
+                <property name="gender"/>
                 <property name="mobilePhone"/>
                 <property name="homePhone"/>
                 <property name="email"/>
