@@ -68,6 +68,7 @@
         <property name="contactPerson" view="_local">
             <property name="contactPerson" view="_minimal">
                 <property name="workPhone"/>
+                <property name="preferredPhone"/>
                 <property name="name" view="_minimal">
                     <property name="middleName"/>
                 </property>
@@ -86,14 +87,7 @@
         </property>
     </view>
     <view entity="erp_Company_ContactPersons" name="company_ContactPersons-view" extends="_local">
-        <property name="contactPerson" view="_minimal">
-            <property name="name" view="_minimal">
-                <property name="middleName"/>
-            </property>
-            <property name="mobilePhone"/>
-            <property name="homePhone"/>
-            <property name="email"/>
-        </property>
+        <property name="contactPerson" view="_local"/>
     </view>
     <view entity="erp_City" name="city-view-details" extends="_local">
         <property name="country" view="_minimal"/>

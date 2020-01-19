@@ -22,6 +22,7 @@
                 <textField id="lastNameField" property="name.lastName"/>
                 <textField id="fullNameField" property="fullName" visible="false"/>
                 <lookupField id="genderField" property="gender" caption="Gender"/>
+                <textField id="preferredPhoneField" property="preferredPhone"/>
                 <textField id="mobilePhoneField" property="mobilePhone"/>
                 <textField id="homePhoneField" property="homePhone"/>
                 <textField id="workPhoneField" property="workPhone"/>

@@ -34,9 +34,13 @@ public class Company_ContactPersonsEdit extends StandardEditor<Company_ContactPe
 
         }
 
-        if (contactPersonField.getValue().getWorkPhone() != null) {
+        if (preferredCompanyPhoneField.getValue() == null) {
 
-            preferredCompanyPhoneField.setValue(contactPersonField.getValue().getWorkPhone());
+            if (contactPersonField.getValue().getPreferredPhone() != null) {
+
+                preferredCompanyPhoneField.setValue(contactPersonField.getValue().getPreferredPhone());
+
+            }
 
         }
 
