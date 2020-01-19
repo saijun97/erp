@@ -27,7 +27,8 @@
                     width="100%"
                     dataContainer="productsDc"
                     multiselect="true"
-                    presentations="true">
+                    presentations="true"
+                    multiLineCells="true">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
@@ -36,11 +37,10 @@
             </actions>
             <columns>
                 <column id="item"/>
-                <column id="description"/>
                 <column id="cost"/>
                 <column id="price"/>
                 <column id="productCategory"/>
-                <column id="make_manufacturer"/>
+                <column id="make_manufacturer" caption="Make/Manufacturer"/>
                 <column id="qtyStore1"/>
                 <column id="qtyStore2"/>
                 <column id="qtyStore3"/>

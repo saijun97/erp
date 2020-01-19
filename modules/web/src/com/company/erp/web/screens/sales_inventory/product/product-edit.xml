@@ -33,12 +33,12 @@
                 modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
+      <hbox spacing="true" responsive="true" width="AUTO">
         <form id="form" dataContainer="productDc">
             <column width="250px">
                 <textField id="itemField" property="item"/>
-                <textArea id="descriptionField" property="description" rows="5"/>
-                <textField id="costField" property="cost"/>
-                <textField id="priceField" property="price"/>
+                <currencyField id="costField" property="cost" currency="MUR"/>
+                <currencyField id="priceField" property="price" currency="MUR"/>
                 <lookupPickerField id="productCategoryField" optionsContainer="productCategoriesDc"
                                    property="productCategory">
                     <actions>
@@ -48,19 +48,28 @@
                     </actions>
                 </lookupPickerField>
                 <lookupPickerField id="make_manufacturerField" optionsContainer="make_manufacturersDc"
-                                   property="make_manufacturer">
+                                   property="make_manufacturer" caption="Make/Manufacturer">
                     <actions>
                         <action id="lookup" type="picker_lookup"/>
                         <action id="open" type="picker_open"/>
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </lookupPickerField>
-                <textField id="qtyStore1Field" property="qtyStore1"/>
-                <textField id="qtyStore2Field" property="qtyStore2"/>
-                <textField id="qtyStore3Field" property="qtyStore3"/>
-                <textField id="qtyTotalField" property="qtyTotal"/>
+                <textField id="qtyStore1Field" property="qtyStore1" datatype="int"/>
+                <textField id="qtyStore2Field" property="qtyStore2" datatype="int"/>
+                <textField id="qtyStore3Field" property="qtyStore3" datatype="int"/>
+                <textField id="qtyTotalField" property="qtyTotal" datatype="int"/>
             </column>
         </form>
+        <form id="formDesc" dataContainer="productDc">
+            <column>
+                <vbox>
+                <label value="Description" align="TOP_CENTER"/>
+                <resizableTextArea id="descriptionField" property="description" rows="5"/>
+                </vbox>
+            </column>
+        </form>
+      </hbox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>
