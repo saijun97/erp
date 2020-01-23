@@ -13,7 +13,7 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 import javax.persistence.*;
 import java.util.List;
 
-@NamePattern("%s - %s|orderNum, client")
+@NamePattern("%s|orderNum")
 @Table(name = "ERP_ORDER")
 @Entity(name = "erp_Order")
 public class Order extends StandardEntity {
