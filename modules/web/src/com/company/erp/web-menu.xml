@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
 
-    <menu id="hrm"  insertBefore="administration" icon="font-icon:BRIEFCASE">
+    <menu id="general" insertBefore="administration" icon="font-icon:BUILDING">
+        <item screen="erp_ContactPerson.browse" icon="font-icon:ADDRESS_BOOK"/>
+        <menu id="generalMasterData" icon="font-icon:DATABASE">
+            <item screen="erp_Country.browse"/>
+        </menu>
+    </menu>
+
+    <menu id="hrm"  insertBefore="administration" insertAfter="general" icon="font-icon:BRIEFCASE">
         <item screen="erp_Employee.browse" icon="font-icon:ID_BADGE"/>
         <menu id="qualifications" icon="font-icon:GRADUATION_CAP">
             <item screen="erp_Skill.browse"/>
@@ -21,22 +28,19 @@
     </menu>
 
     <menu id="sales_inventory" insertBefore="administration" insertAfter="hrm" icon="font-icon:BOOK">
+        <menu id="orderManagement" icon="font-icon:SHOPPING_CART">
+            <item screen="erp_Order.browse" icon="font-icon:ARCHIVE"/>
+            <menu id="orderMasterData" icon="font-icon:DATABASE">
+                <item screen="erp_Service.browse"/>
+                <item screen="erp_NonStockItem.browse"/>
+            </menu>
+        </menu>
         <menu id="productManagement" icon="font-icon:DROPBOX">
-        <item screen="erp_Product.browse" icon="font-icon:PRODUCT_HUNT"/>
+           <item screen="erp_Product.browse" icon="font-icon:PRODUCT_HUNT"/>
         <menu id="productMasterData" icon="font-icon:DATABASE">
-        <item screen="erp_Make_Manufacturer.browse"/>
-        <item screen="erp_ProductCategory.browse"/>
+            <item screen="erp_Make_Manufacturer.browse"/>
+            <item screen="erp_ProductCategory.browse"/>
         </menu>
-        </menu>
-        <item screen="erp_Service.browse"/>
-        <item screen="erp_NonStockItem.browse"/>
-        <item screen="erp_Order.browse"/>
-    </menu>
-
-    <menu id="general" insertBefore="administration" insertAfter="hrm">
-        <item screen="erp_ContactPerson.browse" icon="font-icon:ADDRESS_BOOK"/>
-        <menu id="generalMasterData" icon="font-icon:DATABASE">
-        <item screen="erp_Country.browse"/>
         </menu>
     </menu>
 
