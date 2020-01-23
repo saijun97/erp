@@ -121,16 +121,8 @@
         </property>
     </view>
     <view entity="erp_Order" name="order-view-details" extends="_local">
-        <property name="client" view="_minimal"/>
-        <property name="item" view="_minimal">
-            <property name="item" view="_minimal">
-                <property name="description"/>
-                <property name="cost"/>
-                <property name="price"/>
-            </property>
-            <property name="quantity"/>
-            <property name="price"/>
-        </property>
+        <property name="client" view="client-view-details"/>
+        <property name="item" view="orderItem-view-details"/>
     </view>
 
 </views>
