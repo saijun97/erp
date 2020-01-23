@@ -1,4 +1,4 @@
-package com.company.erp.web.screens.equipment;
+package com.company.erp.web.screens.crm.srf.equipment;
 
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.crm.srf.Equipment;

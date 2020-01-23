@@ -2,7 +2,7 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
         focusComponent="equipmentsTable"
-        messagesPack="com.company.erp.web.screens.equipment">
+        messagesPack="com.company.erp.web.screens.crm.srf.equipment">
     <data readOnly="true">
         <collection id="equipmentsDc"
                     class="com.company.erp.entity.crm.srf.Equipment"
@@ -23,11 +23,11 @@
                 dataLoader="equipmentsDl">
             <properties include=".*"/>
         </filter>
-        <groupTable id="equipmentsTable"
+        <Table id="equipmentsTable"
                     width="100%"
                     dataContainer="equipmentsDc"
                     multiselect="true"
-                    presentations="true">
+                    presentations="true" aggregatable="true">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
@@ -41,6 +41,7 @@
                 <column id="problemDescription"/>
                 <column id="technicianReport"/>
                 <column id="price"/>
+                    <aggregation type="SUM"/>
                 <column id="status"/>
             </columns>
             <rowsCount/>
@@ -50,7 +51,7 @@
                 <button id="editBtn" action="equipmentsTable.edit"/>
                 <button id="removeBtn" action="equipmentsTable.remove"/>
             </buttonsPanel>
-        </groupTable>
+        </Table>
         <hbox id="lookupActions" spacing="true" visible="false">
             <button action="lookupSelectAction"/>
             <button action="lookupCancelAction"/>

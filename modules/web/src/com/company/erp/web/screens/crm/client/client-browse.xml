@@ -20,7 +20,7 @@
             spacing="true">
         <filter id="filter"
                 applyTo="clientsTable"
-                dataLoader="clientsDl" defaultMode="fts">
+                dataLoader="clientsDl" defaultMode="fts" applyImmediately="false" borderVisible="false">
             <property name="displayName" caption="Name"/>
             <properties  include=".*"
                          excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"

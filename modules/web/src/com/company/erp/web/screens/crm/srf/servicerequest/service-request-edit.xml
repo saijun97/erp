@@ -19,10 +19,12 @@
             </loader>
         </collection>
     </data>
-    <dialogMode modal="true"
+    <dialogMode width="AUTO"
+                modal="true"
                 forceDialog="true"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
+          <hbox spacing="true">
             <form id="form" dataContainer="serviceRequestDc">
                 <column width="250px">
                     <textField id="referenceNumberField" property="referenceNumber"/>
@@ -41,11 +43,11 @@
                     <textField id="emailField" property="email"/>
                     <textArea id="addressField" property="address" rows="5"/>
                     <textField id="invoiceNumberField" property="invoiceNumber"/>
-                    <textField id="totalPriceField" property="totalPrice"/>
+                    <currencyField id="totalPriceField" property="totalPrice" currency="MUR" datatype="decimal"/>
                 </column>
             </form>
             <groupBox id="equipmentBox" caption="msg://com.company.erp.entity.crm.srf/ServiceRequest.equipment">
-                <table id="equipmentTable" dataContainer="equipmentDc" width="100%" height="200px" multiLineCells="true">
+                <table id="equipmentTable" dataContainer="equipmentDc" width="500px" height="200px" multiLineCells="true">
                     <actions>
                         <action id="create" type="create"/>
                         <action id="edit" type="edit"/>
@@ -64,6 +66,7 @@
                     </buttonsPanel>
                 </table>
             </groupBox>
+          </hbox>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
