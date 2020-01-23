@@ -111,5 +111,26 @@
             <property name="price"/>
         </property>
     </view>
+    <view entity="erp_Service" name="service-view-details" extends="_local"/>
+    <view entity="erp_NonStockItem" name="nonStockItem-view" extends="_local"/>
+    <view entity="erp_OrderItem" name="orderItem-view-details" extends="_local">
+        <property name="item" view="_minimal">
+            <property name="description"/>
+            <property name="cost"/>
+            <property name="price"/>
+        </property>
+    </view>
+    <view entity="erp_Order" name="order-view-details" extends="_local">
+        <property name="client" view="_minimal"/>
+        <property name="item" view="_minimal">
+            <property name="item" view="_minimal">
+                <property name="description"/>
+                <property name="cost"/>
+                <property name="price"/>
+            </property>
+            <property name="quantity"/>
+            <property name="price"/>
+        </property>
+    </view>
 
 </views>

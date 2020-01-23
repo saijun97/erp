@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.sales_inventory.order">
+    <data>
+        <instance id="orderDc"
+                  class="com.company.erp.entity.sales_inventory.order.Order"
+                  view="order-view-details">
+            <loader/>
+            <collection id="itemDc" property="item"/>
+        </instance>
+        <collection id="clientsDc" class="com.company.erp.entity.crm.client.superclasses.Client" view="_minimal">
+            <loader id="clientsLc">
+                <query>
+                    <![CDATA[select e from erp_Client e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="orderDc">
+            <column width="250px">
+                <textField id="orderNumField" property="orderNum"/>
+                <lookupPickerField id="clientField" optionsContainer="clientsDc" property="client">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+            </column>
+        </form>
+        <groupBox id="itemBox" caption="msg://com.company.erp.entity.sales_inventory.order/Order.item">
+            <table id="itemTable" dataContainer="itemDc" width="100%" height="200px">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="item"/>
+                    <column id="quantity"/>
+                    <column id="price"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="itemTable.create"/>
+                    <button action="itemTable.edit"/>
+                    <button action="itemTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
