@@ -85,5 +85,14 @@
         <entity class="com.company.erp.entity.sales_inventory.product.master_data.make_manufacturer.Make_Manufacturer">
             <include re=".*"/>
         </entity>
+        <entity class="com.company.erp.entity.sales_inventory.service.Service">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.sales_inventory.nonstockitem.NonStockItem">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem">
+            <include re=".*"/>
+        </entity>
     </entities>
 </fts-config>

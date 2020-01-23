@@ -28,6 +28,9 @@
         <item screen="erp_ProductCategory.browse"/>
         </menu>
         </menu>
+        <item screen="erp_Service.browse"/>
+        <item screen="erp_NonStockItem.browse"/>
+        <item screen="erp_Order.browse"/>
     </menu>
 
     <menu id="general" insertBefore="administration" insertAfter="hrm">

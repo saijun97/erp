@@ -31,5 +31,8 @@
         <class>com.company.erp.entity.crm.srf.Equipment</class>
         <class>com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory</class>
         <class>com.company.erp.entity.sales_inventory.product.master_data.make_manufacturer.Make_Manufacturer</class>
+        <class>com.company.erp.entity.sales_inventory.service.Service</class>
+        <class>com.company.erp.entity.sales_inventory.nonstockitem.NonStockItem</class>
+        <class>com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem</class>
     </persistence-unit>
 </persistence>

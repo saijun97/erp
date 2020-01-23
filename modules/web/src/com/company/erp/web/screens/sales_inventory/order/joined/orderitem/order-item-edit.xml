@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.sales_inventory.order.joined.orderitem">
+    <data>
+        <instance id="orderItemDc"
+                  class="com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem"
+                  view="orderItem-view-details">
+            <loader/>
+        </instance>
+        <collection id="itemsDc" class="com.company.erp.entity.general.superclasses.Item" view="_minimal">
+            <loader id="itemsLc">
+                <query>
+                    <![CDATA[select e from erp_Item e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="orderItemDc">
+            <column width="250px">
+                <lookupPickerField id="itemField" optionsContainer="itemsDc" property="item">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="quantityField" property="quantity"/>
+                <textField id="priceField" property="price"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

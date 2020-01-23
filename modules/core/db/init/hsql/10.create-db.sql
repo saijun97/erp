@@ -121,6 +121,25 @@ create table ERP_EMPLOYEE_LANGUAGE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_LANGUAGE
+-- begin ERP_ORDER_ITEM
+create table ERP_ORDER_ITEM (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    ITEM_ID varchar(36) not null,
+    QUANTITY varchar(255) not null,
+    PRICE varchar(255) not null,
+    ORDER_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_ORDER_ITEM
 -- begin ERP_EMPLOYEE_SKILL
 create table ERP_EMPLOYEE_SKILL (
     ID varchar(36) not null,
@@ -324,6 +343,20 @@ create table ERP_EQUIPMENT (
     primary key (ID)
 )^
 -- end ERP_EQUIPMENT
+-- begin ERP_NON_STOCK_ITEM
+create table ERP_NON_STOCK_ITEM (
+    ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_NON_STOCK_ITEM
+-- begin ERP_SERVICE
+create table ERP_SERVICE (
+    ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_SERVICE
 -- begin ERP_PRODUCT
 create table ERP_PRODUCT (
     ID varchar(36) not null,
