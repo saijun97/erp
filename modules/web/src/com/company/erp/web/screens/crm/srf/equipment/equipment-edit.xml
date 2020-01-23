@@ -2,7 +2,7 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
         focusComponent="form"
-        messagesPack="com.company.erp.web.screens.equipment">
+        messagesPack="com.company.erp.web.screens.crm.srf.equipment">
     <data>
         <instance id="equipmentDc"
                   class="com.company.erp.entity.crm.srf.Equipment"
@@ -24,6 +24,7 @@
                 modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
+      <hbox spacing="true">
         <form id="form" dataContainer="equipmentDc">
             <column width="250px">
                 <lookupPickerField id="productCategoryField" optionsContainer="productCategoriesDc"
@@ -37,12 +38,21 @@
                 <textField id="makeModelField" property="makeModel"/>
                 <textField id="serialNumberField" property="serialNumber"/>
                 <textArea id="visibleDefectField" property="visibleDefect" rows="5"/>
-                <textArea id="problemDescriptionField" property="problemDescription" rows="5"/>
-                <textArea id="technicianReportField" property="technicianReport" rows="5"/>
-                <textField id="priceField" property="price"/>
+                <currencyField id="priceField" property="price" currency="MUR" datatype="decimal"/>
                 <textField id="statusField" property="status"/>
             </column>
         </form>
+        <form id="form1" dataContainer="equipmentDc" captionPosition="TOP" >
+            <column>
+                <resizableTextArea id="problemDescriptionField" property="problemDescription" rows="13"/>
+            </column>
+        </form>
+        <form id="form2" dataContainer="equipmentDc" captionPosition="TOP">
+            <column>
+                <resizableTextArea id="technicianReportField" property="technicianReport" rows="13"/>
+            </column>
+        </form>
+      </hbox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>
