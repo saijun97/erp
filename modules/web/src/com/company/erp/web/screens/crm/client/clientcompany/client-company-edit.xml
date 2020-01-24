@@ -9,6 +9,7 @@
                   view="clientCompany-view-details">
             <loader/>
             <collection id="contactPersonDc" property="contactPerson"/>
+            <collection id="orderDc" property="order"/>
         </instance>
         <collection id="countriesDc" class="com.company.erp.entity.general.country.Country" view="_local">
             <loader>
@@ -31,7 +32,7 @@
     </facets>
     <layout expand="editActions" spacing="true">
         <tabSheet id="tabSheet" width="100%">
-            <tab id="tab1" caption="General Details" margin="true" spacing="true">
+            <tab id="generalTab" caption="General Details" margin="true" spacing="true">
                 <hbox spacing="true" responsive="true" width="AUTO">
                     <form id="generalDetail" dataContainer="clientCompanyDc">
                         <column width="250px">
@@ -46,7 +47,7 @@
                             <textField id="faxNumberField" property="faxNumber"/>
                         </column>
                     </form>
-                    <form id="addressDetail" dataContainer="clientCompanyDc">
+                    <form id="addressDetailForm" dataContainer="clientCompanyDc">
                         <column width="250px">
                             <lookupPickerField id="countryField"
                                                property="country"
@@ -73,12 +74,15 @@
                     </form>
                 </hbox>
             </tab>
-            <tab id="tab2" caption="Contact Persons" margin="true" spacing="true">
+            <tab id="contactPersonsTab" caption="Contact Persons" margin="true" spacing="true">
                 <form id="ContactPersonsDetail" dataContainer="clientCompanyDc">
                 </form>
                 <groupBox id="contactPersonBox"
                           caption="msg://com.company.erp.entity.crm.client.subclasses.company/ClientCompany.contactPerson">
-                    <table id="contactPersonTable" dataContainer="contactPersonDc" width="835px" height="250px"
+                    <table id="contactPersonTable"
+                           dataContainer="contactPersonDc"
+                           width="835px"
+                           height="250px"
                            multiLineCells="true">
                         <actions>
                             <action id="create" type="create"/>
@@ -96,6 +100,33 @@
                             <button action="contactPersonTable.create"/>
                             <button action="contactPersonTable.edit"/>
                             <button action="contactPersonTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+            </tab>
+            <tab id="ordersTab" caption="Orders" spacing="true" margin="true">
+                <form id="ordersDetail" dataContainer="clientCompanyDc">
+                </form>
+                <groupBox id="orderBox" caption="msg://com.company.erp.entity.crm.client.superclasses/Client.order">
+                    <table id="orderTable"
+                           dataContainer="orderDc"
+                           width="835px"
+                           height="250px"
+                           multiLineCells="true">
+                        <actions>
+                            <action id="create" type="create"/>
+                            <action id="edit" type="edit"/>
+                            <action id="remove" type="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="orderNum"/>
+                            <column id="orderDate"/>
+                            <column id="deliveryDate"/>
+                        </columns>
+                        <buttonsPanel>
+                            <button action="orderTable.create"/>
+                            <button action="orderTable.edit"/>
+                            <button action="orderTable.remove"/>
                         </buttonsPanel>
                     </table>
                 </groupBox>
