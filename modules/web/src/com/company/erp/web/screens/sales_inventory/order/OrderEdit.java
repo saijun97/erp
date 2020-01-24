@@ -1,5 +1,6 @@
 package com.company.erp.web.screens.sales_inventory.order;
 
+import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.model.*;
@@ -23,6 +24,8 @@ public class OrderEdit extends StandardEditor<Order> {
     private Notifications notifications;
     @Inject
     private CollectionPropertyContainer<OrderItem> itemDc;
+    @Inject
+    private CollectionLoader<Client> clientsLc;
 
     @Subscribe
     public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
@@ -46,6 +49,7 @@ public class OrderEdit extends StandardEditor<Order> {
     public void onBeforeShow(BeforeShowEvent event) {
 
         orderDl.load();
+        clientsLc.load();
 
     }
 
