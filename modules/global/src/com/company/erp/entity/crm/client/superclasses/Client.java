@@ -2,13 +2,18 @@ package com.company.erp.entity.crm.client.superclasses;
 
 import com.company.erp.entity.general.country.City;
 import com.company.erp.entity.general.country.Country;
+import com.company.erp.entity.sales_inventory.order.Order;
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.List;
 
 @NamePattern("%s|displayName")
 @DiscriminatorColumn(name = "DTYPE", discriminatorType = DiscriminatorType.STRING)
@@ -50,6 +55,19 @@ public class Client extends StandardEntity {
     @Lob
     @Column(name = "BILLING_ADDRESS")
     protected String billingAddress;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "client")
+    protected List<Order> order;
+
+    public List<Order> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<Order> order) {
+        this.order = order;
+    }
 
     public String getFaxNumber() {
         return faxNumber;
