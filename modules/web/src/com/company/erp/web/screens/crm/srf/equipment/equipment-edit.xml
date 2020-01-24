@@ -35,7 +35,7 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </lookupPickerField>
-                <textField id="makeModelField" property="makeModel"/>
+                <textArea id="makeModelField" property="makeModel" caption="Make &amp; Model" rows="3"/>
                 <textField id="serialNumberField" property="serialNumber"/>
                 <textArea id="visibleDefectField" property="visibleDefect" rows="5"/>
                 <currencyField id="priceField" property="price" currency="MUR" datatype="decimal"/>
@@ -44,12 +44,12 @@
         </form>
         <form id="form1" dataContainer="equipmentDc" captionPosition="TOP" >
             <column>
-                <resizableTextArea id="problemDescriptionField" property="problemDescription" rows="13"/>
+                <resizableTextArea id="problemDescriptionField" property="problemDescription" rows="15"/>
             </column>
         </form>
         <form id="form2" dataContainer="equipmentDc" captionPosition="TOP">
             <column>
-                <resizableTextArea id="technicianReportField" property="technicianReport" rows="13"/>
+                <resizableTextArea id="technicianReportField" property="technicianReport" rows="15"/>
             </column>
         </form>
       </hbox>
