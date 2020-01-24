@@ -11,6 +11,7 @@ import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @NamePattern("%s|orderNum")
@@ -27,10 +28,34 @@ public class Order extends StandardEntity {
     @JoinColumn(name = "CLIENT_ID")
     protected Client client;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "ORDER_DATE")
+    protected Date orderDate;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "DELIVERY_DATE")
+    protected Date deliveryDate;
+    
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "order")
     protected List<OrderItem> item;
+
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
 
     public List<OrderItem> getItem() {
         return item;
