@@ -55,7 +55,7 @@
                     </actions>
                     <columns>
                         <column id="productCategory"/>
-                        <column id="makeModel"/>
+                        <column id="makeModel" caption="Make &amp; Model"/>
                         <column id="price"/>
                         <column id="status"/>
                     </columns>
