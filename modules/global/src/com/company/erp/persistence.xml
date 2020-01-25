@@ -34,5 +34,6 @@
         <class>com.company.erp.entity.sales_inventory.service.Service</class>
         <class>com.company.erp.entity.sales_inventory.nonstockitem.NonStockItem</class>
         <class>com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem</class>
+        <class>com.company.erp.entity.general.compositions.Document</class>
     </persistence-unit>
 </persistence>

@@ -134,6 +134,10 @@
     <view entity="erp_Order" name="order-view-details" extends="_local">
         <property name="client" view="client-view-details"/>
         <property name="item" view="orderItem-view-details"/>
+        <property name="document" view="document-view-details"/>
+    </view>
+    <view entity="erp_Document" name="document-view-details" extends="_local">
+        <property name="file" view="_local"/>
     </view>
 
 </views>

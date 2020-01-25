@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.general.compositions.document">
+    <data>
+        <instance id="documentDc"
+                  class="com.company.erp.entity.general.compositions.Document"
+                  view="document-view-details">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="documentDc">
+            <column width="250px">
+                <textField id="nameField" property="name"/>
+                <upload id="fileField"
+                        fileStoragePutMode="IMMEDIATE"
+                        property="file"
+                        showFileName="true"
+                        dropZone="dropZone"/>
+            </column>
+        </form>
+        <vbox id="dropZone"
+              height="150px"
+              width="100%"
+              spacing="true"
+              stylename="dropzone-container">
+            <label stylename="dropzone-description"
+                   value="Drop file here"
+                   align="MIDDLE_CENTER"/>
+        </vbox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
