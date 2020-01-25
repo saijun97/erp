@@ -61,12 +61,9 @@
                 <textField id="qtyTotalField" property="qtyTotal" datatype="int"/>
             </column>
         </form>
-        <form id="formDesc" dataContainer="productDc">
+        <form id="formDesc" dataContainer="productDc" captionPosition="TOP">
             <column>
-                <vbox>
-                <label value="Description" align="TOP_CENTER"/>
-                <resizableTextArea id="descriptionField" property="description" rows="5"/>
-                </vbox>
+                <resizableTextArea id="descriptionField" property="description" rows="14" cols="25"/>
             </column>
         </form>
       </hbox>
