@@ -6,11 +6,11 @@ import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
-import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @NamePattern("%s|item")
 
@@ -24,13 +24,44 @@ public class OrderItem extends StandardEntity {
     @JoinColumn(name = "ITEM_ID")
     protected Item item;
 
-    @Column(name = "PRICE", nullable = false)
-    protected String price;
+    @Lob
+    @Column(name = "DESCRIPTION")
+    protected String description;
+
+    @Column(name = "UNIT_VAT_PRICE")
+    protected BigDecimal unitVatPrice;
+
+    @Column(name = "QUANTITY")
+    protected Integer quantity;
 
     @OnDeleteInverse(DeletePolicy.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ORDER_ID")
     protected Order order;
+
+    public BigDecimal getUnitVatPrice() {
+        return unitVatPrice;
+    }
+
+    public void setUnitVatPrice(BigDecimal unitVatPrice) {
+        this.unitVatPrice = unitVatPrice;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Order getOrder() {
         return order;
@@ -38,14 +69,6 @@ public class OrderItem extends StandardEntity {
 
     public void setOrder(Order order) {
         this.order = order;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
     }
 
     public Item getItem() {

@@ -33,9 +33,9 @@
     </data>
     <dialogMode modal="true"
                 forceDialog="true"/>
-    <layout expand="scrollbox" spacing="true">
-        <scrollBox id="scrollbox" spacing="true" margin="true,true,true,true">
-            <tabSheet id="tabsheet">
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true" margin="true,true,true,true">
+            <tabSheet id="tabSheet">
                 <tab id="details" caption="Details" spacing="true" margin="true,true,true,true">
                     <form id="form" dataContainer="orderDc">
                         <column width="250px">
@@ -65,7 +65,8 @@
                             </actions>
                             <columns>
                                 <column id="item"/>
-                                <column id="price"/>
+                                <column id="unitVatPrice"/>
+                                <column id="quantity"/>
                             </columns>
                             <buttonsPanel>
                                 <button action="itemTable.create"/>
