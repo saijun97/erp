@@ -13,6 +13,7 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 import javax.persistence.*;
 
 @NamePattern("%s|item")
+
 @Table(name = "ERP_ORDER_ITEM")
 @Entity(name = "erp_OrderItem")
 public class OrderItem extends StandardEntity {
@@ -22,9 +23,6 @@ public class OrderItem extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ITEM_ID")
     protected Item item;
-
-    @Column(name = "QUANTITY", nullable = false)
-    protected String quantity;
 
     @Column(name = "PRICE", nullable = false)
     protected String price;
@@ -40,14 +38,6 @@ public class OrderItem extends StandardEntity {
 
     public void setOrder(Order order) {
         this.order = order;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
     }
 
     public String getPrice() {

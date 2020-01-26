@@ -65,7 +65,6 @@
                             </actions>
                             <columns>
                                 <column id="item"/>
-                                <column id="quantity"/>
                                 <column id="price"/>
                             </columns>
                             <buttonsPanel>

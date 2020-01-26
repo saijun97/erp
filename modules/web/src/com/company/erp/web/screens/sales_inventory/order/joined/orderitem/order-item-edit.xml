@@ -25,7 +25,6 @@
         <form id="form" dataContainer="orderItemDc">
             <column width="250px">
                 <lookupField id="itemField" optionsContainer="itemsDc" property="item"/>
-                <textField id="quantityField" property="quantity"/>
                 <textField id="priceField" property="price"/>
             </column>
         </form>

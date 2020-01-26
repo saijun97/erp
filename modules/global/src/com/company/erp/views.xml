@@ -58,7 +58,6 @@
         <property name="city" view="_minimal"/>
         <property name="order" view="_local">
             <property name="item" view="_minimal">
-                <property name="quantity"/>
                 <property name="price"/>
             </property>
         </property>
