@@ -25,7 +25,9 @@
         <form id="form" dataContainer="orderItemDc">
             <column width="250px">
                 <lookupField id="itemField" optionsContainer="itemsDc" property="item"/>
-                <textField id="priceField" property="price"/>
+                <textArea rows="5" id="descriptionField" property="description"/>
+                <currencyField id="unitVatPriceField" property="unitVatPrice" currency="MUR"/>
+                <textField id="quantityField" property="quantity" datatype="int"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

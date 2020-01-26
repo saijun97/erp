@@ -1,3 +1,21 @@
+-- begin ERP_DOCUMENT
+create table ERP_DOCUMENT (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NAME varchar(255) not null,
+    FILE_ID varchar(36) not null,
+    ORDER_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_DOCUMENT
 -- begin ERP_ITEM
 create table ERP_ITEM (
     ID varchar(36) not null,
@@ -144,25 +162,6 @@ create table ERP_EMPLOYEE_EDUCATION (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_EDUCATION
--- begin ERP_ORDER_ITEM
-create table ERP_ORDER_ITEM (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    ITEM_ID varchar(36) not null,
-    QUANTITY varchar(255) not null,
-    PRICE varchar(255) not null,
-    ORDER_ID varchar(36) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_ORDER_ITEM
 -- begin ERP_EMPLOYEE_SKILL
 create table ERP_EMPLOYEE_SKILL (
     ID varchar(36) not null,
@@ -182,6 +181,26 @@ create table ERP_EMPLOYEE_SKILL (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_SKILL
+-- begin ERP_ORDER_ITEM
+create table ERP_ORDER_ITEM (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    ITEM_ID varchar(36) not null,
+    DESCRIPTION longvarchar,
+    UNIT_VAT_PRICE decimal(19, 2),
+    QUANTITY integer,
+    ORDER_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_ORDER_ITEM
 -- begin ERP_DEPARTMENT
 create table ERP_DEPARTMENT (
     ID varchar(36) not null,

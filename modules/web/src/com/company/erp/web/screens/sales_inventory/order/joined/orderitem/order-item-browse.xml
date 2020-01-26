@@ -35,8 +35,8 @@
             </actions>
             <columns>
                 <column id="item"/>
+                <column id="unitVatPrice"/>
                 <column id="quantity"/>
-                <column id="price"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
