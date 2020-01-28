@@ -33,40 +33,42 @@
                 modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
-      <hbox spacing="true" responsive="true" width="AUTO">
-        <form id="form" dataContainer="productDc">
-            <column width="250px">
-                <textField id="itemField" property="item"/>
-                <currencyField id="costField" property="cost" currency="MUR"/>
-                <currencyField id="priceField" property="price" currency="MUR"/>
-                <lookupPickerField id="productCategoryField" optionsContainer="productCategoriesDc"
-                                   property="productCategory">
-                    <actions>
-                        <action id="lookup" type="picker_lookup"/>
-                        <action id="open" type="picker_open"/>
-                        <action id="clear" type="picker_clear"/>
-                    </actions>
-                </lookupPickerField>
-                <lookupPickerField id="make_manufacturerField" optionsContainer="make_manufacturersDc"
-                                   property="make_manufacturer" caption="Make/Manufacturer">
-                    <actions>
-                        <action id="lookup" type="picker_lookup"/>
-                        <action id="open" type="picker_open"/>
-                        <action id="clear" type="picker_clear"/>
-                    </actions>
-                </lookupPickerField>
-                <textField id="qtyStore1Field" property="qtyStore1" datatype="int"/>
-                <textField id="qtyStore2Field" property="qtyStore2" datatype="int"/>
-                <textField id="qtyStore3Field" property="qtyStore3" datatype="int"/>
-                <textField id="qtyTotalField" property="qtyTotal" datatype="int"/>
-            </column>
-        </form>
-        <form id="formDesc" dataContainer="productDc" captionPosition="TOP">
-            <column>
-                <resizableTextArea id="descriptionField" property="description" rows="14" cols="25"/>
-            </column>
-        </form>
-      </hbox>
+        <hbox spacing="true" responsive="true" width="AUTO">
+            <form id="form" dataContainer="productDc">
+                <column width="250px">
+                    <textField id="itemField" property="item"/>
+                    <currencyField id="costField" property="cost" currency="MUR"/>
+                    <currencyField id="priceField" property="price" currency="MUR"/>
+                    <checkBox id="applyVatField" property="applyVat"/>
+                    <currencyField id="vatPriceField" property="vatPrice" currency="MUR"/>
+                    <lookupPickerField id="productCategoryField" optionsContainer="productCategoriesDc"
+                                       property="productCategory">
+                        <actions>
+                            <action id="lookup" type="picker_lookup"/>
+                            <action id="open" type="picker_open"/>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </lookupPickerField>
+                    <lookupPickerField id="make_manufacturerField" optionsContainer="make_manufacturersDc"
+                                       property="make_manufacturer" caption="Make/Manufacturer">
+                        <actions>
+                            <action id="lookup" type="picker_lookup"/>
+                            <action id="open" type="picker_open"/>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </lookupPickerField>
+                    <textField id="qtyStore1Field" property="qtyStore1" datatype="int"/>
+                    <textField id="qtyStore2Field" property="qtyStore2" datatype="int"/>
+                    <textField id="qtyStore3Field" property="qtyStore3" datatype="int"/>
+                    <textField id="qtyTotalField" property="qtyTotal" datatype="int"/>
+                </column>
+            </form>
+            <form id="formDesc" dataContainer="productDc" captionPosition="TOP">
+                <column>
+                    <resizableTextArea id="descriptionField" property="description" rows="14" cols="25"/>
+                </column>
+            </form>
+        </hbox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>

@@ -32,6 +32,8 @@ create table ERP_ITEM (
     DESCRIPTION longvarchar,
     COST decimal(19, 2),
     PRICE decimal(19, 2),
+    APPLY_VAT boolean,
+    VAT_PRICE decimal(19, 2),
     --
     primary key (ID)
 )^

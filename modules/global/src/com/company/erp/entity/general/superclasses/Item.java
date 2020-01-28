@@ -1,6 +1,7 @@
 package com.company.erp.entity.general.superclasses;
 
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
@@ -22,11 +23,36 @@ public class Item extends StandardEntity {
     @Column(name = "DESCRIPTION")
     protected String description;
 
+    @NumberFormat(pattern = "0.00")
     @Column(name = "COST")
-    protected BigDecimal cost;
+    protected BigDecimal cost = BigDecimal.ZERO;
 
+    @NumberFormat(pattern = "0.00")
     @Column(name = "PRICE")
-    protected BigDecimal price;
+    protected BigDecimal price = BigDecimal.ZERO;
+
+    @Column(name = "APPLY_VAT")
+    protected Boolean applyVat;
+
+    @NumberFormat(pattern = "0.00")
+    @Column(name = "VAT_PRICE")
+    protected BigDecimal vatPrice = BigDecimal.ZERO;
+
+    public Boolean getApplyVat() {
+        return applyVat;
+    }
+
+    public void setApplyVat(Boolean applyVat) {
+        this.applyVat = applyVat;
+    }
+
+    public BigDecimal getVatPrice() {
+        return vatPrice;
+    }
+
+    public void setVatPrice(BigDecimal vatPrice) {
+        this.vatPrice = vatPrice;
+    }
 
     public BigDecimal getPrice() {
         return price;

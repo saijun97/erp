@@ -42,6 +42,7 @@
                         <column property="item"/>
                         <column property="cost"/>
                         <column property="price"/>
+                        <column id="vatPrice"/>
                     </columns>
                     <buttonsPanel id="buttonsPanel"
                                   alwaysVisible="true">
@@ -63,7 +64,9 @@
                             <textField id="itemField" property="item"/>
                             <textArea id="descriptionField" property="description" rows="5"/>
                             <textField id="costField" property="cost"/>
-                            <textField id="priceField" property="price"/>
+                            <currencyField id="priceField" property="price" currency="MUR"/>
+                            <checkBox id="applyVatField" property="applyVat"/>
+                            <currencyField id="vatPriceField" property="vatPrice" currency="MUR"/>
                         </column>
                     </form>
                 </scrollBox>

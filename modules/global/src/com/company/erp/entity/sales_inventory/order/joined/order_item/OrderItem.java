@@ -3,6 +3,7 @@ package com.company.erp.entity.sales_inventory.order.joined.order_item;
 import com.company.erp.entity.general.superclasses.Item;
 import com.company.erp.entity.sales_inventory.order.Order;
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
@@ -28,11 +29,13 @@ public class OrderItem extends StandardEntity {
     @Column(name = "DESCRIPTION")
     protected String description;
 
+    @NumberFormat(pattern = "0.00")
     @Column(name = "UNIT_VAT_PRICE")
-    protected BigDecimal unitVatPrice;
+    protected BigDecimal unitVatPrice = BigDecimal.ZERO;
 
     @Column(name = "QUANTITY")
-    protected Integer quantity;
+    protected Integer quantity = 1;
+
 
     @OnDeleteInverse(DeletePolicy.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

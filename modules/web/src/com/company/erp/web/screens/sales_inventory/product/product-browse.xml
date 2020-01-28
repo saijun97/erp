@@ -45,6 +45,7 @@
                 <column id="qtyStore2"/>
                 <column id="qtyStore3"/>
                 <column id="qtyTotal"/>
+                <column id="vatPrice"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

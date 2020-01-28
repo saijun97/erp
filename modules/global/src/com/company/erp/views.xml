@@ -122,7 +122,8 @@
         </property>
     </view>
     <view entity="erp_Service" name="service-view-details" extends="_local"/>
-    <view entity="erp_NonStockItem" name="nonStockItem-view" extends="_local"/>
+    <view entity="erp_NonStockItem" name="nonStockItem-view" extends="_local">
+    </view>
     <view entity="erp_OrderItem" name="orderItem-view-details" extends="_local">
         <property name="item" view="_minimal">
             <property name="description"/>
