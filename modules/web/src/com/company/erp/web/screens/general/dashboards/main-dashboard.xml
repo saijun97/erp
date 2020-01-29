@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd"
+caption="msg://caption"
+        messagesPack="com.company.erp.web.screens.general.dashboards">
+    <data>
+        <keyValueCollection id="salesDc">
+            <loader id="salesLoader">
+                <query>
+                    <![CDATA[select o.client, sum(o.totalAmount) from erp_Order o group by o.client]]>
+                </query>
+            </loader>
+            <properties>
+                <property class="com.company.erp.entity.crm.client.superclasses.Client"
+                          name="client"/>
+                <property datatype="decimal"
+                          name="sum"/>
+            </properties>
+        </keyValueCollection>
+    </data>
+    <layout>
+        <chart:pieChart dataContainer="salesDc"
+                        angle="30"
+                        depth3D="15"
+                        height="100%"
+                        titleField="client"
+                        valueField="sum"
+                        width="100%">
+            <chart:legend position="RIGHT"/>
+        </chart:pieChart>
+    </layout>
+</window>
