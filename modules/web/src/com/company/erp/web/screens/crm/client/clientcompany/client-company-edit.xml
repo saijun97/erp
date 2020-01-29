@@ -122,6 +122,7 @@
                             <column id="orderNum"/>
                             <column id="orderDate"/>
                             <column id="deliveryDate"/>
+                            <column id="totalAmount"/>
                         </columns>
                         <buttonsPanel>
                             <button action="orderTable.create"/>
