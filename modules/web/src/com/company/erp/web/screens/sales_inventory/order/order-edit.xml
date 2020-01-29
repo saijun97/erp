@@ -49,7 +49,7 @@
                             </lookupPickerField>
                             <dateField id="orderDateField" property="orderDate"/>
                             <dateField id="deliveryDateField" property="deliveryDate"/>
-                            <textField id="totalAmountField" property="totalAmount"/>
+                            <currencyField id="totalAmountField" property="totalAmount" currency="MUR"/>
                         </column>
                     </form>
                     <groupBox id="itemBox" caption="msg://com.company.erp.entity.sales_inventory.order/Order.item">
@@ -68,6 +68,7 @@
                                 <column id="item"/>
                                 <column id="unitVatPrice"/>
                                 <column id="quantity"/>
+                                <column id="amount"/>
                             </columns>
                             <buttonsPanel>
                                 <button action="itemTable.create"/>

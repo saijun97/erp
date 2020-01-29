@@ -27,7 +27,8 @@
                 <lookupField id="itemField" optionsContainer="itemsDc" property="item"/>
                 <textArea rows="5" id="descriptionField" property="description"/>
                 <currencyField id="unitVatPriceField" property="unitVatPrice" currency="MUR"/>
-                <textField id="quantityField" property="quantity" datatype="int"/>
+                <currencyField id="quantityField" property="quantity" currency="MUR"/>
+                <currencyField id="amountField" property="amount" currency="MUR"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

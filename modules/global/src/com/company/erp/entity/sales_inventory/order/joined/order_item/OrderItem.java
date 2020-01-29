@@ -36,11 +36,22 @@ public class OrderItem extends StandardEntity {
     @Column(name = "QUANTITY")
     protected Integer quantity = 1;
 
+    @NumberFormat(pattern = "0.00")
+    @Column(name = "AMOUNT")
+    protected BigDecimal amount = BigDecimal.ZERO;
 
     @OnDeleteInverse(DeletePolicy.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ORDER_ID")
     protected Order order;
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
 
     public BigDecimal getUnitVatPrice() {
         return unitVatPrice;
