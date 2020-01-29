@@ -37,6 +37,7 @@
                 <column id="item"/>
                 <column id="unitVatPrice"/>
                 <column id="quantity"/>
+                <column id="amount"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
