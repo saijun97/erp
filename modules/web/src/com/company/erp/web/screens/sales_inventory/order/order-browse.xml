@@ -39,6 +39,7 @@
                 <column id="client"/>
                 <column id="orderDate"/>
                 <column id="deliveryDate"/>
+                <column id="totalAmount"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

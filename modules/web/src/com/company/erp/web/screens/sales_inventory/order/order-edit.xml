@@ -49,6 +49,7 @@
                             </lookupPickerField>
                             <dateField id="orderDateField" property="orderDate"/>
                             <dateField id="deliveryDateField" property="deliveryDate"/>
+                            <textField id="totalAmountField" property="totalAmount"/>
                         </column>
                     </form>
                     <groupBox id="itemBox" caption="msg://com.company.erp.entity.sales_inventory.order/Order.item">
