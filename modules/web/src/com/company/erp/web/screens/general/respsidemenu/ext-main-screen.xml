@@ -1,5 +1,21 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd"
         caption="mainMsg://application.caption">
+    <data>
+        <keyValueCollection id="salesDc">
+            <loader id="salesLoader">
+                <query>
+                    <![CDATA[select o.client, sum(o.totalAmount) from erp_Order o group by o.client]]>
+                </query>
+            </loader>
+            <properties>
+                <property class="com.company.erp.entity.crm.client.superclasses.Client"
+                          name="client"/>
+                <property datatype="decimal"
+                          name="sum"/>
+            </properties>
+        </keyValueCollection>
+    </data>
     <layout expand="horizontalWrap"
             stylename="c-sidemenu-responsive"
             responsive="true">
@@ -59,15 +75,15 @@
                       height="100%">
                 <initialLayout margin="true"
                                spacing="true">
-                    <label id="welcomeLabel"
-                           align="MIDDLE_CENTER"
-                           width="100%"
-                           stylename="c-welcome-text"
-                           value="mainMsg://application.welcomeText"/>
-                    <!--
-                        This is the work area - central part of the screen.
-                        Put your components here.
-                    -->
+                    <chart:pieChart dataContainer="salesDc"
+                                    angle="30"
+                                    depth3D="15"
+                                    height="100%"
+                                    titleField="client"
+                                    valueField="sum"
+                                    width="100%">
+                        <chart:legend position="RIGHT"/>
+                    </chart:pieChart>
                 </initialLayout>
             </workArea>
         </hbox>
