@@ -249,7 +249,7 @@ create table ERP_ORDER (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    ORDER_NUM varchar(255) not null,
+    ORDER_NUM varchar(255),
     CLIENT_ID varchar(36) not null,
     ORDER_DATE date,
     DELIVERY_DATE date,
