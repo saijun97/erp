@@ -1,5 +1,5 @@
--- begin ERP_DEPARTMENT
-create table ERP_DEPARTMENT (
+-- begin ERP_DOCUMENT
+create table ERP_DOCUMENT (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -9,11 +9,35 @@ create table ERP_DEPARTMENT (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    DEPARTMENT varchar(255) not null,
+    NAME varchar(255) not null,
+    FILE_ID uuid not null,
+    ORDER_ID uuid not null,
     --
     primary key (ID)
 )^
--- end ERP_DEPARTMENT
+-- end ERP_DOCUMENT
+-- begin ERP_ITEM
+create table ERP_ITEM (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    DTYPE varchar(31),
+    --
+    ITEM varchar(255) not null,
+    DESCRIPTION text,
+    COST decimal(19, 2),
+    PRICE decimal(19, 2),
+    APPLY_VAT boolean,
+    VAT_PRICE decimal(19, 2),
+    --
+    primary key (ID)
+)^
+-- end ERP_ITEM
 -- begin ERP_SUBUNIT
 create table ERP_SUBUNIT (
     ID uuid,
@@ -31,6 +55,394 @@ create table ERP_SUBUNIT (
     primary key (ID)
 )^
 -- end ERP_SUBUNIT
+-- begin ERP_SERVICE_REQUEST
+create table ERP_SERVICE_REQUEST (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    REFERENCE_NUMBER varchar(255) not null,
+    EXISTING_CLIENT_ID uuid,
+    CUSTOMER_NAME varchar(255) not null,
+    MOBILE_PHONE varchar(255),
+    HOME_PHONE varchar(255),
+    WORK_PHONE varchar(255),
+    EMAIL varchar(255),
+    ADDRESS text,
+    INVOICE_NUMBER varchar(255),
+    TOTAL_PRICE decimal(19, 2),
+    --
+    primary key (ID)
+)^
+-- end ERP_SERVICE_REQUEST
+-- begin ERP_COMPANY_CONTACT_PERSONS
+create table ERP_COMPANY_CONTACT_PERSONS (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    CLIENT_COMPANY_ID uuid not null,
+    CONTACT_PERSON_ID uuid not null,
+    PREFERRED_COMPANY_PHONE varchar(255),
+    PREFERRED_EMAIL varchar(255),
+    JOB_POSITION varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_COMPANY_CONTACT_PERSONS
+-- begin ERP_WORK_EXPERIENCE
+create table ERP_WORK_EXPERIENCE (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    COMPANY varchar(255) not null,
+    JOB_TITLE varchar(255) not null,
+    START_DATE date,
+    END_DATE date,
+    COMMENT_ text,
+    EMPLOYEE_ID uuid not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_WORK_EXPERIENCE
+-- begin ERP_EMPLOYEE_LANGUAGE
+create table ERP_EMPLOYEE_LANGUAGE (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    EMPLOYEE_ID uuid not null,
+    LANGUAGE_ID uuid not null,
+    FLUENCY varchar(255) not null,
+    COMPETENCY varchar(255) not null,
+    COMMENTS text,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_LANGUAGE
+-- begin ERP_EMPLOYEE_EDUCATION
+create table ERP_EMPLOYEE_EDUCATION (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    EMPLOYEE_ID uuid not null,
+    EDUCATION_ID uuid not null,
+    INSTITUTE varchar(255) not null,
+    MAJOR_SPECIALIZATION varchar(255),
+    YEAR_ date,
+    GPA_SCORE integer,
+    START_DATE date,
+    END_DATE date,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_EDUCATION
+-- begin ERP_EMPLOYEE_SKILL
+create table ERP_EMPLOYEE_SKILL (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    EMPLOYEE_ID uuid not null,
+    SKILL_ID uuid not null,
+    YEARS_OF_EXPERIENCE integer,
+    COMMENT text,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_SKILL
+-- begin ERP_ORDER_ITEM
+create table ERP_ORDER_ITEM (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    ITEM_ID uuid not null,
+    DESCRIPTION text,
+    UNIT_VAT_PRICE decimal(19, 2),
+    QUANTITY integer,
+    AMOUNT decimal(19, 2),
+    ORDER_ID uuid not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_ORDER_ITEM
+-- begin ERP_DEPARTMENT
+create table ERP_DEPARTMENT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    DEPARTMENT varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_DEPARTMENT
+-- begin ERP_CITY
+create table ERP_CITY (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    CITY varchar(255) not null,
+    COORDINATES varchar(255),
+    COUNTRY_ID uuid not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_CITY
+-- begin ERP_ORDER
+create table ERP_ORDER (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    ORDER_NUM varchar(255) not null,
+    CLIENT_ID uuid not null,
+    ORDER_DATE date,
+    DELIVERY_DATE date,
+    TOTAL_AMOUNT decimal(19, 2),
+    --
+    primary key (ID)
+)^
+-- end ERP_ORDER
+-- begin ERP_COUNTRY
+create table ERP_COUNTRY (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    COUNTRY_CODE varchar(5) not null,
+    COUNTRY varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_COUNTRY
+-- begin ERP_EMPLOYEE_LICENSE
+create table ERP_EMPLOYEE_LICENSE (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    LICENSE_ID uuid not null,
+    EMPLOYEE_ID uuid not null,
+    LICENSE_NUMBER varchar(255) not null,
+    ISSUED_DATE date,
+    EXPIRY_DATE date,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_LICENSE
+-- begin ERP_PERSON
+create table ERP_PERSON (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    DTYPE varchar(100),
+    --
+    NAME_FIRST_NAME varchar(255) not null,
+    NAME_MIDDLE_NAME varchar(255),
+    NAME_LAST_NAME varchar(255) not null,
+    --
+    FULL_NAME varchar(255) not null,
+    GENDER integer not null,
+    MOBILE_PHONE varchar(255),
+    HOME_PHONE varchar(255),
+    EMAIL varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_PERSON
+-- begin ERP_EQUIPMENT
+create table ERP_EQUIPMENT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    PRODUCT_CATEGORY_ID uuid,
+    MAKE_MODEL varchar(255) not null,
+    SERIAL_NUMBER varchar(255),
+    VISIBLE_DEFECT text,
+    PROBLEM_DESCRIPTION text,
+    TECHNICIAN_REPORT text,
+    PRICE decimal(19, 2),
+    STATUS varchar(255) not null,
+    SERVICE_REQUEST_ID uuid not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_EQUIPMENT
+-- begin ERP_CLIENT
+create table ERP_CLIENT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    DTYPE varchar(31),
+    --
+    DISPLAY_NAME varchar(255),
+    EMAIL varchar(255),
+    PREFERRED_CONTACT_PHONE varchar(255),
+    FAX_NUMBER varchar(255),
+    COUNTRY_ID uuid,
+    CITY_ID uuid,
+    SHIPPING_ADDRESS text,
+    BILLING_ADDRESS text,
+    --
+    primary key (ID)
+)^
+-- end ERP_CLIENT
+-- begin ERP_LICENSE
+create table ERP_LICENSE (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_LICENSE
+-- begin ERP_MAKE_MANUFACTURER
+create table ERP_MAKE_MANUFACTURER (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_MAKE_MANUFACTURER
+-- begin ERP_LANGUAGE
+create table ERP_LANGUAGE (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_LANGUAGE
+-- begin ERP_EDUCATION
+create table ERP_EDUCATION (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_EDUCATION
+-- begin ERP_PRODUCT_CATEGORY
+create table ERP_PRODUCT_CATEGORY (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_PRODUCT_CATEGORY
 -- begin ERP_SKILL
 create table ERP_SKILL (
     ID uuid,
@@ -48,8 +460,8 @@ create table ERP_SKILL (
     primary key (ID)
 )^
 -- end ERP_SKILL
--- begin ERP_EMPLOYEE
-create table ERP_EMPLOYEE (
+-- begin ERP_JOB_POSITION
+create table ERP_JOB_POSITION (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -58,43 +470,96 @@ create table ERP_EMPLOYEE (
     UPDATED_BY varchar(50),
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
-    FIRST_NAME varchar(255) not null,
-    MIDDLE_NAME varchar(255),
-    LAST_NAME varchar(255) not null,
+    NAME varchar(255) not null,
+    --
+    RESPONSIBILITIES text,
+    --
+    primary key (ID)
+)^
+-- end ERP_JOB_POSITION
+-- begin ERP_NON_STOCK_ITEM
+create table ERP_NON_STOCK_ITEM (
+    ID uuid,
+    --
+    primary key (ID)
+)^
+-- end ERP_NON_STOCK_ITEM
+-- begin ERP_SERVICE
+create table ERP_SERVICE (
+    ID uuid,
+    --
+    primary key (ID)
+)^
+-- end ERP_SERVICE
+-- begin ERP_PRODUCT
+create table ERP_PRODUCT (
+    ID uuid,
+    --
+    PRODUCT_CATEGORY_ID uuid,
+    MAKE_MANUFACTURER_ID uuid,
+    QTY_STORE1 integer,
+    QTY_STORE2 integer,
+    QTY_STORE3 integer,
+    --
+    primary key (ID)
+)^
+-- end ERP_PRODUCT
+-- begin ERP_CLIENT_PERSON
+create table ERP_CLIENT_PERSON (
+    ID uuid,
+    --
+    NAME_FIRST_NAME varchar(255) not null,
+    NAME_MIDDLE_NAME varchar(255),
+    NAME_LAST_NAME varchar(255) not null,
+    --
+    GENDER integer not null,
+    MOBILE_PHONE varchar(255),
+    HOME_PHONE varchar(255),
+    WORK_PHONE varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_CLIENT_PERSON
+-- begin ERP_CLIENT_COMPANY
+create table ERP_CLIENT_COMPANY (
+    ID uuid,
+    --
+    COMPANY_NAME varchar(255) not null,
+    COMPANY_ADDRESS varchar(255),
+    BRN varchar(255),
+    VAT_NUMBER varchar(255),
+    SECONDARY_EMAIL varchar(255),
+    ALTERNATE_PHONE varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_CLIENT_COMPANY
+-- begin ERP_EMPLOYEE
+create table ERP_EMPLOYEE (
+    ID uuid,
     --
     EMP_ID varchar(255) not null,
     NIC varchar(255),
-    GENDER integer not null,
     DOB date not null,
+    NATIONALITY_ID uuid,
+    COUNTRY_OF_RESIDENCE_ID uuid,
+    CITY_ID uuid,
+    STREET_ADDRESS_APARTMENT text,
+    ADDRESS text,
     DEPARTMENT_ID uuid not null,
     SUBUNIT_ID uuid,
-    MOBILE_PHONE varchar(255),
-    HOME_PHONE varchar(255),
-    EMAIL varchar(255),
+    JOB_POSITION_ID uuid,
     --
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE
--- begin ERP_EMPLOYEE_SKILL
-create table ERP_EMPLOYEE_SKILL (
+-- begin ERP_CONTACT_PERSON
+create table ERP_CONTACT_PERSON (
     ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
     --
-    EMPLOYEE_ID uuid not null,
-    SKILL_ID uuid not null,
-    YEARS_OF_EXPERIENCE integer,
-    COMMENT varchar(255),
+    WORK_PHONE varchar(255),
+    PREFERRED_PHONE varchar(255),
     --
     primary key (ID)
 )^
--- end ERP_EMPLOYEE_SKILL
-
-
-
-
+-- end ERP_CONTACT_PERSON
