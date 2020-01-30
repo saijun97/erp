@@ -1,7 +1,6 @@
 package com.company.erp.web.screens.sales_inventory.order;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
-import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.model.*;
 import com.haulmont.cuba.gui.screen.*;
@@ -22,8 +21,6 @@ public class OrderEdit extends StandardEditor<Order> {
     private CollectionLoader<EntityLogItem> logDl;
     @Inject
     private Notifications notifications;
-    @Inject
-    private CollectionPropertyContainer<OrderItem> itemDc;
     @Inject
     private CollectionLoader<Client> clientsLc;
 
