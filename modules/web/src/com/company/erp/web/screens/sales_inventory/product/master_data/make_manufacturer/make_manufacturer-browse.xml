@@ -20,8 +20,13 @@
             spacing="true">
         <filter id="filter"
                 applyTo="make_ManufacturersTable"
-                dataLoader="make_ManufacturersDl">
-            <properties include=".*"/>
+                dataLoader="make_ManufacturersDl"
+                defaultMode="fts"
+                applyImmediately="false">
+            <properties  include=".*"
+                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                         excludeRecursively="true"
+                         exclude="(id)"/>
         </filter>
         <groupTable id="make_ManufacturersTable"
                     width="100%"

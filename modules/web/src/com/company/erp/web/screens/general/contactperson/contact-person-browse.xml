@@ -20,7 +20,9 @@
             spacing="true">
         <filter id="filter"
                 applyTo="contactPersonsTable"
-                dataLoader="contactPersonsDl">
+                dataLoader="contactPersonsDl"
+                defaultMode="fts"
+                applyImmediately="false">
             <properties  include=".*"
                          excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
                          excludeRecursively="true"

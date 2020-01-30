@@ -20,8 +20,13 @@
             spacing="true">
         <filter id="filter"
                 applyTo="equipmentsTable"
-                dataLoader="equipmentsDl">
-            <properties include=".*"/>
+                dataLoader="equipmentsDl"
+                defaultMode="fts"
+                applyImmediately="false">
+            <properties  include=".*"
+                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                         excludeRecursively="true"
+                         exclude="(id)"/>
         </filter>
         <Table id="equipmentsTable"
                     width="100%"

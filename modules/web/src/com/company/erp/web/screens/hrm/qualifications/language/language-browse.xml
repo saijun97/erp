@@ -20,8 +20,13 @@
             spacing="true">
         <filter id="filter"
                 applyTo="languagesTable"
-                dataLoader="languagesDl">
-            <properties include=".*"/>
+                dataLoader="languagesDl"
+                defaultMode="fts"
+                applyImmediately="false">
+            <properties  include=".*"
+                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                         excludeRecursively="true"
+                         exclude="(id)"/>
         </filter>
         <groupTable id="languagesTable"
                     width="100%"

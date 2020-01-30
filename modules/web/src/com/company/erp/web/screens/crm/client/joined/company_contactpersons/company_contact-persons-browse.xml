@@ -20,8 +20,13 @@
             spacing="true">
         <filter id="filter"
                 applyTo="company_ContactPersonsesTable"
-                dataLoader="company_ContactPersonsesDl">
-            <properties include=".*"/>
+                dataLoader="company_ContactPersonsesDl"
+                defaultMode="fts"
+                applyImmediately="false">
+            <properties  include=".*"
+                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                         excludeRecursively="true"
+                         exclude="(id)"/>
         </filter>
         <groupTable id="company_ContactPersonsesTable"
                     width="100%"

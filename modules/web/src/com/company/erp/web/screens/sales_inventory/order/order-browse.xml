@@ -21,8 +21,12 @@
         <filter id="filter"
                 applyTo="ordersTable"
                 dataLoader="ordersDl"
-                defaultMode="fts">
-            <properties include=".*"/>
+                defaultMode="fts"
+                applyImmediately="false">
+            <properties  include=".*"
+                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                         excludeRecursively="true"
+                         exclude="(id)"/>
         </filter>
         <dataGrid id="ordersTable"
                   width="100%"
