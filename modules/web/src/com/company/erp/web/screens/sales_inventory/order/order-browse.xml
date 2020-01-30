@@ -20,14 +20,14 @@
             spacing="true">
         <filter id="filter"
                 applyTo="ordersTable"
-                dataLoader="ordersDl">
+                dataLoader="ordersDl"
+                defaultMode="fts">
             <properties include=".*"/>
         </filter>
-        <groupTable id="ordersTable"
-                    width="100%"
-                    dataContainer="ordersDc"
-                    multiselect="true"
-                    presentations="true">
+        <dataGrid id="ordersTable"
+                  width="100%"
+                  dataContainer="ordersDc"
+                  settingsEnabled="true">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
@@ -35,11 +35,11 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="orderNum"/>
-                <column id="client"/>
-                <column id="orderDate"/>
-                <column id="deliveryDate"/>
-                <column id="totalAmount"/>
+                <column id="orderNum" property="orderNum"/>
+                <column id="client" property="client"/>
+                <column id="orderDate" property="orderDate"/>
+                <column id="deliveryDate" property="deliveryDate"/>
+                <column id="totalAmount" property="totalAmount"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
@@ -49,7 +49,7 @@
                 <button id="removeBtn" action="ordersTable.remove"/>
                 <button id="excelBtn" action="ordersTable.excel"/>
             </buttonsPanel>
-        </groupTable>
+        </dataGrid>
         <hbox id="lookupActions" spacing="true" visible="false">
             <button action="lookupSelectAction"/>
             <button action="lookupCancelAction"/>
