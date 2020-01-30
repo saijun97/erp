@@ -2,9 +2,11 @@ package com.company.erp.web.screens.sales_inventory.order;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
+import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.CurrencyField;
 import com.haulmont.cuba.gui.components.Table;
+import com.haulmont.cuba.gui.components.TextField;
 import com.haulmont.cuba.gui.model.*;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.sales_inventory.order.Order;
@@ -27,6 +29,12 @@ public class OrderEdit extends StandardEditor<Order> {
     @Inject
     protected CurrencyField<BigDecimal> totalAmountField;
     @Inject
+    protected TextField<String> orderNumField;
+    @Inject
+    protected UniqueNumbersService uniqueNumbersService;
+    @Inject
+    protected InstanceContainer<Order> orderDc;
+    @Inject
     private InstanceLoader<Order> orderDl;
     @Inject
     private CollectionLoader<EntityLogItem> logDl;
@@ -48,6 +56,14 @@ public class OrderEdit extends StandardEditor<Order> {
                         .show();
                 event.preventCommit();
             }
+
+        }
+
+        if (orderNumField.getValue() == null) {
+
+            String orderNumValue = "ORD" + (uniqueNumbersService.getNextNumber("orderNum"));
+
+            getEditedEntity().setOrderNum(orderNumValue);
 
         }
 
@@ -80,6 +96,7 @@ public class OrderEdit extends StandardEditor<Order> {
             Iterator itr = set.iterator();
             Object string = itr.next();
             amountValue = (BigDecimal) hash.get(string);
+
         }
 
         totalAmountField.setValue(amountValue);
