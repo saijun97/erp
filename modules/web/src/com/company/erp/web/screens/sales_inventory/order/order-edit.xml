@@ -39,12 +39,13 @@
                 <tab id="details" caption="Details" spacing="true" margin="true,true,true,true">
                     <form id="form" dataContainer="orderDc">
                         <column width="250px">
-                            <textField id="orderNumField" property="orderNum"/>
-                            <lookupPickerField id="clientField" optionsContainer="clientsDc" property="client">
+                            <textField id="orderNumField" property="orderNum" editable="false"/>
+                            <lookupPickerField id="clientField"
+                                               optionsContainer="clientsDc"
+                                               property="client">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
                                     <action id="open" type="picker_open"/>
-                                    <action id="clear" type="picker_clear"/>
                                 </actions>
                             </lookupPickerField>
                             <dateField id="orderDateField" property="orderDate"/>
