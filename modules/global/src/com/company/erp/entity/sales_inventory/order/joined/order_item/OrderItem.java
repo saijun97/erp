@@ -23,7 +23,7 @@ public class OrderItem extends StandardEntity {
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "clear"})
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ITEM_ID", unique = true)
+    @JoinColumn(name = "ITEM_ID")
     protected Item item;
 
     @Lob
