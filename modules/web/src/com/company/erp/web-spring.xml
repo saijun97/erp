@@ -7,5 +7,14 @@
     <context:component-scan base-package="com.company.erp"/>
     
     <gui:screens base-packages="com.company.erp.web"/>
+    <bean id="erp_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="serverSelector" ref="cuba_ServerSelector"/>
+        <property name="remoteServices">
+            <map>
+                <entry key="erp_DataGridDetailsGeneratorService"
+                       value="com.company.erp.service.DataGridDetailsGeneratorService"/>
+            </map>
+        </property>
+    </bean>
 
 </beans>
