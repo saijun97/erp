@@ -9,13 +9,11 @@ import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.global.DeletePolicy;
-import org.checkerframework.common.aliasing.qual.Unique;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @NamePattern("%s|item")
-
 @Table(name = "ERP_ORDER_ITEM")
 @Entity(name = "erp_OrderItem")
 public class OrderItem extends StandardEntity {
