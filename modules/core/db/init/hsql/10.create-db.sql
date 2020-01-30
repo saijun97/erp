@@ -198,6 +198,7 @@ create table ERP_ORDER_ITEM (
     DESCRIPTION longvarchar,
     UNIT_VAT_PRICE decimal(19, 2),
     QUANTITY integer,
+    AMOUNT decimal(19, 2),
     ORDER_ID varchar(36) not null,
     --
     primary key (ID)
@@ -252,6 +253,7 @@ create table ERP_ORDER (
     CLIENT_ID varchar(36) not null,
     ORDER_DATE date,
     DELIVERY_DATE date,
+    TOTAL_AMOUNT decimal(19, 2),
     --
     primary key (ID)
 )^
