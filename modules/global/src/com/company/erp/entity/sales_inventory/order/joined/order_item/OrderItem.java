@@ -9,6 +9,7 @@ import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.global.DeletePolicy;
+import org.checkerframework.common.aliasing.qual.Unique;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -22,7 +23,7 @@ public class OrderItem extends StandardEntity {
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "clear"})
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ITEM_ID")
+    @JoinColumn(name = "ITEM_ID", unique = true)
     protected Item item;
 
     @Lob
