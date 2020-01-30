@@ -1,0 +1,1 @@
+create unique index IDX_ERP_ORDER_ITEM_UNIQ_ITEM_ID on ERP_ORDER_ITEM (ITEM_ID) ;
