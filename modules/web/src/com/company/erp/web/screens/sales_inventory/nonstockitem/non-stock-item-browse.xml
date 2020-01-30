@@ -26,8 +26,15 @@
     <layout>
         <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
             <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
-                <filter id="filter" applyTo="table" dataLoader="nonStockItemsDl">
-                    <properties include=".*"/>
+                <filter id="filter"
+                        applyTo="table"
+                        dataLoader="nonStockItemsDl"
+                        defaultMode="fts"
+                        applyImmediately="false">
+                    <properties  include=".*"
+                                 excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                                 excludeRecursively="true"
+                                 exclude="(id)"/>
                 </filter>
                 <dataGrid id="table"
                           width="100%"

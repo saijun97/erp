@@ -20,8 +20,9 @@
             spacing="true">
         <filter id="filter"
                 applyTo="employeesTable"
-                dataLoader="employeesDl">
-
+                dataLoader="employeesDl"
+                defaultMode="fts"
+                applyImmediately="false">
             <properties include=".*"
                         exclude="(id)|(country.id)|(Department.ID)|(jobPosition.id)"
                         excludeRecursively="true"
