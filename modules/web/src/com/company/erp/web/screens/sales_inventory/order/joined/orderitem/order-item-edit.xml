@@ -9,7 +9,7 @@
                   view="orderItem-view-details">
             <loader/>
         </instance>
-        <collection id="itemsDc" class="com.company.erp.entity.general.superclasses.Item" view="_minimal">
+        <collection id="itemsDc" class="com.company.erp.entity.general.superclasses.Item" view="_local">
             <loader id="itemsLc">
                 <query>
                     <![CDATA[select e from erp_Item e]]>
@@ -27,7 +27,7 @@
                 <lookupField id="itemField" optionsContainer="itemsDc" property="item"/>
                 <textArea rows="5" id="descriptionField" property="description"/>
                 <currencyField id="unitVatPriceField" property="unitVatPrice" currency="MUR"/>
-                <currencyField id="quantityField" property="quantity" currency="MUR"/>
+                <textField id="quantityField" property="quantity" datatype="int"/>
                 <currencyField id="amountField" property="amount" currency="MUR"/>
             </column>
         </form>
