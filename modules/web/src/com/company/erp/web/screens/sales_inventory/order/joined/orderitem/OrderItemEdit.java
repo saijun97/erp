@@ -42,4 +42,19 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
         amountField.setValue(amountValue);
 
     }
+
+    @Subscribe("unitVatPriceField")
+    protected void onUnitVatPriceFieldValueChange(HasValue.ValueChangeEvent<BigDecimal> event) {
+
+        if (itemField.getValue() != null) {
+
+            BigDecimal amountValue;
+
+            amountValue = unitVatPriceField.getValue().multiply(BigDecimal.valueOf(quantityField.getValue()));
+
+            amountField.setValue(amountValue);
+
+        }
+
+    }
 }
