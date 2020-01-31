@@ -38,23 +38,6 @@ create table ERP_ITEM (
     primary key (ID)
 )^
 -- end ERP_ITEM
--- begin ERP_SUBUNIT
-create table ERP_SUBUNIT (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    SUBUNIT varchar(255) not null,
-    DEPARTMENT_ID varchar(36) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_SUBUNIT
 -- begin ERP_SERVICE_REQUEST
 create table ERP_SERVICE_REQUEST (
     ID varchar(36) not null,
@@ -100,6 +83,142 @@ create table ERP_COMPANY_CONTACT_PERSONS (
     primary key (ID)
 )^
 -- end ERP_COMPANY_CONTACT_PERSONS
+-- begin ERP_ORDER_ITEM
+create table ERP_ORDER_ITEM (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    ITEM_ID varchar(36) not null,
+    DESCRIPTION longvarchar,
+    UNIT_VAT_PRICE decimal(19, 2),
+    QUANTITY integer,
+    AMOUNT decimal(19, 2),
+    ORDER_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_ORDER_ITEM
+-- begin ERP_EMPLOYEE_SKILL
+create table ERP_EMPLOYEE_SKILL (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    EMPLOYEE_ID varchar(36) not null,
+    SKILL_ID varchar(36) not null,
+    YEARS_OF_EXPERIENCE integer,
+    COMMENT longvarchar,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_SKILL
+-- begin ERP_EMPLOYEE_EDUCATION
+create table ERP_EMPLOYEE_EDUCATION (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    EMPLOYEE_ID varchar(36) not null,
+    EDUCATION_ID varchar(36) not null,
+    INSTITUTE varchar(255) not null,
+    MAJOR_SPECIALIZATION varchar(255),
+    YEAR_ date,
+    GPA_SCORE integer,
+    START_DATE date,
+    END_DATE date,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_EDUCATION
+-- begin ERP_DEPARTMENT
+create table ERP_DEPARTMENT (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    DEPARTMENT varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_DEPARTMENT
+-- begin ERP_ORDER
+create table ERP_ORDER (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    ORDER_NUM varchar(255),
+    CLIENT_ID varchar(36) not null,
+    ORDER_DATE date,
+    DELIVERY_DATE date,
+    TOTAL_AMOUNT decimal(19, 2),
+    --
+    primary key (ID)
+)^
+-- end ERP_ORDER
+-- begin ERP_EMPLOYEE_LICENSE
+create table ERP_EMPLOYEE_LICENSE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    LICENSE_ID varchar(36) not null,
+    EMPLOYEE_ID varchar(36) not null,
+    LICENSE_NUMBER varchar(255) not null,
+    ISSUED_DATE date,
+    EXPIRY_DATE date,
+    --
+    primary key (ID)
+)^
+-- end ERP_EMPLOYEE_LICENSE
+-- begin ERP_SUBUNIT
+create table ERP_SUBUNIT (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    SUBUNIT varchar(255) not null,
+    DEPARTMENT_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_SUBUNIT
 -- begin ERP_WORK_EXPERIENCE
 create table ERP_WORK_EXPERIENCE (
     ID varchar(36) not null,
@@ -141,85 +260,6 @@ create table ERP_EMPLOYEE_LANGUAGE (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_LANGUAGE
--- begin ERP_EMPLOYEE_EDUCATION
-create table ERP_EMPLOYEE_EDUCATION (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    EMPLOYEE_ID varchar(36) not null,
-    EDUCATION_ID varchar(36) not null,
-    INSTITUTE varchar(255) not null,
-    MAJOR_SPECIALIZATION varchar(255),
-    YEAR_ date,
-    GPA_SCORE integer,
-    START_DATE date,
-    END_DATE date,
-    --
-    primary key (ID)
-)^
--- end ERP_EMPLOYEE_EDUCATION
--- begin ERP_EMPLOYEE_SKILL
-create table ERP_EMPLOYEE_SKILL (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    EMPLOYEE_ID varchar(36) not null,
-    SKILL_ID varchar(36) not null,
-    YEARS_OF_EXPERIENCE integer,
-    COMMENT longvarchar,
-    --
-    primary key (ID)
-)^
--- end ERP_EMPLOYEE_SKILL
--- begin ERP_ORDER_ITEM
-create table ERP_ORDER_ITEM (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    ITEM_ID varchar(36) not null,
-    DESCRIPTION longvarchar,
-    UNIT_VAT_PRICE decimal(19, 2),
-    QUANTITY integer,
-    AMOUNT decimal(19, 2),
-    ORDER_ID varchar(36) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_ORDER_ITEM
--- begin ERP_DEPARTMENT
-create table ERP_DEPARTMENT (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    DEPARTMENT varchar(255) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_DEPARTMENT
 -- begin ERP_CITY
 create table ERP_CITY (
     ID varchar(36) not null,
@@ -238,26 +278,6 @@ create table ERP_CITY (
     primary key (ID)
 )^
 -- end ERP_CITY
--- begin ERP_ORDER
-create table ERP_ORDER (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    ORDER_NUM varchar(255),
-    CLIENT_ID varchar(36) not null,
-    ORDER_DATE date,
-    DELIVERY_DATE date,
-    TOTAL_AMOUNT decimal(19, 2),
-    --
-    primary key (ID)
-)^
--- end ERP_ORDER
 -- begin ERP_COUNTRY
 create table ERP_COUNTRY (
     ID varchar(36) not null,
@@ -275,26 +295,6 @@ create table ERP_COUNTRY (
     primary key (ID)
 )^
 -- end ERP_COUNTRY
--- begin ERP_EMPLOYEE_LICENSE
-create table ERP_EMPLOYEE_LICENSE (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    LICENSE_ID varchar(36) not null,
-    EMPLOYEE_ID varchar(36) not null,
-    LICENSE_NUMBER varchar(255) not null,
-    ISSUED_DATE date,
-    EXPIRY_DATE date,
-    --
-    primary key (ID)
-)^
--- end ERP_EMPLOYEE_LICENSE
 -- begin ERP_PERSON
 create table ERP_PERSON (
     ID varchar(36) not null,
@@ -320,30 +320,6 @@ create table ERP_PERSON (
     primary key (ID)
 )^
 -- end ERP_PERSON
--- begin ERP_EQUIPMENT
-create table ERP_EQUIPMENT (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    PRODUCT_CATEGORY_ID varchar(36),
-    MAKE_MODEL varchar(255) not null,
-    SERIAL_NUMBER varchar(255),
-    VISIBLE_DEFECT longvarchar,
-    PROBLEM_DESCRIPTION longvarchar,
-    TECHNICIAN_REPORT longvarchar,
-    PRICE decimal(19, 2),
-    STATUS varchar(255) not null,
-    SERVICE_REQUEST_ID varchar(36) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_EQUIPMENT
 -- begin ERP_CLIENT
 create table ERP_CLIENT (
     ID varchar(36) not null,
@@ -368,6 +344,30 @@ create table ERP_CLIENT (
     primary key (ID)
 )^
 -- end ERP_CLIENT
+-- begin ERP_EQUIPMENT
+create table ERP_EQUIPMENT (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    PRODUCT_CATEGORY_ID varchar(36),
+    MAKE_MODEL varchar(255) not null,
+    SERIAL_NUMBER varchar(255),
+    VISIBLE_DEFECT longvarchar,
+    PROBLEM_DESCRIPTION longvarchar,
+    TECHNICIAN_REPORT longvarchar,
+    PRICE decimal(19, 2),
+    STATUS varchar(255) not null,
+    SERVICE_REQUEST_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_EQUIPMENT
 -- begin ERP_NON_STOCK_ITEM
 create table ERP_NON_STOCK_ITEM (
     ID varchar(36) not null,
@@ -395,21 +395,6 @@ create table ERP_PRODUCT (
     primary key (ID)
 )^
 -- end ERP_PRODUCT
--- begin ERP_LICENSE
-create table ERP_LICENSE (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    NAME varchar(255) not null,
-    --
-    primary key (ID)
-)^
--- end ERP_LICENSE
 -- begin ERP_MAKE_MANUFACTURER
 create table ERP_MAKE_MANUFACTURER (
     ID varchar(36) not null,
@@ -425,8 +410,8 @@ create table ERP_MAKE_MANUFACTURER (
     primary key (ID)
 )^
 -- end ERP_MAKE_MANUFACTURER
--- begin ERP_LANGUAGE
-create table ERP_LANGUAGE (
+-- begin ERP_LICENSE
+create table ERP_LICENSE (
     ID varchar(36) not null,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -439,7 +424,7 @@ create table ERP_LANGUAGE (
     --
     primary key (ID)
 )^
--- end ERP_LANGUAGE
+-- end ERP_LICENSE
 -- begin ERP_EDUCATION
 create table ERP_EDUCATION (
     ID varchar(36) not null,
@@ -455,6 +440,21 @@ create table ERP_EDUCATION (
     primary key (ID)
 )^
 -- end ERP_EDUCATION
+-- begin ERP_LANGUAGE
+create table ERP_LANGUAGE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_LANGUAGE
 -- begin ERP_PRODUCT_CATEGORY
 create table ERP_PRODUCT_CATEGORY (
     ID varchar(36) not null,
