@@ -17,16 +17,96 @@ caption="msg://caption"
                           name="sum"/>
             </properties>
         </keyValueCollection>
+        <collection id="dateValueDc"
+                    class="com.company.erp.entity.sales_inventory.order.Order"
+                    view="order-view-details">
+            <loader id="dateValueLoader">
+                <query>
+                    <![CDATA[select e from erp_Order e order by e.orderDate]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <layout>
         <chart:pieChart dataContainer="salesDc"
                         angle="30"
+                        balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
+                        &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
                         depth3D="15"
                         height="100%"
+                        outlineAlpha="0.4"
                         titleField="client"
                         valueField="sum"
                         width="100%">
-            <chart:legend position="RIGHT"/>
+            <chart:legend autoMargins="false"
+                          marginRight="80"
+                          markerType="CIRCLE"
+                          position="RIGHT"/>
+            <chart:export/>
         </chart:pieChart>
+        <chart:serialChart id="lineChart"
+                           autoMarginOffset="20"
+                           categoryField="orderDate"
+                           dataContainer="dateValueDc"
+                           height="100%"
+                           marginRight="40"
+                           marginLeft="40"
+                           mouseWheelZoomEnabled="true"
+                           theme="LIGHT"
+                           width="100%">
+            <chart:valueAxes>
+                <chart:axis id="v1"
+                            axisAlpha="0"
+                            ignoreAxisWidth="true"
+                            position="LEFT"/>
+            </chart:valueAxes>
+            <chart:balloon borderThickness="1"
+                           shadowAlpha="0"/>
+            <chart:graphs>
+                <chart:graph id="g1"
+                             bullet="ROUND"
+                             bulletBorderAlpha="1"
+                             bulletColor="WHITE"
+                             bulletSize="5"
+                             hideBulletsCount="50"
+                             lineThickness="2"
+                             title="Red line"
+                             useLineColorForBulletBorder="true"
+                             valueField="totalAmount"
+                             balloonText="&lt;span style='font-size:18px;'&gt;[[value]]&lt;/span&gt;">
+                    <chart:balloon adjustBorderColor="false"
+                                   color="WHITE"
+                                   drop="true"/>
+                </chart:graph>
+            </chart:graphs>
+            <chart:categoryAxis dashLength="1"
+                                minorGridEnabled="true"/>
+            <chart:chartScrollbar autoGridCount="true"
+                                  backgroundAlpha="0"
+                                  color="#AAAAAA"
+                                  graph="g1"
+                                  graphFillAlpha="0"
+                                  graphLineAlpha="0.5"
+                                  offset="30"
+                                  oppositeAxis="false"
+                                  scrollbarHeight="80"
+                                  selectedBackgroundAlpha="0.1"
+                                  selectedBackgroundColor="#888888"
+                                  selectedGraphFillAlpha="0"
+                                  selectedGraphLineAlpha="1"/>
+            <chart:chartCursor cursorAlpha="1"
+                               cursorColor="#258cbb"
+                               cursorPosition="MOUSE"
+                               limitToGraph="g1"
+                               pan="true"
+                               valueLineAlpha="0.2"
+                               valueLineEnabled="true"
+                               valueLineBalloonEnabled="true"
+                               valueZoomable="true"/>
+            <chart:valueScrollbar offset="50"
+                                  oppositeAxis="false"
+                                  scrollbarHeight="10"/>
+            <chart:export/>
+        </chart:serialChart>
     </layout>
 </window>
