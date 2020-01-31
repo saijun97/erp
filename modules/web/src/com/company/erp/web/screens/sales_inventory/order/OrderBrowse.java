@@ -81,7 +81,7 @@ public class OrderBrowse extends StandardLookup<Order> {
         StringBuilder sb = new StringBuilder();
         sb.append("<table cellspacing=3px cellpadding=3px>")
                 .append("<tr>")
-                .append("<th>Product</th>")
+                .append("<th>Item</th>")
                 .append("<th>Quantity</th>")
                 .append("<th>Unit Vat Price</th>")
                 .append("<th>Total</th>")
