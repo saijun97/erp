@@ -4,8 +4,8 @@
 caption="msg://caption"
         messagesPack="com.company.erp.web.screens.general.dashboards">
     <data>
-        <keyValueCollection id="salesDc">
-            <loader id="salesLoader">
+        <keyValueCollection id="salesPieChartDc">
+            <loader id="salesPieChartLoader">
                 <query>
                     <![CDATA[select o.client, sum(o.totalAmount) from erp_Order o group by o.client]]>
                 </query>
@@ -17,10 +17,10 @@ caption="msg://caption"
                           name="sum"/>
             </properties>
         </keyValueCollection>
-        <collection id="dateValueDc"
+        <collection id="salesSerialChartDc"
                     class="com.company.erp.entity.sales_inventory.order.Order"
                     view="order-view-details">
-            <loader id="dateValueLoader">
+            <loader id="salesSerialChartLoader">
                 <query>
                     <![CDATA[select e from erp_Order e order by e.orderDate]]>
                 </query>
@@ -28,7 +28,7 @@ caption="msg://caption"
         </collection>
     </data>
     <layout>
-        <chart:pieChart dataContainer="salesDc"
+        <chart:pieChart dataContainer="salesPieChartDc"
                         angle="30"
                         balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
                         &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
@@ -47,7 +47,7 @@ caption="msg://caption"
         <chart:serialChart id="lineChart"
                            autoMarginOffset="20"
                            categoryField="orderDate"
-                           dataContainer="dateValueDc"
+                           dataContainer="salesSerialChartDc"
                            height="100%"
                            marginRight="40"
                            marginLeft="40"
