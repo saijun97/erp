@@ -5,6 +5,7 @@ import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.CurrencyField;
+import com.haulmont.cuba.gui.components.DateField;
 import com.haulmont.cuba.gui.components.Table;
 import com.haulmont.cuba.gui.components.TextField;
 import com.haulmont.cuba.gui.model.*;
@@ -14,10 +15,7 @@ import com.haulmont.cuba.security.entity.EntityLogItem;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @UiController("erp_Order.edit")
 @UiDescriptor("order-edit.xml")
@@ -35,6 +33,8 @@ public class OrderEdit extends StandardEditor<Order> {
     @Inject
     protected InstanceContainer<Order> orderDc;
     @Inject
+    protected DateField<Date> orderDateField;
+    @Inject
     private InstanceLoader<Order> orderDl;
     @Inject
     private CollectionLoader<EntityLogItem> logDl;
@@ -42,6 +42,13 @@ public class OrderEdit extends StandardEditor<Order> {
     private Notifications notifications;
     @Inject
     private CollectionLoader<Client> clientsLc;
+
+    @Subscribe
+    protected void onInitEntity(InitEntityEvent<Order> event) {
+
+        event.getEntity().setOrderDate(new Date());
+
+    }
 
     @Subscribe
     public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
