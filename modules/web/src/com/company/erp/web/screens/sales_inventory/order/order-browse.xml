@@ -9,7 +9,7 @@
                     view="order-view-details">
             <loader id="ordersDl">
                 <query>
-                    <![CDATA[select e from erp_Order e]]>
+                    <![CDATA[select e from erp_Order e order by e.orderNum DESC]]>
                 </query>
             </loader>
         </collection>
@@ -31,7 +31,8 @@
         <dataGrid id="ordersTable"
                   width="100%"
                   dataContainer="ordersDc"
-                  settingsEnabled="true">
+                  settingsEnabled="false"
+                  responsive="true">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
