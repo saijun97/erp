@@ -44,7 +44,7 @@ public class OrderBrowse extends StandardLookup<Order> {
         HBoxLayout headerBox = uiComponents.create(HBoxLayout.NAME);
         headerBox.setWidth("100%");
 
-        Label infoLabel = uiComponents.create(Label.NAME);
+        Label<String> infoLabel = uiComponents.create(Label.NAME);
         infoLabel.setHtmlEnabled(true);
         infoLabel.setStyleName("h1");
         infoLabel.setValue("Order info:");
