@@ -1,10 +1,7 @@
 package com.company.erp.web.screens.sales_inventory.order.joined.orderitem;
 
 import com.company.erp.entity.general.superclasses.Item;
-import com.haulmont.cuba.gui.components.CurrencyField;
-import com.haulmont.cuba.gui.components.HasValue;
-import com.haulmont.cuba.gui.components.LookupField;
-import com.haulmont.cuba.gui.components.TextField;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 
@@ -17,6 +14,8 @@ import java.math.BigDecimal;
 @LoadDataBeforeShow
 public class OrderItemEdit extends StandardEditor<OrderItem> {
     @Inject
+    protected ResizableTextArea<String> descriptionField;
+    @Inject
     private CurrencyField<BigDecimal> unitVatPriceField;
     @Inject
     private LookupField<Item> itemField;
@@ -28,6 +27,7 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
     @Subscribe("itemField")
     public void onItemFieldValueChange(HasValue.ValueChangeEvent<Item> event) {
 
+        descriptionField.setValue(itemField.getValue().getDescription());
         unitVatPriceField.setValue(itemField.getValue().getVatPrice());
         amountField.setValue(unitVatPriceField.getValue());
     }
@@ -50,7 +50,7 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
 
             BigDecimal amountValue;
 
-            amountValue = unitVatPriceField.getValue().multiply(BigDecimal.valueOf(quantityField.getValue()));
+            amountValue = getEditedEntity().getUnitVatPrice().multiply(BigDecimal.valueOf(getEditedEntity().getQuantity()));
 
             amountField.setValue(amountValue);
 
