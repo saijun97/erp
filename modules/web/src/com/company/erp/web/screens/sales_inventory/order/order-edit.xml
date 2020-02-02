@@ -68,7 +68,7 @@
                             </actions>
                             <columns>
                                 <column id="item"/>
-                                <column id="unitVatPrice"/>
+                                <column id="unitVatPrice" caption="Unit Price(VAT Incl.)"/>
                                 <column id="quantity"/>
                                 <column id="amount">
                                     <aggregation type="SUM" valueDescription="Total"/>
