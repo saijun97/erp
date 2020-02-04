@@ -1,5 +1,8 @@
-<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
-        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd"
+<window xsi:schemaLocation="http://schemas.haulmont.com/cubadshb/ui-component.xsd
+        caption=" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:dashboard="http://schemas.haulmont.com/cubadshb/ui-component.xsd"
+        messagesPack="com.company.erp.web"
         caption="mainMsg://application.caption">
     <data>
         <keyValueCollection id="salesDc">
@@ -75,15 +78,8 @@
                       height="100%">
                 <initialLayout margin="true"
                                spacing="true">
-                    <chart:pieChart dataContainer="salesDc"
-                                    angle="30"
-                                    depth3D="15"
-                                    height="100%"
-                                    titleField="client"
-                                    valueField="sum"
-                                    width="100%">
-                        <chart:legend position="RIGHT"/>
-                    </chart:pieChart>
+                    <dashboard:dashboard id="mainDashboard"
+                                         code="mdb"/>
                 </initialLayout>
             </workArea>
         </hbox>
