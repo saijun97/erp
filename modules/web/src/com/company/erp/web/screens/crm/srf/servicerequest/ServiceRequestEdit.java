@@ -36,8 +36,8 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
     protected void onInit(InitEvent event) {
 
         List<String> list = new ArrayList<>();
-        list.add("Not Started");
-        list.add("Awaiting Client Approval");
+        list.add("Pending");
+        list.add("Waiting");
         list.add("In Progress");
         list.add("Completed");
         statusField.setOptionsList(list);
@@ -47,7 +47,7 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
     @Subscribe
     protected void onInitEntity(InitEntityEvent<ServiceRequest> event) {
 
-        event.getEntity().setStatus("Not Started");
+        event.getEntity().setStatus("Pending");
 
     }
 
