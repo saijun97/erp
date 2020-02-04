@@ -23,10 +23,10 @@
                 dataLoader="ordersDl"
                 defaultMode="fts"
                 applyImmediately="false">
-            <properties  include=".*"
-                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
-                         excludeRecursively="true"
-                         exclude="(id)"/>
+            <properties include=".*"
+                        excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                        excludeRecursively="true"
+                        exclude="(id)"/>
         </filter>
         <dataGrid id="ordersTable"
                   width="100%"
@@ -45,6 +45,7 @@
                 <column id="orderDate" property="orderDate"/>
                 <column id="deliveryDate" property="deliveryDate"/>
                 <column id="totalAmount" property="totalAmount"/>
+                <column id="status" property="status"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

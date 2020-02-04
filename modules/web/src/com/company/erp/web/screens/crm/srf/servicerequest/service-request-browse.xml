@@ -23,10 +23,10 @@
                 dataLoader="serviceRequestsDl"
                 defaultMode="fts"
                 applyImmediately="false">
-            <properties  include=".*"
-                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
-                         excludeRecursively="true"
-                         exclude="(id)"/>
+            <properties include=".*"
+                        excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                        excludeRecursively="true"
+                        exclude="(id)"/>
         </filter>
         <groupTable id="serviceRequestsTable"
                     width="100%"
@@ -50,6 +50,7 @@
                 <column id="address"/>
                 <column id="invoiceNumber"/>
                 <column id="totalPrice"/>
+                <column id="status"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

@@ -39,7 +39,7 @@
                 <textField id="serialNumberField" property="serialNumber"/>
                 <textArea id="visibleDefectField" property="visibleDefect" rows="5"/>
                 <currencyField id="priceField" property="price" currency="MUR" datatype="decimal"/>
-                <textField id="statusField" property="status"/>
+                <lookupField id="statusField" property="status"/>
             </column>
         </form>
         <form id="form1" dataContainer="equipmentDc" captionPosition="TOP" >

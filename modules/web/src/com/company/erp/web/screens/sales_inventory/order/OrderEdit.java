@@ -4,10 +4,7 @@ import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.Notifications;
-import com.haulmont.cuba.gui.components.CurrencyField;
-import com.haulmont.cuba.gui.components.DateField;
-import com.haulmont.cuba.gui.components.Table;
-import com.haulmont.cuba.gui.components.TextField;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.model.*;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.sales_inventory.order.Order;
@@ -35,6 +32,8 @@ public class OrderEdit extends StandardEditor<Order> {
     @Inject
     protected DateField<Date> orderDateField;
     @Inject
+    protected LookupField<String> statusField;
+    @Inject
     private InstanceLoader<Order> orderDl;
     @Inject
     private CollectionLoader<EntityLogItem> logDl;
@@ -43,10 +42,30 @@ public class OrderEdit extends StandardEditor<Order> {
     @Inject
     private CollectionLoader<Client> clientsLc;
 
+
+    @Subscribe
+    public void onBeforeShow(BeforeShowEvent event) {
+
+        orderDl.load();
+        clientsLc.load();
+
+        List<String> list = new ArrayList<>();
+        list.add("Quote Request");
+        list.add("Invoice Sent");
+        list.add("Unpaid");
+        list.add("Partially Paid");
+        list.add("Paid");
+        list.add("Cancelled");
+        statusField.setOptionsList(list);
+
+    }
+
+
     @Subscribe
     protected void onInitEntity(InitEntityEvent<Order> event) {
 
         event.getEntity().setOrderDate(new Date());
+        event.getEntity().setStatus("Quote Request");
 
     }
 
@@ -73,14 +92,6 @@ public class OrderEdit extends StandardEditor<Order> {
             getEditedEntity().setOrderNum(orderNumValue);
 
         }
-
-    }
-
-    @Subscribe
-    public void onBeforeShow(BeforeShowEvent event) {
-
-        orderDl.load();
-        clientsLc.load();
 
     }
 
