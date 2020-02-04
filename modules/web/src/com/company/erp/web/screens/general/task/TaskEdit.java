@@ -63,14 +63,18 @@ public class TaskEdit extends StandardEditor<Task> {
     @Subscribe
     protected void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
 
-        if (getEditedEntity().getClient() != getEditedEntity().getOrderNum().getClient()) {
+        if (getEditedEntity().getOrderNum() != null) {
 
-            notifications.create()
-                    .withCaption("Selected order number is not assigned to the same customer " +
-                            "this task is currently assigned.\n Press X button next to order field and select again.")
-                    .withType(Notifications.NotificationType.ERROR)
-                    .show();
-            event.preventCommit();
+            if (getEditedEntity().getClient() != getEditedEntity().getOrderNum().getClient()) {
+
+                notifications.create()
+                        .withCaption("Selected order number is not assigned to the same customer " +
+                                "this task is currently assigned.\n Press X button next to order field and select again.")
+                        .withType(Notifications.NotificationType.ERROR)
+                        .show();
+                event.preventCommit();
+            }
+
         }
     }
 
