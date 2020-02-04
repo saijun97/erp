@@ -48,6 +48,19 @@ create unique index IDX_ERP_EMPLOYEE_LICENSE_UNIQ_LICENSE_NUMBER on ERP_EMPLOYEE
 create index IDX_ERP_EMPLOYEE_LICENSE_ON_LICENSE on ERP_EMPLOYEE_LICENSE (LICENSE_ID)^
 create index IDX_ERP_EMPLOYEE_LICENSE_ON_EMPLOYEE on ERP_EMPLOYEE_LICENSE (EMPLOYEE_ID)^
 -- end ERP_EMPLOYEE_LICENSE
+-- begin ERP_TASK
+alter table ERP_TASK add constraint FK_ERP_TASK_ON_ORDER_NUM foreign key (ORDER_NUM_ID) references ERP_ORDER(ID)^
+alter table ERP_TASK add constraint FK_ERP_TASK_ON_CLIENT foreign key (CLIENT_ID) references ERP_CLIENT(ID)^
+alter table ERP_TASK add constraint FK_ERP_TASK_ON_COUNTRY foreign key (COUNTRY_ID) references ERP_COUNTRY(ID)^
+alter table ERP_TASK add constraint FK_ERP_TASK_ON_CITY foreign key (CITY_ID) references ERP_CITY(ID)^
+alter table ERP_TASK add constraint FK_ERP_TASK_ON_EMPLOYEE foreign key (EMPLOYEE_ID) references ERP_EMPLOYEE(ID)^
+create unique index IDX_ERP_TASK_UNIQ_TASK_NUM on ERP_TASK (TASK_NUM) ^
+create index IDX_ERP_TASK_ON_ORDER_NUM on ERP_TASK (ORDER_NUM_ID)^
+create index IDX_ERP_TASK_ON_CLIENT on ERP_TASK (CLIENT_ID)^
+create index IDX_ERP_TASK_ON_COUNTRY on ERP_TASK (COUNTRY_ID)^
+create index IDX_ERP_TASK_ON_CITY on ERP_TASK (CITY_ID)^
+create index IDX_ERP_TASK_ON_EMPLOYEE on ERP_TASK (EMPLOYEE_ID)^
+-- end ERP_TASK
 -- begin ERP_SUBUNIT
 alter table ERP_SUBUNIT add constraint FK_ERP_SUBUNIT_ON_DEPARTMENT foreign key (DEPARTMENT_ID) references ERP_DEPARTMENT(ID)^
 create index IDX_ERP_SUBUNIT_ON_DEPARTMENT on ERP_SUBUNIT (DEPARTMENT_ID)^
@@ -140,12 +153,3 @@ alter table ERP_CLIENT_PERSON add constraint FK_ERP_CLIENT_PERSON_ON_ID foreign 
 -- begin ERP_CLIENT_COMPANY
 alter table ERP_CLIENT_COMPANY add constraint FK_ERP_CLIENT_COMPANY_ON_ID foreign key (ID) references ERP_CLIENT(ID) on delete CASCADE^
 -- end ERP_CLIENT_COMPANY
--- begin ERP_TASK
-alter table ERP_TASK add constraint FK_ERP_TASK_ON_ORDER_NUM foreign key (ORDER_NUM_ID) references ERP_ORDER(ID)^
-alter table ERP_TASK add constraint FK_ERP_TASK_ON_CLIENT foreign key (CLIENT_ID) references ERP_CLIENT(ID)^
-alter table ERP_TASK add constraint FK_ERP_TASK_ON_EMPLOYEE foreign key (EMPLOYEE_ID) references ERP_EMPLOYEE(ID)^
-create unique index IDX_ERP_TASK_UNIQ_TASK_NUM on ERP_TASK (TASK_NUM) ^
-create index IDX_ERP_TASK_ON_ORDER_NUM on ERP_TASK (ORDER_NUM_ID)^
-create index IDX_ERP_TASK_ON_CLIENT on ERP_TASK (CLIENT_ID)^
-create index IDX_ERP_TASK_ON_EMPLOYEE on ERP_TASK (EMPLOYEE_ID)^
--- end ERP_TASK
