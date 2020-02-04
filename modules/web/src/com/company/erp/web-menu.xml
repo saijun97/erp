@@ -2,6 +2,7 @@
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
 
     <menu id="general" insertBefore="reports" icon="font-icon:BUILDING">
+        <item screen="erp_Task.browse" icon="LIST_ALT"/>
         <item screen="erp_ContactPerson.browse" icon="font-icon:ADDRESS_BOOK"/>
         <menu id="generalMasterData" icon="font-icon:DATABASE">
             <item screen="erp_Country.browse"/>
