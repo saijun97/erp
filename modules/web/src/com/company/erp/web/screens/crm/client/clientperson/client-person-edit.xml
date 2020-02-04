@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        focusComponent="form"
+        focusComponent="formDetails"
         messagesPack="com.company.erp.web.screens.crm.client.clientperson">
     <data>
         <instance id="clientPersonDc"
@@ -20,11 +20,14 @@
             </loader>
         </collection>
     </data>
-    <dialogMode modal="true"
+    <dialogMode width="AUTO"
+                height="AUTO"
+                modal="true"
                 forceDialog="true"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
-            <form id="form" dataContainer="clientPersonDc">
+          <hbox spacing="true">
+            <form id="formDetails" dataContainer="clientPersonDc">
                 <column width="250px">
                     <textField id="displayNameField" property="displayName" visible="false"/>
                     <textField id="firstNameField" property="name.firstName"/>
@@ -37,12 +40,17 @@
                     <textField id="faxNumberField" property="faxNumber"/>
                     <textField id="emailField" property="email"/>
                     <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
-                    <resizableTextArea id="shippingAddressField" property="shippingAddress"/>
-                    <resizableTextArea id="billingAddressField" property="billingAddress"/>
-                    <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
-                    <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
                 </column>
             </form>
+            <form id="formAddress" dataContainer="clientPersonDc">
+                <column>
+                    <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
+                    <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
+                    <resizableTextArea id="billingAddressField" property="billingAddress" caption="Invoice/Bill To"/>
+                    <resizableTextArea id="shippingAddressField" property="shippingAddress"/>
+                </column>
+            </form>
+          </hbox>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button id="clientPersonSaveCloseBtn" action="windowCommitAndClose"/>
