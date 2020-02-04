@@ -111,7 +111,7 @@
         <property name="productCategory" view="_minimal"/>
     </view>
     <view entity="erp_ServiceRequest" name="serviceRequest-view-details" extends="_local">
-        <property name="existingClient" view="_minimal"/>
+        <property name="existingClient" view="client-view-details"/>
         <property name="equipment" view="_minimal">
             <property name="productCategory" view="_minimal"/>
             <property name="serialNumber"/>
