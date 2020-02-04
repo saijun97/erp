@@ -22,27 +22,34 @@
                 modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
-      <vbox spacing="true">
-        <form id="formOrderItemDetails" dataContainer="orderItemDc">
-            <column width="250px">
-                <lookupField id="itemField" optionsContainer="itemsDc" property="item"/>
-                <currencyField id="unitVatPriceField" property="unitVatPrice" currency="MUR" caption="Unit Price(VAT Incl.)"/>
-                <textField id="quantityField" property="quantity" datatype="int"/>
-                <currencyField id="amountField" property="amount" currency="MUR"/>
-            </column>
-        </form>
-        <form id="formOrderItemDesc"
-              dataContainer="orderItemDc"
-              captionPosition="TOP">
-            <column>
-                <resizableTextArea rows="10"
-                                   cols="30"
-                                   id="descriptionField"
-                                   property="description"
-                                   wordWrap="true"/>
-            </column>
-        </form>
-      </vbox>
+        <vbox spacing="true">
+            <form id="formOrderItemDetails" dataContainer="orderItemDc">
+                <column width="250px">
+                    <lookupPickerField id="itemField"
+                                       property="item"
+                                       optionsContainer="itemsDc">
+                        <actions>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </lookupPickerField>
+                    <currencyField id="unitVatPriceField" property="unitVatPrice" currency="MUR"
+                                   caption="Unit Price(VAT Incl.)"/>
+                    <textField id="quantityField" property="quantity" datatype="int"/>
+                    <currencyField id="amountField" property="amount" currency="MUR"/>
+                </column>
+            </form>
+            <form id="formOrderItemDesc"
+                  dataContainer="orderItemDc"
+                  captionPosition="TOP">
+                <column>
+                    <resizableTextArea rows="10"
+                                       cols="30"
+                                       id="descriptionField"
+                                       property="description"
+                                       wordWrap="true"/>
+                </column>
+            </form>
+        </vbox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>

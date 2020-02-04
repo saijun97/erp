@@ -58,11 +58,22 @@ public class ServiceRequest extends StandardEntity {
     @Column(name = "TOTAL_PRICE")
     protected BigDecimal totalPrice;
 
+    @Column(name = "STATUS", nullable = false)
+    protected String status;
+
     @Composition
     @OnDeleteInverse(DeletePolicy.CASCADE)
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "serviceRequest")
     protected List<Equipment> equipment;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public List<Equipment> getEquipment() {
         return equipment;

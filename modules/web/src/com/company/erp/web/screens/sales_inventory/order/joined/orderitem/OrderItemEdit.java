@@ -27,9 +27,29 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
     @Subscribe("itemField")
     public void onItemFieldValueChange(HasValue.ValueChangeEvent<Item> event) {
 
-        descriptionField.setValue(itemField.getValue().getDescription());
-        unitVatPriceField.setValue(itemField.getValue().getVatPrice());
-        amountField.setValue(unitVatPriceField.getValue());
+        if (itemField.getValue() == null) {
+
+            itemField.setEditable(true);
+        }
+
+        if (itemField.getValue() != null) {
+
+            itemField.setEditable(false);
+        }
+
+        try {
+
+            if ((descriptionField.getValue() == null) && (unitVatPriceField.getValue().equals(BigDecimal.ZERO)) && amountField.getValue().equals(BigDecimal.ZERO)) {
+
+                descriptionField.setValue(itemField.getValue().getDescription());
+                unitVatPriceField.setValue(itemField.getValue().getVatPrice());
+                amountField.setValue(unitVatPriceField.getValue());
+            }
+
+        }catch (NullPointerException e) {
+
+            System.out.println("OrderItem edited item open screen exception handled!");
+        }
     }
 
     @Subscribe("quantityField")

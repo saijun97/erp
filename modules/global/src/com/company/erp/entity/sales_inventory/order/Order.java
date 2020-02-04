@@ -55,6 +55,17 @@ public class Order extends StandardEntity {
     @Column(name = "TOTAL_AMOUNT")
     protected BigDecimal totalAmount;
 
+    @Column(name = "STATUS", nullable = false)
+    protected String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public BigDecimal getTotalAmount() {
         return totalAmount;
     }

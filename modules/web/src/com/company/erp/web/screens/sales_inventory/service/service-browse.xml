@@ -24,8 +24,16 @@
     </actions>
     <dialogMode height="600" width="800"/>
     <layout>
-        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
-            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+        <split id="split"
+               height="100%"
+               orientation="vertical"
+               reversePosition="true"
+               width="100%">
+            <vbox id="lookupBox"
+                  expand="table"
+                  height="100%"
+                  margin="false,true,false,false"
+                  spacing="true">
                 <filter id="filter"
                         applyTo="table"
                         dataLoader="servicesDl"
@@ -55,7 +63,8 @@
                     </columns>
                     <rowsCount/>
                     <buttonsPanel id="buttonsPanel"
-                                  alwaysVisible="true">
+                                  alwaysVisible="true"
+                                  responsive="true" >
                         <button id="createBtn" action="table.create"/>
                         <button id="editBtn" action="table.edit"/>
                         <button id="removeBtn" action="table.remove"/>
