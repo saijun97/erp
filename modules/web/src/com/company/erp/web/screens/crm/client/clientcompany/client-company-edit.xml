@@ -67,7 +67,7 @@
                             </lookupPickerField>
                             <textField id="companyAddressField" property="companyAddress"/>
                             <resizableTextArea rows="5" id="billingAddressField" property="billingAddress"
-                                               caption="Invoice/Billing Address"/>
+                                               caption="Invoice/Bill To"/>
                             <resizableTextArea rows="5" id="shippingAddressField" property="shippingAddress"
                                                responsive="true"/>
                         </column>
@@ -123,6 +123,7 @@
                             <column id="orderDate"/>
                             <column id="deliveryDate"/>
                             <column id="totalAmount"/>
+                            <column id="status"/>
                         </columns>
                         <buttonsPanel>
                             <button action="orderTable.create"/>
