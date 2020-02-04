@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="tasksTable"
+        messagesPack="com.company.erp.web.screens.general.task">
+    <data readOnly="true">
+        <collection id="tasksDc"
+                    class="com.company.erp.entity.general.task.Task"
+                    view="task-view-details">
+            <loader id="tasksDl">
+                <query>
+                    <![CDATA[select e from erp_Task e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tasksTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tasksTable"
+                dataLoader="tasksDl"
+                defaultMode="fts"
+                applyImmediately="false">
+            <properties  include=".*"
+                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                         excludeRecursively="true"
+                         exclude="(id)"/>
+        </filter>
+        <groupTable id="tasksTable"
+                    width="100%"
+                    dataContainer="tasksDc"
+                    multiselect="true"
+                    presentations="true"
+                    multiLineCells="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="exclude" type="exclude"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="taskNum" caption="Task No."/>
+                <column id="taskCategory" sortable="false" caption="Category"/>
+                <column id="orderNum" sortable="false" caption="Order No."/>
+                <column id="poInvoiceNum" sortable="false" caption="PO/Invoice No."/>
+                <column id="client" sortable="false"/>
+                <column id="city" sortable="false" caption="City/Village"/>
+                <column id="contact" sortable="false"/>
+                <column id="request" sortable="false"/>
+                <column id="remark" sortable="false"/>
+                <column id="itemRequired" sortable="false"/>
+                <column id="employee" sortable="false"/>
+                <column id="status" sortable="false"/>
+                <column id="startDate"/>
+                <column id="completionDate"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="tasksTable.create"/>
+                <button id="editBtn" action="tasksTable.edit"/>
+                <button id="removeBtn" action="tasksTable.remove"/>
+                <button id="excludeBtn" action="tasksTable.exclude"/>
+                <button id="excelBtn" action="tasksTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

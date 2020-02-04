@@ -125,11 +125,7 @@
     <view entity="erp_NonStockItem" name="nonStockItem-view" extends="_local">
     </view>
     <view entity="erp_OrderItem" name="orderItem-view-details" extends="_local">
-        <property name="item" view="_minimal">
-            <property name="description"/>
-            <property name="cost"/>
-            <property name="price"/>
-        </property>
+        <property name="item" view="_local"/>
     </view>
     <view entity="erp_Order" name="order-view-details" extends="_local">
         <property name="client" view="client-view-details"/>
@@ -142,6 +138,13 @@
     </view>
     <view entity="erp_Document" name="document-view-details" extends="_local">
         <property name="file" view="_local"/>
+    </view>
+    <view entity="erp_Task" name="task-view-details" extends="_local">
+        <property name="orderNum" view="order-view-details"/>
+        <property name="client" view="client-view-details"/>
+        <property name="employee" view="_minimal"/>
+        <property name="country" view="_minimal"/>
+        <property name="city" view="_minimal"/>
     </view>
 
 </views>

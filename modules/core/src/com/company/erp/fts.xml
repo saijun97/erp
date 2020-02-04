@@ -97,5 +97,8 @@
         <entity class="com.company.erp.entity.general.compositions.Document">
             <include re=".*"/>
         </entity>
+        <entity class="com.company.erp.entity.general.task.Task">
+            <include re=".*"/>
+        </entity>
     </entities>
 </fts-config>
