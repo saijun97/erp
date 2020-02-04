@@ -1,12 +1,14 @@
 package com.company.erp.web.screens.crm.srf.servicerequest;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
+import com.company.erp.entity.general.enums.ServiceRequestStatusSelect;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.crm.srf.ServiceRequest;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @UiController("erp_ServiceRequest.edit")
@@ -17,6 +19,10 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
     @Inject
     protected LookupField<String> statusField;
+
+    @Inject
+    protected DateField<Date> dateReceivedField;
+
     @Inject
     private TextArea<String> addressField;
 
@@ -33,21 +39,10 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
     private TextField<String> customerNameField;
 
     @Subscribe
-    protected void onInit(InitEvent event) {
-
-        List<String> list = new ArrayList<>();
-        list.add("Pending");
-        list.add("Waiting");
-        list.add("In Progress");
-        list.add("Completed");
-        statusField.setOptionsList(list);
-
-    }
-
-    @Subscribe
     protected void onInitEntity(InitEntityEvent<ServiceRequest> event) {
 
-        event.getEntity().setStatus("Pending");
+        event.getEntity().setStatus(ServiceRequestStatusSelect.PENDING);
+        event.getEntity().setDateReceived(new Date());
 
     }
 

@@ -23,10 +23,10 @@
                 dataLoader="tasksDl"
                 defaultMode="fts"
                 applyImmediately="false">
-            <properties  include=".*"
-                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
-                         excludeRecursively="true"
-                         exclude="(id)"/>
+            <properties include=".*"
+                        excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
+                        excludeRecursively="true"
+                        exclude="(id)"/>
         </filter>
         <groupTable id="tasksTable"
                     width="100%"
@@ -43,7 +43,7 @@
             </actions>
             <columns>
                 <column id="taskNum" caption="Task No."/>
-                <column id="taskCategory" sortable="false" caption="Category"/>
+                <column id="category"/>
                 <column id="orderNum" sortable="false" caption="Order No."/>
                 <column id="poInvoiceNum" sortable="false" caption="PO/Invoice No."/>
                 <column id="client" sortable="false"/>

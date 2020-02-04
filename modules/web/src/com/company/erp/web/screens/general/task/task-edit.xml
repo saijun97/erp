@@ -9,14 +9,16 @@
                   view="task-view-details">
             <loader/>
         </instance>
-        <collection id="orderNumsDc" class="com.company.erp.entity.sales_inventory.order.Order" view="order-view-details">
+        <collection id="orderNumsDc" class="com.company.erp.entity.sales_inventory.order.Order"
+                    view="order-view-details">
             <loader id="orderNumsLc">
                 <query>
                     <![CDATA[select e from erp_Order e]]>
                 </query>
             </loader>
         </collection>
-        <collection id="clientsDc" class="com.company.erp.entity.crm.client.superclasses.Client" view="client-view-details">
+        <collection id="clientsDc" class="com.company.erp.entity.crm.client.superclasses.Client"
+                    view="client-view-details">
             <loader id="clientsLc">
                 <query>
                     <![CDATA[select e from erp_Client e]]>
@@ -50,49 +52,49 @@
     </facets>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
-           <hbox spacing="true">
-            <form id="form" dataContainer="taskDc">
-                <column width="250px">
-                    <textField id="taskNumField" property="taskNum"/>
-                    <lookupField id="taskCategoryField" property="taskCategory"/>
-                    <lookupPickerField id="orderNumField" optionsContainer="orderNumsDc" property="orderNum">
-                        <actions>
-                            <action id="lookup" type="picker_lookup"/>
-                            <action id="open" type="picker_open"/>
-                            <action id="clear" type="picker_clear"/>
-                        </actions>
-                    </lookupPickerField>
-                    <textField id="poInvoiceNumField" property="poInvoiceNum"/>
-                    <lookupPickerField id="clientField" optionsContainer="clientsDc" property="client">
-                        <actions>
-                            <action id="lookup" type="picker_lookup"/>
-                            <action id="open" type="picker_open"/>
-                            <action id="clear" type="picker_clear"/>
-                        </actions>
-                    </lookupPickerField>
-                    <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
-                    <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
-                    <lookupPickerField id="employeeField" optionsContainer="employeesDc" property="employee">
-                        <actions>
-                            <action id="lookup" type="picker_lookup"/>
-                            <action id="open" type="picker_open"/>
-                            <action id="clear" type="picker_clear"/>
-                        </actions>
-                    </lookupPickerField>
-                    <lookupField id="statusField" property="status"/>
-                    <dateField id="startDateField" property="startDate"/>
-                    <dateField id="completionDateField" property="completionDate"/>
-                </column>
-            </form>
-            <form id="formTextArea" dataContainer="taskDc">
-                <column>
-                    <textArea id="contactField" property="contact" rows="3"/>
-                    <textArea id="requestField" property="request" rows="5"/>
-                    <textArea id="itemRequiredField" property="itemRequired" rows="5"/>
-                    <textArea id="remarkField" property="remark" rows="3"/>
-                </column>
-            </form>
-           </hbox>
+            <hbox spacing="true">
+                <form id="form" dataContainer="taskDc">
+                    <column width="250px">
+                        <textField id="taskNumField" property="taskNum"/>
+                        <lookupField id="categoryField" property="category"/>
+                        <lookupPickerField id="orderNumField" optionsContainer="orderNumsDc" property="orderNum">
+                            <actions>
+                                <action id="lookup" type="picker_lookup"/>
+                                <action id="open" type="picker_open"/>
+                                <action id="clear" type="picker_clear"/>
+                            </actions>
+                        </lookupPickerField>
+                        <textField id="poInvoiceNumField" property="poInvoiceNum"/>
+                        <lookupPickerField id="clientField" optionsContainer="clientsDc" property="client">
+                            <actions>
+                                <action id="lookup" type="picker_lookup"/>
+                                <action id="open" type="picker_open"/>
+                                <action id="clear" type="picker_clear"/>
+                            </actions>
+                        </lookupPickerField>
+                        <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
+                        <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
+                        <lookupPickerField id="employeeField" optionsContainer="employeesDc" property="employee">
+                            <actions>
+                                <action id="lookup" type="picker_lookup"/>
+                                <action id="open" type="picker_open"/>
+                                <action id="clear" type="picker_clear"/>
+                            </actions>
+                        </lookupPickerField>
+                        <lookupField id="statusField" property="status"/>
+                        <dateField id="startDateField" property="startDate"/>
+                        <dateField id="completionDateField" property="completionDate"/>
+                    </column>
+                </form>
+                <form id="formTextArea" dataContainer="taskDc">
+                    <column>
+                        <textArea id="contactField" property="contact" rows="3"/>
+                        <textArea id="requestField" property="request" rows="5"/>
+                        <textArea id="itemRequiredField" property="itemRequired" rows="5"/>
+                        <textArea id="remarkField" property="remark" rows="3"/>
+                    </column>
+                </form>
+            </hbox>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>

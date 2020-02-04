@@ -12,9 +12,7 @@ import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.general.task.Task;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @UiController("erp_Task.edit")
 @UiDescriptor("task-edit.xml")
@@ -34,31 +32,9 @@ public class TaskEdit extends StandardEditor<Task> {
     @Inject
     protected CollectionContainer<Country> countriesDc;
     @Inject
-    protected LookupField<String> taskCategoryField;
-    @Inject
     protected LookupField<String> statusField;
     @Inject
     private Notifications notifications;
-
-    @Subscribe
-    protected void onInit(InitEvent event) {
-
-        List<String> list1 = new ArrayList<>();
-        list1.add("Delivery");
-        list1.add("Collection");
-        list1.add("Self-Collect");
-        list1.add("Intervention");
-        list1.add("Commissioning");
-        list1.add("Other");
-        taskCategoryField.setOptionsList(list1);
-
-        List<String> list = new ArrayList<>();
-        list.add("Active");
-        list.add("Pending");
-        list.add("Completed");
-        statusField.setOptionsList(list);
-
-    }
 
     @Subscribe
     protected void onBeforeCommitChanges(BeforeCommitChangesEvent event) {

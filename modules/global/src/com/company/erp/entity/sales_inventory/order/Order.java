@@ -2,6 +2,7 @@ package com.company.erp.entity.sales_inventory.order;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.general.compositions.Document;
+import com.company.erp.entity.general.enums.OrderStatusSelect;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
@@ -58,12 +59,12 @@ public class Order extends StandardEntity {
     @Column(name = "STATUS", nullable = false)
     protected String status;
 
-    public String getStatus() {
-        return status;
+    public OrderStatusSelect getStatus() {
+        return status == null ? null : OrderStatusSelect.fromId(status);
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(OrderStatusSelect status) {
+        this.status = status == null ? null : status.getId();
     }
 
     public BigDecimal getTotalAmount() {
