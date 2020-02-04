@@ -37,6 +37,7 @@
                             </actions>
                         </lookupPickerField>
                         <textField id="customerNameField" property="customerName"/>
+                        <dateField id="dateReceivedField" property="dateReceived"/>
                         <textField id="mobilePhoneField" property="mobilePhone"/>
                         <textField id="homePhoneField" property="homePhone"/>
                         <textField id="workPhoneField" property="workPhone"/>

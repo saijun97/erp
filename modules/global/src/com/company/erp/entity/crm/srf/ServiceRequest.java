@@ -1,6 +1,7 @@
 package com.company.erp.entity.crm.srf;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
+import com.company.erp.entity.general.enums.ServiceRequestStatusSelect;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.chile.core.annotations.NumberFormat;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @NamePattern("%s - %s|referenceNumber,customerName")
@@ -61,18 +63,30 @@ public class ServiceRequest extends StandardEntity {
     @Column(name = "STATUS", nullable = false)
     protected String status;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "DATE_RECEIVED", nullable = false)
+    protected Date dateReceived;
+
     @Composition
     @OnDeleteInverse(DeletePolicy.CASCADE)
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "serviceRequest")
     protected List<Equipment> equipment;
 
-    public String getStatus() {
-        return status;
+    public ServiceRequestStatusSelect getStatus() {
+        return status == null ? null : ServiceRequestStatusSelect.fromId(status);
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(ServiceRequestStatusSelect status) {
+        this.status = status == null ? null : status.getId();
+    }
+
+    public Date getDateReceived() {
+        return dateReceived;
+    }
+
+    public void setDateReceived(Date dateReceived) {
+        this.dateReceived = dateReceived;
     }
 
     public List<Equipment> getEquipment() {

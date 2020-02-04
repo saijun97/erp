@@ -1,5 +1,6 @@
 package com.company.erp.entity.crm.srf;
 
+import com.company.erp.entity.general.enums.EquipmentStatusSelect;
 import com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
@@ -42,15 +43,23 @@ public class Equipment extends StandardEntity {
     @Column(name = "TECHNICIAN_REPORT")
     protected String technicianReport;
 
-    @Column(name = "PRICE")
-    protected BigDecimal price;
-
     @Column(name = "STATUS", nullable = false)
     protected String status;
+
+    @Column(name = "PRICE")
+    protected BigDecimal price;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "SERVICE_REQUEST_ID")
     protected ServiceRequest serviceRequest;
+
+    public EquipmentStatusSelect getStatus() {
+        return status == null ? null : EquipmentStatusSelect.fromId(status);
+    }
+
+    public void setStatus(EquipmentStatusSelect status) {
+        this.status = status == null ? null : status.getId();
+    }
 
     public ProductCategory getProductCategory() {
         return productCategory;
@@ -66,14 +75,6 @@ public class Equipment extends StandardEntity {
 
     public void setServiceRequest(ServiceRequest serviceRequest) {
         this.serviceRequest = serviceRequest;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public BigDecimal getPrice() {

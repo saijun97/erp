@@ -1,6 +1,7 @@
 package com.company.erp.web.screens.sales_inventory.order;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
+import com.company.erp.entity.general.enums.OrderStatusSelect;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.Notifications;
@@ -49,15 +50,6 @@ public class OrderEdit extends StandardEditor<Order> {
         orderDl.load();
         clientsLc.load();
 
-        List<String> list = new ArrayList<>();
-        list.add("Quote Request");
-        list.add("Invoice Sent");
-        list.add("Unpaid");
-        list.add("Partially Paid");
-        list.add("Paid");
-        list.add("Cancelled");
-        statusField.setOptionsList(list);
-
     }
 
 
@@ -65,7 +57,7 @@ public class OrderEdit extends StandardEditor<Order> {
     protected void onInitEntity(InitEntityEvent<Order> event) {
 
         event.getEntity().setOrderDate(new Date());
-        event.getEntity().setStatus("Quote Request");
+        event.getEntity().setStatus(OrderStatusSelect.QUOTE_REQUEST);
 
     }
 

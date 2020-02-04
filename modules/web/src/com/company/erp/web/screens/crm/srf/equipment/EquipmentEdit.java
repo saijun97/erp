@@ -1,5 +1,6 @@
 package com.company.erp.web.screens.crm.srf.equipment;
 
+import com.company.erp.entity.general.enums.EquipmentStatusSelect;
 import com.haulmont.cuba.gui.components.LookupField;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.crm.srf.Equipment;
@@ -19,13 +20,7 @@ public class EquipmentEdit extends StandardEditor<Equipment> {
     @Subscribe
     protected void onInitEntity(InitEntityEvent<Equipment> event) {
 
-        List<String> list = new ArrayList<>();
-        list.add("Not Started");
-        list.add("Awaiting Client Approval");
-        list.add("In Progress");
-        list.add("Completed");
-        list.add("Moved To Store");
-        statusField.setOptionsList(list);
+        getEditedEntity().setStatus(EquipmentStatusSelect.PENDING);
 
     }
 

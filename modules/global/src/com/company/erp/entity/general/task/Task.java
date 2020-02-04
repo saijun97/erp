@@ -3,6 +3,8 @@ package com.company.erp.entity.general.task;
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.general.country.City;
 import com.company.erp.entity.general.country.Country;
+import com.company.erp.entity.general.enums.TaskCategorySelect;
+import com.company.erp.entity.general.enums.TaskStatusSelect;
 import com.company.erp.entity.hrm.employee.Employee;
 import com.company.erp.entity.sales_inventory.order.Order;
 import com.haulmont.chile.core.annotations.NamePattern;
@@ -22,8 +24,8 @@ public class Task extends StandardEntity {
     @Column(name = "TASK_NUM", unique = true)
     protected Integer taskNum;
 
-    @Column(name = "TASK_CATEGORY", nullable = false)
-    protected String taskCategory;
+    @Column(name = "CATEGORY", nullable = false)
+    protected String category;
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY)
@@ -80,6 +82,22 @@ public class Task extends StandardEntity {
     @Column(name = "COMPLETION_DATE")
     protected Date completionDate;
 
+    public TaskStatusSelect getStatus() {
+        return status == null ? null : TaskStatusSelect.fromId(status);
+    }
+
+    public void setStatus(TaskStatusSelect status) {
+        this.status = status == null ? null : status.getId();
+    }
+
+    public TaskCategorySelect getCategory() {
+        return category == null ? null : TaskCategorySelect.fromId(category);
+    }
+
+    public void setCategory(TaskCategorySelect category) {
+        this.category = category == null ? null : category.getId();
+    }
+
     public City getCity() {
         return city;
     }
@@ -95,15 +113,6 @@ public class Task extends StandardEntity {
     public void setCountry(Country country) {
         this.country = country;
     }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
 
     public Date getCompletionDate() {
         return completionDate;
@@ -151,14 +160,6 @@ public class Task extends StandardEntity {
 
     public void setOrderNum(Order orderNum) {
         this.orderNum = orderNum;
-    }
-
-    public String getTaskCategory() {
-        return taskCategory;
-    }
-
-    public void setTaskCategory(String taskCategory) {
-        this.taskCategory = taskCategory;
     }
 
     public String getRemark() {

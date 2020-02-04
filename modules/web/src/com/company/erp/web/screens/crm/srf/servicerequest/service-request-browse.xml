@@ -48,6 +48,7 @@
                 <column id="workPhone"/>
                 <column id="email"/>
                 <column id="address"/>
+                <column id="dateReceived"/>
                 <column id="invoiceNumber"/>
                 <column id="totalPrice"/>
                 <column id="status"/>
