@@ -67,16 +67,21 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
         addressField.setValue(existingClientField.getValue().getBillingAddress());
 
-        if (existingClientField.getValue().getPreferredContactPhone().startsWith("5")) {
+        try {
 
-            mobilePhoneField.setValue(existingClientField.getValue().getPreferredContactPhone());
+            if (existingClientField.getValue().getPreferredContactPhone().startsWith("5")) {
 
-        }
+                mobilePhoneField.setValue(existingClientField.getValue().getPreferredContactPhone());
 
-        else {
+            } else {
 
-            homePhoneField.setValue(existingClientField.getValue().getPreferredContactPhone());
+                homePhoneField.setValue(existingClientField.getValue().getPreferredContactPhone());
 
+            }
+
+        } catch (NullPointerException e) {
+
+            System.out.println("Exception Handled.");
         }
 
     }
