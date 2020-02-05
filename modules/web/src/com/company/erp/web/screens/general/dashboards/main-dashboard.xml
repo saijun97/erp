@@ -7,25 +7,31 @@ caption="msg://caption"
         <keyValueCollection id="salesPieChartDc">
             <loader id="salesPieChartLoader">
                 <query>
-                    <![CDATA[select o.client, sum(o.totalAmount) from erp_Order o group by o.client]]>
+                    <![CDATA[SELECT count(e), e.status
+                             FROM erp_ServiceRequest e
+                             GROUP BY e.status]]>
                 </query>
             </loader>
             <properties>
-                <property class="com.company.erp.entity.crm.client.superclasses.Client"
-                          name="client"/>
-                <property datatype="decimal"
-                          name="sum"/>
+                <property name="count"/>
+                <property name="status"/>
             </properties>
         </keyValueCollection>
-        <collection id="salesSerialChartDc"
-                    class="com.company.erp.entity.sales_inventory.order.Order"
-                    view="order-view-details">
+        <keyValueCollection id="salesSerialChartDc">
             <loader id="salesSerialChartLoader">
                 <query>
-                    <![CDATA[select e from erp_Order e order by e.orderDate]]>
+                    <![CDATA[SELECT sum(e.totalAmount), e.orderDate
+                    FROM erp_Order e
+                    GROUP BY e.orderDate
+                    ORDER BY e.orderDate]]>
                 </query>
             </loader>
-        </collection>
+            <properties>
+                <property class="com.company.erp.entity.sales_inventory.order.Order"
+                          name="sum"/>
+                <property name="orderDate"/>
+            </properties>
+        </keyValueCollection>
     </data>
     <layout responsive="true">
         <hbox width="100%" height="100%">
@@ -36,8 +42,8 @@ caption="msg://caption"
                         depth3D="15"
                         height="100%"
                         outlineAlpha="0.4"
-                        titleField="client"
-                        valueField="sum"
+                        titleField="status"
+                        valueField="count"
                         width="100%"
                         responsive="true" >
             <chart:legend autoMargins="false"
@@ -94,7 +100,7 @@ caption="msg://caption"
                              lineThickness="2"
                              title="Red line"
                              useLineColorForBulletBorder="true"
-                             valueField="totalAmount"
+                             valueField="sum"
                              balloonText="&lt;span style='font-size:18px;'&gt;[[value]]&lt;/span&gt;">
                     <chart:balloon adjustBorderColor="false"
                                    color="WHITE"
