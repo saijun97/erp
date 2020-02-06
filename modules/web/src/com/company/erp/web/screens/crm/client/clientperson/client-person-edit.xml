@@ -8,6 +8,8 @@
                   class="com.company.erp.entity.crm.client.subclasses.person.ClientPerson"
                   view="clientPerson-view-details">
             <loader/>
+            <collection id="serviceRequestsDc" property="serviceRequests"/>
+            <collection id="orderDc" property="order"/>
         </instance>
         <collection id="countriesDc" class="com.company.erp.entity.general.country.Country" view="_minimal">
             <loader>
@@ -26,31 +28,90 @@
                 forceDialog="true"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
-          <hbox spacing="true">
-            <form id="formDetails" dataContainer="clientPersonDc">
-                <column width="250px">
-                    <textField id="displayNameField" property="displayName" visible="false"/>
-                    <textField id="firstNameField" property="name.firstName"/>
-                    <textField id="middleNameField" property="name.middleName"/>
-                    <textField id="lastNameField" property="name.lastName"/>
-                    <lookupField id="genderField" property="gender"/>
-                    <textField id="mobilePhoneField" property="mobilePhone"/>
-                    <textField id="homePhoneField" property="homePhone"/>
-                    <textField id="workPhoneField" property="workPhone"/>
-                    <textField id="faxNumberField" property="faxNumber"/>
-                    <textField id="emailField" property="email"/>
-                    <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
-                </column>
-            </form>
-            <form id="formAddress" dataContainer="clientPersonDc">
-                <column>
-                    <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
-                    <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
-                    <resizableTextArea id="billingAddressField" property="billingAddress" caption="Invoice/Bill To"/>
-                    <resizableTextArea id="shippingAddressField" property="shippingAddress"/>
-                </column>
-            </form>
-          </hbox>
+            <tabSheet id="tabSheet" width="100%">
+                <tab id="generalTab" caption="General Details" margin="true" spacing="true">
+                    <hbox spacing="true">
+                        <form id="formDetails" dataContainer="clientPersonDc">
+                            <column width="250px">
+                                <textField id="displayNameField" property="displayName" visible="false"/>
+                                <textField id="firstNameField" property="name.firstName"/>
+                                <textField id="middleNameField" property="name.middleName"/>
+                                <textField id="lastNameField" property="name.lastName"/>
+                                <lookupField id="genderField" property="gender"/>
+                                <textField id="mobilePhoneField" property="mobilePhone"/>
+                                <textField id="homePhoneField" property="homePhone"/>
+                                <textField id="workPhoneField" property="workPhone"/>
+                                <textField id="faxNumberField" property="faxNumber"/>
+                                <textField id="emailField" property="email"/>
+                                <textField id="preferredContactPhoneField" property="preferredContactPhone"/>
+                            </column>
+                        </form>
+                        <form id="formAddress" dataContainer="clientPersonDc">
+                            <column>
+                                <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
+                                <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
+                                <resizableTextArea id="billingAddressField" property="billingAddress"
+                                                   caption="Invoice/Bill To"/>
+                                <resizableTextArea id="shippingAddressField" property="shippingAddress"/>
+                            </column>
+                        </form>
+                    </hbox>
+                </tab>
+                <tab id="ordersTab" caption="Orders" spacing="true" margin="true">
+                    <groupBox id="orderBox"
+                              caption="msg://com.company.erp.entity.crm.client.superclasses/Client.order">
+                        <table id="orderTable"
+                               dataContainer="orderDc"
+                               width="800px"
+                               height="300px">
+                            <actions>
+                                <action id="create" type="create"/>
+                                <action id="edit" type="edit"/>
+                                <action id="remove" type="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="orderNum"/>
+                                <column id="orderDate"/>
+                                <column id="deliveryDate"/>
+                                <column id="totalAmount"/>
+                                <column id="status"/>
+                            </columns>
+                            <buttonsPanel>
+                                <button action="orderTable.create"/>
+                                <button action="orderTable.edit"/>
+                                <button action="orderTable.remove"/>
+                            </buttonsPanel>
+                        </table>
+                    </groupBox>
+                </tab>
+                <tab id="serviceRequestsTab" caption="Service Requests" margin="true" spacing="true">
+                    <groupBox id="serviceRequestsBox"
+                              caption="msg://com.company.erp.entity.crm.client.superclasses/Client.serviceRequests">
+                        <table id="serviceRequestsTable"
+                               dataContainer="serviceRequestsDc"
+                               width="800px"
+                               height="300px">
+                            <actions>
+                                <action id="create" type="create"/>
+                                <action id="edit" type="edit"/>
+                                <action id="remove" type="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="referenceNumber"/>
+                                <column id="invoiceNumber"/>
+                                <column id="totalPrice"/>
+                                <column id="status"/>
+                                <column id="dateReceived"/>
+                            </columns>
+                            <buttonsPanel>
+                                <button action="serviceRequestsTable.create"/>
+                                <button action="serviceRequestsTable.edit"/>
+                                <button action="serviceRequestsTable.remove"/>
+                            </buttonsPanel>
+                        </table>
+                    </groupBox>
+                </tab>
+            </tabSheet>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button id="clientPersonSaveCloseBtn" action="windowCommitAndClose"/>

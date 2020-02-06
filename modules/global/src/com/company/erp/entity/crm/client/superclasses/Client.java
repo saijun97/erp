@@ -1,5 +1,6 @@
 package com.company.erp.entity.crm.client.superclasses;
 
+import com.company.erp.entity.crm.srf.ServiceRequest;
 import com.company.erp.entity.general.country.City;
 import com.company.erp.entity.general.country.Country;
 import com.company.erp.entity.sales_inventory.order.Order;
@@ -60,6 +61,19 @@ public class Client extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "client")
     protected List<Order> order;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "existingClient")
+    protected List<ServiceRequest> serviceRequests;
+
+    public List<ServiceRequest> getServiceRequests() {
+        return serviceRequests;
+    }
+
+    public void setServiceRequests(List<ServiceRequest> serviceRequests) {
+        this.serviceRequests = serviceRequests;
+    }
 
     public List<Order> getOrder() {
         return order;
