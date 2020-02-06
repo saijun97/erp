@@ -10,6 +10,7 @@
             <loader/>
             <collection id="contactPersonDc" property="contactPerson"/>
             <collection id="orderDc" property="order"/>
+            <collection id="serviceRequestsDc" property="serviceRequests"/>
         </instance>
         <collection id="countriesDc" class="com.company.erp.entity.general.country.Country" view="_local">
             <loader>
@@ -129,6 +130,38 @@
                             <button action="orderTable.create"/>
                             <button action="orderTable.edit"/>
                             <button action="orderTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+            </tab>
+            <tab id="serviceRequestsTab"
+                 caption="Service Requests"
+                 spacing="true"
+                 margin="true">
+                <form id="serviceRequestsForm" dataContainer="clientCompanyDc"/>
+                <groupBox id="serviceRequestsBox"
+                          caption="msg://com.company.erp.entity.crm.client.superclasses/Client.serviceRequests">
+                    <table id="serviceRequestsTable"
+                           dataContainer="serviceRequestsDc"
+                           width="835px"
+                           height="250px"
+                           multiLineCells="true">
+                        <actions>
+                            <action id="create" type="create"/>
+                            <action id="edit" type="edit"/>
+                            <action id="remove" type="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="referenceNumber"/>
+                            <column id="invoiceNumber"/>
+                            <column id="totalPrice"/>
+                            <column id="status"/>
+                            <column id="dateReceived"/>
+                        </columns>
+                        <buttonsPanel>
+                            <button action="serviceRequestsTable.create"/>
+                            <button action="serviceRequestsTable.edit"/>
+                            <button action="serviceRequestsTable.remove"/>
                         </buttonsPanel>
                     </table>
                 </groupBox>

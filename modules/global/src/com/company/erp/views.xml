@@ -56,11 +56,6 @@
     <view entity="erp_Client" name="client-view-details" extends="_local">
         <property name="country" view="_minimal"/>
         <property name="city" view="_minimal"/>
-        <property name="order" view="_local">
-            <property name="item" view="_local">
-                <property name="item" view="_local"/>
-            </property>
-        </property>
     </view>
     <view entity="erp_ClientPerson" name="clientPerson-view-details" extends="_local">
         <property name="name" view="_minimal">
@@ -68,6 +63,13 @@
         </property>
         <property name="country" view="_minimal"/>
         <property name="city" view="_minimal"/>
+        <property name="order" view="_local"/>
+        <property name="serviceRequests" view="_minimal">
+            <property name="invoiceNumber"/>
+            <property name="totalPrice"/>
+            <property name="status"/>
+            <property name="dateReceived"/>
+        </property>
     </view>
     <view entity="erp_ClientCompany" name="clientCompany-view-details" extends="_local">
         <property name="contactPerson" view="_local">
@@ -85,10 +87,12 @@
         </property>
         <property name="country" view="_minimal"/>
         <property name="city" view="_minimal"/>
-        <property name="order" view="_local">
-            <property name="item" view="_local">
-                <property name="item" view="_local"/>
-            </property>
+        <property name="order" view="_local"/>
+        <property name="serviceRequests" view="_minimal">
+            <property name="invoiceNumber"/>
+            <property name="totalPrice"/>
+            <property name="status"/>
+            <property name="dateReceived"/>
         </property>
     </view>
     <view entity="erp_ContactPerson" name="contactPerson-view-details" extends="_local">
