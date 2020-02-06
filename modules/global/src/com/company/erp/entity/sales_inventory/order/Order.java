@@ -54,7 +54,7 @@ public class Order extends StandardEntity {
 
     @NumberFormat(pattern = "0.00")
     @Column(name = "TOTAL_AMOUNT")
-    protected BigDecimal totalAmount;
+    protected BigDecimal totalAmount = BigDecimal.ZERO;
 
     @Column(name = "STATUS", nullable = false)
     protected String status;
@@ -122,8 +122,5 @@ public class Order extends StandardEntity {
     public void setClient(Client client) {
         this.client = client;
     }
-
-
-
 
 }
