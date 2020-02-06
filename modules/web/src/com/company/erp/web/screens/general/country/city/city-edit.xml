@@ -28,7 +28,7 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </lookupPickerField>
-                <textField id="cityField" property="city"/>
+                <textField id="cityField" property="city" caption="City/Village"/>
                 <textField id="coordinatesField" property="coordinates"/>
             </column>
         </form>

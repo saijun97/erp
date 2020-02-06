@@ -28,7 +28,7 @@
                     <action id="remove" type="remove"/>
                 </actions>
                 <columns>
-                    <column id="city"/>
+                    <column id="city" caption="City/Village"/>
                     <column id="coordinates"/>
                 </columns>
                 <buttonsPanel>
