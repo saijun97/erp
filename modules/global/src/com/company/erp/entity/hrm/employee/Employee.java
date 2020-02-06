@@ -26,7 +26,7 @@ import javax.validation.constraints.Past;
 import java.util.Date;
 import java.util.List;
 
-@NamePattern("%s - %s|empId,fullName")
+@NamePattern("%s|fullName")
 @Table(name = "ERP_EMPLOYEE")
 @Entity(name = "erp_Employee")
 public class Employee extends Person {
