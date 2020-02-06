@@ -58,7 +58,7 @@ public class ServiceRequest extends StandardEntity {
 
     @NumberFormat(pattern = "0.00")
     @Column(name = "TOTAL_PRICE")
-    protected BigDecimal totalPrice;
+    protected BigDecimal totalPrice = BigDecimal.ZERO;
 
     @Column(name = "STATUS", nullable = false)
     protected String status;
