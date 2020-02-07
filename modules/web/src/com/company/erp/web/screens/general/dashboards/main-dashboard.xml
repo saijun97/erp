@@ -38,7 +38,7 @@
                     <![CDATA[SELECT count(e), e.dateReceived
                              FROM erp_ServiceRequest e
                              GROUP BY e.dateReceived
-                             order by e.dateReceived]]>
+                             ORDER by e.dateReceived]]>
                 </query>
             </loader>
             <properties>
@@ -46,235 +46,437 @@
                 <property name="dateReceived"/>
             </properties>
         </keyValueCollection>
+        <keyValueCollection id="topCustomersBySalesDc">
+            <loader id="topCustomersBySalesLoader">
+                <query>
+                    <![CDATA[SELECT sum(e.totalAmount), e.client
+                             FROM erp_Order e
+                             WHERE e.status = 'PAID'
+                             GROUP BY e.client
+                             ORDER by sum(e.totalAmount) desc]]>
+                </query>
+            </loader>
+            <properties>
+                <property name="sum"/>
+                <property name="client"/>
+            </properties>
+        </keyValueCollection>
+        <keyValueCollection id="topCustomersByOutstandingBalancesDc">
+            <loader id="topCustomersByOutstandingBalancesLoader">
+                <query>
+                    <![CDATA[SELECT sum(e.totalAmount), e.client
+                             FROM erp_Order e
+                             WHERE e.status IN ('UNPAID', 'PARTIALLY_PAID')
+                             GROUP BY e.client
+                             ORDER by sum(e.totalAmount) desc]]>
+                </query>
+            </loader>
+            <properties>
+                <property name="sum"/>
+                <property name="client"/>
+            </properties>
+        </keyValueCollection>
+        <keyValueCollection id="topProductCategoriesForSRFDc">
+            <loader id="topProductCategoriesForSRFLoader">
+                <query>
+                    <![CDATA[SELECT count(e), e.productCategory
+                             FROM erp_Equipment e
+                             GROUP BY e.productCategory]]>
+                </query>
+            </loader>
+            <properties>
+                <property name="count"/>
+                <property name="productCategory"/>
+            </properties>
+        </keyValueCollection>
     </data>
-    <layout responsive="true">
-        <hbox width="100%" height="100%">
-            <chart:pieChart dataContainer="serviceRequestsByStatusDc"
-                            creditsPosition="BOTTOM_RIGHT"
-                            angle="30"
-                            balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
-                        &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
-                            depth3D="15"
-                            height="100%"
-                            outlineAlpha="0.4"
-                            titleField="status"
-                            valueField="count"
-                            width="100%"
-                            responsive="true" >
-                <chart:titles>
-                    <chart:title alpha="1"
-                                 bold="true"
-                                 color="DARKSLATEGREY"
-                                 size="20"
-                                 tabIndex="0"
-                                 text="Service Requests"/>
-                    <chart:title alpha="0.5"
-                                 color="DARKBLUE"
-                                 size="12"
-                                 text="By Status"/>
-                </chart:titles>
-                <chart:legend autoMargins="false"
-                              marginRight="80"
-                              markerType="CIRCLE"
-                              position="BOTTOM"/>
-                <chart:responsive enabled="true">
-                    <chart:rules>
-                        <chart:rule maxWidth="400">
-                            <![CDATA[
-            {
-                "precision": 2,
-                "legend": {
-                  "enabled": false
-                },
-                "valueAxes": {
-                  "inside": true
-                }
-            }
-            ]]>
-                        </chart:rule>
-                    </chart:rules>
-                </chart:responsive>
-                <chart:export/>
-            </chart:pieChart>
-
-            <chart:serialChart id="lineChart"
-                               creditsPosition="BOTTOM_LEFT"
-                               byDate="true"
-                               autoMarginOffset="20"
-                               categoryField="dateReceived"
-                               dataContainer="serviceRequestsByDateDc"
-                               height="100%"
-                               marginRight="40"
-                               marginLeft="40"
-                               mouseWheelZoomEnabled="true"
-                               theme="LIGHT"
-                               width="100%"
-                               responsive="true">
-                <chart:titles>
-                    <chart:title alpha="1"
-                                 bold="true"
-                                 color="DARKSLATEGREY"
-                                 size="20"
-                                 tabIndex="0"
-                                 text="Service Requests"/>
-                    <chart:title alpha="0.5"
-                                 color="DARKBLUE"
-                                 size="12"
-                                 text="By Date"/>
-                </chart:titles>
-                <chart:valueAxes>
-                    <chart:axis id="v1"
-                                axisAlpha="0"
-                                ignoreAxisWidth="true"
-                                position="LEFT"/>
-                </chart:valueAxes>
-                <chart:balloon borderThickness="1"
-                               shadowAlpha="0"/>
-                <chart:graphs>
-                    <chart:graph id="g1"
-                                 bullet="ROUND"
-                                 bulletBorderAlpha="1"
-                                 bulletColor="WHITE"
-                                 bulletSize="5"
-                                 hideBulletsCount="50"
-                                 lineThickness="2"
-                                 title="Red line"
-                                 useLineColorForBulletBorder="true"
-                                 valueField="count"
-                                 balloonText="&lt;span style='font-size:18px;'&gt;[[value]]&lt;/span&gt;">
-                        <chart:balloon adjustBorderColor="false"
-                                       color="WHITE"
-                                       drop="true"/>
-                    </chart:graph>
-                </chart:graphs>
-                <chart:categoryAxis dashLength="1"
-                                    minorGridEnabled="true"/>
-                <chart:chartScrollbar autoGridCount="true"
-                                      backgroundAlpha="0"
-                                      color="#AAAAAA"
-                                      graph="g1"
-                                      graphFillAlpha="0"
-                                      graphLineAlpha="0.5"
-                                      offset="30"
-                                      oppositeAxis="false"
-                                      scrollbarHeight="80"
-                                      selectedBackgroundAlpha="0.1"
-                                      selectedBackgroundColor="#888888"
-                                      selectedGraphFillAlpha="0"
-                                      selectedGraphLineAlpha="1"/>
-                <chart:chartCursor cursorAlpha="1"
-                                   cursorColor="#258cbb"
-                                   cursorPosition="MOUSE"
-                                   limitToGraph="g1"
-                                   pan="true"
-                                   valueLineAlpha="0.2"
-                                   valueLineEnabled="true"
-                                   valueLineBalloonEnabled="true"
-                                   valueZoomable="true"/>
-                <chart:valueScrollbar offset="50"
-                                      oppositeAxis="false"
-                                      scrollbarHeight="10"/>
-                <chart:responsive enabled="true">
-                    <chart:rules>
-                        <chart:rule maxWidth="400">
-                            <![CDATA[
-            {
-                "precision": 2,
-                "legend": {
-                  "enabled": false
-                },
-                "valueAxes": {
-                  "inside": true
-                }
-            }
-            ]]>
-                        </chart:rule>
-                    </chart:rules>
-                </chart:responsive>
-                <chart:export/>
-            </chart:serialChart>
-        </hbox>
+    <layout>
+       <tabSheet width="100%" height="100%">
+           <tab id="mainTab"
+                caption="Organisation Overview"
+                spacing="true">
+               <hbox width="100%" height="100%">
+                   <chart:pieChart dataContainer="serviceRequestsByStatusDc"
+                                   creditsPosition="BOTTOM_RIGHT"
+                                   angle="30"
+                                   balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
+                            &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
+                                   depth3D="15"
+                                   height="100%"
+                                   radius="75"
+                                   outlineAlpha="0.4"
+                                   titleField="status"
+                                   valueField="count"
+                                   width="100%"
+                                   responsive="true" >
+                       <chart:titles>
+                           <chart:title alpha="1"
+                                        bold="true"
+                                        color="DARKSLATEGREY"
+                                        size="20"
+                                        tabIndex="0"
+                                        text="Service Requests"/>
+                           <chart:title alpha="0.5"
+                                        color="DARKBLUE"
+                                        size="12"
+                                        text="By Status"/>
+                       </chart:titles>
+                       <chart:legend autoMargins="false"
+                                     marginRight="80"
+                                     markerType="CIRCLE"
+                                     position="BOTTOM"/>
+                       <chart:export/>
+                   </chart:pieChart>
 
 
-        <chart:serialChart additionalFields="additional"
-                           byDate="true"
-                           addClassNames="true"
-                           autoMargins="false"
-                           categoryField="orderDate"
-                           dataContainer="salesSerialChartDc"
-                           height="100%"
-                           marginBottom="26"
-                           marginLeft="30"
-                           marginRight="8"
-                           marginTop="10"
-                           startDuration="1"
-                           theme="LIGHT"
-                           width="100%">
-            <chart:titles>
-                <chart:title alpha="1"
-                             bold="true"
-                             color="DARKSLATEGREY"
-                             size="20"
-                             tabIndex="0"
-                             text="Sales Income"/>
-                <chart:title alpha="0.5"
-                             color="DARKBLUE"
-                             size="12"
-                             text="By Date"/>
-            </chart:titles>
-            <chart:valueAxes>
-                <chart:axis axisAlpha="0"
-                            position="LEFT"/>
-            </chart:valueAxes>
-            <chart:balloon adjustBorderColor="false"
-                           color="WHITE"
-                           horizontalPadding="10"
-                           verticalPadding="8"/>
-            <chart:graphs>
-                <chart:graph alphaField="alpha"
-                             balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                   <chart:serialChart id="lineChart"
+                                      creditsPosition="BOTTOM_LEFT"
+                                      byDate="true"
+                                      autoMarginOffset="20"
+                                      categoryField="dateReceived"
+                                      dataContainer="serviceRequestsByDateDc"
+                                      height="100%"
+                                      marginRight="40"
+                                      marginLeft="40"
+                                      mouseWheelZoomEnabled="true"
+                                      theme="LIGHT"
+                                      width="100%"
+                                      responsive="true">
+                       <chart:titles>
+                           <chart:title alpha="1"
+                                        bold="true"
+                                        color="DARKSLATEGREY"
+                                        size="20"
+                                        tabIndex="0"
+                                        text="Service Requests"/>
+                           <chart:title alpha="0.5"
+                                        color="DARKBLUE"
+                                        size="12"
+                                        text="By Date"/>
+                       </chart:titles>
+                       <chart:valueAxes>
+                           <chart:axis id="v1"
+                                       axisAlpha="0"
+                                       ignoreAxisWidth="true"
+                                       position="LEFT"/>
+                       </chart:valueAxes>
+                       <chart:balloon borderThickness="1"
+                                      shadowAlpha="0"/>
+                       <chart:graphs>
+                           <chart:graph id="g1"
+                                        bullet="ROUND"
+                                        bulletBorderAlpha="1"
+                                        bulletColor="WHITE"
+                                        bulletSize="5"
+                                        hideBulletsCount="50"
+                                        lineThickness="2"
+                                        title="Red line"
+                                        useLineColorForBulletBorder="true"
+                                        valueField="count"
+                                        balloonText="&lt;span style='font-size:18px;'&gt;[[value]]&lt;/span&gt;">
+                               <chart:balloon adjustBorderColor="false"
+                                              color="WHITE"
+                                              drop="true"/>
+                           </chart:graph>
+                       </chart:graphs>
+                       <chart:categoryAxis dashLength="1"
+                                           minorGridEnabled="true"/>
+                       <chart:chartScrollbar autoGridCount="true"
+                                             backgroundAlpha="0"
+                                             color="#AAAAAA"
+                                             graph="g1"
+                                             graphFillAlpha="0"
+                                             graphLineAlpha="0.5"
+                                             offset="30"
+                                             oppositeAxis="false"
+                                             scrollbarHeight="50"
+                                             selectedBackgroundAlpha="0.1"
+                                             selectedBackgroundColor="#888888"
+                                             selectedGraphFillAlpha="0"
+                                             selectedGraphLineAlpha="1"/>
+                       <chart:chartCursor cursorAlpha="1"
+                                          cursorColor="#258cbb"
+                                          cursorPosition="MOUSE"
+                                          limitToGraph="g1"
+                                          pan="true"
+                                          valueLineAlpha="0.2"
+                                          valueLineEnabled="true"
+                                          valueLineBalloonEnabled="true"
+                                          valueZoomable="true"/>
+                       <chart:valueScrollbar offset="50"
+                                             oppositeAxis="false"
+                                             scrollbarHeight="10"/>
+                       <chart:responsive enabled="true">
+                           <chart:rules>
+                               <chart:rule maxWidth="400">
+                                   <![CDATA[{
+                               "precision": 2,
+                               "legend": {"enabled": false},
+                               "valueAxes": {"inside": true}
+                               }]]>
+                               </chart:rule>
+                           </chart:rules>
+                       </chart:responsive>
+                       <chart:export/>
+                   </chart:serialChart>
+               </hbox>
+
+               <chart:serialChart additionalFields="additional"
+                                  byDate="true"
+                                  addClassNames="true"
+                                  autoMargins="false"
+                                  categoryField="orderDate"
+                                  dataContainer="salesSerialChartDc"
+                                  height="100%"
+                                  marginBottom="26"
+                                  marginRight="40"
+                                  marginLeft="60"
+                                  marginTop="20"
+                                  startDuration="1"
+                                  theme="LIGHT"
+                                  width="100%">
+                   <chart:titles>
+                       <chart:title alpha="1"
+                                    bold="true"
+                                    color="DARKSLATEGREY"
+                                    size="20"
+                                    tabIndex="0"
+                                    text="Sales Income"/>
+                       <chart:title alpha="0.5"
+                                    color="DARKBLUE"
+                                    size="12"
+                                    text="By Date"/>
+                   </chart:titles>
+                   <chart:valueAxes>
+                       <chart:axis axisAlpha="0"
+                                   position="LEFT"/>
+                   </chart:valueAxes>
+                   <chart:balloon adjustBorderColor="false"
+                                  color="WHITE"
+                                  horizontalPadding="10"
+                                  verticalPadding="8"/>
+                   <chart:graphs>
+                       <chart:graph alphaField="alpha"
+                                    balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                                    &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;"
+                                    dashLengthField="dashLengthColumn"
+                                    fillAlphas="1"
+                                    title="Sales Income"
+                                    type="COLUMN"
+                                    valueField="sum"/>
+                       <chart:graph balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
                              &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;"
-                             dashLengthField="dashLengthColumn"
-                             fillAlphas="1"
-                             title="Sales Income"
-                             type="COLUMN"
-                             valueField="sum"/>
-                <chart:graph balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
-                             &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;"
-                             bullet="ROUND"
-                             bulletBorderAlpha="1"
-                             bulletBorderThickness="3"
-                             bulletColor="WHITE"
-                             bulletSize="7"
-                             dashLengthField="dashLengthLine"
-                             fillAlphas="0"
-                             lineAlpha="1"
-                             lineThickness="3"
-                             title="Expenses"
-                             useLineColorForBulletBorder="true"
-                             valueField="expenses"/>
-            </chart:graphs>
-            <chart:categoryAxis axisAlpha="0"
-                                gridPosition="START"
-                                tickLength="0"/>
-            <chart:responsive enabled="true">
-                <chart:rules>
-                    <chart:rule maxWidth="400">
-                        <![CDATA[
-            {
-                "precision": 2,
-                "legend": {
-                  "enabled": false
-                },
-                "valueAxes": {
-                  "inside": true
-                }
-            }
-            ]]>
-                    </chart:rule>
-                </chart:rules>
-            </chart:responsive>
-            <chart:export/>
-        </chart:serialChart>
+                                    bullet="ROUND"
+                                    bulletBorderAlpha="1"
+                                    bulletBorderThickness="3"
+                                    bulletColor="WHITE"
+                                    bulletSize="7"
+                                    dashLengthField="dashLengthLine"
+                                    fillAlphas="0"
+                                    lineAlpha="1"
+                                    lineThickness="3"
+                                    title="Expenses"
+                                    useLineColorForBulletBorder="true"
+                                    valueField="expenses"/>
+                   </chart:graphs>
+                   <chart:categoryAxis axisAlpha="0"
+                                       gridPosition="START"
+                                       tickLength="0"
+                                       markPeriodChange="true"
+                                       minorGridEnabled="true"/>
+                   <chart:chartScrollbar autoGridCount="true"
+                                         backgroundAlpha="0"
+                                         color="#AAAAAA"
+                                         graph="g1"
+                                         graphFillAlpha="0"
+                                         graphLineAlpha="0.5"
+                                         offset="30"
+                                         oppositeAxis="false"
+                                         scrollbarHeight="30"
+                                         selectedBackgroundAlpha="0.1"
+                                         selectedBackgroundColor="#888888"
+                                         selectedGraphFillAlpha="0"
+                                         selectedGraphLineAlpha="1"/>
+                   <chart:chartCursor cursorAlpha="1"
+                                      cursorColor="#258cbb"
+                                      cursorPosition="MOUSE"
+                                      limitToGraph="g1"
+                                      pan="true"
+                                      valueLineAlpha="0.2"
+                                      valueLineEnabled="true"
+                                      valueLineBalloonEnabled="true"
+                                      valueZoomable="true"/>
+                   <chart:valueScrollbar offset="50"
+                                         oppositeAxis="false"
+                                         scrollbarHeight="10"/>
+                   <chart:responsive enabled="true">
+                       <chart:rules>
+                           <chart:rule maxWidth="400">
+                               <![CDATA[{
+                               "precision": 2,
+                               "legend": {"enabled": false},
+                               "valueAxes": {"inside": true}
+                               }]]>
+                           </chart:rule>
+                       </chart:rules>
+                   </chart:responsive>
+                   <chart:export/>
+               </chart:serialChart>
+           </tab>
+
+
+           <tab id="clientsTab"
+                caption="Clients Overview"
+                spacing="true">
+              <hbox width="100%" height="100%">
+               <chart:serialChart id="stackedArea"
+                                  categoryField="client"
+                                  dataContainer="topCustomersBySalesDc"
+                                  height="100%"
+                                  marginLeft="0"
+                                  marginTop="10"
+                                  plotAreaBorderAlpha="0"
+                                  rotate="true"
+                                  startDuration="1"
+                                  width="100%">
+               <chart:chartCursor categoryBalloonDateFormat="MMM-DD"
+                                  cursorAlpha="0"/>
+               <chart:titles>
+                   <chart:title alpha="1"
+                                bold="true"
+                                color="DARKSLATEGREY"
+                                size="20"
+                                tabIndex="0"
+                                text="Top Customers"/>
+                   <chart:title alpha="0.5"
+                                color="DARKBLUE"
+                                size="12"
+                                text="By Sales"/>
+               </chart:titles>
+               <chart:valueAxes>
+                   <chart:axis gridAlpha="0.07"
+                               position="TOP"
+                               title="(MUR)"/>
+               </chart:valueAxes>
+               <chart:graphs>
+                   <chart:graph fillAlphas="0.6"
+                                lineAlpha="0.4"
+                                lineColor="BLACK"
+                                title="Clients"
+                                labelPosition="MIDDLE"
+                                type="COLUMN"
+                                valueField="sum" >
+                       <chart:fillColors>
+                           <chart:color value="#1b87e3"/>
+                       </chart:fillColors>
+                   </chart:graph>
+               </chart:graphs>
+               <chart:categoryAxis axisColor="#DADADA"
+                                   gridAlpha="0.07"
+                                   position="LEFT">
+               </chart:categoryAxis>
+               <chart:export/>
+               </chart:serialChart>
+
+               <chart:serialChart id="stackedAreaOutstandingBalances"
+                                  categoryField="client"
+                                  dataContainer="topCustomersByOutstandingBalancesDc"
+                                  height="100%"
+                                  marginLeft="0"
+                                  marginTop="10"
+                                  plotAreaBorderAlpha="0"
+                                  rotate="true"
+                                  startDuration="1"
+                                  width="100%">
+                   <chart:chartCursor categoryBalloonDateFormat="MMM-DD"
+                                      cursorAlpha="0"/>
+                   <chart:titles>
+                       <chart:title alpha="1"
+                                    bold="true"
+                                    color="DARKSLATEGREY"
+                                    size="20"
+                                    tabIndex="0"
+                                    text="Top Customers"/>
+                       <chart:title alpha="0.5"
+                                    color="DARKBLUE"
+                                    size="12"
+                                    text="By Outstanding Balance"/>
+                   </chart:titles>
+                   <chart:valueAxes>
+                       <chart:axis gridAlpha="0.07"
+                                   position="TOP"
+                                   title="(MUR)"/>
+                   </chart:valueAxes>
+                   <chart:graphs>
+                       <chart:graph fillAlphas="0.6"
+                                    lineAlpha="0.4"
+                                    lineColor="BLACK"
+                                    title="Clients"
+                                    labelPosition="MIDDLE"
+                                    type="COLUMN"
+                                    valueField="sum" >
+                           <chart:fillColors>
+                               <chart:color value="#ff0000"/>
+                           </chart:fillColors>
+                       </chart:graph>
+                   </chart:graphs>
+                   <chart:categoryAxis axisColor="#DADADA"
+                                       gridAlpha="0.07"
+                                       position="LEFT">
+                   </chart:categoryAxis>
+                   <chart:responsive enabled="true">
+                       <chart:rules>
+                           <chart:rule maxWidth="400">
+                               <![CDATA[{
+                               "precision": 2,
+                               "legend": {"enabled": false},
+                               "valueAxes": {"inside": true}
+                               }]]>
+                           </chart:rule>
+                       </chart:rules>
+                   </chart:responsive>
+                   <chart:export/>
+               </chart:serialChart>
+              </hbox>
+           </tab>
+           <tab id="serviceRequestsTab"
+                spacing="true"
+                caption="Service Requests Overview">
+               <hbox width="100%" height="100%">
+                   <chart:pieChart dataContainer="topProductCategoriesForSRFDc"
+                                   creditsPosition="BOTTOM_RIGHT"
+                                   theme="LIGHT"
+                                   angle="30"
+                                   balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
+                                   &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
+                                   depth3D="15"
+                                   height="100%"
+                                   radius="75"
+                                   outlineAlpha="0.4"
+                                   titleField="productCategory"
+                                   valueField="count"
+                                   width="100%"
+                                   responsive="true">
+                       <chart:titles>
+                           <chart:title alpha="1"
+                                        bold="true"
+                                        color="DARKSLATEGREY"
+                                        size="20"
+                                        tabIndex="0"
+                                        text="Most Serviced"/>
+                           <chart:title alpha="0.5"
+                                        color="DARKBLUE"
+                                        size="12"
+                                        text="Product Categories"/>
+                       </chart:titles>
+                       <chart:legend autoMargins="false"
+                                     marginRight="80"
+                                     markerType="CIRCLE"
+                                     position="BOTTOM"/>
+                       <chart:export/>
+                   </chart:pieChart>
+               </hbox>
+           </tab>
+       </tabSheet>
     </layout>
 </window>
