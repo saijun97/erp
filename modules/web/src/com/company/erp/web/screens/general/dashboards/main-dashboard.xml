@@ -121,10 +121,11 @@
                                         size="12"
                                         text="By Status"/>
                        </chart:titles>
-                       <chart:legend autoMargins="false"
-                                     marginRight="80"
+                       <chart:legend autoMargins="true"
+                                     marginRight="30"
                                      markerType="CIRCLE"
-                                     position="BOTTOM"/>
+                                     position="BOTTOM"
+                                     equalWidths="false"/>
                        <chart:export/>
                    </chart:pieChart>
 
