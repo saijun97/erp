@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+    <keyValueCollection id="topCustomersByOutstandingBalancesDc">
+        <loader id="topCustomersByOutstandingBalancesLoader">
+            <query>
+                <![CDATA[SELECT sum(e.totalAmount), e.client
+                             FROM erp_Order e
+                             WHERE e.status IN ('UNPAID', 'PARTIALLY_PAID')
+                             GROUP BY e.client
+                             ORDER by sum(e.totalAmount) desc]]>
+            </query>
+        </loader>
+        <properties>
+            <property name="sum"/>
+            <property name="client"/>
+        </properties>
+    </keyValueCollection>
+    </data>
+    <layout>
+        <chart:serialChart id="stackedAreaOutstandingBalances"
+                           categoryField="client"
+                           creditsPosition="BOTTOM_RIGHT"
+                           dataContainer="topCustomersByOutstandingBalancesDc"
+                           height="100%"
+                           marginLeft="0"
+                           marginTop="10"
+                           plotAreaBorderAlpha="0"
+                           rotate="true"
+                           startDuration="1"
+                           width="100%">
+            <chart:chartCursor categoryBalloonDateFormat="MMM-DD"
+                               cursorAlpha="0"/>
+            <chart:titles>
+                <chart:title alpha="1"
+                             bold="true"
+                             color="DARKSLATEGREY"
+                             size="20"
+                             tabIndex="0"
+                             text="Top Customers"/>
+                <chart:title alpha="0.5"
+                             color="DARKBLUE"
+                             size="12"
+                             text="By Outstanding Balance"/>
+            </chart:titles>
+            <chart:valueAxes>
+                <chart:axis gridAlpha="0.07"
+                            position="TOP"
+                            title="(MUR)"/>
+            </chart:valueAxes>
+            <chart:graphs>
+                <chart:graph fillAlphas="0.6"
+                             lineAlpha="0.4"
+                             lineColor="BLACK"
+                             title="Clients"
+                             labelPosition="MIDDLE"
+                             type="COLUMN"
+                             valueField="sum" >
+                    <chart:fillColors>
+                        <chart:color value="#ff0000"/>
+                    </chart:fillColors>
+                </chart:graph>
+            </chart:graphs>
+            <chart:categoryAxis axisColor="#DADADA"
+                                gridAlpha="0.07"
+                                position="LEFT">
+            </chart:categoryAxis>
+            <chart:responsive enabled="true">
+                <chart:rules>
+                    <chart:rule maxWidth="400">
+                        <![CDATA[{
+                               "precision": 2,
+                               "legend": {"enabled": false},
+                               "valueAxes": {"inside": true}
+                               }]]>
+                    </chart:rule>
+                </chart:rules>
+            </chart:responsive>
+            <chart:export/>
+        </chart:serialChart>
+    </layout>
+</fragment>

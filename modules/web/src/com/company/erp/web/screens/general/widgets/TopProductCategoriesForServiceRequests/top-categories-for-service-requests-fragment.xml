@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+<data>
+    <keyValueCollection id="topProductCategoriesForSRFDc">
+        <loader id="topProductCategoriesForSRFLoader">
+            <query>
+                <![CDATA[SELECT count(e), e.productCategory
+                             FROM erp_Equipment e
+                             GROUP BY e.productCategory]]>
+            </query>
+        </loader>
+        <properties>
+            <property name="count"/>
+            <property name="productCategory"/>
+        </properties>
+    </keyValueCollection>
+    </data>
+    <layout>
+        <chart:pieChart dataContainer="topProductCategoriesForSRFDc"
+                        creditsPosition="BOTTOM_RIGHT"
+                        theme="LIGHT"
+                        angle="30"
+                        balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
+                                   &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
+                        depth3D="15"
+                        height="100%"
+                        radius="75"
+                        outlineAlpha="0.4"
+                        titleField="productCategory"
+                        valueField="count"
+                        width="100%"
+                        responsive="true">
+            <chart:titles>
+                <chart:title alpha="1"
+                             bold="true"
+                             color="DARKSLATEGREY"
+                             size="20"
+                             tabIndex="0"
+                             text="Most Serviced"/>
+                <chart:title alpha="0.5"
+                             color="DARKBLUE"
+                             size="12"
+                             text="Product Categories"/>
+            </chart:titles>
+            <chart:legend autoMargins="false"
+                          marginRight="80"
+                          markerType="CIRCLE"
+                          position="BOTTOM"/>
+            <chart:export/>
+        </chart:pieChart>
+    </layout>
+</fragment>
