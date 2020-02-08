@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+<data>
+        <keyValueCollection id="salesByDateColumnChartDc">
+            <loader id="salesByDateColumnChartLoader">
+                <query>
+                    <![CDATA[SELECT sum(e.totalAmount), e.orderDate
+                         FROM erp_Order e
+                         GROUP BY e.orderDate
+                         ORDER BY e.orderDate]]>
+                </query>
+            </loader>
+            <properties>
+                <property class="com.company.erp.entity.sales_inventory.order.Order"
+                          name="sum"/>
+                <property name="orderDate"/>
+            </properties>
+        </keyValueCollection>
+    </data>
+    <layout>
+        <chart:serialChart additionalFields="additional"
+                           creditsPosition="BOTTOM_RIGHT"
+                           byDate="true"
+                           addClassNames="true"
+                           autoMargins="false"
+                           categoryField="orderDate"
+                           dataContainer="salesByDateColumnChartDc"
+                           height="100%"
+                           marginBottom="26"
+                           marginRight="40"
+                           marginLeft="20"
+                           marginTop="20"
+                           startDuration="1"
+                           theme="LIGHT"
+                           width="100%">
+            <chart:titles>
+                <chart:title alpha="1"
+                             bold="true"
+                             color="DARKSLATEGREY"
+                             size="20"
+                             tabIndex="0"
+                             text="Sales Income"/>
+                <chart:title alpha="0.5"
+                             color="DARKBLUE"
+                             size="12"
+                             text="By Date"/>
+            </chart:titles>
+            <chart:valueAxes>
+                <chart:axis axisAlpha="0"
+                            position="LEFT"/>
+            </chart:valueAxes>
+            <chart:balloon adjustBorderColor="false"
+                           color="WHITE"
+                           horizontalPadding="10"
+                           verticalPadding="8"/>
+            <chart:graphs>
+                <chart:graph alphaField="alpha"
+                             balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                                    &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;"
+                             dashLengthField="dashLengthColumn"
+                             fillAlphas="1"
+                             title="Sales Income"
+                             type="COLUMN"
+                             valueField="sum"/>
+                <chart:graph balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                             &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;"
+                             bullet="ROUND"
+                             bulletBorderAlpha="1"
+                             bulletBorderThickness="3"
+                             bulletColor="WHITE"
+                             bulletSize="7"
+                             dashLengthField="dashLengthLine"
+                             fillAlphas="0"
+                             lineAlpha="1"
+                             lineThickness="3"
+                             title="Expenses"
+                             useLineColorForBulletBorder="true"
+                             valueField="expenses"/>
+            </chart:graphs>
+            <chart:categoryAxis axisAlpha="0"
+                                gridPosition="START"
+                                tickLength="0"
+                                markPeriodChange="true"
+                                minorGridEnabled="true"/>
+            <chart:chartScrollbar autoGridCount="true"
+                                  backgroundAlpha="0"
+                                  color="#AAAAAA"
+                                  graph="g1"
+                                  graphFillAlpha="0"
+                                  graphLineAlpha="0.5"
+                                  offset="30"
+                                  oppositeAxis="false"
+                                  scrollbarHeight="30"
+                                  selectedBackgroundAlpha="0.1"
+                                  selectedBackgroundColor="#888888"
+                                  selectedGraphFillAlpha="0"
+                                  selectedGraphLineAlpha="1"/>
+            <chart:chartCursor cursorAlpha="1"
+                               cursorColor="#258cbb"
+                               cursorPosition="MOUSE"
+                               limitToGraph="g1"
+                               pan="true"
+                               valueLineAlpha="0.2"
+                               valueLineEnabled="true"
+                               valueLineBalloonEnabled="true"
+                               valueZoomable="true"/>
+            <chart:valueScrollbar offset="50"
+                                  oppositeAxis="false"
+                                  scrollbarHeight="10"/>
+            <chart:responsive enabled="true">
+                <chart:rules>
+                    <chart:rule maxWidth="400">
+                        <![CDATA[{
+                               "precision": 2,
+                               "legend": {"enabled": false},
+                               "valueAxes": {"inside": true}
+                               }]]>
+                    </chart:rule>
+                </chart:rules>
+            </chart:responsive>
+            <chart:export/>
+        </chart:serialChart>
+    </layout>
+</fragment>
