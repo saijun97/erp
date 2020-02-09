@@ -3,7 +3,8 @@
           xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
 <data>
         <keyValueCollection id="salesByDateColumnChartDc">
-            <loader id="salesByDateColumnChartLoader">
+            <loader id="salesByDateColumnChartLoader"
+                    maxResults="31">
                 <query>
                     <![CDATA[SELECT sum(e.totalAmount), e.orderDate
                          FROM erp_Order e

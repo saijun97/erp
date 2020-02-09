@@ -3,7 +3,8 @@
           xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
     <data>
     <keyValueCollection id="topCustomersByOutstandingBalancesDc">
-        <loader id="topCustomersByOutstandingBalancesLoader">
+        <loader id="topCustomersByOutstandingBalancesLoader"
+                maxResults="5">
             <query>
                 <![CDATA[SELECT sum(e.totalAmount), e.client
                              FROM erp_Order e
