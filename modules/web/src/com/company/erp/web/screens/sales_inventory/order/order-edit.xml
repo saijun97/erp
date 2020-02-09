@@ -23,8 +23,10 @@
                     view="logView">
             <loader id="logDl">
                 <query>
-                    <![CDATA[select i from sec$EntityLog i where i.entityRef.entityId = :order
-                    order by i.eventTs desc]]>
+                    <![CDATA[select i
+                             from sec$EntityLog i
+                             where i.entityRef.entityId = :order
+                             order by i.eventTs desc]]>
                 </query>
             </loader>
             <collection id="logAttrDc"
