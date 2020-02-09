@@ -7,7 +7,6 @@
         <menu id="generalMasterData" icon="font-icon:DATABASE">
             <item screen="erp_Country.browse"/>
         </menu>
-        <item screen="erp_MainDashboard"/>
     </menu>
 
     <menu id="hrm"  insertBefore="reports" insertAfter="general" icon="font-icon:BRIEFCASE">
