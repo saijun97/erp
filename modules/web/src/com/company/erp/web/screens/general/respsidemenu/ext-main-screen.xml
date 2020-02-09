@@ -147,8 +147,6 @@
                                         </swr:column>
                                     </swr:row>
                                 </swr:responsiveLayout>
-                                <fragment id="frag" screen="erp_SalesByDateFragment"
-                                          height="400px"/>
                             </scrollBox>
                         </tab>
                         <tab id="serviceRequestsTab"
