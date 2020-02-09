@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd">
+    <data>
+        <collection id="pendingServiceRequestsDc"
+                    class="com.company.erp.entity.crm.srf.ServiceRequest"
+                    view="serviceRequest-view-details">
+            <loader id="pendingServiceRequestsLoader">
+                <query>
+                    <![CDATA[select e
+                             from erp_ServiceRequest e
+                             where e.status = 'PENDING'
+                             order by e.referenceNumber desc]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout expand="vBox"
+            spacing="true"
+            margin="true">
+        <vbox id="vBox"
+              expand="pendingServiceRequestsTable" >
+        <label stylename="bold"
+               value="Pending Service Requests"
+               align="MIDDLE_CENTER"/>
+        <groupTable id="pendingServiceRequestsTable"
+                    dataContainer="pendingServiceRequestsDc"
+                    width="100%"
+                    multiLineCells="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="referenceNumber"
+                        caption="Ref No."
+                        sortable="false"/>
+                <column id="customerName"
+                        caption="Customer"
+                        sortable="false"/>
+                <column id="dateReceived"
+                        sortable="false"/>
+            </columns>
+        </groupTable>
+        </vbox>
+    </layout>
+</fragment>
+

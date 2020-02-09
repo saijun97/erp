@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd">
+    <data>
+        <collection id="logDc"
+                    class="com.haulmont.cuba.security.entity.EntityLogItem"
+                    view="logView">
+            <loader id="logDl"
+                    maxResults="10"
+                    softDeletion="false">
+                <query>
+                    <![CDATA[select i
+                             from sec$EntityLog i
+                             order by i.eventTs desc]]>
+                </query>
+            </loader>
+            <collection id="logAttrDc"
+                        property="attributes"/>
+        </collection>
+    </data>
+    <layout expand="vBox">
+        <vbox id="vBox"
+              width="100%"
+              spacing="true">
+            <label value="Latest Activity"
+                   align="MIDDLE_CENTER"
+                   stylename="bold"/>
+            <table id="logTable"
+                   height="160px"
+                   width="100%"
+                   dataContainer="logDc"
+                   multiLineCells="true">
+                <columns>
+                    <column id="eventTs"
+                            sortable="false"/>
+                    <column id="user"
+                            sortable="false"/>
+                    <column id="type"
+                            sortable="false"/>
+                </columns>
+                <rows/>
+            </table>
+            <label value=""/>
+            <label value="Change Details" align="MIDDLE_CENTER"/>
+            <table id="logAttrTable"
+                   height="92px"
+                   width="100%"
+                   dataContainer="logAttrDc"
+                   multiLineCells="true">
+                <columns>
+                    <column id="displayName"
+                            caption="Attribute"
+                            sortable="false"/>
+                    <column id="oldValue"
+                            sortable="false"/>
+                    <column id="value"
+                            sortable="false"/>
+                </columns>
+                <rows/>
+            </table>
+        </vbox>
+    </layout>
+</fragment>
