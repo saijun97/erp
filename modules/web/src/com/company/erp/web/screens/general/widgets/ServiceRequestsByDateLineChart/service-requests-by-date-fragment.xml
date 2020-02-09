@@ -3,7 +3,8 @@
           xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
     <data>
     <keyValueCollection id="serviceRequestsByDateDc">
-        <loader id="serviceRequestsByDateLoader">
+        <loader id="serviceRequestsByDateLoader"
+                maxResults="31">
             <query>
                 <![CDATA[SELECT count(e), e.dateReceived
                          FROM erp_ServiceRequest e
