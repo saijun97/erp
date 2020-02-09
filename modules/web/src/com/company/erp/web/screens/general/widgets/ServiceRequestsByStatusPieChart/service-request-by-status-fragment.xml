@@ -19,6 +19,7 @@
     <layout>
         <chart:pieChart dataContainer="serviceRequestsByStatusDc"
                         creditsPosition="BOTTOM_LEFT"
+                        theme="LIGHT"
                         angle="30"
                         balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
                         &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"

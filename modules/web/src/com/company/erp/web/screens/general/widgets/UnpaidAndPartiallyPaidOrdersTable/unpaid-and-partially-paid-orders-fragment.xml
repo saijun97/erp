@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd">
+    <data>
+        <collection id="ordersDc"
+                    class="com.company.erp.entity.sales_inventory.order.Order"
+                    view="order-view-details">
+            <loader id="ordersDl">
+                <query>
+                    <![CDATA[select e
+                             from erp_Order e
+                             where e.status IN ('UNPAID', 'PARTIALLY_PAID')
+                             order by e.orderNum DESC]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout expand="ordersTable">
+        <dataGrid id="ordersTable"
+                  width="100%"
+                  dataContainer="ordersDc"
+                  settingsEnabled="false"
+                  responsive="true">
+            <columns>
+                <column id="orderNum" property="orderNum"/>
+                <column id="client" property="client"/>
+                <column id="orderDate" property="orderDate"/>
+                <column id="totalAmount" property="totalAmount"/>
+            </columns>
+        </dataGrid>
+    </layout>
+</fragment>
