@@ -14,36 +14,48 @@
             <collection id="languageDc" property="language"/>
             <collection id="licenseDc" property="license"/>
         </instance>
-        <collection id="departmentsDc" class="com.company.erp.entity.hrm.dept.Department" view="_minimal">
+        <collection id="departmentsDc"
+                    class="com.company.erp.entity.hrm.dept.Department"
+                    view="_minimal">
             <loader id="departmentsLc">
                 <query>
                     <![CDATA[select e from erp_Department e]]>
                 </query>
             </loader>
         </collection>
-        <collection id="subunitsDc" class="com.company.erp.entity.hrm.dept.Subunit" view="_minimal">
+        <collection id="subunitsDc"
+                    class="com.company.erp.entity.hrm.dept.Subunit"
+                    view="_minimal">
             <loader>
                 <query>
                     <![CDATA[select e from erp_Subunit e where e.department = :container_departmentsDc]]>
                 </query>
             </loader>
         </collection>
-        <collection id="nationalitiesDc" class="com.company.erp.entity.general.country.Country" view="_minimal">
+        <collection id="nationalitiesDc"
+                    class="com.company.erp.entity.general.country.Country"
+                    view="_minimal">
             <loader>
                 <query>select e from erp_Country e</query>
             </loader>
         </collection>
-        <collection id="citiesDc" class="com.company.erp.entity.general.country.City" view="_minimal">
+        <collection id="citiesDc"
+                    class="com.company.erp.entity.general.country.City"
+                    view="_minimal">
             <loader>
                 <query>select e from erp_City e where e.country = :container_countryOfResidencesDc</query>
             </loader>
         </collection>
-        <collection id="jobPositionsDc" class="com.company.erp.entity.hrm.job_positions.Job_Position" view="_minimal">
+        <collection id="jobPositionsDc"
+                    class="com.company.erp.entity.hrm.job_positions.Job_Position"
+                    view="_minimal">
             <loader>
                 <query>select e from erp_Job_Position e</query>
             </loader>
         </collection>
-        <collection id="countryOfResidencesDc" class="com.company.erp.entity.general.country.Country" view="_minimal">
+        <collection id="countryOfResidencesDc"
+                    class="com.company.erp.entity.general.country.Country"
+                    view="_minimal">
             <loader>
                 <query>select e from erp_Country e</query>
             </loader>

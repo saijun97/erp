@@ -14,23 +14,30 @@
             </loader>
         </collection>
     </data>
-    <layout expand="ordersTable">
-        <dataGrid id="ordersTable"
-                  width="100%"
-                  dataContainer="ordersDc"
-                  settingsEnabled="false"
-                  responsive="true">
+    <layout expand="vBox">
+        <vbox id="vBox"
+              expand="ordersTable"
+              spacing="true">
+            <label value="Unpaid &amp; Partially Paid Orders"
+                   align="MIDDLE_CENTER"
+                   stylename="bold"/>
+            <groupTable id="ordersTable"
+                        width="100%"
+                        dataContainer="ordersDc"
+                        responsive="true"
+                        multiLineCells="true">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
 \            </actions>
             <columns>
-                <column id="orderNum" property="orderNum"/>
-                <column id="client" property="client"/>
-                <column id="orderDate" property="orderDate"/>
-                <column id="totalAmount" property="totalAmount"/>
+                <column id="orderNum" sortable="false"/>
+                <column id="client" sortable="false"/>
+                <column id="orderDate" sortable="false"/>
+                <column id="totalAmount" sortable="false"/>
             </columns>
-        </dataGrid>
+            </groupTable>
+        </vbox>
     </layout>
 </fragment>

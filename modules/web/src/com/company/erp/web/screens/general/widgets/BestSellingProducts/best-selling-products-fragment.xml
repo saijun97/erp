@@ -2,32 +2,37 @@
 <fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
           xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
     <data>
-        <keyValueCollection id="serviceRequestsByStatusDc">
-            <loader id="salesPieChartLoader">
+        <keyValueCollection id="bestSellingProductsDc">
+            <loader id="bestSellingProductsPieChartLoader"
+                    maxResults="10">
                 <query>
-                    <![CDATA[SELECT count(e), e.status
-                             FROM erp_ServiceRequest e
-                             GROUP BY e.status]]>
+                    <![CDATA[SELECT count(e.item), e.item
+                             FROM erp_OrderItem e
+                             GROUP BY e.item]]>
                 </query>
             </loader>
             <properties>
                 <property name="count"/>
-                <property name="status"/>
+                <property name="item"/>
             </properties>
         </keyValueCollection>
     </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
     <layout>
-        <chart:pieChart dataContainer="serviceRequestsByStatusDc"
+        <chart:pieChart dataContainer="bestSellingProductsDc"
                         creditsPosition="BOTTOM_LEFT"
                         theme="LIGHT"
-                        angle="30"
+                        innerRadius="25"
+                        labelRadius="5"
                         balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
                         &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
                         depth3D="15"
                         height="100%"
-                        radius="75"
+                        radius="60"
                         outlineAlpha="0.4"
-                        titleField="status"
+                        titleField="item"
                         valueField="count"
                         width="100%">
             <chart:titles>
@@ -36,11 +41,11 @@
                              color="DARKSLATEGREY"
                              size="20"
                              tabIndex="0"
-                             text="Service Requests"/>
+                             text="Best Selling"/>
                 <chart:title alpha="0.5"
                              color="DARKBLUE"
                              size="12"
-                             text="By Status"/>
+                             text="Products"/>
             </chart:titles>
             <chart:legend autoMargins="true"
                           marginRight="30"

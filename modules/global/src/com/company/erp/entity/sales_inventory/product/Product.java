@@ -30,17 +30,24 @@ public class Product extends Item {
     protected Make_Manufacturer make_manufacturer;
 
     @Column(name = "QTY_STORE1")
-    protected Integer qtyStore1;
+    protected Integer qtyStore1 = 0;
 
     @Column(name = "QTY_STORE2")
-    protected Integer qtyStore2;
+    protected Integer qtyStore2 = 0;
 
     @Column(name = "QTY_STORE3")
-    protected Integer qtyStore3;
+    protected Integer qtyStore3 = 0;
 
-    @Transient
-    @MetaProperty(related = {"qtyStore1", "qtyStore2", "qtyStore3"})
-    protected Integer qtyTotal;
+    @Column(name = "QTY_TOTAL", nullable = false)
+    protected Integer qtyTotal = 0;
+
+    public Integer getQtyTotal() {
+        return qtyTotal;
+    }
+
+    public void setQtyTotal(Integer qtyTotal) {
+        this.qtyTotal = qtyTotal;
+    }
 
     public ProductCategory getProductCategory() {
         return productCategory;
@@ -57,10 +64,6 @@ public class Product extends Item {
     public void setMake_manufacturer(Make_Manufacturer make_manufacturer) {
         this.make_manufacturer = make_manufacturer;
     }
-
-    public Integer getQtyTotal() { return qtyTotal; }
-
-    public void setQtyTotal(Integer qtyTotal) {this.qtyTotal = qtyTotal;}
 
     public Integer getQtyStore3() {
         return qtyStore3;

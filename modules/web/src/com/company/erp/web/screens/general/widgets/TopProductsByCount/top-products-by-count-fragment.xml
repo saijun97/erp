@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+<data>
+    <collection id="topProductsByCountDc"
+                class="com.company.erp.entity.sales_inventory.product.Product"
+                view="product-view-details">
+        <loader id="topProductsByCountRadarChartLoader"
+                maxResults="7">
+            <query>
+                <![CDATA[SELECT e
+                         FROM erp_Product e
+                         ORDER BY e.qtyTotal desc]]>
+            </query>
+        </loader>
+    </collection>
+    </data>
+    <layout>
+        <chart:radarChart id="radarChart"
+                          categoryField="item"
+                          creditsPosition="BOTTOM_RIGHT"
+                          dataContainer="topProductsByCountDc"
+                          height="100%"
+                          startDuration="2"
+                          theme="LIGHT"
+                          width="100%">
+            <chart:titles>
+                <chart:title alpha="1"
+                             bold="true"
+                             color="DARKSLATEGREY"
+                             size="20"
+                             tabIndex="0"
+                             text="Top Products"/>
+                <chart:title alpha="0.5"
+                             color="DARKBLUE"
+                             size="12"
+                             text="In Inventory"/>
+            </chart:titles>
+            <chart:valueAxes>
+                <chart:axis autoGridCount="false"
+                            axisAlpha="0.2"
+                            fillAlpha="0.05"
+                            fillColor="FORESTGREEN"
+                            gridAlpha="0.08"
+                            gridType="CIRCLES"
+                            minimum="0"
+                            position="LEFT">
+                    <chart:guides>
+                        <chart:guide angle="255"
+                                     fillAlpha="0.3"
+                                     fillColor="#0066CC"
+                                     lineAlpha="0"
+                                     tickLength="0"
+                                     toAngle="315"
+                                     toValue="14"
+                                     value="0"/>
+                        <chart:guide angle="45"
+                                     fillAlpha="0.3"
+                                     fillColor="#CC3333"
+                                     lineAlpha="0"
+                                     tickLength="0"
+                                     toAngle="135"
+                                     toValue="14"
+                                     value="0"/>
+                    </chart:guides>
+                </chart:axis>
+            </chart:valueAxes>
+            <chart:graphs>
+                <chart:graph balloonText="[[value]] in stock"
+                             bullet="ROUND"
+                             valueField="qtyTotal"/>
+            </chart:graphs>
+            <chart:export/>
+        </chart:radarChart>
+    </layout>
+</fragment>
