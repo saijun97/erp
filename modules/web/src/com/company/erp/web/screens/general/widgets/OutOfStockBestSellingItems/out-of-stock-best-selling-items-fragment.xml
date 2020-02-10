@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd">
+    <data>
+        <keyValueCollection id="bestSellingProductsDc">
+            <loader id="bestSellingProductsPieChartLoader"
+                    maxResults="10">
+                <query>
+                    <![CDATA[SELECT e.item
+                             FROM erp_OrderItem e
+                             GROUP BY e.item]]>
+                </query>
+            </loader>
+            <properties>
+                <property name="count"/>
+                <property name="item"/>
+            </properties>
+        </keyValueCollection>
+        <collection id="outOfStockBestSellingProductsDc"
+                    class="com.company.erp.entity.sales_inventory.product.Product"
+                    view="product-view-details">
+        <loader id="outOfStockBestSellingProductsLoader">
+                <query>
+                    <![CDATA[select e
+                             from erp_Product e
+                             where e.qtyTotal = '0']]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout expand="vBox"
+            spacing="true"
+            margin="true">
+        <vbox id="vBox"
+              expand="outOfStockBestSellingProductsTable" >
+            <label stylename="bold"
+                   value="Out Of Stock"
+                   align="MIDDLE_CENTER"/>
+            <groupTable id="outOfStockBestSellingProductsTable"
+                        dataContainer="outOfStockBestSellingProductsDc"
+                        width="100%"
+                        multiLineCells="true">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="item"
+                            sortable="false"/>
+                    <column id="productCategory"
+                            sortable="false"/>
+                </columns>
+            </groupTable>
+        </vbox>
+    </layout>
+</fragment>

@@ -27,6 +27,8 @@
                            autoMargins="false"
                            categoryField="orderDate"
                            dataContainer="salesByDateColumnChartDc"
+                           depth3D="60"
+                           angle="30"
                            height="100%"
                            marginBottom="26"
                            marginRight="40"

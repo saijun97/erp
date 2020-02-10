@@ -161,23 +161,43 @@
                             <swr:responsiveLayout width="100%"
                                                   scrollable="true"
                                                   spacing="true">
-                            <swr:row height="AUTO"
+                                <swr:row height="AUTO"
                                      grow="true"
                                      shrink="true"
                                      margin="false">
-                                <swr:column height="AUTO">
+                                <swr:column height="AUTO" >
                                     <swr:content>
-                                        <fragment screen="erp_UnpaidAndPartiallyPaidOrdersFragment"
+                                        <fragment screen="erp_BestSellingProductsFragment"
                                                   height="300px"/>
                                     </swr:content>
                                     <swr:display xs="12" sm="6" md="6" lg="6"/>
                                 </swr:column>
-                                <swr:column height="AUTO" >
-                                    <swr:content>
-                                    </swr:content>
-                                    <swr:display xs="12" sm="6" md="6" lg="6"/>
-                                </swr:column>
+                                    <swr:column height="AUTO">
+                                        <swr:content>
+                                            <fragment screen="erp_UnpaidAndPartiallyPaidOrdersFragment"
+                                                      height="300px"/>
+                                        </swr:content>
+                                        <swr:display xs="12" sm="6" md="6" lg="6"/>
+                                    </swr:column>
                             </swr:row>
+                                <swr:row height="AUTO"
+                                         grow="true"
+                                         shrink="true"
+                                         margin="false">
+                                    <swr:column>
+                                        <swr:content>
+                                            <fragment screen="erp_OutOfStockBestSellingItemsFragment"/>
+                                        </swr:content>
+                                        <swr:display xs="12" sm="6" md="6" lg="6"/>
+                                    </swr:column>
+                                    <swr:column>
+                                        <swr:content>
+                                            <fragment screen="erp_TopProductsByCountFragment"
+                                                      height="330px"/>
+                                        </swr:content>
+                                        <swr:display xs="12" sm="6" md="6" lg="6"/>
+                                    </swr:column>
+                                </swr:row>
                             </swr:responsiveLayout>
                             </scrollBox>
                         </tab>
