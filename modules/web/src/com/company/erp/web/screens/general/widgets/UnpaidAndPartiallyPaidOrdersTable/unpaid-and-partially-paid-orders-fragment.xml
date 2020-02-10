@@ -20,6 +20,11 @@
                   dataContainer="ordersDc"
                   settingsEnabled="false"
                   responsive="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+\            </actions>
             <columns>
                 <column id="orderNum" property="orderNum"/>
                 <column id="client" property="client"/>
