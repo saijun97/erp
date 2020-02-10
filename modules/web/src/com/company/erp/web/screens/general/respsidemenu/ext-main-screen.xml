@@ -153,9 +153,33 @@
                                 </swr:responsiveLayout>
                             </scrollBox>
                         </tab>
-                        <tab id="hrmTab"
+                        <tab id="salesAndInvTab"
                              spacing="true"
-                             caption="Sales &amp; Inventory Feed">
+                             caption="Sales &amp; Inventory Feed"
+                             expand="salesAndInvTabScrollBox">
+                            <scrollBox id="salesAndInvTabScrollBox">
+                            <swr:responsiveLayout width="100%"
+                                                  scrollable="true"
+                                                  spacing="true">
+                            <swr:row height="AUTO"
+                                     grow="true"
+                                     shrink="true"
+                                     margin="false">
+                                <swr:column height="AUTO">
+                                    <swr:content>
+                                        <fragment screen="erp_UnpaidAndPartiallyPaidOrdersFragment"
+                                                  height="300px"/>
+                                    </swr:content>
+                                    <swr:display xs="12" sm="6" md="6" lg="6"/>
+                                </swr:column>
+                                <swr:column height="AUTO" >
+                                    <swr:content>
+                                    </swr:content>
+                                    <swr:display xs="12" sm="6" md="6" lg="6"/>
+                                </swr:column>
+                            </swr:row>
+                            </swr:responsiveLayout>
+                            </scrollBox>
                         </tab>
                     </tabSheet>
                 </initialLayout>
