@@ -45,7 +45,7 @@
                 <column id="cost"/>
                 <column id="price"/>
                 <column id="productCategory"/>
-                <column id="make_manufacturer" caption="Make/Manufacturer"/>
+                <column id="make_manufacturer" caption="Brand"/>
                 <column id="qtyStore1"/>
                 <column id="qtyStore2"/>
                 <column id="qtyStore3"/>
