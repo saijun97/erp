@@ -30,6 +30,15 @@ public class ClientPerson extends Client {
     @Column(name = "GENDER", nullable = false)
     protected Integer gender;
 
+    @Column(name = "WORK_PHONE")
+    protected String workPhone;
+
+    @Column(name = "MOBILE_PHONE")
+    protected String mobilePhone;
+
+    @Column(name = "HOME_PHONE")
+    protected String homePhone;
+
     public void setGender(GenderSelect gender) {
         this.gender = gender == null ? null : gender.getId();
     }
@@ -37,9 +46,6 @@ public class ClientPerson extends Client {
     public GenderSelect getGender() {
         return gender == null ? null : GenderSelect.fromId(gender);
     }
-
-    @Column(name = "MOBILE_PHONE")
-    protected String mobilePhone;
 
     public String getMobilePhone() {
         return mobilePhone;
@@ -49,9 +55,6 @@ public class ClientPerson extends Client {
         this.mobilePhone = mobilePhone;
     }
 
-    @Column(name = "HOME_PHONE")
-    protected String homePhone;
-
     public String getHomePhone() {
         return homePhone;
     }
@@ -59,9 +62,6 @@ public class ClientPerson extends Client {
     public void setHomePhone(String homePhone) {
         this.homePhone = homePhone;
     }
-
-    @Column(name = "WORK_PHONE")
-    protected String workPhone;
 
     public PersonName getName() {
         return name;
