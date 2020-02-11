@@ -27,6 +27,7 @@ public class ServiceRequest extends StandardEntity {
     @Column(name = "REFERENCE_NUMBER", unique = true, nullable = false)
     protected String referenceNumber;
 
+    @OnDeleteInverse(DeletePolicy.DENY)
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "EXISTING_CLIENT_ID")
