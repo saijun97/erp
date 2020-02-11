@@ -29,13 +29,13 @@ public class Product extends Item {
     @JoinColumn(name = "MAKE_MANUFACTURER_ID")
     protected Make_Manufacturer make_manufacturer;
 
-    @Column(name = "QTY_STORE1")
+    @Column(name = "QTY_STORE1", nullable = false)
     protected Integer qtyStore1 = 0;
 
-    @Column(name = "QTY_STORE2")
+    @Column(name = "QTY_STORE2", nullable = false)
     protected Integer qtyStore2 = 0;
 
-    @Column(name = "QTY_STORE3")
+    @Column(name = "QTY_STORE3", nullable = false)
     protected Integer qtyStore3 = 0;
 
     @Column(name = "QTY_TOTAL", nullable = false)
