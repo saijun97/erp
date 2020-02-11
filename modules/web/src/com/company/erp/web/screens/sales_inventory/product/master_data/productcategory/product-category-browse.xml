@@ -9,7 +9,7 @@
                     view="_local">
             <loader id="productCategoriesDl">
                 <query>
-                    <![CDATA[select e from erp_ProductCategory e]]>
+                    <![CDATA[select e from erp_ProductCategory e order by e.name]]>
                 </query>
             </loader>
         </collection>
