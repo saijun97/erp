@@ -60,7 +60,7 @@
                     <textField id="qtyStore1Field" property="qtyStore1" datatype="int"/>
                     <textField id="qtyStore2Field" property="qtyStore2" datatype="int"/>
                     <textField id="qtyStore3Field" property="qtyStore3" datatype="int"/>
-                    <textField id="qtyTotalField" property="qtyTotal" datatype="int"/>
+                    <textField id="qtyTotalField" property="qtyTotal" datatype="int" editable="false"/>
                 </column>
             </form>
             <form id="formDesc" dataContainer="productDc" captionPosition="TOP">
