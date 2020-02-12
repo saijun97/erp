@@ -19,7 +19,7 @@
         <param-value>com.haulmont.cuba com.haulmont.fts de.diedavids.cuba.dataimport com.haulmont.addon.restapi
             it.nexbit.cuba.security.userprofile com.haulmont.addon.dnd com.haulmont.reports com.haulmont.charts
             com.haulmont.addon.dashboard com.haulmont.addon.dashboardchart org.strangeway.responsive
-            com.haulmont.addon.datagen</param-value>
+            com.haulmont.addon.datagen de.diedavids.cuba.attachable de.diedavids.cuba.entitysoftreference</param-value>
     </context-param>
     <listener>
         <listener-class>com.vaadin.server.communication.JSR356WebsocketInitializer</listener-class>
