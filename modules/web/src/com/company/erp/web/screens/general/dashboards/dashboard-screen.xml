@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:swr="http://strangeway.org/xsd/responsive/sw-responsive.xsd"
+        caption="msg://caption"
+        messagesPack="com.company.erp.web.screens.general.dashboards">
+    <layout expand="tabSheet">
+        <tabSheet id="tabSheet"
+                  width="100%"
+                  responsive="true">
+            <tab id="organisationTab"
+                 caption="Organisation Feed"
+                 expand="organisationTabScrollBox">
+                <scrollBox id="organisationTabScrollBox">
+                    <swr:responsiveLayout width="100%"
+                                          scrollable="true"
+                                          spacing="true">
+                        <swr:row height="AUTO"
+                                 grow="true"
+                                 shrink="true"
+                                 margin="false">
+                            <swr:column height="AUTO">
+                                <swr:content>
+                                    <fragment id="serviceRequestByStatusPieChart"
+                                              screen="erp_ServiceRequestByStatusFragment"
+                                              height="265px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                            <swr:column height="AUTO">
+                                <swr:content>
+                                    <fragment screen="erp_ActivityLogFragment"
+                                              height="200px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                            <swr:column height="AUTO">
+                                <swr:content>
+                                    <fragment screen="erp_SalesByDateFragment"
+                                              height="310px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="12" md="12" lg="12"/>
+                            </swr:column>
+                        </swr:row>
+                    </swr:responsiveLayout>
+                </scrollBox>
+            </tab>
+
+            <tab id="crmTab"
+                 caption="CRM Feed"
+                 spacing="true"
+                 expand="crmTabScrollBox">
+                <scrollBox id="crmTabScrollBox">
+                    <swr:responsiveLayout width="100%"
+                                          scrollable="true"
+                                          spacing="true">
+                        <swr:row height="AUTO"
+                                 grow="true"
+                                 shrink="true"
+                                 margin="false">
+                            <swr:column height="AUTO">
+                                <swr:content>
+                                    <fragment screen="erp_ServiceRequestsByDateFragment"
+                                              height="300px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                            <swr:column height="AUTO" >
+                                <swr:content>
+                                    <fragment screen="erp_PendingServiceRequestsTableFragment"
+                                              height="300px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                        </swr:row>
+                        <swr:row height="AUTO"
+                                 grow="true"
+                                 shrink="true"
+                                 margin="false">
+                            <swr:column height="AUTO">
+                                <swr:content>
+                                    <fragment screen="erp_TopCustomersByOutstandingBalanceFragment"
+                                              height="250px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                            <swr:column height="AUTO">
+                                <swr:content>
+                                    <fragment screen="erp_TopCustomersBySalesFragment"
+                                              height="250px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                        </swr:row>
+                    </swr:responsiveLayout>
+                </scrollBox>
+            </tab>
+            <tab id="salesAndInvTab"
+                 spacing="true"
+                 caption="Sales &amp; Inventory Feed"
+                 expand="salesAndInvTabScrollBox">
+                <scrollBox id="salesAndInvTabScrollBox">
+                    <swr:responsiveLayout width="100%"
+                                          scrollable="true"
+                                          spacing="true">
+                        <swr:row height="AUTO"
+                                 grow="true"
+                                 shrink="true"
+                                 margin="false">
+                            <swr:column height="AUTO" >
+                                <swr:content>
+                                    <fragment screen="erp_BestSellingProductsFragment"
+                                              height="275px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                            <swr:column height="AUTO">
+                                <swr:content>
+                                    <fragment screen="erp_UnpaidAndPartiallyPaidOrdersFragment"
+                                              height="275px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                        </swr:row>
+                        <swr:row height="AUTO"
+                                 grow="true"
+                                 shrink="true"
+                                 margin="false">
+                            <swr:column>
+                                <swr:content>
+                                    <fragment screen="erp_OutOfStockBestSellingItemsFragment"
+                                              height="300px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                            <swr:column>
+                                <swr:content>
+                                    <fragment screen="erp_TopProductsByCountFragment"
+                                              height="300px"/>
+                                </swr:content>
+                                <swr:display xs="12" sm="6" md="6" lg="6"/>
+                            </swr:column>
+                        </swr:row>
+                    </swr:responsiveLayout>
+                </scrollBox>
+            </tab>
+        </tabSheet>
+    </layout>
+</window>

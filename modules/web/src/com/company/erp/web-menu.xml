@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
 
+    <item id="mainDashboard" screen="erp_DashboardScreen"
+          insertBefore="reports"/>
     <menu id="general" insertBefore="reports" icon="font-icon:BUILDING">
         <item screen="erp_Task.browse" icon="LIST_ALT"/>
         <item screen="erp_ContactPerson.browse" icon="font-icon:ADDRESS_BOOK"/>
