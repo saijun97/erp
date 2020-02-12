@@ -80,7 +80,8 @@
                                              margin="false">
                                         <swr:column height="AUTO">
                                             <swr:content>
-                                                <fragment screen="erp_ServiceRequestByStatusFragment"
+                                                <fragment id="serviceRequestByStatusPieChart"
+                                                          screen="erp_ServiceRequestByStatusFragment"
                                                           height="275px"/>
                                             </swr:content>
                                             <swr:display xs="12" sm="6" md="6" lg="6"/>
@@ -186,7 +187,8 @@
                                          margin="false">
                                     <swr:column>
                                         <swr:content>
-                                            <fragment screen="erp_OutOfStockBestSellingItemsFragment"/>
+                                            <fragment screen="erp_OutOfStockBestSellingItemsFragment"
+                                                      height="300px"/>
                                         </swr:content>
                                         <swr:display xs="12" sm="6" md="6" lg="6"/>
                                     </swr:column>
