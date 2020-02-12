@@ -8,15 +8,16 @@ import javax.inject.Inject;
 @UiController("erp_ServiceRequestByStatusFragment")
 @UiDescriptor("service-request-by-status-fragment.xml")
 public class ServiceRequestByStatusFragment extends ScreenFragment {
+
     @Inject
-    protected KeyValueCollectionLoader salesPieChartLoader;
+    protected KeyValueCollectionLoader serviceRequestsByStatusPieChartLoader;
+
 
     @Subscribe(target = Target.PARENT_CONTROLLER)
     protected void onBeforeShow(Screen.BeforeShowEvent event) {
 
-        salesPieChartLoader.load();
+        serviceRequestsByStatusPieChartLoader.load();
 
     }
-
 
 }
