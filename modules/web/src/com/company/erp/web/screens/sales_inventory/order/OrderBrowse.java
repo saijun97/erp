@@ -4,11 +4,14 @@ import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.company.erp.service.DataGridDetailsGeneratorService;
 import com.haulmont.cuba.core.global.MetadataTools;
 import com.haulmont.cuba.gui.UiComponents;
+import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.BaseAction;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.sales_inventory.order.Order;
 import com.haulmont.cuba.gui.screen.LookupComponent;
+import de.diedavids.cuba.attachable.config.AttachableConfiguration;
+import de.diedavids.cuba.attachable.web.WithAttachmentsSupport;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
@@ -18,7 +21,7 @@ import java.util.List;
 @UiDescriptor("order-browse.xml")
 @LookupComponent("ordersTable")
 @LoadDataBeforeShow
-public class OrderBrowse extends StandardLookup<Order> {
+public class OrderBrowse extends StandardLookup<Order> implements WithAttachmentsSupport {
     @Inject
     protected DataGrid<Order> ordersTable;
     @Inject
@@ -27,6 +30,8 @@ public class OrderBrowse extends StandardLookup<Order> {
     protected DataGridDetailsGeneratorService service;
     @Inject
     private MetadataTools metadataTools;
+    @Inject
+    private ButtonsPanel buttonsPanel;
 
     @Subscribe
     protected void onInit(InitEvent event) {
@@ -109,6 +114,21 @@ public class OrderBrowse extends StandardLookup<Order> {
         content.setValue(sb.toString());
 
         return content;
+    }
+
+    @Override
+    public ListComponent getListComponentForAttachments() {
+        return ordersTable;
+    }
+
+    @Override
+    public ButtonsPanel getButtonsPanelForAttachments() {
+        return buttonsPanel;
+    }
+
+    @Override
+    public WindowManager.OpenType attachmentListOpenType() {
+        return WindowManager.OpenType.DIALOG;
     }
 
 }
