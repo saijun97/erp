@@ -52,6 +52,7 @@ dependencies {
     appComponent('com.haulmont.addon.datagen:datagen-global:0.3.0')
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
     appComponent('de.diedavids.cuba.entitysoftreference:entity-soft-reference-global:0.6.5')
+    appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
 }
 
 def hsql = 'org.hsqldb:hsqldb:2.4.1'
