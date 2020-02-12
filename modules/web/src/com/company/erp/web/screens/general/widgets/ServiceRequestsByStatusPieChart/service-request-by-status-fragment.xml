@@ -3,7 +3,7 @@
           xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
     <data>
         <keyValueCollection id="serviceRequestsByStatusDc">
-            <loader id="salesPieChartLoader">
+            <loader id="serviceRequestsByStatusPieChartLoader">
                 <query>
                     <![CDATA[SELECT count(e), e.status
                              FROM erp_ServiceRequest e
