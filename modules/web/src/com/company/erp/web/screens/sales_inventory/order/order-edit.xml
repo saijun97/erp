@@ -9,7 +9,6 @@
                   view="order-view-details">
             <loader id="orderDl"/>
             <collection id="itemDc" property="item"/>
-            <collection id="documentDc" property="document"/>
         </instance>
         <collection id="clientsDc" class="com.company.erp.entity.crm.client.superclasses.Client" view="_minimal">
             <loader id="clientsLc">
@@ -85,13 +84,14 @@
                         </table>
                     </groupBox>
                 </tab>
-                <tab id="documentsTab"
-                     caption="Documents"
+                <tab id="attachmentsTab"
+                     caption="Attachments"
                      margin="true"
                      spacing="true">
                     <form id="form2" dataContainer="orderDc">
                     </form>
-                    <fragment screen="ddca_EntityAttachmentsFragment" height="300px">
+                    <fragment screen="ddca_EntityAttachmentsFragment"
+                              height="300px" >
                         <properties>
                             <property name="attachableDc" ref="orderDc"/>
                         </properties>

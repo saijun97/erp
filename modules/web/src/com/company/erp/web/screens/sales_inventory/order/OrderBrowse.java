@@ -10,7 +10,6 @@ import com.haulmont.cuba.gui.components.actions.BaseAction;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.sales_inventory.order.Order;
 import com.haulmont.cuba.gui.screen.LookupComponent;
-import de.diedavids.cuba.attachable.config.AttachableConfiguration;
 import de.diedavids.cuba.attachable.web.WithAttachmentsSupport;
 
 import javax.inject.Inject;

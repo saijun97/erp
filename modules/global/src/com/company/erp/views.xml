@@ -109,7 +109,6 @@
     <view entity="erp_Product" name="product-view-details" extends="_local">
         <property name="productCategory" view="_minimal"/>
         <property name="make_manufacturer" view="_minimal"/>
-        <property name="qtyTotal"/>
     </view>
     <view entity="erp_Equipment" name="equipment-view-details" extends="_local">
         <property name="productCategory" view="_minimal"/>
@@ -138,10 +137,6 @@
                 <property name="vatPrice"/>
             </property>
         </property>
-        <property name="document" view="document-view-details"/>
-    </view>
-    <view entity="erp_Document" name="document-view-details" extends="_local">
-        <property name="file" view="_local"/>
     </view>
     <view entity="erp_Task" name="task-view-details" extends="_local">
         <property name="orderNum" view="order-view-details"/>
