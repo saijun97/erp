@@ -91,24 +91,11 @@
                      spacing="true">
                     <form id="form2" dataContainer="orderDc">
                     </form>
-                    <groupBox id="documentBox"
-                              caption="msg://com.company.erp.entity.sales_inventory.order/Order.document">
-                        <table id="documentTable" dataContainer="documentDc" width="100%" height="200px">
-                            <actions>
-                                <action id="create" type="create"/>
-                                <action id="edit" type="edit"/>
-                                <action id="remove" type="remove"/>
-                            </actions>
-                            <columns>
-                                <column id="name"/>
-                            </columns>
-                            <buttonsPanel>
-                                <button action="documentTable.create"/>
-                                <button action="documentTable.edit"/>
-                                <button action="documentTable.remove"/>
-                            </buttonsPanel>
-                        </table>
-                    </groupBox>
+                    <fragment screen="ddca_EntityAttachmentsFragment" height="300px">
+                        <properties>
+                            <property name="attachableDc" ref="orderDc"/>
+                        </properties>
+                    </fragment>
                 </tab>
                 <tab id="historyTab"
                      caption="Order History"

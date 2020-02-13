@@ -128,7 +128,7 @@ public class OrderBrowse extends StandardLookup<Order> implements WithAttachment
 
     @Override
     public WindowManager.OpenType attachmentListOpenType() {
-        return WindowManager.OpenType.DIALOG;
+        return WindowManager.OpenType.NEW_TAB;
     }
 
 }
