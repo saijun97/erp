@@ -1,7 +1,6 @@
 package com.company.erp.entity.sales_inventory.order;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
-import com.company.erp.entity.general.compositions.Document;
 import com.company.erp.entity.general.enums.OrderStatusSelect;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.haulmont.chile.core.annotations.Composition;
@@ -45,11 +44,6 @@ public class Order extends StandardEntity {
     @OneToMany(mappedBy = "order")
     protected List<OrderItem> item;
 
-    @Composition
-    @OnDelete(DeletePolicy.CASCADE)
-    @OneToMany(mappedBy = "order")
-    protected List<Document> document;
-
     @NumberFormat(pattern = "0.00")
     @Column(name = "TOTAL_AMOUNT")
     protected BigDecimal totalAmount = BigDecimal.ZERO;
@@ -71,14 +65,6 @@ public class Order extends StandardEntity {
 
     public void setTotalAmount(BigDecimal totalAmount) {
         this.totalAmount = totalAmount;
-    }
-
-    public List<Document> getDocument() {
-        return document;
-    }
-
-    public void setDocument(List<Document> document) {
-        this.document = document;
     }
 
     public Date getDeliveryDate() {

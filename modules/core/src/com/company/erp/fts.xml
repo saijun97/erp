@@ -94,9 +94,6 @@
         <entity class="com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem">
             <include re=".*"/>
         </entity>
-        <entity class="com.company.erp.entity.general.compositions.Document">
-            <include re=".*"/>
-        </entity>
         <entity class="com.company.erp.entity.general.task.Task">
             <include re=".*"/>
         </entity>
