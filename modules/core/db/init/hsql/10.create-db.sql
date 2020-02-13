@@ -421,9 +421,10 @@ create table ERP_PRODUCT (
     --
     PRODUCT_CATEGORY_ID varchar(36),
     MAKE_MANUFACTURER_ID varchar(36),
-    QTY_STORE1 integer,
-    QTY_STORE2 integer,
-    QTY_STORE3 integer,
+    QTY_STORE1 integer not null,
+    QTY_STORE2 integer not null,
+    QTY_STORE3 integer not null,
+    QTY_TOTAL integer not null,
     --
     primary key (ID)
 )^
@@ -575,9 +576,9 @@ create table ERP_CLIENT_PERSON (
     NAME_LAST_NAME varchar(255) not null,
     --
     GENDER integer not null,
+    WORK_PHONE varchar(255),
     MOBILE_PHONE varchar(255),
     HOME_PHONE varchar(255),
-    WORK_PHONE varchar(255),
     --
     primary key (ID)
 )^
