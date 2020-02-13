@@ -10,9 +10,10 @@
             <tab id="organisationTab"
                  caption="Organisation Feed"
                  expand="organisationTabScrollBox">
-                <scrollBox id="organisationTabScrollBox">
+                <scrollBox id="organisationTabScrollBox"
+                           spacing="true"
+                           responsive="true">
                     <swr:responsiveLayout width="100%"
-                                          scrollable="true"
                                           spacing="true">
                         <swr:row height="AUTO"
                                  grow="true"
@@ -26,7 +27,7 @@
                                 </swr:content>
                                 <swr:display xs="12" sm="6" md="6" lg="6"/>
                             </swr:column>
-                            <swr:column height="AUTO">
+                            <swr:column height="265">
                                 <swr:content>
                                     <fragment screen="erp_ActivityLogFragment"
                                               height="200px"/>
@@ -36,7 +37,7 @@
                             <swr:column height="AUTO">
                                 <swr:content>
                                     <fragment screen="erp_SalesByDateFragment"
-                                              height="310px"/>
+                                              height="325px"/>
                                 </swr:content>
                                 <swr:display xs="12" sm="12" md="12" lg="12"/>
                             </swr:column>
