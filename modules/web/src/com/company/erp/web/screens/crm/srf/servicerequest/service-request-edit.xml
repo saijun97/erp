@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        focusComponent="form"
+        focusComponent="detailsForm"
         messagesPack="com.company.erp.web.screens.crm.srf.servicerequest">
     <data>
         <instance id="serviceRequestDc"
@@ -24,8 +24,8 @@
                 forceDialog="true"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
-            <hbox spacing="true">
-                <form id="form" dataContainer="serviceRequestDc">
+              <hbox spacing="true">
+                <form id="detailsForm" dataContainer="serviceRequestDc">
                     <column width="250px">
                         <textField id="referenceNumberField" property="referenceNumber"/>
                         <lookupPickerField id="existingClientField" optionsContainer="existingClientsDc"
@@ -48,28 +48,45 @@
                         <lookupField id="statusField" property="status"/>
                     </column>
                 </form>
-                <groupBox id="equipmentBox" caption="msg://com.company.erp.entity.crm.srf/ServiceRequest.equipment">
-                    <table id="equipmentTable" dataContainer="equipmentDc" width="500px" height="200px"
-                           multiLineCells="true">
-                        <actions>
-                            <action id="create" type="create"/>
-                            <action id="edit" type="edit"/>
-                            <action id="remove" type="remove"/>
-                        </actions>
-                        <columns>
-                            <column id="productCategory"/>
-                            <column id="makeModel" caption="Make &amp; Model"/>
-                            <column id="price"/>
-                            <column id="status"/>
-                        </columns>
-                        <buttonsPanel>
-                            <button action="equipmentTable.create"/>
-                            <button action="equipmentTable.edit"/>
-                            <button action="equipmentTable.remove"/>
-                        </buttonsPanel>
-                    </table>
-                </groupBox>
-            </hbox>
+                <vbox spacing="true">
+                    <groupBox id="equipmentBox"
+                              caption="msg://com.company.erp.entity.crm.srf/ServiceRequest.equipment">
+                        <table id="equipmentTable"
+                               dataContainer="equipmentDc"
+                               width="500px"
+                               height="200px"
+                               multiLineCells="true">
+                            <actions>
+                                <action id="create" type="create"/>
+                                <action id="edit" type="edit"/>
+                                <action id="remove" type="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="productCategory"/>
+                                <column id="makeModel" caption="Make &amp; Model"/>
+                                <column id="price"/>
+                                <column id="status"/>
+                            </columns>
+                            <buttonsPanel>
+                                <button action="equipmentTable.create"/>
+                                <button action="equipmentTable.edit"/>
+                                <button action="equipmentTable.remove"/>
+                            </buttonsPanel>
+                        </table>
+                    </groupBox>
+                    <groupBox id="attachmentsBox"
+                              caption="Attachments">
+                        <fragment screen="ddca_EntityAttachmentsFragment"
+                                  height="210px"
+                                  width="500px">
+                            <properties>
+                                <property name="attachableDc" ref="serviceRequestDc"/>
+                            </properties>
+                        </fragment>
+                    </groupBox>
+                </vbox>
+              </hbox>
+
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>

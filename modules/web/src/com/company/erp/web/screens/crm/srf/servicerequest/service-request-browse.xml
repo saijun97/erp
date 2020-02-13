@@ -40,14 +40,11 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="referenceNumber"/>
-                <column id="existingClient"/>
+                <column id="referenceNumber" caption="Ref No."/>
                 <column id="customerName"/>
                 <column id="mobilePhone"/>
                 <column id="homePhone"/>
                 <column id="workPhone"/>
-                <column id="email"/>
-                <column id="address"/>
                 <column id="dateReceived"/>
                 <column id="invoiceNumber"/>
                 <column id="totalPrice"/>
