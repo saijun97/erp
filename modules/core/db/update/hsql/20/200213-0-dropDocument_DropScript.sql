@@ -1,1 +1,0 @@
-drop table ERP_DOCUMENT__U85009 if exists cascade ;
