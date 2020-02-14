@@ -2,14 +2,17 @@ package com.company.erp.web.screens.crm.srf.servicerequest;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.general.enums.ServiceRequestStatusSelect;
+import com.haulmont.cuba.core.app.EmailService;
+import com.haulmont.cuba.core.global.EmailInfo;
+import com.haulmont.cuba.gui.Dialogs;
 import com.haulmont.cuba.gui.components.*;
+import com.haulmont.cuba.gui.model.DataContext;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.crm.srf.ServiceRequest;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 @UiController("erp_ServiceRequest.edit")
 @UiDescriptor("service-request-edit.xml")
@@ -37,6 +40,14 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
     @Inject
     private TextField<String> customerNameField;
+
+    private boolean completed;
+
+    @Inject
+    protected EmailService emailService;
+
+    @Inject
+    protected Dialogs dialogs;
 
     @Subscribe
     protected void onInitEntity(InitEntityEvent<ServiceRequest> event) {
@@ -81,4 +92,49 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
     }
 
+    @Subscribe("statusField")
+    public void onStatusFieldValueChange(HasValue.ValueChangeEvent<ServiceRequestStatusSelect> event) {
+
+        if (getEditedEntity().getStatus() == ServiceRequestStatusSelect.COMPLETED) {
+
+            completed = true;
+        }
+    }
+
+    @Subscribe(target = Target.DATA_CONTEXT)
+    public void onPostCommit(DataContext.PostCommitEvent event) {
+        if (completed) {
+            dialogs.createOptionDialog()
+                    .withCaption("SMS")
+                    .withMessage("Inform client by sms?")
+                    .withType(Dialogs.MessageType.CONFIRMATION)
+                    .withActions(
+                            new DialogAction(DialogAction.Type.YES) {
+                                @Override
+                                public void actionPerform(Component component) {
+                                    sendByEmail();
+                                }
+                            },
+                            new DialogAction(DialogAction.Type.NO)
+                    )
+                    .show();
+        }
+    }
+
+    private void sendByEmail() {
+        ServiceRequest serviceRequest = getEditedEntity();
+        EmailInfo emailInfo = new EmailInfo(
+                serviceRequest.getMobilePhone() + "@emtelworld.net",
+                "Dear customer, Your equipment is ready to be collected. " +
+                        "Total Amount due is Rs." + serviceRequest.getTotalPrice() +
+                        ". Your reference number is " +
+                        serviceRequest.getReferenceNumber() + "." +
+                        "            " + "Regards, SRJ Tech Workshop Team",
+                "srj-dissert@intnet.mu",
+                "com/company/erp/templates/srf_completed.txt",
+                 Collections.singletonMap("serviceRequest", serviceRequest)
+
+        );
+        emailService.sendEmailAsync(emailInfo);
+    }
 }
