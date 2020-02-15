@@ -6,9 +6,10 @@
             <loader id="bestSellingProductsPieChartLoader"
                     maxResults="10">
                 <query>
-                    <![CDATA[SELECT count(e.item), e.item
+                    <![CDATA[SELECT sum(e.quantity), e.item
                              FROM erp_OrderItem e
-                             GROUP BY e.item]]>
+                             GROUP BY e.item
+                             ORDER BY sum(e.quantity) DESC]]>
                 </query>
             </loader>
             <properties>
