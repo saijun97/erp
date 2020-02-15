@@ -253,6 +253,18 @@
                         </tab>
                     </accordion>
                 </tab>
+                <tab id="attachmentsTab"
+                     caption="Attachments"
+                     margin="true"
+                     spacing="true">
+                    <form id="attachmentsForm" dataContainer="employeeDc"/>
+                    <fragment screen="ddca_EntityAttachmentsFragment"
+                              height="300px" >
+                        <properties>
+                            <property name="attachableDc" ref="employeeDc"/>
+                        </properties>
+                    </fragment>
+                </tab>
             </tabSheet>
         </scrollBox>
         <hbox id="editActions" spacing="true">
