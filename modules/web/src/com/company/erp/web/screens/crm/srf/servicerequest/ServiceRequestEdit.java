@@ -95,14 +95,12 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
     @Subscribe("statusField")
     public void onStatusFieldValueChange(HasValue.ValueChangeEvent<ServiceRequestStatusSelect> event) {
 
-        if (getEditedEntity().getStatus() == ServiceRequestStatusSelect.COMPLETED) {
-
-            completed = true;
-        }
+        completed = getEditedEntity().getStatus() == ServiceRequestStatusSelect.COMPLETED;
     }
 
-    @Subscribe(target = Target.DATA_CONTEXT)
-    public void onPostCommit(DataContext.PostCommitEvent event) {
+
+    @Subscribe
+    public void onAfterClose(AfterCloseEvent event) {
         if (completed) {
             dialogs.createOptionDialog()
                     .withCaption("SMS")
@@ -112,6 +110,7 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
                             new DialogAction(DialogAction.Type.YES) {
                                 @Override
                                 public void actionPerform(Component component) {
+
                                     sendByEmail();
                                 }
                             },
