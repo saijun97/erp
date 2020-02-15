@@ -88,7 +88,7 @@
                      caption="Attachments"
                      margin="true"
                      spacing="true">
-                    <form id="form2" dataContainer="orderDc">
+                    <form id="attachmentsForm" dataContainer="orderDc">
                     </form>
                     <fragment screen="ddca_EntityAttachmentsFragment"
                               height="300px" >
