@@ -2,6 +2,7 @@ package com.company.erp.web.screens.hrm.employee;
 
 import com.company.erp.entity.general.country.City;
 import com.company.erp.entity.general.country.Country;
+import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.components.LookupPickerField;
 import com.haulmont.cuba.gui.components.TextArea;
 import com.haulmont.cuba.gui.components.TextField;
@@ -29,9 +30,6 @@ public class EmployeeEdit extends StandardEditor<Employee> {
     protected TextField<String> fullNameField;
 
     @Inject
-    protected TextArea<String> addressField;
-
-    @Inject
     protected TextArea<String> streetAddressApartmentField;
 
     @Inject
@@ -39,6 +37,12 @@ public class EmployeeEdit extends StandardEditor<Employee> {
 
     @Inject
     protected LookupPickerField<Country> countryOfResidenceField;
+
+    @Inject
+    private TextField<String> empIdField;
+
+    @Inject
+    protected UniqueNumbersService uniqueNumbersService;
 
     String fullNameValue;
     String addressValue;
@@ -86,8 +90,16 @@ public class EmployeeEdit extends StandardEditor<Employee> {
             addressValue +=  countryOfResidenceField.getValue().getCountry() + "," + "\n";
         }
 
-            //setting value to addressField
-            addressField.setValue(addressValue);
+            //setting value to addressFieldAttribute
+        getEditedEntity().setAddress(addressValue);
+
+        if (empIdField.getValue() == null) {
+
+            String employeeIDValue = "EMP" + (uniqueNumbersService.getNextNumber("empId"));
+
+            getEditedEntity().setEmpId(employeeIDValue);
+
+        }
 
     }
 
