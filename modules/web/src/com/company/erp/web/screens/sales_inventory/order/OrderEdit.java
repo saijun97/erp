@@ -10,6 +10,7 @@ import com.haulmont.cuba.gui.model.*;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.sales_inventory.order.Order;
 import com.haulmont.cuba.security.entity.EntityLogItem;
+import com.haulmont.reports.gui.actions.EditorPrintFormAction;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
@@ -42,6 +43,8 @@ public class OrderEdit extends StandardEditor<Order> {
     private Notifications notifications;
     @Inject
     private CollectionLoader<Client> clientsLc;
+    @Inject
+    private Button generateReportBtn;
 
 
     @Subscribe
@@ -50,6 +53,13 @@ public class OrderEdit extends StandardEditor<Order> {
         orderDl.load();
         clientsLc.load();
 
+    }
+
+    @Subscribe
+    public void onInit(InitEvent event) {
+        generateReportBtn.setAction(
+                new EditorPrintFormAction(this, null)
+        );
     }
 
 
