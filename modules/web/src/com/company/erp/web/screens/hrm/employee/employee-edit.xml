@@ -19,7 +19,8 @@
                     view="_minimal">
             <loader id="departmentsLc">
                 <query>
-                    <![CDATA[select e from erp_Department e]]>
+                    <![CDATA[select e from erp_Department e
+                    order by e.department]]>
                 </query>
             </loader>
         </collection>
@@ -28,22 +29,28 @@
                     view="_minimal">
             <loader>
                 <query>
-                    <![CDATA[select e from erp_Subunit e where e.department = :container_departmentsDc]]>
+                    <![CDATA[select e from erp_Subunit e
+                    where e.department = :container_departmentsDc
+                    order by e.subunit]]>
                 </query>
             </loader>
         </collection>
-        <collection id="nationalitiesDc"
+        <collection id="countriesDc"
                     class="com.company.erp.entity.general.country.Country"
                     view="_minimal">
             <loader>
-                <query>select e from erp_Country e</query>
+                <query>select e from erp_Country e
+                    order by e.country</query>
             </loader>
         </collection>
         <collection id="citiesDc"
                     class="com.company.erp.entity.general.country.City"
                     view="_minimal">
             <loader>
-                <query>select e from erp_City e where e.country = :container_countryOfResidencesDc</query>
+                <query>select e from erp_City e
+                    where e.country = :container_countriesDc
+                    order by e.city
+                </query>
             </loader>
         </collection>
         <collection id="jobPositionsDc"
@@ -51,13 +58,6 @@
                     view="_minimal">
             <loader>
                 <query>select e from erp_Job_Position e</query>
-            </loader>
-        </collection>
-        <collection id="countryOfResidencesDc"
-                    class="com.company.erp.entity.general.country.Country"
-                    view="_minimal">
-            <loader>
-                <query>select e from erp_Country e</query>
             </loader>
         </collection>
     </data>
@@ -73,7 +73,7 @@
                 <tab id="tab1" caption="General Details" margin="true" spacing="true">
                     <form id="generalDetails" dataContainer="employeeDc" align="MIDDLE_CENTER">
                         <column width="250px">
-                            <textField id="empIdField" property="empId" caption="Employee ID" caseConversion="UPPER"/>
+                            <textField id="empIdField" property="empId" caption="Employee ID" editable="false"/>
                             <textField id="nicField" property="nic" caption="NIC"/>
                             <textField id="fullNameField" property="fullName" visible="false"/>
                             <textField id="firstNameField" property="name.firstName"/>
@@ -82,7 +82,7 @@
                             <lookupField id="genderField" property="gender" caption="Gender"/>
                             <dateField id="dobField" property="dob" caption="Date Of Birth"/>
                             <lookupPickerField id="nationalityField" property="nationality"
-                                               optionsContainer="nationalitiesDc"
+                                               optionsContainer="countriesDc"
                                                caption="Nationality" align="TOP_LEFT">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
@@ -102,7 +102,7 @@
                             <textField id="emailField" property="email" caption="E-Mail" align="TOP_LEFT"/>
                             <lookupPickerField id="countryOfResidenceField"
                                                property="countryOfResidence"
-                                               optionsContainer="countryOfResidencesDc">
+                                               optionsContainer="countriesDc">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
                                     <action id="clear" type="picker_clear"/>
@@ -117,7 +117,6 @@
                                 </actions>
                             </lookupPickerField>
                             <textArea rows="5" id="streetAddressApartmentField" property="streetAddressApartment" caption="Street Address/Apartment"/>
-                            <textArea rows="5" id="addressField" property="address" visible="false"/>
                         </column>
                     </form>
                 </tab>
