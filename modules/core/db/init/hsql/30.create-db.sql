@@ -957,6 +957,7 @@ INSERT INTO PUBLIC.SYS_SERVER (ID, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY,
 
 --begin custom report groups data
 INSERT INTO PUBLIC.REPORT_GROUP (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, TITLE, CODE, LOCALE_NAMES) VALUES ('df722037-b421-4c45-bfca-6ad1313d4e62', '2020-02-17 15:41:01.053000', 'admin', 1, '2020-02-17 15:41:01.053000', null, null, null, 'Service Request', null, null);
+INSERT INTO PUBLIC.REPORT_GROUP (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, TITLE, CODE, LOCALE_NAMES) VALUES ('1a6ab57b-ed9d-58d5-4d76-c9ab81ffea1c', '2020-02-17 16:49:31.304000', 'admin', 2, '2020-02-17 16:49:44.182000', 'admin', null, null, 'Order', null, null);
 --end custom report groups data
 
 --begin ddcdi_import_attribute_mapper
