@@ -6,7 +6,7 @@ import com.haulmont.cuba.core.app.EmailService;
 import com.haulmont.cuba.core.global.EmailInfo;
 import com.haulmont.cuba.gui.Dialogs;
 import com.haulmont.cuba.gui.components.*;
-import com.haulmont.cuba.gui.model.DataContext;
+import com.haulmont.reports.gui.actions.EditorPrintFormAction;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.crm.srf.ServiceRequest;
 
@@ -48,7 +48,17 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
     @Inject
     protected Dialogs dialogs;
+    @Inject
+    private Button generateReportBtn;
 
+    @Subscribe
+    public void onInit(InitEvent event) {
+        generateReportBtn.setAction(
+                new EditorPrintFormAction(this, null)
+        );
+    }
+
+    
     @Subscribe
     protected void onInitEntity(InitEntityEvent<ServiceRequest> event) {
 
