@@ -138,6 +138,7 @@
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>
             <button action="windowClose"/>
+            <button id="generateReportBtn" caption="Generate"/>
         </hbox>
     </layout>
 </window>
