@@ -9,6 +9,7 @@
                   view="order-view-details">
             <loader id="orderDl"/>
             <collection id="itemDc" property="item"/>
+            <collection id="paymentsDc" property="payments"/>
         </instance>
         <collection id="clientsDc" class="com.company.erp.entity.crm.client.superclasses.Client" view="_minimal">
             <loader id="clientsLc">
@@ -51,7 +52,8 @@
                             </lookupPickerField>
                             <dateField id="orderDateField" property="orderDate"/>
                             <dateField id="deliveryDateField" property="deliveryDate"/>
-                            <currencyField id="totalAmountField" property="totalAmount" currency="MUR"/>
+                            <currencyField id="totalAmountField" property="totalAmount" currency="MUR" editable="false"/>
+                            <currencyField id="amountDueField" property="amountDue" currency="MUR" editable="false"/>
                             <lookupField id="statusField" property="status"/>
                         </column>
                     </form>
@@ -84,6 +86,41 @@
                         </table>
                     </groupBox>
                 </tab>
+                <tab id="paymentsTab"
+                     caption="Payments"
+                     spacing="true"
+                     margin="true">
+                    <form id="paymentsForm" dataContainer="orderDc">
+                    </form>
+                    <groupBox id="paymentsBox"
+                              caption="msg://com.company.erp.entity.sales_inventory.order/Order.payments">
+                        <table id="paymentsTable"
+                               dataContainer="paymentsDc"
+                               width="100%"
+                               height="200px"
+                               multiLineCells="true"
+                               aggregatable="true"
+                               aggregationStyle="BOTTOM">
+                            <actions>
+                                <action id="create" type="create"/>
+                                <action id="edit" type="edit"/>
+                                <action id="remove" type="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="executionDate"/>
+                                <column id="paymentType"/>
+                                <column id="amount">
+                                    <aggregation type="SUM" valueDescription="Total"/>
+                                </column>
+                            </columns>
+                            <buttonsPanel>
+                                <button action="paymentsTable.create"/>
+                                <button action="paymentsTable.edit"/>
+                                <button action="paymentsTable.remove"/>
+                            </buttonsPanel>
+                        </table>
+                    </groupBox>
+                </tab>
                 <tab id="attachmentsTab"
                      caption="Attachments"
                      margin="true"
@@ -91,7 +128,7 @@
                     <form id="attachmentsForm" dataContainer="orderDc">
                     </form>
                     <fragment screen="ddca_EntityAttachmentsFragment"
-                              height="300px" >
+                              height="300px">
                         <properties>
                             <property name="attachableDc" ref="orderDc"/>
                         </properties>
