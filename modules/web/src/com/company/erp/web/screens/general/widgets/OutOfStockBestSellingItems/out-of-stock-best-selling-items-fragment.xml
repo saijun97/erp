@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd">
     <data>
-        <keyValueCollection id="bestSellingProductsDc">
-            <loader id="bestSellingProductsPieChartLoader"
-                    maxResults="10">
-                <query>
-                    <![CDATA[SELECT e.item
-                             FROM erp_OrderItem e
-                             GROUP BY e.item]]>
-                </query>
-            </loader>
-            <properties>
-                <property name="count"/>
-                <property name="item"/>
-            </properties>
-        </keyValueCollection>
         <collection id="outOfStockBestSellingProductsDc"
                     class="com.company.erp.entity.sales_inventory.product.Product"
                     view="product-view-details">
@@ -22,7 +8,8 @@
                 <query>
                     <![CDATA[select e
                              from erp_Product e
-                             where e.qtyTotal = '0']]>
+                             where e.qtyTotal = '0'
+                             and e.monitorStock = true]]>
                 </query>
             </loader>
         </collection>
