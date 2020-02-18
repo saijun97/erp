@@ -2,7 +2,7 @@
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
 
     <item id="mainDashboard" screen="erp_DashboardScreen"
-          insertBefore="reports"/>
+          insertBefore="reports" icon="font-icon:DASHBOARD"/>
     <menu id="general" insertBefore="reports" icon="font-icon:BUILDING">
         <item screen="erp_Task.browse" icon="LIST_ALT"/>
         <item screen="erp_ContactPerson.browse" icon="font-icon:ADDRESS_BOOK"/>
