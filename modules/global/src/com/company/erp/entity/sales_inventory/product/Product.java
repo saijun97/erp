@@ -41,6 +41,17 @@ public class Product extends Item {
     @Column(name = "QTY_TOTAL", nullable = false)
     protected Integer qtyTotal = 0;
 
+    @Column(name = "MONITOR_STOCK")
+    protected Boolean monitorStock;
+
+    public Boolean getMonitorStock() {
+        return monitorStock;
+    }
+
+    public void setMonitorStock(Boolean monitorStock) {
+        this.monitorStock = monitorStock;
+    }
+
     public Integer getQtyTotal() {
         return qtyTotal;
     }
