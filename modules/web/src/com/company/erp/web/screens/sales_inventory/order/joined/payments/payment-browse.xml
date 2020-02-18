@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="paymentsTable"
+        messagesPack="com.company.erp.web.screens.sales_inventory.order.joined.payments">
+    <data readOnly="true">
+        <collection id="paymentsDc"
+                    class="com.company.erp.entity.sales_inventory.order.joined.payment.Payment"
+                    view="payment-view-details">
+            <loader id="paymentsDl">
+                <query>
+                    <![CDATA[select e from erp_Payment e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="paymentsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="paymentsTable"
+                dataLoader="paymentsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="paymentsTable"
+                    width="100%"
+                    dataContainer="paymentsDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="executionDate"/>
+                <column id="paymentType"/>
+                <column id="amount"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="paymentsTable.create"/>
+                <button id="editBtn" action="paymentsTable.edit"/>
+                <button id="removeBtn" action="paymentsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

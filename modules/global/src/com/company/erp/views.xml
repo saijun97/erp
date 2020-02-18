@@ -137,6 +137,7 @@
                 <property name="vatPrice"/>
             </property>
         </property>
+        <property name="payments" view="_local"/>
     </view>
     <view entity="erp_Task" name="task-view-details" extends="_local">
         <property name="orderNum" view="order-view-details"/>
@@ -145,5 +146,6 @@
         <property name="country" view="_minimal"/>
         <property name="city" view="_minimal"/>
     </view>
+    <view entity="erp_Payment" name="payment-view-details" extends="_local"/>
 
 </views>

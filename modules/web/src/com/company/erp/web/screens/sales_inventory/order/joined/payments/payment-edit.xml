@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.sales_inventory.order.joined.payments">
+    <data>
+        <instance id="paymentDc"
+                  class="com.company.erp.entity.sales_inventory.order.joined.payment.Payment"
+                  view="payment-view-details">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="paymentDc">
+            <column width="250px">
+                <dateField id="executionDateField" property="executionDate"/>
+                <lookupField id="paymentTypeField" property="paymentType"/>
+                <currencyField id="amountField" property="amount" currency="MUR"/>
+                <textField id="chequeReferenceField" property="chequeReference" visible="false"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
