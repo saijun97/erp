@@ -26,17 +26,19 @@
                         dataContainer="ordersDc"
                         responsive="true"
                         multiLineCells="true">
-            <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-\            </actions>
-            <columns>
-                <column id="orderNum" sortable="false"/>
-                <column id="client" sortable="false"/>
-                <column id="orderDate" sortable="false"/>
-                <column id="totalAmount" sortable="false"/>
-            </columns>
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                    \
+                </actions>
+                <columns>
+                    <column id="orderNum" sortable="false"/>
+                    <column id="client" sortable="false"/>
+                    <column id="orderDate" sortable="false"/>
+                    <column id="totalAmount" sortable="false"/>
+                    <column id="amountDue"/>
+                </columns>
             </groupTable>
         </vbox>
     </layout>
