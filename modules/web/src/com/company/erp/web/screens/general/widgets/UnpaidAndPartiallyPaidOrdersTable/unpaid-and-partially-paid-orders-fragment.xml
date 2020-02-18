@@ -33,7 +33,7 @@
                     \
                 </actions>
                 <columns>
-                    <column id="orderNum" sortable="false"/>
+                    <column id="orderNum" sortable="false" caption="Order No."/>
                     <column id="client" sortable="false"/>
                     <column id="orderDate" sortable="false"/>
                     <column id="totalAmount" sortable="false"/>
