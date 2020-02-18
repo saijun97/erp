@@ -125,6 +125,7 @@
                             <column id="deliveryDate"/>
                             <column id="totalAmount"/>
                             <column id="status"/>
+                            <column id="amountDue"/>
                         </columns>
                         <buttonsPanel>
                             <button action="orderTable.create"/>
