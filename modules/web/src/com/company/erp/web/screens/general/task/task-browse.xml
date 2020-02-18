@@ -44,7 +44,6 @@
             <columns>
                 <column id="taskNum" caption="Task No."/>
                 <column id="category"/>
-                <column id="orderNum" sortable="false" caption="Order No."/>
                 <column id="poInvoiceNum" sortable="false" caption="PO/Invoice No."/>
                 <column id="client" sortable="false"/>
                 <column id="city" sortable="false" caption="City/Village"/>
@@ -52,10 +51,7 @@
                 <column id="request" sortable="false"/>
                 <column id="remark" sortable="false"/>
                 <column id="itemRequired" sortable="false"/>
-                <column id="employee" sortable="false"/>
-                <column id="status" sortable="false"/>
                 <column id="startDate"/>
-                <column id="completionDate"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
