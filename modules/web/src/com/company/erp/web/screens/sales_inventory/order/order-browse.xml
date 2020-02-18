@@ -45,6 +45,7 @@
                 <column id="orderDate" property="orderDate"/>
                 <column id="deliveryDate" property="deliveryDate"/>
                 <column id="totalAmount" property="totalAmount"/>
+                <column id="amountDue" property="amountDue"/>
                 <column id="status" property="status"/>
             </columns>
             <rowsCount/>

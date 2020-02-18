@@ -3,6 +3,7 @@ package com.company.erp.entity.sales_inventory.order;
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.general.enums.OrderStatusSelect;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
+import com.company.erp.entity.sales_inventory.order.joined.payment.Payment;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.chile.core.annotations.NumberFormat;
@@ -44,12 +45,37 @@ public class Order extends StandardEntity {
     @OneToMany(mappedBy = "order")
     protected List<OrderItem> item;
 
+    @Composition
+    @OnDelete(DeletePolicy.UNLINK)
+    @OneToMany(mappedBy = "order")
+    protected List<Payment> payments;
+
     @NumberFormat(pattern = "0.00")
     @Column(name = "TOTAL_AMOUNT")
     protected BigDecimal totalAmount = BigDecimal.ZERO;
 
+    @NumberFormat(pattern = "0.00")
+    @Column(name = "AMOUNT_DUE", nullable = false)
+    protected BigDecimal amountDue = BigDecimal.ZERO;
+
     @Column(name = "STATUS", nullable = false)
     protected String status;
+
+    public BigDecimal getAmountDue() {
+        return amountDue;
+    }
+
+    public void setAmountDue(BigDecimal amountDue) {
+        this.amountDue = amountDue;
+    }
+
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
 
     public OrderStatusSelect getStatus() {
         return status == null ? null : OrderStatusSelect.fromId(status);

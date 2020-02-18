@@ -3,6 +3,7 @@ package com.company.erp.web.screens.sales_inventory.order;
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.general.enums.OrderStatusSelect;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
+import com.company.erp.entity.sales_inventory.order.joined.payment.Payment;
 import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.*;
@@ -45,6 +46,10 @@ public class OrderEdit extends StandardEditor<Order> {
     private CollectionLoader<Client> clientsLc;
     @Inject
     private Button generateReportBtn;
+    @Inject
+    private Table<Payment> paymentsTable;
+    @Inject
+    private CurrencyField<BigDecimal> amountDueField;
 
 
     @Subscribe
@@ -95,8 +100,33 @@ public class OrderEdit extends StandardEditor<Order> {
 
         }
 
-    }
+        if ((getEditedEntity().getStatus() == OrderStatusSelect.PAID) & !(getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0)) {
 
+                notifications.create()
+                        .withCaption("Status cannot be set to PAID if " +
+                                "amount due is more than Rs 0.\n" +
+                                "Please create appropriate payment record " +
+                                "to set amount due to Rs0. ")
+                        .withType(Notifications.NotificationType.ERROR)
+                        .show();
+                event.preventCommit();
+
+        }
+
+        if ((getEditedEntity().getStatus() == OrderStatusSelect.PARTIALLY_PAID) & (getEditedEntity().getTotalAmount().equals(getEditedEntity().getAmountDue()))) {
+
+            notifications.create()
+                    .withCaption("Status cannot be set to PARTIALLY PAID if " +
+                            "amount due is not less than Rs 0.\n" +
+                            "Please create appropriate payment record " +
+                            "to set amount due to below Total Amount. ")
+                    .withType(Notifications.NotificationType.ERROR)
+                    .show();
+            event.preventCommit();
+
+        }
+
+    }
     @Subscribe(id = "orderDc", target = Target.DATA_CONTAINER)
     public void onOrderDcItemChange(InstanceContainer.ItemChangeEvent<Order> event) {
 
@@ -108,18 +138,56 @@ public class OrderEdit extends StandardEditor<Order> {
     @Subscribe(id = "itemDc", target = Target.DATA_CONTAINER)
     protected void onItemDcCollectionChange(CollectionContainer.CollectionChangeEvent<OrderItem> event) {
 
-        BigDecimal amountValue = BigDecimal.ZERO;
-
-        for (int i=0; i<itemTable.getAggregationResults().size(); i++){
-            Map<Object, Object> hash = itemTable.getAggregationResults();
-            Set<Object> set = hash.keySet();
-            Iterator itr = set.iterator();
-            Object string = itr.next();
-            amountValue = (BigDecimal) hash.get(string);
-
-        }
+        BigDecimal amountValue = getAggregationResultFromTable(itemTable.getAggregationResults());
 
         totalAmountField.setValue(amountValue);
+
+    }
+
+    @Subscribe(id = "paymentsDc", target = Target.DATA_CONTAINER)
+    public void onPaymentsDcCollectionChange(CollectionContainer.CollectionChangeEvent<Payment> event) {
+
+        BigDecimal amountDueValue = getAggregationResultFromTable(paymentsTable.getAggregationResults());
+
+        amountDueField.setValue(getEditedEntity().getTotalAmount().subtract(amountDueValue));
+
+    }
+
+    private BigDecimal getAggregationResultFromTable(Map<Object, Object> aggregationResults) {
+        BigDecimal amountValue = BigDecimal.ZERO;
+
+        for (int i = 0; i< aggregationResults.size(); i++){
+            Set<Object> set = aggregationResults.keySet();
+            Iterator itr = set.iterator();
+            Object string = itr.next();
+            amountValue = (BigDecimal) aggregationResults.get(string);
+
+        }
+        return amountValue;
+    }
+
+    @Subscribe("amountDueField")
+    public void onAmountDueFieldValueChange(HasValue.ValueChangeEvent<BigDecimal> event) {
+
+        if (getEditedEntity().getAmountDue().compareTo(getEditedEntity().getTotalAmount()) < 0) {
+
+            getEditedEntity().setStatus(OrderStatusSelect.PARTIALLY_PAID);
+        }
+
+        if (getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0) {
+
+            getEditedEntity().setStatus(OrderStatusSelect.PAID);
+        }
+
+    }
+
+    @Subscribe("statusField")
+    public void onStatusFieldValueChange(HasValue.ValueChangeEvent<OrderStatusSelect> event) {
+
+        if (getEditedEntity().getStatus() == OrderStatusSelect.QUOTE_REQUEST) {
+
+            amountDueField.setValue(BigDecimal.ZERO);
+        }
 
     }
 
