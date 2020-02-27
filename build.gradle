@@ -49,10 +49,10 @@ dependencies {
     appComponent('com.haulmont.addon.dashboardchart:dashboardchart-global:1.2.0')
     appComponent('com.haulmont.addon.dashboard:dashboard-global:3.1.2')
     appComponent('org.strangeway.responsive:sw-responsive-global:1.4.0')
-    appComponent('com.haulmont.addon.datagen:datagen-global:0.3.0')
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
     appComponent('de.diedavids.cuba.entitysoftreference:entity-soft-reference-global:0.6.5')
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
+    appComponent('com.haulmont.addon.datagen:datagen-global:0.3.1')
 }
 
 def hsql = 'org.hsqldb:hsqldb:2.4.1'
