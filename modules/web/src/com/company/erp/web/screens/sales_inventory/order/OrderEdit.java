@@ -174,9 +174,16 @@ public class OrderEdit extends StandardEditor<Order> {
             getEditedEntity().setStatus(OrderStatusSelect.PARTIALLY_PAID);
         }
 
-        if (getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0) {
+        try {
 
-            getEditedEntity().setStatus(OrderStatusSelect.PAID);
+            if ((getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0) & !(getEditedEntity().getItem().isEmpty())) {
+
+                getEditedEntity().setStatus(OrderStatusSelect.PAID);
+            }
+
+        } catch (NullPointerException e) {
+
+            System.out.println("Exception Handled");
         }
 
     }
