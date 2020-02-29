@@ -12,7 +12,9 @@
             <collection id="orderDc" property="order"/>
             <collection id="serviceRequestsDc" property="serviceRequests"/>
         </instance>
-        <collection id="countriesDc" class="com.company.erp.entity.general.country.Country" view="_local">
+        <collection id="countriesDc"
+                    class="com.company.erp.entity.general.country.Country"
+                    view="_local">
             <loader>
                 <query>select e from erp_Country e</query>
             </loader>
@@ -32,10 +34,17 @@
         <dataLoadCoordinator auto="true"/>
     </facets>
     <layout expand="editActions" spacing="true">
-        <tabSheet id="tabSheet" width="100%">
-            <tab id="generalTab" caption="General Details" margin="true" spacing="true">
-                <hbox spacing="true" responsive="true" width="AUTO">
-                    <form id="generalDetail" dataContainer="clientCompanyDc">
+        <tabSheet id="tabSheet"
+                  width="100%">
+            <tab id="generalTab"
+                 caption="General Details"
+                 margin="true"
+                 spacing="true">
+                <hbox spacing="true"
+                      responsive="true"
+                      width="AUTO">
+                    <form id="generalDetail"
+                          dataContainer="clientCompanyDc">
                         <column width="250px">
                             <textField id="displayNameField" property="displayName" visible="false"/>
                             <textField id="companyNameField" property="companyName"/>
