@@ -67,10 +67,14 @@
                                 </actions>
                             </lookupPickerField>
                             <textField id="companyAddressField" property="companyAddress"/>
-                            <resizableTextArea rows="5" id="billingAddressField" property="billingAddress"
-                                               caption="Invoice/Bill To"/>
-                            <resizableTextArea rows="5" id="shippingAddressField" property="shippingAddress"
-                                               responsive="true"/>
+                            <resizableTextArea rows="5" id="billingAddressField"
+                                               property="billingAddress"
+                                               caption="Invoice/Bill To"
+                                               wordWrap="true"/>
+                            <resizableTextArea rows="5" id="shippingAddressField"
+                                               property="shippingAddress"
+                                               responsive="true"
+                                               wordWrap="true"/>
                         </column>
                     </form>
                 </hbox>
@@ -170,7 +174,7 @@
         </tabSheet>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
-            <button action="windowCommit"/>
+            <button id="windowCommitBtn" action="windowCommit"/>
             <button action="windowClose"/>
         </hbox>
     </layout>
