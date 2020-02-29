@@ -39,6 +39,17 @@ public class ClientPerson extends Client {
     @Column(name = "HOME_PHONE")
     protected String homePhone;
 
+    @Column(name = "HOUSE_ADDRESS")
+    protected String houseAddress;
+
+    public String getHouseAddress() {
+        return houseAddress;
+    }
+
+    public void setHouseAddress(String houseAddress) {
+        this.houseAddress = houseAddress;
+    }
+
     public void setGender(GenderSelect gender) {
         this.gender = gender == null ? null : gender.getId();
     }

@@ -8,17 +8,23 @@
                   class="com.company.erp.entity.crm.client.subclasses.person.ClientPerson"
                   view="clientPerson-view-details">
             <loader/>
-            <collection id="serviceRequestsDc" property="serviceRequests"/>
-            <collection id="orderDc" property="order"/>
+            <collection id="serviceRequestsDc"
+                        property="serviceRequests"/>
+            <collection id="orderDc"
+                        property="order"/>
         </instance>
-        <collection id="countriesDc" class="com.company.erp.entity.general.country.Country" view="_minimal">
+        <collection id="countriesDc"
+                    class="com.company.erp.entity.general.country.Country"
+                    view="_local">
             <loader>
                 <query>select e from erp_Country e</query>
             </loader>
         </collection>
-        <collection id="citiesDc" class="com.company.erp.entity.general.country.City" view="_minimal">
+        <collection id="citiesDc"
+                    class="com.company.erp.entity.general.country.City"
+                    view="_local">
             <loader>
-                <query>select e from erp_City e</query>
+                <query><![CDATA[select e from erp_City e where e.country = :container_countriesDc]]></query>
             </loader>
         </collection>
     </data>
@@ -26,6 +32,9 @@
                 height="AUTO"
                 modal="true"
                 forceDialog="true"/>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
             <tabSheet id="tabSheet" width="100%">
@@ -48,11 +57,18 @@
                         </form>
                         <form id="formAddress" dataContainer="clientPersonDc">
                             <column>
-                                <lookupField id="countryField" property="country" optionsContainer="countriesDc"/>
-                                <lookupField id="cityField" property="city" optionsContainer="citiesDc"/>
-                                <resizableTextArea id="billingAddressField" property="billingAddress"
-                                                   caption="Invoice/Bill To"/>
-                                <resizableTextArea id="shippingAddressField" property="shippingAddress"/>
+                                <lookupField id="countryField" property="country"
+                                             optionsContainer="countriesDc"/>
+                                <lookupField id="cityField" property="city"
+                                             optionsContainer="citiesDc"/>
+                                <textField id="houseAddressField" property="houseAddress"/>
+                                <resizableTextArea id="billingAddressField"
+                                                   property="billingAddress"
+                                                   caption="Invoice/Bill To"
+                                                   wordWrap="true"/>
+                                <resizableTextArea id="shippingAddressField"
+                                                   property="shippingAddress"
+                                                   wordWrap="true"/>
                             </column>
                         </form>
                     </hbox>
