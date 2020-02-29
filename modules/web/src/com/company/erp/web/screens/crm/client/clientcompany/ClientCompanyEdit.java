@@ -106,7 +106,7 @@ public class ClientCompanyEdit extends StandardEditor<ClientCompany> {
 
          if (companyAddressField.getValue() != null) {
 
-             AddressValue = companyAddressField.getValue() + "," + "\n";
+             AddressValue += companyAddressField.getValue() + "," + "\n";
 
              if (cityField.getValue() != null) {
 
@@ -124,7 +124,7 @@ public class ClientCompanyEdit extends StandardEditor<ClientCompany> {
 
              if (cityField.getValue() != null) {
 
-                 AddressValue = cityField.getValue().getCity() + "," + "\n";
+                 AddressValue += cityField.getValue().getCity() + "," + "\n";
              }
 
              if(countryField.getValue() != null) {
