@@ -22,34 +22,26 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
     @Inject
     protected LookupField<String> statusField;
-
     @Inject
     protected DateField<Date> dateReceivedField;
-
     @Inject
     private TextArea<String> addressField;
-
     @Inject
     private LookupPickerField<Client> existingClientField;
-
     @Inject
     private TextField<String> mobilePhoneField;
-
     @Inject
     private TextField<String> homePhoneField;
-
     @Inject
     private TextField<String> customerNameField;
-
-    private boolean completed;
-
     @Inject
     protected EmailService emailService;
-
     @Inject
     protected Dialogs dialogs;
     @Inject
     private Button generateReportBtn;
+
+    private boolean completed;
 
     @Subscribe
     public void onInit(InitEvent event) {
@@ -58,7 +50,6 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
         );
     }
 
-    
     @Subscribe
     protected void onInitEntity(InitEntityEvent<ServiceRequest> event) {
 
