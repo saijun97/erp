@@ -54,7 +54,9 @@
                     <hbox spacing="true"/>
                     <sideMenu id="sideMenu"
                               sidePanel="sideMenuPanel"
-                              sidePanelToggleButton="mobileMenuButton"/>
+                              sidePanelToggleButton="mobileMenuButton"
+                              selectOnClick="true"
+                              showSingleExpandedMenu="true"/>
                 </cssLayout>
             </cssLayout>
             <workArea id="workArea"
