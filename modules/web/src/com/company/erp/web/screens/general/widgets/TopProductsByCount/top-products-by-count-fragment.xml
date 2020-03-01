@@ -8,9 +8,7 @@
         <loader id="topProductsByCountRadarChartLoader"
                 maxResults="7">
             <query>
-                <![CDATA[SELECT e
-                         FROM erp_Product e
-                         ORDER BY e.qtyTotal desc]]>
+                <![CDATA[select e FROM erp_Product e ORDER BY e.qtyTotal desc]]>
             </query>
         </loader>
     </collection>
