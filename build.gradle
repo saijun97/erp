@@ -53,7 +53,7 @@ dependencies {
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
 }
 
-def postgres = 'org.postgresql:postgresql:42.2.9'
+def hsql = 'org.hsqldb:hsqldb:2.4.1'
 
 configure([globalModule, coreModule, webModule]) {
     apply(plugin: 'java')
@@ -99,8 +99,8 @@ configure(coreModule) {
     dependencies {
         compile(globalModule)
         compileOnly(servletApi)
-        jdbc(postgres)
-        testRuntime(postgres)
+        jdbc(hsql)
+        testRuntime(hsql)
     }
 
     task cleanConf(description: 'Cleans up conf directory', type: Delete) {
@@ -113,19 +113,19 @@ configure(coreModule) {
     }
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
-        dbms = 'postgres'
-        host = 'localhost'
-        dbName = 'erp'
-        dbUser = 'cuba'
-        dbPassword = 'cuba'
+        dbms = 'hsql'
+        host = 'localhost:9010'
+        dbName = 'erp-6fpSQFEYU'
+        dbUser = 'sa'
+        dbPassword = ''
     }
 
     task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
-        dbms = 'postgres'
-        host = 'localhost'
-        dbName = 'erp'
-        dbUser = 'cuba'
-        dbPassword = 'cuba'
+        dbms = 'hsql'
+        host = 'localhost:9010'
+        dbName = 'erp-6fpSQFEYU'
+        dbUser = 'sa'
+        dbPassword = ''
     }
 }
 
