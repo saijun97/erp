@@ -562,6 +562,7 @@ create table ERP_CATALOG_PRODUCT (
     CATEGORY_ID uuid,
     STOCK_STATUS varchar(50),
     IMAGE varchar(255),
+    PUBLIC_IMAGE text,
     --
     primary key (ID)
 )^
@@ -628,20 +629,15 @@ create table ERP_CLIENT_COMPANY (
 -- end ERP_CLIENT_COMPANY
 -- begin ERP_PORTAL_MESSAGES
 create table ERP_PORTAL_MESSAGES (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
+    ID varchar(10),
     --
     PERSON_NAME varchar(255) not null,
-    EMAIL varchar(255),
+    EMAIL varchar(255) not null,
     PHONE_NUMBER varchar(255),
+    SUBJECT text not null,
     MESSAGE text not null,
-    STATUS varchar(50),
+    STATUS varchar(50) not null,
+    RECEIVED_TS timestamp not null,
     --
     primary key (ID)
 )^
