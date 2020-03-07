@@ -17,14 +17,14 @@
                     class="com.company.erp.entity.general.country.Country"
                     view="_local">
             <loader>
-                <query>select e from erp_Country e</query>
+                <query>select e from erp_Country e order by e.country asc</query>
             </loader>
         </collection>
         <collection id="citiesDc"
                     class="com.company.erp.entity.general.country.City"
                     view="_local">
             <loader>
-                <query><![CDATA[select e from erp_City e where e.country = :container_countriesDc]]></query>
+                <query><![CDATA[select e from erp_City e where e.country = :container_countriesDc order by e.city asc]]></query>
             </loader>
         </collection>
     </data>
@@ -41,7 +41,7 @@
                 <tab id="generalTab" caption="General Details" margin="true" spacing="true">
                     <hbox spacing="true">
                         <form id="formDetails" dataContainer="clientPersonDc">
-                            <column width="250px">
+                            <column>
                                 <textField id="displayNameField" property="displayName" visible="false"/>
                                 <textField id="firstNameField" property="name.firstName"/>
                                 <textField id="middleNameField" property="name.middleName"/>
@@ -57,11 +57,16 @@
                         </form>
                         <form id="formAddress" dataContainer="clientPersonDc">
                             <column>
-                                <lookupField id="countryField" property="country"
-                                             optionsContainer="countriesDc"/>
-                                <lookupField id="cityField" property="city"
-                                             optionsContainer="citiesDc"/>
-                                <textField id="houseAddressField" property="houseAddress"/>
+                                <lookupField id="countryField"
+                                             property="country"
+                                             optionsContainer="countriesDc"
+                                             required="true"/>
+                                <lookupField id="cityField"
+                                             property="city"
+                                             optionsContainer="citiesDc"
+                                             required="true"/>
+                                <textField id="houseAddressField"
+                                           property="houseAddress"/>
                                 <resizableTextArea id="billingAddressField"
                                                    property="billingAddress"
                                                    caption="Invoice/Bill To"

@@ -16,13 +16,13 @@
                     class="com.company.erp.entity.general.country.Country"
                     view="_local">
             <loader>
-                <query>select e from erp_Country e</query>
+                <query>select e from erp_Country e order by e.country asc</query>
             </loader>
         </collection>
         <collection id="citiesDc" class="com.company.erp.entity.general.country.City"
                     view="_local">
             <loader id="citiesDl">
-                <query><![CDATA[select e from erp_City e where e.country = :container_countriesDc]]></query>
+                <query><![CDATA[select e from erp_City e where e.country = :container_countriesDc order by e.city asc]]></query>
             </loader>
         </collection>
     </data>
@@ -61,7 +61,8 @@
                         <column width="250px">
                             <lookupPickerField id="countryField"
                                                property="country"
-                                               optionsContainer="countriesDc">
+                                               optionsContainer="countriesDc"
+                                               required="true">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
                                     <action id="clear" type="picker_clear"/>
@@ -69,7 +70,8 @@
                             </lookupPickerField>
                             <lookupPickerField id="cityField"
                                                property="city"
-                                               optionsContainer="citiesDc">
+                                               optionsContainer="citiesDc"
+                                               required="true">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
                                     <action id="clear" type="picker_clear"/>

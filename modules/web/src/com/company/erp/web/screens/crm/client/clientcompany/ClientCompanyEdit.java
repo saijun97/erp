@@ -56,13 +56,23 @@ public class ClientCompanyEdit extends StandardEditor<ClientCompany> {
         displayNameField.setValue(displayNameValue);
 
 
-        if (!currentCityValue.equals(prevCityFieldValue) | !currentCompanyAddressValue.equals(prevCompanyAddressFieldValue) | getEditedEntity().getBillingAddress() == null) {
+        try {
 
-            showConfirmationDialogForGeneratingBillingAndShippingAddress();
-            prevCityFieldValue = currentCityValue;
-            prevCompanyAddressFieldValue = currentCompanyAddressValue;
+            if (!currentCityValue.equals(prevCityFieldValue) | !currentCompanyAddressValue.equals(prevCompanyAddressFieldValue) | getEditedEntity().getBillingAddress() == null) {
+
+                showConfirmationDialogForGeneratingBillingAndShippingAddress();
+                prevCityFieldValue = currentCityValue;
+                prevCompanyAddressFieldValue = currentCompanyAddressValue;
+
+            }
+
+        } catch (NullPointerException e) {
+
+            System.out.println("Exception Handled");
 
         }
+
+
 
     }
 
