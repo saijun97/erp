@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.cms.catalogproduct">
+    <data>
+        <instance id="catalogProductDc"
+                  class="com.company.erp.entity.cms.catalog_product.CatalogProduct"
+                  view="catalogProduct-view-details">
+            <loader/>
+        </instance>
+        <collection id="productsDc" class="com.company.erp.entity.sales_inventory.product.Product" view="product-view-details">
+            <loader id="productsLc">
+                <query>
+                    <![CDATA[select e from erp_Product e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="categoriesDc"
+                    class="com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory"
+                    view="_minimal">
+            <loader>
+                <query>select e from erp_ProductCategory e</query>
+            </loader>
+        </collection>
+        <collection id="brandsDc"
+                    class="com.company.erp.entity.sales_inventory.product.master_data.make_manufacturer.Make_Manufacturer"
+                    view="_minimal">
+            <loader>
+                <query>select e from erp_Make_Manufacturer e</query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <hbox spacing="true">
+        <form id="form" dataContainer="catalogProductDc">
+            <column width="250px">
+                <lookupPickerField id="productField" optionsContainer="productsDc" property="product">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="nameField" property="name"/>
+                <lookupField id="brandField" property="brand" optionsContainer="brandsDc"/>
+                <lookupField id="categoryField" property="category" optionsContainer="categoriesDc"/>
+                <currencyField id="priceField" property="price" currency="MUR"/>
+                <lookupField id="stockStatusField" property="stockStatus"/>
+                <upload id="imageField"
+                        property="image"
+                        fileStoragePutMode="IMMEDIATE"
+                        dataContainer="catalogProductDc"/>
+            </column>
+        </form>
+        <form dataContainer="catalogProductDc" captionPosition="TOP">
+            <column width="500px">
+                <richTextArea id="descriptionField" property="description" height="500px"/>
+            </column>
+        </form>
+        </hbox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

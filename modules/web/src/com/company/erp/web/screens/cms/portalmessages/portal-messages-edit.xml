@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.erp.web.screens.cms.portalmessages">
+    <data>
+        <instance id="portalMessagesDc"
+                  class="com.company.erp.entity.cms.portal_messages.PortalMessages"
+                  view="portalMessages-view-details">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="portalMessagesDc">
+            <column width="250px">
+                <textField id="personNameField" property="personName"/>
+                <textField id="emailField" property="email"/>
+                <textField id="phoneNumberField" property="phoneNumber"/>
+                <textArea id="messageField" property="message" rows="5"/>
+                <lookupField id="statusField" property="status"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowCommit"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
