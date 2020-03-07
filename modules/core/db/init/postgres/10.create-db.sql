@@ -1,3 +1,18 @@
+-- begin ERP_PORTAL_MESSAGES
+create table ERP_PORTAL_MESSAGES (
+    ID varchar(10),
+    --
+    PERSON_NAME varchar(255) not null,
+    EMAIL varchar(255) not null,
+    PHONE_NUMBER varchar(255),
+    SUBJECT text not null,
+    MESSAGE text not null,
+    STATUS varchar(50) not null,
+    RECEIVED_TS timestamp not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_PORTAL_MESSAGES
 -- begin ERP_ITEM
 create table ERP_ITEM (
     ID uuid,
@@ -373,8 +388,8 @@ create table ERP_CLIENT (
     EMAIL varchar(255),
     PREFERRED_CONTACT_PHONE varchar(255),
     FAX_NUMBER varchar(255),
-    COUNTRY_ID uuid,
-    CITY_ID uuid,
+    COUNTRY_ID uuid not null,
+    CITY_ID uuid not null,
     SHIPPING_ADDRESS text,
     BILLING_ADDRESS text,
     --
@@ -618,7 +633,7 @@ create table ERP_CLIENT_COMPANY (
     ID uuid,
     --
     COMPANY_NAME varchar(255) not null,
-    COMPANY_ADDRESS varchar(255),
+    COMPANY_ADDRESS varchar(255) not null,
     BRN varchar(255),
     VAT_NUMBER varchar(255),
     SECONDARY_EMAIL varchar(255),
@@ -627,18 +642,3 @@ create table ERP_CLIENT_COMPANY (
     primary key (ID)
 )^
 -- end ERP_CLIENT_COMPANY
--- begin ERP_PORTAL_MESSAGES
-create table ERP_PORTAL_MESSAGES (
-    ID varchar(10),
-    --
-    PERSON_NAME varchar(255) not null,
-    EMAIL varchar(255) not null,
-    PHONE_NUMBER varchar(255),
-    SUBJECT text not null,
-    MESSAGE text not null,
-    STATUS varchar(50) not null,
-    RECEIVED_TS timestamp not null,
-    --
-    primary key (ID)
-)^
--- end ERP_PORTAL_MESSAGES
