@@ -24,7 +24,11 @@
     </actions>
     <dialogMode height="600" width="800"/>
     <layout>
-        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+        <split id="split"
+               height="100%"
+               orientation="horizontal"
+               reversePosition="true"
+               width="100%">
             <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
                 <filter id="filter"
                         applyTo="table"
