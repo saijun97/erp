@@ -603,3 +603,26 @@ create table ERP_CLIENT_COMPANY (
     primary key (ID)
 )^
 -- end ERP_CLIENT_COMPANY
+-- begin ERP_CATALOG_PRODUCT
+create table ERP_CATALOG_PRODUCT (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    PRODUCT_ID varchar(36),
+    PRICE decimal(19, 2) not null,
+    DESCRIPTION longvarchar,
+    BRAND varchar(255),
+    CATEGORY_ID varchar(36),
+    STOCK_STATUS varchar(50) not null,
+    IMAGE varchar(255),
+    --
+    primary key (ID)
+)^
+-- end ERP_CATALOG_PRODUCT
