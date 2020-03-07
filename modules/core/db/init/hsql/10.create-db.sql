@@ -1,3 +1,18 @@
+-- begin ERP_PORTAL_MESSAGES
+create table ERP_PORTAL_MESSAGES (
+    ID varchar(10) not null,
+    --
+    PERSON_NAME varchar(255) not null,
+    EMAIL varchar(255) not null,
+    PHONE_NUMBER varchar(255),
+    SUBJECT longvarchar not null,
+    MESSAGE longvarchar not null,
+    STATUS varchar(50) not null,
+    RECEIVED_TS timestamp not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_PORTAL_MESSAGES
 -- begin ERP_ITEM
 create table ERP_ITEM (
     ID varchar(36) not null,
@@ -373,8 +388,8 @@ create table ERP_CLIENT (
     EMAIL varchar(255),
     PREFERRED_CONTACT_PHONE varchar(255),
     FAX_NUMBER varchar(255),
-    COUNTRY_ID varchar(36),
-    CITY_ID varchar(36),
+    COUNTRY_ID varchar(36) not null,
+    CITY_ID varchar(36) not null,
     SHIPPING_ADDRESS longvarchar,
     BILLING_ADDRESS longvarchar,
     --
@@ -543,6 +558,30 @@ create table ERP_JOB_POSITION (
     primary key (ID)
 )^
 -- end ERP_JOB_POSITION
+-- begin ERP_CATALOG_PRODUCT
+create table ERP_CATALOG_PRODUCT (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null,
+    --
+    PRODUCT_ID varchar(36),
+    PRICE decimal(19, 2) not null,
+    DESCRIPTION longvarchar,
+    BRAND_ID varchar(36),
+    CATEGORY_ID varchar(36),
+    STOCK_STATUS varchar(50),
+    IMAGE varchar(255),
+    PUBLIC_IMAGE longvarchar,
+    --
+    primary key (ID)
+)^
+-- end ERP_CATALOG_PRODUCT
 -- begin ERP_EMPLOYEE
 create table ERP_EMPLOYEE (
     ID varchar(36) not null,
@@ -594,7 +633,7 @@ create table ERP_CLIENT_COMPANY (
     ID varchar(36) not null,
     --
     COMPANY_NAME varchar(255) not null,
-    COMPANY_ADDRESS varchar(255),
+    COMPANY_ADDRESS varchar(255) not null,
     BRN varchar(255),
     VAT_NUMBER varchar(255),
     SECONDARY_EMAIL varchar(255),
@@ -603,26 +642,3 @@ create table ERP_CLIENT_COMPANY (
     primary key (ID)
 )^
 -- end ERP_CLIENT_COMPANY
--- begin ERP_CATALOG_PRODUCT
-create table ERP_CATALOG_PRODUCT (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    NAME varchar(255) not null,
-    --
-    PRODUCT_ID varchar(36),
-    PRICE decimal(19, 2) not null,
-    DESCRIPTION longvarchar,
-    BRAND varchar(255),
-    CATEGORY_ID varchar(36),
-    STOCK_STATUS varchar(50) not null,
-    IMAGE varchar(255),
-    --
-    primary key (ID)
-)^
--- end ERP_CATALOG_PRODUCT
