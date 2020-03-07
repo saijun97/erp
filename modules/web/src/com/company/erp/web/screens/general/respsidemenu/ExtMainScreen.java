@@ -10,12 +10,14 @@ import com.company.erp.entity.sales_inventory.order.joined.payment.Payment;
 import com.company.erp.entity.sales_inventory.product.Product;
 import com.haulmont.cuba.gui.ScreenBuilders;
 import com.haulmont.cuba.gui.components.Button;
+import com.haulmont.cuba.gui.components.Image;
 import com.haulmont.cuba.gui.screen.Subscribe;
 import com.haulmont.cuba.gui.screen.UiController;
 import com.haulmont.cuba.gui.screen.UiDescriptor;
 import com.haulmont.cuba.web.app.main.MainScreen;
 
 import javax.inject.Inject;
+
 
 
 @UiController("extMainScreen")
@@ -100,4 +102,5 @@ public class ExtMainScreen extends MainScreen {
                 .show();
 
     }
+
 }
