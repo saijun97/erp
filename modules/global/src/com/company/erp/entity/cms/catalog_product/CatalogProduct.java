@@ -54,6 +54,18 @@ public class CatalogProduct extends NamedEntity {
     @Column(name = "IMAGE")
     protected com.haulmont.cuba.core.entity.Entity image;
 
+    @Lob
+    @Column(name = "PUBLIC_IMAGE")
+    protected String publicImage;
+
+    public String getPublicImage() {
+        return publicImage;
+    }
+
+    public void setPublicImage(String publicImage) {
+        this.publicImage = publicImage;
+    }
+
     public Make_Manufacturer getBrand() {
         return brand;
     }
