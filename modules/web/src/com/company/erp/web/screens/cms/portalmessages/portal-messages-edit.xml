@@ -5,8 +5,8 @@
         messagesPack="com.company.erp.web.screens.cms.portalmessages">
     <data>
         <instance id="portalMessagesDc"
-                  class="com.company.erp.entity.cms.portal_messages.PortalMessages"
-                  view="portalMessages-view-details">
+                  class="com.company.erp.entity.cms.portal_messages.PortalMessage"
+                  view="portalMessage-view-details">
             <loader/>
         </instance>
     </data>
@@ -17,11 +17,25 @@
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="portalMessagesDc">
             <column width="250px">
-                <textField id="personNameField" property="personName"/>
-                <textField id="emailField" property="email"/>
-                <textField id="phoneNumberField" property="phoneNumber"/>
-                <textArea id="messageField" property="message" rows="5"/>
+                <textField id="personNameField" property="personName" editable="false"/>
+                <textField id="emailField" property="email" editable="false"/>
+                <textField id="phoneNumberField" property="phoneNumber" editable="false"/>
                 <lookupField id="statusField" property="status"/>
+                <dateField id="receivedTsField" property="receivedTs"/>
+            </column>
+        </form>
+        <form id="messageForm"
+              dataContainer="portalMessagesDc"
+              captionPosition="TOP">
+            <column width="350px">
+                <resizableTextArea rows="1"
+                          id="subjectField"
+                          property="subject"
+                          editable="false"/>
+                <resizabletextArea id="messageField"
+                          property="message"
+                          rows="5"
+                          editable="false"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
