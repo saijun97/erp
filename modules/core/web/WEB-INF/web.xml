@@ -17,7 +17,7 @@
     <context-param>
         <param-name>appComponents</param-name>
         <param-value>com.haulmont.cuba com.haulmont.fts de.diedavids.cuba.dataimport com.haulmont.addon.restapi
-            it.nexbit.cuba.security.userprofile com.haulmont.addon.dnd com.haulmont.reports com.haulmont.charts
+            com.haulmont.reports com.haulmont.charts
             com.haulmont.addon.dashboard com.haulmont.addon.dashboardchart org.strangeway.responsive
             de.diedavids.cuba.attachable de.diedavids.cuba.entitysoftreference</param-value>
     </context-param>
