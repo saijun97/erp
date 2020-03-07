@@ -41,12 +41,12 @@ public class Client extends StandardEntity {
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "COUNTRY_ID")
+    @JoinColumn(name = "COUNTRY_ID", nullable = false)
     protected Country country;
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CITY_ID")
+    @JoinColumn(name = "CITY_ID", nullable = false)
     protected City city;
 
     @Lob

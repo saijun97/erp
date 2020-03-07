@@ -25,7 +25,7 @@ public class ClientCompany extends Client {
     @Column(name = "COMPANY_NAME", nullable = false)
     protected String companyName;
 
-    @Column(name = "COMPANY_ADDRESS")
+    @Column(name = "COMPANY_ADDRESS", nullable = false)
     protected String companyAddress;
 
     @CaseConversion(type = ConversionType.UPPER)
