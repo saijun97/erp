@@ -47,4 +47,9 @@
         </menu>
     </menu>
 
+    <menu id="cms" insertBefore="reports" icon="font-icon:INTERNET_EXPLORER">
+        <item screen="erp_CatalogProduct.browse"/>
+        <item screen="erp_PortalMessages.browse"/>
+    </menu>
+
 </menu-config>

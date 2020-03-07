@@ -147,5 +147,11 @@
         <property name="city" view="_minimal"/>
     </view>
     <view entity="erp_Payment" name="payment-view-details" extends="_local"/>
+    <view entity="erp_CatalogProduct" name="catalogProduct-view-details" extends="_local">
+        <property name="product" view="product-view-details"/>
+        <property name="category" view="_minimal"/>
+        <property name="brand" view="_minimal"/>
+    </view>
+    <view entity="erp_PortalMessages" name="portalMessages-view-details" extends="_local"/>
 
 </views>
