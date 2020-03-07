@@ -36,5 +36,7 @@
         <class>com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem</class>
         <class>com.company.erp.entity.general.task.Task</class>
         <class>com.company.erp.entity.sales_inventory.order.joined.payment.Payment</class>
+        <class>com.company.erp.entity.cms.catalog_product.CatalogProduct</class>
+        <class>com.company.erp.entity.cms.portal_messages.PortalMessages</class>
     </persistence-unit>
 </persistence>

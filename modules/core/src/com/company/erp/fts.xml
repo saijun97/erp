@@ -100,5 +100,11 @@
         <entity class="com.company.erp.entity.sales_inventory.order.joined.payment.Payment">
             <include re=".*"/>
         </entity>
+        <entity class="com.company.erp.entity.cms.catalog_product.CatalogProduct">
+            <include re=".*"/>
+        </entity>
+        <entity class="com.company.erp.entity.cms.portal_messages.PortalMessages">
+            <include re=".*"/>
+        </entity>
     </entities>
 </fts-config>
