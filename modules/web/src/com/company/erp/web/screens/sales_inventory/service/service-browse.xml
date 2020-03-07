@@ -26,7 +26,7 @@
     <layout>
         <split id="split"
                height="100%"
-               orientation="vertical"
+               orientation="horizontal"
                reversePosition="true"
                width="100%">
             <vbox id="lookupBox"
