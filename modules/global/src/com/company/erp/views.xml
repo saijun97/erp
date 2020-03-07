@@ -152,6 +152,7 @@
         <property name="category" view="_minimal"/>
         <property name="brand" view="_minimal"/>
     </view>
-    <view entity="erp_PortalMessages" name="portalMessages-view-details" extends="_local"/>
+    <view entity="erp_PortalMessages" name="portalMessage-view-details" extends="_local"/>
+
 
 </views>

@@ -103,7 +103,7 @@
         <entity class="com.company.erp.entity.cms.catalog_product.CatalogProduct">
             <include re=".*"/>
         </entity>
-        <entity class="com.company.erp.entity.cms.portal_messages.PortalMessages">
+        <entity class="com.company.erp.entity.cms.portal_messages.PortalMessage">
             <include re=".*"/>
         </entity>
     </entities>
