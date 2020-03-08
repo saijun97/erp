@@ -21,21 +21,21 @@
                 <textField id="emailField" property="email" editable="false"/>
                 <textField id="phoneNumberField" property="phoneNumber" editable="false"/>
                 <lookupField id="statusField" property="status"/>
-                <dateField id="receivedTsField" property="receivedTs"/>
+                <dateField id="receivedTsField" property="receivedTs" caption="Date Received" editable="false"/>
             </column>
         </form>
         <form id="messageForm"
               dataContainer="portalMessagesDc"
               captionPosition="TOP">
             <column width="350px">
-                <resizableTextArea rows="1"
-                          id="subjectField"
-                          property="subject"
-                          editable="false"/>
-                <resizabletextArea id="messageField"
-                          property="message"
-                          rows="5"
-                          editable="false"/>
+                <resizableTextArea id="subjectField"
+                                   property="subject"
+                                   rows="1"
+                                   editable="false"/>
+                <resizableTextArea id="messageField"
+                                   property="message"
+                                   rows="5"
+                                   editable="false"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

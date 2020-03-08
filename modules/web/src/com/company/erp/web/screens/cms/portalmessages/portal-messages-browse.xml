@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
-        focusComponent="portalMessagesesTable"
+        focusComponent="portalMessagesTable"
         messagesPack="com.company.erp.web.screens.cms.portalmessages">
     <data readOnly="true">
-        <collection id="portalMessagesesDc"
+        <collection id="portalMessagesDc"
                     class="com.company.erp.entity.cms.portal_messages.PortalMessage"
                     view="portalMessage-view-details">
-            <loader id="portalMessagesesDl">
+            <loader id="portalMessagesDl">
                 <query>
                     <![CDATA[select e from erp_PortalMessages e]]>
                 </query>
@@ -16,16 +16,16 @@
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="portalMessagesesTable"
+    <layout expand="portalMessagesTable"
             spacing="true">
         <filter id="filter"
-                applyTo="portalMessagesesTable"
-                dataLoader="portalMessagesesDl">
+                applyTo="portalMessagesTable"
+                dataLoader="portalMessagesDl">
             <properties include=".*"/>
         </filter>
-        <groupTable id="portalMessagesesTable"
+        <groupTable id="portalMessagesTable"
                     width="100%"
-                    dataContainer="portalMessagesesDc">
+                    dataContainer="portalMessagesDc">
             <actions>
                 <action id="edit" type="edit"/>
             </actions>
@@ -33,12 +33,12 @@
                 <column id="personName"/>
                 <column id="subject"/>
                 <column id="status"/>
-                <column id="receivedTs"/>
+                <column id="receivedTs" caption="Date Received"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="editBtn" action="portalMessagesesTable.edit"/>
+                <button id="editBtn" action="portalMessagesTable.edit"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
