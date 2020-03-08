@@ -4,6 +4,7 @@ import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.general.enums.ServiceRequestStatusSelect;
 import com.haulmont.cuba.core.app.EmailService;
 import com.haulmont.cuba.core.global.EmailInfo;
+import com.haulmont.cuba.core.global.EmailInfoBuilder;
 import com.haulmont.cuba.gui.Dialogs;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.reports.gui.actions.EditorPrintFormAction;
@@ -21,7 +22,7 @@ import java.util.Date;
 public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
     @Inject
-    protected LookupField<String> statusField;
+    protected LookupField<ServiceRequestStatusSelect> statusField;
     @Inject
     protected DateField<Date> dateReceivedField;
     @Inject
@@ -123,18 +124,18 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
     private void sendByEmail() {
         ServiceRequest serviceRequest = getEditedEntity();
-        EmailInfo emailInfo = new EmailInfo(
-                serviceRequest.getMobilePhone() + "@emtelworld.net",
-                "Dear customer, Your equipment is ready to be collected. " +
+        EmailInfo emailInfo = EmailInfoBuilder.create()
+                .setAddresses(serviceRequest.getMobilePhone() + "@emtelworld.net")
+                .setCaption("Dear customer, Your equipment is ready to be collected. " +
                         "Total Amount due is Rs." + serviceRequest.getTotalPrice() +
                         ". Your reference number is " +
                         serviceRequest.getReferenceNumber() + "." +
-                        "            " + "Regards, SRJ Tech Workshop Team",
-                "srj-dissert@intnet.mu",
-                "com/company/erp/templates/srf_completed.txt",
-                 Collections.singletonMap("serviceRequest", serviceRequest)
-
-        );
+                        "            " + "Regards, SRJ Tech Workshop Team")
+                .setFrom("postmaster@srjdissert.ga")
+                .setBody("Test")
+                .setTemplatePath("com/company/erp/templates/srf_completed.txt")
+                .setTemplateParameters(Collections.singletonMap("serviceRequest", serviceRequest))
+                .build();
         emailService.sendEmailAsync(emailInfo);
     }
 }
