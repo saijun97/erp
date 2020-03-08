@@ -5,13 +5,29 @@
         <cssLayout id="horizontalWrap">
             <workArea id="workArea">
                 <initialLayout>
-                    <image scaleMode="SCALE_DOWN"
-                           width="350px" align="TOP_CENTER">
-                        <theme path="branding/srj-banner.png"/>
-                    </image>
+                    <scrollBox id="scrollBox"
+                               responsive="true"
+                               orientation="vertical"
+
+                               height="100%"
+                               width="100%">
                         <swr:responsiveLayout id="content2"
                                               spacing="true"
-                                              width="100%">
+                                              width="100%"
+                                              align="MIDDLE_CENTER"
+                                              scrollable="true">
+                            <swr:row align="MIDDLE_CENTER">
+                                <swr:column align="MIDDLE_CENTER">
+                                    <swr:content alignment="CENTER">
+                                        <image scaleMode="SCALE_DOWN"
+                                               width="350px"
+                                               align="TOP_CENTER">
+                                            <theme path="branding/srj-banner.png"/>
+                                        </image>
+                                    </swr:content>
+                                    <swr:display xs="12" sm="12" md="12" lg="12"/>
+                                </swr:column>
+                            </swr:row>
                             <swr:row>
                                 <swr:column>
                                     <swr:content>
@@ -61,73 +77,74 @@
                                     </swr:content>
                                     <swr:display xs="12" sm="12" md="12" lg="4"/>
                                 </swr:column>
-                            <swr:column height="AUTO"
-                                        align="MIDDLE_CENTER">
-                                <swr:content alignment="CENTER">
-                                    <vbox margin="true"
-                                          width="100%"
-                                          spacing="true"
-                                          align="MIDDLE_CENTER">
-                                        <label value="Quick links"
-                                               stylename="h1"
-                                               align="MIDDLE_CENTER"/>
-                                        <button id="myProfile"
-                                                icon="font-icon:USER_CIRCLE_O"
-                                                caption="My Profile"
-                                                align="MIDDLE_CENTER"
-                                                width="100%"/>
-                                        <button id="mobileApp"
-                                                icon="font-icon:MOBILE"
-                                                caption="Download Mobile App"
-                                                align="MIDDLE_CENTER"
-                                                width="100%"/>
-                                        <link   id="mns"
-                                                icon="font-icon:EXTERNAL_LINK"
-                                                caption="Mauritius Network Services"
-                                                align="MIDDLE_CENTER"
-                                                width="100%"
-                                                target="_blank"
-                                                url="https://companies.govmu.org:4343/MNSOnlineSearch/"/>
-                                    </vbox>
-                                </swr:content>
-                                <swr:display xs="12" sm="12" md="12" lg="4"/>
-                            </swr:column>
-                            <swr:column height="AUTO"
-                                        align="MIDDLE_CENTER">
-                                <swr:content alignment="CENTER">
-                                    <vbox margin="true"
-                                          width="100%"
-                                          spacing="true"
-                                          align="MIDDLE_CENTER">
-                                        <label value="Browser quick links"
-                                               stylename="h1"
-                                               align="MIDDLE_CENTER"/>
-                                        <button id="viewClients"
-                                                caption="View Clients"
-                                                align="MIDDLE_CENTER"
-                                                width="100%"
-                                                stylename="friendly"/>
-                                        <button id="viewEmployees"
-                                                caption="View Employees"
-                                                align="MIDDLE_CENTER"
-                                                width="100%"
-                                                stylename="friendly"/>
-                                        <button id="viewContactPersons"
-                                                caption="View Contacts List"
-                                                align="MIDDLE_CENTER"
-                                                width="100%"
-                                                stylename="friendly"/>
-                                        <button id="viewProducts"
-                                                caption="View Products Catalog"
-                                                align="MIDDLE_CENTER"
-                                                width="100%"
-                                                stylename="friendly"/>
-                                    </vbox>
-                                </swr:content>
-                                <swr:display xs="12" sm="12" md="12" lg="4"/>
-                            </swr:column>
+                                <swr:column height="AUTO"
+                                            align="MIDDLE_CENTER">
+                                    <swr:content alignment="CENTER">
+                                        <vbox margin="true"
+                                              width="100%"
+                                              spacing="true"
+                                              align="MIDDLE_CENTER">
+                                            <label value="Quick links"
+                                                   stylename="h1"
+                                                   align="MIDDLE_CENTER"/>
+                                            <button id="myProfile"
+                                                    icon="font-icon:USER_CIRCLE_O"
+                                                    caption="My Profile"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"/>
+                                            <button id="mobileApp"
+                                                    icon="font-icon:MOBILE"
+                                                    caption="Download Mobile App"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"/>
+                                            <link   id="mns"
+                                                    icon="font-icon:EXTERNAL_LINK"
+                                                    caption="Mauritius Network Services"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"
+                                                    target="_blank"
+                                                    url="https://companies.govmu.org:4343/MNSOnlineSearch/"/>
+                                        </vbox>
+                                    </swr:content>
+                                    <swr:display xs="12" sm="12" md="12" lg="4"/>
+                                </swr:column>
+                                <swr:column height="AUTO"
+                                            align="MIDDLE_CENTER">
+                                    <swr:content alignment="CENTER">
+                                        <vbox margin="true"
+                                              width="100%"
+                                              spacing="true"
+                                              align="MIDDLE_CENTER">
+                                            <label value="Browser quick links"
+                                                   stylename="h1"
+                                                   align="MIDDLE_CENTER"/>
+                                            <button id="viewClients"
+                                                    caption="View Clients"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"
+                                                    stylename="friendly"/>
+                                            <button id="viewEmployees"
+                                                    caption="View Employees"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"
+                                                    stylename="friendly"/>
+                                            <button id="viewContactPersons"
+                                                    caption="View Contacts List"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"
+                                                    stylename="friendly"/>
+                                            <button id="viewProducts"
+                                                    caption="View Products Catalog"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"
+                                                    stylename="friendly"/>
+                                        </vbox>
+                                    </swr:content>
+                                    <swr:display xs="12" sm="12" md="12" lg="4"/>
+                                </swr:column>
                             </swr:row>
                         </swr:responsiveLayout>
+                    </scrollBox>
                 </initialLayout>
             </workArea>
         </cssLayout>
