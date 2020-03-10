@@ -4,14 +4,14 @@
 
     <!-- Switch off session serialization -->
     <Manager pathname=""/>
-    <Resource driverClassName="org.hsqldb.jdbc.JDBCDriver"
+    <Resource driverClassName="org.postgresql.Driver"
               maxIdle="2"
               maxTotal="20"
               maxWaitMillis="5000"
               name="jdbc/CubaDS"
-              password=""
+              password="cuba"
               type="javax.sql.DataSource"
-              url="jdbc:hsqldb:hsql://localhost:9010/erp-6fpSQFEYU"
-              username="sa"/>
+              url="jdbc:postgresql://localhost/erp"
+              username="cuba"/>
 
 </Context>
