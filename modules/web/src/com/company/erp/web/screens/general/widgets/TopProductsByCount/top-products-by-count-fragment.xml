@@ -17,10 +17,10 @@
         <chart:radarChart id="radarChart"
                           categoryField="item"
                           creditsPosition="BOTTOM_RIGHT"
+                          theme="LIGHT"
                           dataContainer="topProductsByCountDc"
                           height="100%"
                           startDuration="2"
-                          theme="LIGHT"
                           width="100%">
             <chart:titles>
                 <chart:title alpha="1"
