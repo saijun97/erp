@@ -1,57 +1,93 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         xmlns:swr="http://strangeway.org/xsd/responsive/sw-responsive.xsd"
+        xmlns:dnd="http://schemas.haulmont.com/dnd/0.1/drag-and-drop.xsd"
         extends="/com/haulmont/cuba/web/app/main/main-screen.xml">
     <layout>
         <cssLayout id="horizontalWrap">
             <workArea id="workArea">
-                <initialLayout>
+                <initialLayout expand="scrollBox">
                     <scrollBox id="scrollBox"
-                               responsive="true"
-                               orientation="vertical"
-
-                               height="100%"
-                               width="100%">
-                        <swr:responsiveLayout id="content2"
-                                              spacing="true"
-                                              width="100%"
-                                              align="MIDDLE_CENTER"
-                                              scrollable="true">
-                            <swr:row align="MIDDLE_CENTER">
-                                <swr:column align="MIDDLE_CENTER">
-                                    <swr:content alignment="CENTER">
-                                        <image scaleMode="SCALE_DOWN"
-                                               width="350px"
-                                               align="TOP_CENTER">
-                                            <theme path="branding/srj-banner.png"/>
-                                        </image>
-                                    </swr:content>
-                                    <swr:display xs="12" sm="12" md="12" lg="12"/>
-                                </swr:column>
-                            </swr:row>
-                            <swr:row>
-                                <swr:column>
-                                    <swr:content>
-                                        <vbox>
-                                            <label value=" "/>
-                                        </vbox>
-                                    </swr:content>
-                                    <swr:display xs="12" sm="12" md="12" lg="12"/>
-                                </swr:column>
-                            </swr:row>
+                               spacing="true"
+                               responsive="true">
+                        <image scaleMode="SCALE_DOWN"
+                               width="350px"
+                               align="TOP_CENTER">
+                            <theme path="branding/banner.png"/>
+                        </image>
+                        <label id="bannerSpacer"/>
+                        <swr:responsiveLayout width="100%"
+                                              spacing="true">
                             <swr:row height="AUTO"
                                      grow="true"
                                      shrink="true"
+                                     spacing="true"
                                      margin="false"
                                      stylename="well">
-                                <swr:column height="AUTO"
-                                            align="MIDDLE_CENTER">
-                                    <swr:content alignment="CENTER">
-                                        <vbox margin="true"
-                                              width="100%"
-                                              spacing="true"
-                                              align="MIDDLE_CENTER">
-                                            <label value="Editor quick links"
-                                                   stylename="h1"
+                                <swr:column height="AUTO">
+                                    <swr:content>
+                                        <groupBox id="rootPalette"
+                                                  caption="Todo actions"
+                                                  height="100%"
+                                                  width="100%"
+                                                  expand="palette">
+                                            <dnd:dndVBoxLayout id="palette"
+                                                               dragMode="CLONE"
+                                                               spacing="true"
+                                                               width="100%">
+                                                <button id="call"
+                                                        caption="Call"
+                                                        height="40px"
+                                                        width="100%"
+                                                        icon="font-icon:PHONE"/>
+                                                <button id="chat"
+                                                        caption="Chat"
+                                                        height="40px"
+                                                        width="100%"
+                                                        icon="font-icon:WECHAT"/>
+                                                <button id="meeting"
+                                                        caption="Meeting"
+                                                        height="40px"
+                                                        width="100%"
+                                                        icon="font-icon:MEETUP"/>
+                                                <button id="buy"
+                                                        caption="Buy"
+                                                        height="40px"
+                                                        width="100%"
+                                                        icon="font-icon:BUYSELLADS"/>
+                                                <button id="other"
+                                                        caption="Other"
+                                                        height="40px"
+                                                        width="100%"/>
+                                            </dnd:dndVBoxLayout>
+                                        </groupBox>
+                                    </swr:content>
+                                    <swr:display xs="12" sm="12" md="12" lg="2"/>
+                                </swr:column>
+                                <swr:column height="100%">
+                                    <swr:content>
+                                        <groupBox id="rootDashboard"
+                                                  caption="Todo today"
+                                                  height="525px"
+                                                  expand="rootDashboardScrollBox">
+                                            <scrollBox id="rootDashboardScrollBox"
+                                                       width="100%">
+                                                <dnd:dndVBoxLayout id="dashboard"
+                                                                   dragMode="CLONE"
+                                                                   height="100%"
+                                                                   spacing="true"
+                                                                   width="100%">
+                                                </dnd:dndVBoxLayout>
+                                            </scrollBox>
+                                        </groupBox>
+                                    </swr:content>
+                                    <swr:display xs="12" sm="12" md="12" lg="7"/>
+                                </swr:column>
+                                <swr:column height="100%">
+                                    <swr:content>
+                                        <vbox height="100%"
+                                              spacing="true">
+                                            <label value="Quick Links"
+                                                   stylename="bold"
                                                    align="MIDDLE_CENTER"/>
                                             <button id="createTaskBtn"
                                                     caption="Create Task"
@@ -73,51 +109,6 @@
                                                     align="MIDDLE_CENTER"
                                                     width="100%"
                                                     stylename="primary"/>
-                                        </vbox>
-                                    </swr:content>
-                                    <swr:display xs="12" sm="12" md="12" lg="4"/>
-                                </swr:column>
-                                <swr:column height="AUTO"
-                                            align="MIDDLE_CENTER">
-                                    <swr:content alignment="CENTER">
-                                        <vbox margin="true"
-                                              width="100%"
-                                              spacing="true"
-                                              align="MIDDLE_CENTER">
-                                            <label value="Quick links"
-                                                   stylename="h1"
-                                                   align="MIDDLE_CENTER"/>
-                                            <button id="myProfile"
-                                                    icon="font-icon:USER_CIRCLE_O"
-                                                    caption="My Profile"
-                                                    align="MIDDLE_CENTER"
-                                                    width="100%"/>
-                                            <button id="mobileApp"
-                                                    icon="font-icon:MOBILE"
-                                                    caption="Download Mobile App"
-                                                    align="MIDDLE_CENTER"
-                                                    width="100%"/>
-                                            <link   id="mns"
-                                                    icon="font-icon:EXTERNAL_LINK"
-                                                    caption="Mauritius Network Services"
-                                                    align="MIDDLE_CENTER"
-                                                    width="100%"
-                                                    target="_blank"
-                                                    url="https://companies.govmu.org:4343/MNSOnlineSearch/"/>
-                                        </vbox>
-                                    </swr:content>
-                                    <swr:display xs="12" sm="12" md="12" lg="4"/>
-                                </swr:column>
-                                <swr:column height="AUTO"
-                                            align="MIDDLE_CENTER">
-                                    <swr:content alignment="CENTER">
-                                        <vbox margin="true"
-                                              width="100%"
-                                              spacing="true"
-                                              align="MIDDLE_CENTER">
-                                            <label value="Browser quick links"
-                                                   stylename="h1"
-                                                   align="MIDDLE_CENTER"/>
                                             <button id="viewClients"
                                                     caption="View Clients"
                                                     align="MIDDLE_CENTER"
@@ -138,9 +129,26 @@
                                                     align="MIDDLE_CENTER"
                                                     width="100%"
                                                     stylename="friendly"/>
+                                            <button id="myProfile"
+                                                    icon="font-icon:USER_CIRCLE_O"
+                                                    caption="My Profile"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"/>
+                                            <button id="mobileApp"
+                                                    icon="font-icon:MOBILE"
+                                                    caption="Download Mobile App"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"/>
+                                            <link   id="mns"
+                                                    icon="font-icon:EXTERNAL_LINK"
+                                                    caption="Mauritius Network Services"
+                                                    align="MIDDLE_CENTER"
+                                                    width="100%"
+                                                    target="_blank"
+                                                    url="https://companies.govmu.org:4343/MNSOnlineSearch/"/>
                                         </vbox>
                                     </swr:content>
-                                    <swr:display xs="12" sm="12" md="12" lg="4"/>
+                                    <swr:display xs="12" sm="12" md="12" lg="3"/>
                                 </swr:column>
                             </swr:row>
                         </swr:responsiveLayout>
