@@ -53,7 +53,7 @@ dependencies {
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
 }
 
-def hsql = 'org.hsqldb:hsqldb:2.4.1'
+def postgres = 'org.postgresql:postgresql:42.2.9'
 
 configure([globalModule, coreModule, webModule]) {
     apply(plugin: 'java')
@@ -99,8 +99,8 @@ configure(coreModule) {
     dependencies {
         compile(globalModule)
         compileOnly(servletApi)
-        jdbc(hsql)
-        testRuntime(hsql)
+        jdbc(postgres)
+        testRuntime(postgres)
     }
 
     task cleanConf(description: 'Cleans up conf directory', type: Delete) {
@@ -113,19 +113,19 @@ configure(coreModule) {
     }
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
-        dbms = 'hsql'
-        host = 'localhost:9010'
-        dbName = 'erp-6fpSQFEYU'
-        dbUser = 'sa'
-        dbPassword = ''
+        dbms = 'postgres'
+        host = 'localhost'
+        dbName = 'erp'
+        dbUser = 'cuba'
+        dbPassword = 'cuba'
     }
 
     task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
-        dbms = 'hsql'
-        host = 'localhost:9010'
-        dbName = 'erp-6fpSQFEYU'
-        dbUser = 'sa'
-        dbPassword = ''
+        dbms = 'postgres'
+        host = 'localhost'
+        dbName = 'erp'
+        dbUser = 'cuba'
+        dbPassword = 'cuba'
     }
 }
 
@@ -234,6 +234,29 @@ task stage(dependsOn: ['setupTomcat', ':app-core:deploy', ':app-web:deploy']) {
         webConfDir.mkdirs()
         def webProperties = new File(webConfDir, 'local.app.properties')
         webProperties.text = ''' cuba.webContextName = / '''
+    }
+}
+
+def webThemesModule = project(":${modulePrefix}-web-themes")
+
+configure(webThemesModule) {
+    apply(plugin: 'java')
+    apply(plugin: 'maven')
+    apply(plugin: 'cuba')
+
+    appModuleType = 'web-themes'
+
+    buildDir = file('../build/scss-themes')
+
+    sourceSets {
+        main {
+            java {
+                srcDir '.'
+            }
+            resources {
+                srcDir '.'
+            }
+        }
     }
 }
 

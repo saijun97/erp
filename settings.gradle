@@ -4,3 +4,7 @@ include(":${modulePrefix}-global", ":${modulePrefix}-core", ":${modulePrefix}-we
 project(":${modulePrefix}-global").projectDir = new File(settingsDir, 'modules/global')
 project(":${modulePrefix}-core").projectDir = new File(settingsDir, 'modules/core')
 project(":${modulePrefix}-web").projectDir = new File(settingsDir, 'modules/web')
+
+include(":${modulePrefix}-global", ":${modulePrefix}-core", ":${modulePrefix}-web", ":${modulePrefix}-web-themes")
+//...
+project(":${modulePrefix}-web-themes").projectDir = new File(settingsDir, 'modules/web/themes')
