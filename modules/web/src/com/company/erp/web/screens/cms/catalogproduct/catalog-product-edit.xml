@@ -59,7 +59,8 @@
                             caption="Main Image"/>
                     <richTextArea id="publicImageField"
                                   property="publicImage"
-                                  height="300px"/>
+                                  height="300px"
+                                  contextHelpText="Recommended Image Dimensions: 200 x 150"/>
                 </column>
             </form>
             <form dataContainer="catalogProductDc"
