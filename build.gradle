@@ -51,6 +51,8 @@ dependencies {
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
     appComponent('de.diedavids.cuba.entitysoftreference:entity-soft-reference-global:0.6.5')
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
+    appComponent('com.haulmont.addon.cubaaws:cubaaws-global:1.0.0')
+    appComponent('com.haulmont.addon.admintools:cuba-at-global:1.5.0.BETA1')
 }
 
 def postgres = 'org.postgresql:postgresql:42.2.9'
