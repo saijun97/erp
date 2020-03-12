@@ -6,7 +6,6 @@ import com.company.erp.entity.general.contact_person.ContactPerson;
 import com.company.erp.entity.general.task.Task;
 import com.company.erp.entity.hrm.employee.Employee;
 import com.company.erp.entity.sales_inventory.order.Order;
-import com.company.erp.entity.sales_inventory.order.joined.payment.Payment;
 import com.company.erp.entity.sales_inventory.product.Product;
 import com.haulmont.addon.dnd.components.DDVerticalLayout;
 import com.haulmont.addon.dnd.components.DropHandler;
@@ -214,16 +213,6 @@ public class ExtMainScreen extends MainScreen {
     public void onCreateOrderClick(Button.ClickEvent event) {
 
         screenBuilders.editor(Order.class, this)
-                .newEntity()
-                .build()
-                .show();
-
-    }
-
-    @Subscribe("createPayment")
-    public void onCreatePaymentClick(Button.ClickEvent event) {
-
-        screenBuilders.editor(Payment.class, this)
                 .newEntity()
                 .build()
                 .show();
