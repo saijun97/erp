@@ -11,6 +11,4 @@ import javax.inject.Inject;
 @UiDescriptor("dashboard-screen.xml")
 public class DashboardScreen extends Screen {
 
-
-
 }
