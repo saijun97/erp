@@ -39,7 +39,6 @@ dependencies {
     appComponent("com.haulmont.cuba:cuba-global:$cubaVersion")
     appComponent("com.haulmont.fts:fts-global:$cubaVersion")
     appComponent('de.diedavids.cuba.dataimport:dataimport-global:0.11.1')
-    appComponent('com.haulmont.addon.restapi:restapi-global:7.1.1')
     appComponent('com.haulmont.addon.dnd:cuba-dnd-global:1.6.0')
     appComponent("com.haulmont.reports:reports-global:$cubaVersion")
     appComponent("com.haulmont.charts:charts-global:$cubaVersion")
@@ -49,9 +48,10 @@ dependencies {
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
     appComponent('de.diedavids.cuba.attachable:attachable-global:0.8.0')
     appComponent('com.haulmont.addon.cubaaws:cubaaws-global:1.0.0')
-    appComponent('com.haulmont.addon.admintools:cuba-at-global:1.5.0.BETA1')
     appComponent('org.strangeway.responsive:sw-responsive-global:1.5.0')
     appComponent('de.diedavids.cuba.entitysoftreference:entity-soft-reference-global:0.7.0')
+    appComponent('com.haulmont.addon.restapi:restapi-global:7.2.0')
+    appComponent('com.haulmont.addon.admintools:cuba-at-global:1.5.0')
 }
 
 def postgres = 'org.postgresql:postgresql:42.2.9'
