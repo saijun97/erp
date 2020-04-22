@@ -18,8 +18,8 @@
         <param-name>appComponents</param-name>
         <param-value>com.haulmont.cuba com.haulmont.fts de.diedavids.cuba.dataimport com.haulmont.addon.restapi
             com.haulmont.addon.dnd com.haulmont.reports com.haulmont.charts com.haulmont.addon.dashboard
-            com.haulmont.addon.dashboardchart org.strangeway.responsive de.diedavids.cuba.attachable
-            de.diedavids.cuba.entitysoftreference com.haulmont.addon.cubaaws com.haulmont.addon.admintools</param-value>
+            com.haulmont.addon.dashboardchart de.diedavids.cuba.attachable com.haulmont.addon.cubaaws
+            com.haulmont.addon.admintools org.strangeway.responsive de.diedavids.cuba.entitysoftreference</param-value>
     </context-param>
     <listener>
         <listener-class>com.vaadin.server.communication.JSR356WebsocketInitializer</listener-class>
