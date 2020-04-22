@@ -597,6 +597,7 @@ create table ERP_EMPLOYEE (
     DEPARTMENT_ID uuid not null,
     SUBUNIT_ID uuid,
     JOB_POSITION_ID uuid,
+    USER_ID uuid,
     --
     primary key (ID)
 )^

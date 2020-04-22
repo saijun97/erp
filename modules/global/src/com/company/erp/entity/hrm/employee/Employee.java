@@ -15,6 +15,7 @@ import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.annotation.*;
 import com.haulmont.cuba.core.global.DeletePolicy;
+import com.haulmont.cuba.security.entity.User;
 
 
 import javax.persistence.*;
@@ -109,6 +110,19 @@ public class Employee extends Person {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "JOB_POSITION_ID")
     protected Job_Position jobPosition;
+
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    protected User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getAddress() {
         return address;

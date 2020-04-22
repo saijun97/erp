@@ -31,6 +31,7 @@
             <property name="expiryDate"/>
         </property>
         <property name="jobPosition" view="_minimal"/>
+        <property name="user" view="_minimal"/>
         <property name="name" view="_minimal">
             <property name="middleName"/>
         </property>
