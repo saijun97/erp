@@ -35,7 +35,7 @@ public class OrderEdit extends StandardEditor<Order> {
     @Inject
     protected DateField<Date> orderDateField;
     @Inject
-    protected LookupField<String> statusField;
+    protected LookupField<OrderStatusSelect> statusField;
     @Inject
     private InstanceLoader<Order> orderDl;
     @Inject
@@ -79,54 +79,22 @@ public class OrderEdit extends StandardEditor<Order> {
     @Subscribe
     public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
 
-        if ((getEditedEntity().getOrderDate() != null) & (getEditedEntity().getDeliveryDate() != null)){
-
-            if (getEditedEntity().getOrderDate().after(getEditedEntity().getDeliveryDate())) {
-
-                notifications.create()
-                        .withCaption("Delivery date cannot be before order date.")
-                        .withType(Notifications.NotificationType.ERROR)
-                        .show();
-                event.preventCommit();
-            }
-
-        }
-
-        if (orderNumField.getValue() == null) {
-
-            String orderNumValue = "ORD" + (uniqueNumbersService.getNextNumber("orderNum"));
-
-            getEditedEntity().setOrderNum(orderNumValue);
-
-        }
-
-        if ((getEditedEntity().getStatus() == OrderStatusSelect.PAID) & !(getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0)) {
-
-                notifications.create()
-                        .withCaption("Status cannot be set to PAID if " +
-                                "amount due is more than Rs 0.\n" +
-                                "Please create appropriate payment record " +
-                                "to set amount due to Rs0. ")
-                        .withType(Notifications.NotificationType.ERROR)
-                        .show();
-                event.preventCommit();
-
-        }
-
-        if ((getEditedEntity().getStatus() == OrderStatusSelect.PARTIALLY_PAID) & (getEditedEntity().getTotalAmount().equals(getEditedEntity().getAmountDue()))) {
-
-            notifications.create()
-                    .withCaption("Status cannot be set to PARTIALLY PAID if " +
-                            "amount due is not less than Rs 0.\n" +
-                            "Please create appropriate payment record " +
-                            "to set amount due to below Total Amount. ")
-                    .withType(Notifications.NotificationType.ERROR)
-                    .show();
+        if (dateValidation()) {
             event.preventCommit();
-
         }
+
+        if (paymentStatusValidation()) {
+            event.preventCommit();
+        }
+
+        if (partialPaymentStatusValidation()) {
+            event.preventCommit();
+        }
+
+        generateUniqueOrderNumber();
 
     }
+
     @Subscribe(id = "orderDc", target = Target.DATA_CONTAINER)
     public void onOrderDcItemChange(InstanceContainer.ItemChangeEvent<Order> event) {
 
@@ -139,7 +107,6 @@ public class OrderEdit extends StandardEditor<Order> {
     protected void onItemDcCollectionChange(CollectionContainer.CollectionChangeEvent<OrderItem> event) {
 
         BigDecimal amountValue = getAggregationResultFromTable(itemTable.getAggregationResults());
-
         totalAmountField.setValue(amountValue);
 
     }
@@ -148,9 +115,82 @@ public class OrderEdit extends StandardEditor<Order> {
     public void onPaymentsDcCollectionChange(CollectionContainer.CollectionChangeEvent<Payment> event) {
 
         BigDecimal amountDueValue = getAggregationResultFromTable(paymentsTable.getAggregationResults());
-
         amountDueField.setValue(getEditedEntity().getTotalAmount().subtract(amountDueValue));
 
+    }
+
+    @Subscribe("amountDueField")
+    public void onAmountDueFieldValueChange(HasValue.ValueChangeEvent<BigDecimal> event) {
+
+        if (getEditedEntity().getStatus() != OrderStatusSelect.QUOTE_REQUEST) {
+            autoSettingPaymentStatus();
+        }
+    }
+
+    @Subscribe("statusField")
+    public void onStatusFieldValueChange(HasValue.ValueChangeEvent<OrderStatusSelect> event) {
+
+        if (getEditedEntity().getStatus() == OrderStatusSelect.QUOTE_REQUEST) {
+            amountDueField.setValue(BigDecimal.ZERO);
+        }
+    }
+
+    private void generateUniqueOrderNumber () {
+
+        if (orderNumField.getValue() == null) {
+
+            String orderNumValue = "ORD" + (uniqueNumbersService.getNextNumber("orderNum"));
+            getEditedEntity().setOrderNum(orderNumValue);
+
+        }
+    }
+
+    private boolean dateValidation () {
+
+        if ((getEditedEntity().getOrderDate() != null) & (getEditedEntity().getDeliveryDate() != null)){
+
+            if (getEditedEntity().getOrderDate().after(getEditedEntity().getDeliveryDate())) {
+
+                notifications.create()
+                        .withCaption("Delivery date cannot be before order date.")
+                        .withType(Notifications.NotificationType.ERROR)
+                        .show();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean paymentStatusValidation () {
+
+        if ((getEditedEntity().getStatus() == OrderStatusSelect.PAID) & !(getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0)) {
+
+            notifications.create()
+                    .withCaption("Status cannot be set to PAID if " +
+                            "amount due is more than Rs 0.\n" +
+                            "Please create appropriate payment record " +
+                            "to set amount due to Rs0. ")
+                    .withType(Notifications.NotificationType.ERROR)
+                    .show();
+            return true;
+        }
+        return false;
+    }
+
+    private boolean partialPaymentStatusValidation () {
+
+        if ((getEditedEntity().getStatus() == OrderStatusSelect.PARTIALLY_PAID) & (getEditedEntity().getTotalAmount().equals(getEditedEntity().getAmountDue()))) {
+
+            notifications.create()
+                    .withCaption("Status cannot be set to PARTIALLY PAID if " +
+                            "amount due is not less than total amount owed.\n" +
+                            "Please create appropriate payment record " +
+                            "to set amount due to below Total Amount. ")
+                    .withType(Notifications.NotificationType.ERROR)
+                    .show();
+            return true;
+        }
+        return false;
     }
 
     private BigDecimal getAggregationResultFromTable(Map<Object, Object> aggregationResults) {
@@ -166,8 +206,7 @@ public class OrderEdit extends StandardEditor<Order> {
         return amountValue;
     }
 
-    @Subscribe("amountDueField")
-    public void onAmountDueFieldValueChange(HasValue.ValueChangeEvent<BigDecimal> event) {
+    private void autoSettingPaymentStatus() {
 
         if (getEditedEntity().getAmountDue().compareTo(getEditedEntity().getTotalAmount()) < 0) {
 
@@ -185,17 +224,5 @@ public class OrderEdit extends StandardEditor<Order> {
 
             System.out.println("Exception Handled");
         }
-
     }
-
-    @Subscribe("statusField")
-    public void onStatusFieldValueChange(HasValue.ValueChangeEvent<OrderStatusSelect> event) {
-
-        if (getEditedEntity().getStatus() == OrderStatusSelect.QUOTE_REQUEST) {
-
-            amountDueField.setValue(BigDecimal.ZERO);
-        }
-
-    }
-
 }
