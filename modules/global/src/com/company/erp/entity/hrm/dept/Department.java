@@ -1,5 +1,6 @@
 package com.company.erp.entity.hrm.dept;
 
+import com.company.erp.entity.hrm.employee.Employee;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
@@ -27,6 +28,19 @@ public class Department extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "department")
     protected List<Subunit> subunit;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "department")
+    protected List<Employee> employee;
+
+    public List<Employee> getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(List<Employee> employee) {
+        this.employee = employee;
+    }
 
     public List<Subunit> getSubunit() {
         return subunit;

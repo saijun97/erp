@@ -6,13 +6,12 @@
     <data>
         <instance id="subunitDc"
                   class="com.company.erp.entity.hrm.dept.Subunit"
-                  view="_local">
+                  view="subunit-view">
             <loader/>
+            <collection id="employeeDc" property="employee"/>
         </instance>
     </data>
-    <dialogMode height="AUTO"
-                width="AUTO"
-                modal="true"
+    <dialogMode modal="true"
                 forceDialog="true"/>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="subunitDc">
@@ -20,6 +19,25 @@
                 <textField id="subunitField" property="subunit"/>
             </column>
         </form>
+        <groupBox id="employeeBox" caption="msg://com.company.erp.entity.hrm.dept/Subunit.employee">
+            <table id="employeeTable" dataContainer="employeeDc" width="100%" height="200px">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="empId"/>
+                    <column id="fullName"/>
+                    <column id="jobPosition"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="employeeTable.create"/>
+                    <button action="employeeTable.edit"/>
+                    <button action="employeeTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowCommit"/>
