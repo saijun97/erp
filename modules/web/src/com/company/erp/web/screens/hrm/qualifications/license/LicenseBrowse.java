@@ -5,7 +5,7 @@ import com.company.erp.entity.hrm.qualifications.license.License;
 
 @UiController("erp_License.browse")
 @UiDescriptor("license-browse.xml")
-@LookupComponent("licensesTable")
+@LookupComponent("table")
 @LoadDataBeforeShow
-public class LicenseBrowse extends StandardLookup<License> {
+public class LicenseBrowse extends MasterDetailScreen<License> {
 }

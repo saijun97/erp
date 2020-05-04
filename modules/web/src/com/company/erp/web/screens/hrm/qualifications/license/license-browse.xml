@@ -1,59 +1,103 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
-        focusComponent="licensesTable"
+        focusComponent="table"
         messagesPack="com.company.erp.web.screens.hrm.qualifications.license">
-    <data readOnly="true">
+    <data>
         <collection id="licensesDc"
                     class="com.company.erp.entity.hrm.qualifications.license.License"
-                    view="_local">
+                    view="license-view">
             <loader id="licensesDl">
                 <query>
                     <![CDATA[select e from erp_License e]]>
                 </query>
             </loader>
         </collection>
+        <instance id="licenseDc"
+                  class="com.company.erp.entity.hrm.qualifications.license.License"
+                  view="license-view">
+            <loader/>
+            <collection id="employeeDc" property="employee"/>
+        </instance>
     </data>
-    <dialogMode height="600"
-                width="800"/>
-    <layout expand="licensesTable"
-            spacing="true">
-        <filter id="filter"
-                applyTo="licensesTable"
-                dataLoader="licensesDl"
-                defaultMode="fts"
-                applyImmediately="false">
-            <properties  include=".*"
-                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
-                         excludeRecursively="true"
-                         exclude="(id)"/>
-        </filter>
-        <groupTable id="licensesTable"
-                    width="100%"
-                    dataContainer="licensesDc"
-                    multiselect="true"
-                    presentations="true">
-            <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-                <action id="excel" type="excel"/>
-            </actions>
-            <columns>
-                <column id="name"/>
-            </columns>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn" action="licensesTable.create"/>
-                <button id="editBtn" action="licensesTable.edit"/>
-                <button id="removeBtn" action="licensesTable.remove"/>
-                <button id="excelBtn" action="licensesTable.excel"/>
-            </buttonsPanel>
-        </groupTable>
-        <hbox id="lookupActions" spacing="true" visible="false">
-            <button action="lookupSelectAction"/>
-            <button action="lookupCancelAction"/>
-        </hbox>
+    <actions>
+        <action id="save" icon="icons/ok.png" caption="mainMsg://actions.Ok" shortcut="CTRL-ENTER"/>
+        <action id="cancel" icon="icons/cancel.png" caption="mainMsg://actions.Cancel" description="Esc"/>
+    </actions>
+    <dialogMode height="600" width="800"/>
+    <layout>
+        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+                <filter id="filter" applyTo="table" dataLoader="licensesDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="licensesDc"
+                            multiselect="true"
+                            presentations="true">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                        <action id="excel" type="excel"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"/>
+                        <button id="editBtn" action="table.edit"/>
+                        <button id="removeBtn" action="table.remove"/>
+                        <button id="excelBtn" action="table.excel"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox id="editBox" height="100%" margin="false,false,false,true" expand="tabSheetBox" spacing="true">
+                <vbox id="tabSheetBox">
+                    <tabSheet id="tabSheet" height="100%">
+                        <tab id="mainTab" caption="msg://mainTab" margin="true">
+                            <scrollBox id="fieldGroupBox"
+                                       height="100%">
+                                <form id="form" dataContainer="licenseDc">
+                                    <column width="250px">
+                                        <textField id="nameField" property="name"/>
+                                    </column>
+                                </form>
+                            </scrollBox>
+                        </tab>
+                        <tab id='employeeTab'
+                             caption='msg://com.company.erp.entity.hrm.qualifications.license/License.employee'
+                             margin='true,false,false,false'>
+                            <table id="employeeTable" dataContainer="employeeDc" width="100%" height="250px">
+                                <actions>
+                                    <action id="edit" type="edit"/>
+                                    <action id="remove" type="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="employee"/>
+                                    <column id="licenseNumber"/>
+                                    <column id="expiryDate"/>
+                                </columns>
+                                <buttonsPanel>
+                                    <button action="employeeTable.edit"/>
+                                    <button action="employeeTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                        </tab>
+                    </tabSheet>
+                </vbox>
+                <hbox id="actionsPane" spacing="true" visible="false">
+                    <button id="saveBtn" action="save"/>
+                    <button id="cancelBtn" action="cancel"/>
+                </hbox>
+                <fragment screen="erp_LicensingDistributionFragment" height="310px"/>
+            </vbox>
+        </split>
     </layout>
 </window>

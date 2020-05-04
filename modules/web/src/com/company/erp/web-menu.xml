@@ -16,8 +16,8 @@
         <menu id="qualifications" icon="font-icon:GRADUATION_CAP">
             <item screen="erp_Education.browse"/>
             <item screen="erp_Skill.browse"/>
-            <item screen="erp_Language.browse"/>
             <item screen="erp_License.browse"/>
+            <item screen="erp_Language.browse"/>
         </menu>
         <menu id="hrmMasterData" icon="font-icon:DATABASE">
             <item screen="erp_Department.browse"/>
