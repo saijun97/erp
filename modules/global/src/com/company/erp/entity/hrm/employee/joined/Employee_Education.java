@@ -3,6 +3,7 @@ package com.company.erp.entity.hrm.employee.joined;
 import com.company.erp.entity.hrm.employee.Employee;
 import com.company.erp.entity.hrm.qualifications.education.Education;
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
@@ -10,6 +11,7 @@ import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @NamePattern("%s|education")
@@ -38,8 +40,9 @@ public class Employee_Education extends StandardEntity {
     @Column(name = "YEAR_")
     protected Date year;
 
+    @NumberFormat(pattern = "0.00")
     @Column(name = "GPA_SCORE")
-    protected Integer gpaScore;
+    protected BigDecimal gpaScore;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "START_DATE")
@@ -65,11 +68,11 @@ public class Employee_Education extends StandardEntity {
         this.startDate = startDate;
     }
 
-    public Integer getGpaScore() {
+    public BigDecimal getGpaScore() {
         return gpaScore;
     }
 
-    public void setGpaScore(Integer gpaScore) {
+    public void setGpaScore(BigDecimal gpaScore) {
         this.gpaScore = gpaScore;
     }
 

@@ -154,6 +154,17 @@
         <property name="brand" view="_minimal"/>
     </view>
     <view entity="erp_PortalMessages" name="portalMessage-view-details" extends="_local"/>
+    <view entity="erp_Education" name="education-view" extends="_local">
+        <property name="employee" view="_minimal">
+            <property name="employee" view="_minimal"/>
+            <property name="institute"/>
+            <property name="majorSpecialization"/>
+            <property name="year"/>
+            <property name="gpaScore"/>
+            <property name="startDate"/>
+            <property name="endDate"/>
+        </property>
+    </view>
 
 
 </views>

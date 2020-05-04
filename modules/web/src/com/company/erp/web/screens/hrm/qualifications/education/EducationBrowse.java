@@ -5,7 +5,7 @@ import com.company.erp.entity.hrm.qualifications.education.Education;
 
 @UiController("erp_Education.browse")
 @UiDescriptor("education-browse.xml")
-@LookupComponent("educationsTable")
+@LookupComponent("table")
 @LoadDataBeforeShow
-public class EducationBrowse extends StandardLookup<Education> {
+public class EducationBrowse extends MasterDetailScreen<Education> {
 }

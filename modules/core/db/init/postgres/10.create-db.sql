@@ -117,7 +117,7 @@ create table ERP_EMPLOYEE_EDUCATION (
     INSTITUTE varchar(255) not null,
     MAJOR_SPECIALIZATION varchar(255),
     YEAR_ date,
-    GPA_SCORE integer,
+    GPA_SCORE decimal(19, 2),
     START_DATE date,
     END_DATE date,
     --

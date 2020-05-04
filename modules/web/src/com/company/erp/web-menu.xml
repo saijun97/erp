@@ -14,8 +14,8 @@
     <menu id="hrm"  insertBefore="reports" insertAfter="general" icon="font-icon:BRIEFCASE">
         <item screen="erp_Employee.browse" icon="font-icon:ID_BADGE"/>
         <menu id="qualifications" icon="font-icon:GRADUATION_CAP">
-            <item screen="erp_Skill.browse"/>
             <item screen="erp_Education.browse"/>
+            <item screen="erp_Skill.browse"/>
             <item screen="erp_Language.browse"/>
             <item screen="erp_License.browse"/>
         </menu>
