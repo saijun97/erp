@@ -5,7 +5,7 @@ import com.company.erp.entity.hrm.qualifications.language.Language;
 
 @UiController("erp_Language.browse")
 @UiDescriptor("language-browse.xml")
-@LookupComponent("languagesTable")
+@LookupComponent("table")
 @LoadDataBeforeShow
-public class LanguageBrowse extends StandardLookup<Language> {
+public class LanguageBrowse extends MasterDetailScreen<Language> {
 }

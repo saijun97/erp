@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <keyValueCollection id="LanguageDistributionDc">
+            <loader id="LanguageDistributionPieChartLoader">
+                <query>
+                    <![CDATA[SELECT count(e), e.language
+                             FROM erp_Employee_Language e
+                             GROUP BY e.language]]>
+                </query>
+            </loader>
+            <properties>
+                <property name="count"/>
+                <property name="license"/>
+            </properties>
+        </keyValueCollection>
+    </data>
+    <layout>
+        <chart:pieChart dataContainer="LanguageDistributionDc"
+                        creditsPosition="BOTTOM_LEFT"
+                        theme="LIGHT"
+                        angle="30"
+                        balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
+                        &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
+                        depth3D="15"
+                        height="100%"
+                        radius="75"
+                        outlineAlpha="0.4"
+                        titleField="language"
+                        valueField="count"
+                        width="100%">
+            <chart:titles>
+                <chart:title alpha="1"
+                             bold="true"
+                             color="DARKSLATEGREY"
+                             size="20"
+                             tabIndex="0"
+                             text="Language Distribution"/>
+                <chart:title alpha="0.5"
+                             color="DARKBLUE"
+                             size="12"
+                             text="Within Organisation"/>
+            </chart:titles>
+            <chart:legend autoMargins="true"
+                          marginRight="30"
+                          markerType="CIRCLE"
+                          position="BOTTOM"
+                          equalWidths="false"/>
+            <chart:export/>
+        </chart:pieChart>
+    </layout>
+</fragment>

@@ -165,6 +165,12 @@
         </property>
         <property name="name"/>
     </view>
+    <view entity="erp_Language" name="language-view">
+        <property name="employee" view="_local">
+            <property name="employee" view="_minimal"/>
+        </property>
+        <property name="name"/>
+    </view>
 
 
 </views>

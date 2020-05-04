@@ -1,59 +1,103 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
-        focusComponent="languagesTable"
+        focusComponent="table"
         messagesPack="com.company.erp.web.screens.hrm.qualifications.language">
-    <data readOnly="true">
+    <data>
         <collection id="languagesDc"
                     class="com.company.erp.entity.hrm.qualifications.language.Language"
-                    view="_local">
+                    view="language-view">
             <loader id="languagesDl">
                 <query>
                     <![CDATA[select e from erp_Language e]]>
                 </query>
             </loader>
         </collection>
+        <instance id="languageDc"
+                  class="com.company.erp.entity.hrm.qualifications.language.Language"
+                  view="language-view">
+            <loader/>
+            <collection id="employeeDc" property="employee"/>
+        </instance>
     </data>
-    <dialogMode height="600"
-                width="800"/>
-    <layout expand="languagesTable"
-            spacing="true">
-        <filter id="filter"
-                applyTo="languagesTable"
-                dataLoader="languagesDl"
-                defaultMode="fts"
-                applyImmediately="false">
-            <properties  include=".*"
-                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
-                         excludeRecursively="true"
-                         exclude="(id)"/>
-        </filter>
-        <groupTable id="languagesTable"
-                    width="100%"
-                    dataContainer="languagesDc"
-                    multiselect="true"
-                    presentations="true">
-            <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-                <action id="excel" type="excel"/>
-            </actions>
-            <columns>
-                <column id="name"/>
-            </columns>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn" action="languagesTable.create"/>
-                <button id="editBtn" action="languagesTable.edit"/>
-                <button id="removeBtn" action="languagesTable.remove"/>
-                <button id="excelBtn" action="languagesTable.excel"/>
-            </buttonsPanel>
-        </groupTable>
-        <hbox id="lookupActions" spacing="true" visible="false">
-            <button action="lookupSelectAction"/>
-            <button action="lookupCancelAction"/>
-        </hbox>
+    <actions>
+        <action id="save" icon="icons/ok.png" caption="mainMsg://actions.Ok" shortcut="CTRL-ENTER"/>
+        <action id="cancel" icon="icons/cancel.png" caption="mainMsg://actions.Cancel" description="Esc"/>
+    </actions>
+    <dialogMode height="600" width="800"/>
+    <layout>
+        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+                <filter id="filter" applyTo="table" dataLoader="languagesDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="languagesDc"
+                            multiselect="true"
+                            presentations="true">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                        <action id="excel" type="excel"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"/>
+                        <button id="editBtn" action="table.edit"/>
+                        <button id="removeBtn" action="table.remove"/>
+                        <button id="excelBtn" action="table.excel"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox id="editBox" height="100%" margin="false,false,false,true" expand="tabSheetBox" spacing="true">
+                <vbox id="tabSheetBox">
+                    <tabSheet id="tabSheet" height="100%">
+                        <tab id="mainTab" caption="msg://mainTab" margin="true">
+                            <scrollBox id="fieldGroupBox"
+                                       height="100%">
+                                <form id="form" dataContainer="languageDc">
+                                    <column width="250px">
+                                        <textField id="nameField" property="name"/>
+                                    </column>
+                                </form>
+                            </scrollBox>
+                        </tab>
+                        <tab id='employeeTab'
+                             caption='msg://com.company.erp.entity.hrm.qualifications.language/Language.employee'
+                             margin='true,false,false,false'>
+                            <table id="employeeTable" dataContainer="employeeDc" width="100%" height="250px">
+                                <actions>
+                                    <action id="edit" type="edit"/>
+                                    <action id="remove" type="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="employee"/>
+                                    <column id="fluency"/>
+                                    <column id="competency"/>
+                                </columns>
+                                <buttonsPanel>
+                                    <button action="employeeTable.edit"/>
+                                    <button action="employeeTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                        </tab>
+                    </tabSheet>
+                </vbox>
+                <hbox id="actionsPane" spacing="true" visible="false">
+                    <button id="saveBtn" action="save"/>
+                    <button id="cancelBtn" action="cancel"/>
+                </hbox>
+                <fragment screen="erp_LanguageDistributionFragment" height="310px"/>
+            </vbox>
+        </split>
     </layout>
 </window>
