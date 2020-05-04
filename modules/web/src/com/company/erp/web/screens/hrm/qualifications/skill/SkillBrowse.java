@@ -5,7 +5,7 @@ import com.company.erp.entity.hrm.qualifications.skill.Skill;
 
 @UiController("erp_Skill.browse")
 @UiDescriptor("skill-browse.xml")
-@LookupComponent("skillsTable")
+@LookupComponent("table")
 @LoadDataBeforeShow
-public class SkillBrowse extends StandardLookup<Skill> {
+public class SkillBrowse extends MasterDetailScreen<Skill> {
 }

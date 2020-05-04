@@ -536,7 +536,7 @@ create table ERP_SKILL (
     DELETED_BY varchar(50),
     NAME varchar(255) not null,
     --
-    DESCRIPTION varchar(255),
+    DESCRIPTION text,
     --
     primary key (ID)
 )^

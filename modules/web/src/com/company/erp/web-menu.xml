@@ -23,7 +23,6 @@
             <item screen="erp_Department.browse"/>
             <item screen="erp_Job_Position.browse"/>
         </menu>
-
     </menu>
     <menu id="crm" insertBefore="reports" insertAfter="hrm" icon="font-icon:HANDSHAKE_O">
             <item screen="erp_Client.browse" icon="font-icon:GROUP"/>

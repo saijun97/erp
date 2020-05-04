@@ -8,10 +8,7 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @NamePattern("%s|name")
@@ -20,6 +17,7 @@ import java.util.List;
 public class Skill extends NamedEntity {
     private static final long serialVersionUID = -6729537307433015837L;
 
+    @Lob
     @Column(name = "DESCRIPTION")
     protected String description;
 

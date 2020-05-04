@@ -159,17 +159,20 @@
             <property name="employee" view="_minimal"/>
         </property>
     </view>
-    <view entity="erp_License" name="license-view">
+    <view entity="erp_License" name="license-view" extends="_local">
         <property name="employee" view="_local">
             <property name="employee" view="_minimal"/>
         </property>
-        <property name="name"/>
     </view>
-    <view entity="erp_Language" name="language-view">
+    <view entity="erp_Language" name="language-view" extends="_local">
         <property name="employee" view="_local">
             <property name="employee" view="_minimal"/>
         </property>
-        <property name="name"/>
+    </view>
+    <view entity="erp_Skill" name="skill-view" extends="_local">
+        <property name="employee" view="_local">
+            <property name="employee" view="_minimal"/>
+        </property>
     </view>
 
 
