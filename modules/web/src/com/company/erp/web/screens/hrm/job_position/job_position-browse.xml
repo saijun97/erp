@@ -1,60 +1,113 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://browseCaption"
-        focusComponent="job_PositionsTable"
+        focusComponent="table"
         messagesPack="com.company.erp.web.screens.hrm.job_position">
-    <data readOnly="true">
+    <data>
         <collection id="job_PositionsDc"
                     class="com.company.erp.entity.hrm.job_positions.Job_Position"
-                    view="_local">
+                    view="job_Position-view">
             <loader id="job_PositionsDl">
                 <query>
                     <![CDATA[select e from erp_Job_Position e]]>
                 </query>
             </loader>
         </collection>
+        <instance id="job_PositionDc"
+                  class="com.company.erp.entity.hrm.job_positions.Job_Position"
+                  view="job_Position-view">
+            <loader/>
+            <collection id="employeeDc" property="employee"/>
+        </instance>
     </data>
-    <dialogMode height="600"
-                width="800"/>
-    <layout expand="job_PositionsTable"
-            spacing="true">
-        <filter id="filter"
-                applyTo="job_PositionsTable"
-                dataLoader="job_PositionsDl"
-                defaultMode="fts"
-                applyImmediately="false">
-            <properties  include=".*"
-                         excludeProperties="version,createTs,createdBy,updateTs,updatedBy,deleteTs,deletedBy"
-                         excludeRecursively="true"
-                         exclude="(id)"/>
-        </filter>
-        <groupTable id="job_PositionsTable"
-                    width="100%"
-                    dataContainer="job_PositionsDc"
-                    multiselect="true"
-                    presentations="true">
-            <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-                <action id="excel" type="excel"/>
-            </actions>
-            <columns>
-                <column id="name"/>
-                <column id="responsibilities"/>
-            </columns>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn" action="job_PositionsTable.create"/>
-                <button id="editBtn" action="job_PositionsTable.edit"/>
-                <button id="removeBtn" action="job_PositionsTable.remove"/>
-                <button id="excelBtn" action="job_PositionsTable.excel"/>
-            </buttonsPanel>
-        </groupTable>
-        <hbox id="lookupActions" spacing="true" visible="false">
-            <button action="lookupSelectAction"/>
-            <button action="lookupCancelAction"/>
-        </hbox>
+    <actions>
+        <action id="save" icon="icons/ok.png" caption="mainMsg://actions.Ok" shortcut="CTRL-ENTER"/>
+        <action id="cancel" icon="icons/cancel.png" caption="mainMsg://actions.Cancel" description="Esc"/>
+    </actions>
+    <dialogMode height="600" width="800"/>
+    <layout>
+        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+                <filter id="filter" applyTo="table" dataLoader="job_PositionsDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="job_PositionsDc"
+                            multiselect="true"
+                            presentations="true">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                        <action id="excel" type="excel"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                        <column id="responsibilities"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"/>
+                        <button id="editBtn" action="table.edit"/>
+                        <button id="removeBtn" action="table.remove"/>
+                        <button id="excelBtn" action="table.excel"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox id="editBox" height="100%" margin="false,false,false,true" expand="tabSheetBox" spacing="true">
+                <vbox id="tabSheetBox">
+                    <tabSheet id="tabSheet" height="100%">
+                        <tab id="mainTab" caption="msg://mainTab" margin="true">
+                            <scrollBox id="fieldGroupBox"
+                                       height="100%">
+                                <form id="form" dataContainer="job_PositionDc">
+                                    <column width="250px">
+                                        <textField id="nameField" property="name"/>
+                                        <resizableTextArea id="responsibilitiesField"
+                                                           property="responsibilities"
+                                                           rows="5"/>
+                                    </column>
+                                </form>
+                            </scrollBox>
+                        </tab>
+                        <tab id='employeeTab'
+                             caption='msg://com.company.erp.entity.hrm.job_positions/Job_Position.employee'
+                             margin='true,false,false,false'>
+                            <groupTable id="employeeTable"
+                                   dataContainer="employeeDc"
+                                   width="100%"
+                                   height="250px"
+                                   multiLineCells="true">
+                                <actions>
+                                    <action id="create" type="create"/>
+                                    <action id="edit" type="edit"/>
+                                    <action id="remove" type="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="fullName"/>
+                                    <column id="department"/>
+                                </columns>
+                                <buttonsPanel>
+                                    <button action="employeeTable.create"/>
+                                    <button action="employeeTable.edit"/>
+                                    <button action="employeeTable.remove"/>
+                                </buttonsPanel>
+                            </groupTable>
+                        </tab>
+                    </tabSheet>
+                </vbox>
+                <hbox id="actionsPane" spacing="true" visible="false">
+                    <button id="saveBtn" action="save"/>
+                    <button id="cancelBtn" action="cancel"/>
+                </hbox>
+                <fragment screen="erp_JobsDistributionFragment" height="310px"/>
+            </vbox>
+        </split>
     </layout>
 </window>
