@@ -68,7 +68,11 @@
                                 </form>
                                 <groupBox id='employeeBox'
                                           caption='msg://com.company.erp.entity.hrm.qualifications.license/License.employee'>
-                                    <table id="employeeTable" dataContainer="employeeDc" width="100%" height="200px">
+                                    <table id="employeeTable"
+                                           dataContainer="employeeDc"
+                                           width="100%"
+                                           height="200px"
+                                           multiLineCells="true">
                                         <actions>
                                             <action id="edit" type="edit"/>
                                             <action id="remove" type="remove"/>

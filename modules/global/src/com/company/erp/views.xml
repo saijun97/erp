@@ -176,7 +176,16 @@
         </property>
     </view>
     <view entity="erp_Subunit" name="subunit-view" extends="_local">
-        <property name="employee" view="employee-view-details"/>
+        <property name="employee" view="_minimal">
+            <property name="empId"/>
+            <property name="jobPosition" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="erp_Job_Position" name="job_Position-view" extends="_local">
+        <property name="employee" view="_minimal">
+            <property name="empId"/>
+            <property name="department" view="_minimal"/>
+        </property>
     </view>
 
 

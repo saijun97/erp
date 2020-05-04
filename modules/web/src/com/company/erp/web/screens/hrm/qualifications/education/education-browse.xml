@@ -67,7 +67,11 @@
                     </form>
                     <groupBox id="employeeBox"
                               caption="msg://com.company.erp.entity.hrm.qualifications.education/Education.employee">
-                        <table id="employeeTable" dataContainer="employeeDc" width="100%" height="200px">
+                        <groupTable id="employeeTable"
+                                    dataContainer="employeeDc"
+                                    width="100%"
+                                    height="200px"
+                                    multiLineCells="true">
                             <actions>
                                 <action id="edit" type="edit"/>
                                 <action id="remove" type="remove"/>
@@ -81,7 +85,7 @@
                                 <button action="employeeTable.edit"/>
                                 <button action="employeeTable.remove"/>
                             </buttonsPanel>
-                        </table>
+                        </groupTable>
                     </groupBox>
                 </scrollBox>
                 <hbox id="actionsPane" spacing="true" visible="false">
