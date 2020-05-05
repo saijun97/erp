@@ -40,8 +40,8 @@
         <menu id="productManagement" icon="font-icon:DROPBOX">
            <item screen="erp_Product.browse" icon="font-icon:PRODUCT_HUNT"/>
         <menu id="productMasterData" icon="font-icon:DATABASE">
-            <item screen="erp_ProductCategory.browse"/>
             <item screen="erp_Make_Manufacturer.browse"/>
+            <item screen="erp_ProductCategory.browse"/>
         </menu>
         </menu>
     </menu>

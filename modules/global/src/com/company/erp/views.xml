@@ -199,6 +199,21 @@
             <property name="image"/>
         </property>
     </view>
+    <view entity="erp_ProductCategory" name="productCategory-view" extends="_local">
+        <property name="product" view="_minimal">
+            <property name="make_manufacturer" view="_minimal"/>
+            <property name="qtyTotal"/>
+            <property name="vatPrice"/>
+        </property>
+        <property name="catalogProduct" view="_minimal">
+            <property name="brand" view="_minimal"/>
+            <property name="image"/>
+        </property>
+        <property name="serviceRequestEquipment" view="_minimal">
+            <property name="serialNumber"/>
+            <property name="serviceRequest" view="_minimal"/>
+        </property>
+    </view>
 
 
 </views>

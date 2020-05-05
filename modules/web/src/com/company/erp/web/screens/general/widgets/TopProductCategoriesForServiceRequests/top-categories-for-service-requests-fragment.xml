@@ -3,7 +3,7 @@
           xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
 <data>
     <keyValueCollection id="topProductCategoriesForSRFDc">
-        <loader id="topProductCategoriesForSRFLoader">
+        <loader id="topProductCategoriesForSRFLoader" maxResults="4">
             <query>
                 <![CDATA[SELECT count(e), e.productCategory
                              FROM erp_Equipment e

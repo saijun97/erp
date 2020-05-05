@@ -5,7 +5,7 @@ import com.company.erp.entity.sales_inventory.product.master_data.product_catego
 
 @UiController("erp_ProductCategory.browse")
 @UiDescriptor("product-category-browse.xml")
-@LookupComponent("productCategoriesTable")
+@LookupComponent("table")
 @LoadDataBeforeShow
-public class ProductCategoryBrowse extends StandardLookup<ProductCategory> {
+public class ProductCategoryBrowse extends MasterDetailScreen<ProductCategory> {
 }
