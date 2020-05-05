@@ -13,6 +13,8 @@ import com.haulmont.addon.dnd.components.acceptcriterion.AcceptCriterion;
 import com.haulmont.addon.dnd.components.dragevent.DragAndDropEvent;
 import com.haulmont.cuba.gui.ScreenBuilders;
 import com.haulmont.cuba.gui.components.*;
+import com.haulmont.cuba.gui.components.Timer;
+import com.haulmont.cuba.gui.components.mainwindow.SideMenu;
 import com.haulmont.cuba.gui.screen.LoadDataBeforeShow;
 import com.haulmont.cuba.gui.screen.Subscribe;
 import com.haulmont.cuba.gui.screen.UiController;
@@ -25,6 +27,8 @@ import com.haulmont.cuba.web.theme.HaloTheme;
 import com.haulmont.addon.dnd.components.DDVerticalLayoutTargetDetails;
 import com.haulmont.addon.dnd.components.LayoutBoundTransferable;
 import com.haulmont.addon.dnd.components.enums.VerticalDropLocation;
+
+import de.diedavids.cuba.userinbox.web.screens.UserInboxMessageMenuBadge;
 
 import javax.inject.Inject;
 import java.util.*;
@@ -46,8 +50,23 @@ public class ExtMainScreen extends MainScreen {
     @Inject
     private DDVerticalLayout palette;
 
+    @Inject
+    protected SideMenu sideMenu;
+    @Inject
+    protected Timer updateCountersTimer;
+
+    @Inject
+    protected UserInboxMessageMenuBadge userInboxMessageMenuBadge;
+
     @Subscribe
     public void onInit(InitEvent initEvent) {
+
+        userInboxMessageMenuBadge.initMessagesMenuItem(
+                sideMenu,
+                updateCountersTimer,
+                this
+        );
+
         addCreateActions();
 
         dashboard.setDropHandler(new DropHandler() {
@@ -253,6 +272,17 @@ public class ExtMainScreen extends MainScreen {
                 .build()
                 .show();
 
+    }
+
+
+    @Subscribe
+    protected void onAfterShow(AfterShowEvent event) {
+        userInboxMessageMenuBadge.updateMessageCounter(sideMenu);
+    }
+
+    @Subscribe("updateCountersTimer")
+    protected void onUpdateCountersTimerTimerAction(Timer.TimerActionEvent event) {
+        userInboxMessageMenuBadge.updateMessageCounter(sideMenu);
     }
 
 }

@@ -95,12 +95,12 @@
                             </table>
                         </tab>
                     </tabSheet>
-                    <fragment screen="erp_SkillsDistributionFragment" height="310px"/>
                 </vbox>
                 <hbox id="actionsPane" spacing="true" visible="false">
                     <button id="saveBtn" action="save"/>
                     <button id="cancelBtn" action="cancel"/>
                 </hbox>
+                <fragment screen="erp_SkillsDistributionFragment" height="310px"/>
             </vbox>
         </split>
     </layout>

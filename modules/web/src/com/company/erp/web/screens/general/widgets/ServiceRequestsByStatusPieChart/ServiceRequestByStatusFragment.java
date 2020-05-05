@@ -12,7 +12,6 @@ public class ServiceRequestByStatusFragment extends ScreenFragment {
     @Inject
     protected KeyValueCollectionLoader serviceRequestsByStatusPieChartLoader;
 
-
     @Subscribe(target = Target.PARENT_CONTROLLER)
     protected void onBeforeShow(Screen.BeforeShowEvent event) {
 

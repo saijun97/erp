@@ -12,7 +12,7 @@
             </loader>
             <properties>
                 <property name="count"/>
-                <property name="license"/>
+                <property name="skill"/>
             </properties>
         </keyValueCollection>
     </data>

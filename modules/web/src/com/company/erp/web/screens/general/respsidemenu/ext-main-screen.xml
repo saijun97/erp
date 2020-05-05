@@ -2,6 +2,9 @@
         xmlns:swr="http://strangeway.org/xsd/responsive/sw-responsive.xsd"
         xmlns:dnd="http://schemas.haulmont.com/dnd/0.1/drag-and-drop.xsd"
         extends="/com/haulmont/cuba/web/app/main/main-screen.xml">
+    <facets>
+        <timer id="updateCountersTimer" delay="3000"  autostart="true" repeating="true" />
+    </facets>
     <layout>
         <cssLayout id="horizontalWrap">
             <workArea id="workArea">

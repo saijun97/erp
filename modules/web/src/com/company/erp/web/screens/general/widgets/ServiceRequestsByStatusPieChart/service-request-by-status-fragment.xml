@@ -17,7 +17,8 @@
         </keyValueCollection>
     </data>
     <layout>
-        <chart:pieChart dataContainer="serviceRequestsByStatusDc"
+        <chart:pieChart id="srfPieChart"
+                        dataContainer="serviceRequestsByStatusDc"
                         creditsPosition="BOTTOM_LEFT"
                         theme="LIGHT"
                         angle="30"
