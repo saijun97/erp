@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <keyValueCollection id="topBrandsInInventoryDc">
+            <loader id="topBrandsInInventoryPieChartLoader"
+                    maxResults="10">
+                <query>
+                    <![CDATA[SELECT sum(e.qtyTotal), e.make_manufacturer
+                             FROM erp_Product e
+                             GROUP BY e.make_manufacturer
+                             ORDER BY sum(e.qtyTotal) DESC]]>
+                </query>
+            </loader>
+            <properties>
+                <property name="count"/>
+                <property name="make_manufacturer"/>
+            </properties>
+        </keyValueCollection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <layout>
+        <chart:pieChart dataContainer="topBrandsInInventoryDc"
+                        creditsPosition="BOTTOM_LEFT"
+                        theme="LIGHT"
+                        innerRadius="25"
+                        labelRadius="5"
+                        balloonText="[[title]]&lt;br&gt;&lt;span style='font-size:14px'&gt;
+                        &lt;strong&gt;[[value]]&lt;/strong&gt; ([[percents]]%)&lt;/span&gt;"
+                        depth3D="15"
+                        height="100%"
+                        radius="60"
+                        outlineAlpha="0.4"
+                        titleField="make_manufacturer"
+                        valueField="count"
+                        width="100%">
+            <chart:titles>
+                <chart:title alpha="1"
+                             bold="true"
+                             color="DARKSLATEGREY"
+                             size="20"
+                             tabIndex="0"
+                             text="Top Brands"/>
+                <chart:title alpha="0.5"
+                             color="DARKBLUE"
+                             size="12"
+                             text="In Inventory"/>
+            </chart:titles>
+            <chart:legend autoMargins="true"
+                          marginRight="30"
+                          markerType="CIRCLE"
+                          position="BOTTOM"
+                          equalWidths="false"/>
+            <chart:export/>
+        </chart:pieChart>
+    </layout>
+</fragment>
