@@ -187,6 +187,18 @@
             <property name="department" view="_minimal"/>
         </property>
     </view>
+    <view entity="erp_Make_Manufacturer" name="make_Manufacturer-view" extends="_local">
+        <property name="product" view="_minimal">
+            <property name="productCategory" view="_minimal"/>
+            <property name="qtyTotal"/>
+            <property name="vatPrice"/>
+        </property>
+        <property name="catalogProduct" view="_minimal">
+            <property name="category" view="_minimal"/>
+            <property name="stockStatus"/>
+            <property name="image"/>
+        </property>
+    </view>
 
 
 </views>

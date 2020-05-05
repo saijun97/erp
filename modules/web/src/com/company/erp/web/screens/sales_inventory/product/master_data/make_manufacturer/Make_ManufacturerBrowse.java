@@ -5,7 +5,7 @@ import com.company.erp.entity.sales_inventory.product.master_data.make_manufactu
 
 @UiController("erp_Make_Manufacturer.browse")
 @UiDescriptor("make_manufacturer-browse.xml")
-@LookupComponent("make_ManufacturersTable")
+@LookupComponent("table")
 @LoadDataBeforeShow
-public class Make_ManufacturerBrowse extends StandardLookup<Make_Manufacturer> {
+public class Make_ManufacturerBrowse extends MasterDetailScreen<Make_Manufacturer> {
 }
