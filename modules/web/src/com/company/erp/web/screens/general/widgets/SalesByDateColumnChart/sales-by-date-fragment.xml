@@ -6,16 +6,16 @@
             <loader id="salesByDateColumnChartLoader"
                     maxResults="31">
                 <query>
-                    <![CDATA[SELECT sum(e.amount), e.executionDateInvisible
+                    <![CDATA[SELECT sum(e.amount), e.executionDate
                          FROM erp_Payment e
-                         GROUP BY e.executionDateInvisible
-                         ORDER BY e.executionDateInvisible]]>
+                         GROUP BY e.executionDate
+                         ORDER BY e.executionDate]]>
                 </query>
             </loader>
             <properties>
                 <property class="com.company.erp.entity.sales_inventory.order.Order"
                           name="sum"/>
-                <property name="executionDateInvisible"/>
+                <property name="executionDate"/>
             </properties>
         </keyValueCollection>
     </data>
@@ -25,7 +25,7 @@
                            addClassNames="true"
                            byDate="true"
                            autoMargins="false"
-                           categoryField="executionDateInvisible"
+                           categoryField="executionDate"
                            dataContainer="salesByDateColumnChartDc"
                            depth3D="60"
                            angle="30"
