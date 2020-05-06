@@ -52,11 +52,13 @@ public class ExtMainScreen extends MainScreen {
 
     @Inject
     protected SideMenu sideMenu;
+
     @Inject
     protected Timer updateCountersTimer;
 
     @Inject
     protected UserInboxMessageMenuBadge userInboxMessageMenuBadge;
+
 
     @Subscribe
     public void onInit(InitEvent initEvent) {
@@ -273,7 +275,6 @@ public class ExtMainScreen extends MainScreen {
                 .show();
 
     }
-
 
     @Subscribe
     protected void onAfterShow(AfterShowEvent event) {

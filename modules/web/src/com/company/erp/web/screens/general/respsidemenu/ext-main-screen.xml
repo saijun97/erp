@@ -127,11 +127,6 @@
                                                     align="MIDDLE_CENTER"
                                                     width="100%"
                                                     stylename="friendly"/>
-                                            <button id="mobileApp"
-                                                    icon="font-icon:MOBILE"
-                                                    caption="Download Mobile App"
-                                                    align="MIDDLE_CENTER"
-                                                    width="100%"/>
                                             <link   id="mns"
                                                     icon="font-icon:EXTERNAL_LINK"
                                                     caption="Mauritius Network Services"
@@ -139,6 +134,13 @@
                                                     width="100%"
                                                     target="_blank"
                                                     url="https://companies.govmu.org:4343/MNSOnlineSearch/"/>
+                                            <link id="portal"
+                                                  icon="font-icon:MOBILE"
+                                                  caption="Go to Public Portal"
+                                                  align="MIDDLE_CENTER"
+                                                  width="100%"
+                                                  target="_blank"
+                                                  url = "https://portal.srjdissert.ga/"/>
                                         </vbox>
                                     </swr:content>
                                     <swr:display xs="12" sm="12" md="12" lg="3"/>
