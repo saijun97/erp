@@ -473,49 +473,117 @@ INSERT INTO PUBLIC.ERP_CITY (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDA
 INSERT INTO PUBLIC.ERP_CITY (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, CITY, COORDINATES, COUNTRY_ID) VALUES ('fe3392df-4079-e796-1b6f-9a8ea6326a4a', 1, '2020-01-08 04:24:24.699000', 'admin', '2020-01-08 04:24:24.699000', null, null, null, 'L''Escalier', '', '4238d410-7f98-f784-93fa-7c4819d12819');
 --end cities data
 
---begin use case data
-INSERT INTO PUBLIC.ERP_DEPARTMENT (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DEPARTMENT) VALUES ('856c9f21-4001-cc44-7ede-0b3db1ca037c', 1, '2019-12-09 15:59:54.962000', 'admin', '2019-12-09 15:59:54.962000', null, null, null, 'Information Technology');
-INSERT INTO PUBLIC.ERP_SUBUNIT (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, SUBUNIT, DEPARTMENT_ID) VALUES ('2c7a0516-cdf9-c102-92a6-f214cf6f14b0', 1, '2019-12-09 15:59:54.962000', 'admin', '2019-12-09 15:59:54.962000', null, null, null, 'Frontend Developpers', '856c9f21-4001-cc44-7ede-0b3db1ca037c');
-INSERT INTO PUBLIC.ERP_SUBUNIT (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, SUBUNIT, DEPARTMENT_ID) VALUES ('5577d77d-c026-be5b-c7b8-a0b8e7c37bc3', 1, '2019-12-09 15:59:54.962000', 'admin', '2019-12-09 15:59:54.962000', null, null, null, 'Backend Developpers', '856c9f21-4001-cc44-7ede-0b3db1ca037c');
-INSERT INTO PUBLIC.ERP_SKILL (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, DESCRIPTION) VALUES ('01bb031d-2dc2-0e94-5871-fa496798520e', 1, '2019-12-09 15:58:52.782000', 'admin', '2019-12-09 15:58:52.782000', null, null, null, 'Comptia N+', 'Networking');
-INSERT INTO PUBLIC.ERP_EDUCATION (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME) VALUES ('2796be26-e965-8875-e704-b137d9a1e978', 1, '2019-12-12 15:32:56.149000', 'admin', '2019-12-12 15:32:56.149000', null, null, null, 'Masters');
-INSERT INTO PUBLIC.ERP_EDUCATION (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME) VALUES ('778cfd47-257a-bd3e-b906-5862f4f4f594', 1, '2019-12-12 15:33:02.567000', 'admin', '2019-12-12 15:33:02.567000', null, null, null, 'PhD');
-INSERT INTO PUBLIC.ERP_EDUCATION (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME) VALUES ('ae65adcb-a9dc-d488-64bb-b4caa5f922f5', 1, '2019-12-12 15:32:49.412000', 'admin', '2019-12-12 15:32:49.412000', null, null, null, 'Bachelor Degree');
-INSERT INTO PUBLIC.ERP_LANGUAGE (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME) VALUES ('9a5fbf3c-ab9b-cd7d-8463-e3c1d8a6ef2e', 2, '2019-12-12 15:33:29.476000', 'admin', '2019-12-12 15:33:55.063000', 'admin', null, null, 'English');
+--begin department data
+INSERT INTO public.erp_department (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, department) VALUES ('3c7610d3-bbed-8756-c3e4-5ce45838d1a9', 2, '2020-05-06 06:45:08.372000', 'admin', '2020-05-06 06:45:51.936000', 'admin', null, null, 'Sales & Distribution');
+INSERT INTO public.erp_department (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, department) VALUES ('5827ac14-713d-6672-a263-ffe3eecdfe39', 1, '2020-05-06 06:46:13.952000', 'admin', '2020-05-06 06:46:13.952000', null, null, null, 'Human Resources');
+INSERT INTO public.erp_department (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, department) VALUES ('856c9f21-4001-cc44-7ede-0b3db1ca037c', 2, '2019-12-09 15:59:54.962000', 'admin', '2020-05-06 06:46:39.321000', 'admin', null, null, 'Information Technology');
+INSERT INTO public.erp_subunit (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, subunit, department_id) VALUES ('2c7a0516-cdf9-c102-92a6-f214cf6f14b0', 1, '2019-12-09 15:59:54.962000', 'admin', '2019-12-09 15:59:54.962000', null, null, null, 'Frontend Developpers', '856c9f21-4001-cc44-7ede-0b3db1ca037c');
+INSERT INTO public.erp_subunit (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, subunit, department_id) VALUES ('5577d77d-c026-be5b-c7b8-a0b8e7c37bc3', 1, '2019-12-09 15:59:54.962000', 'admin', '2019-12-09 15:59:54.962000', null, null, null, 'Backend Developpers', '856c9f21-4001-cc44-7ede-0b3db1ca037c');
+INSERT INTO public.erp_subunit (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, subunit, department_id) VALUES ('21fcdf59-e24c-bb7c-0bee-532409abdf8d', 1, '2020-05-06 06:45:51.927000', 'admin', '2020-05-06 06:45:51.927000', null, null, null, 'Aftersales', '3c7610d3-bbed-8756-c3e4-5ce45838d1a9');
+INSERT INTO public.erp_subunit (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, subunit, department_id) VALUES ('1cf764f2-77a0-97f0-0849-994cec3addcf', 1, '2020-05-06 06:45:51.920000', 'admin', '2020-05-06 06:45:51.920000', null, null, null, 'Sales', '3c7610d3-bbed-8756-c3e4-5ce45838d1a9');
+INSERT INTO public.erp_subunit (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, subunit, department_id) VALUES ('b098af1c-99e2-3303-844d-4041c5d474df', 1, '2020-05-06 06:46:39.313000', 'admin', '2020-05-06 06:46:39.313000', null, null, null, 'Technicians', '856c9f21-4001-cc44-7ede-0b3db1ca037c');
+--end department data
+
+--begin job positions data
+INSERT INTO public.erp_job_position (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, responsibilities) VALUES ('ff5b8487-fd85-0d51-968b-0a8f5b0017f7', 1, '2020-05-06 06:53:11.806000', 'admin', '2020-05-06 06:53:11.806000', null, null, null, 'Senior Developer', 'Performing coding assignments.
+Reviewing code work for accuracy and functionality.
+Creating and implementing design plans.
+Analyzing code segments regularly.
+Delegating tasks to team members.
+Keeping up-to-date with industry trends and technology developments.');
+INSERT INTO public.erp_job_position (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, responsibilities) VALUES ('80988218-0e8e-a0fc-3401-0f0c5f63ad4d', 2, '2020-05-06 06:53:26.873000', 'admin', '2020-05-06 06:54:13.953000', 'admin', null, null, 'IT Technician', 'Installing and configuring hardware and software components to ensure usability.
+Troubleshooting hardware and software issues.
+Ensuring electrical safety standards are met.
+Repairing or replacing damaged hardware.
+Upgrading the entire system to enable compatible software on all computers.
+Installing and upgrading anti-virus software to ensure security at the user level.
+Performing tests and evaluations on new software and hardware.
+Providing support to users and being the first point of contact for error reporting.
+Establishing good relationships with all departments and colleagues.
+Conducting daily backup operations.
+Managing technical documentation.');
+INSERT INTO public.erp_job_position (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, responsibilities) VALUES ('bafbc8d9-c5c3-2d51-2f6f-fa37175e5ba6', 3, '2020-05-06 06:50:25.937000', 'admin', '2020-05-06 06:55:57.956000', 'admin', null, null, 'Junior Developer', 'Assisting the Development Manager with all aspects of software design and coding.
+Attending and contributing to company development meetings.
+Learning the codebase and improving your coding skills.
+Writing and maintaining code.
+Working on minor bug fixes.
+Monitoring the technical performance of internal systems.
+Responding to requests from the development team.
+Gathering information from consumers about program functionality.
+Writing reports.
+Conducting development tests.');
+--end job positions data
+
+--begin qualifications data
+INSERT INTO public.erp_skill (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, description) VALUES ('5e0529e6-99df-2c89-c2cf-9044a07875f7', 1, '2020-05-06 10:59:50.478000', 'admin', '2020-05-06 10:59:50.478000', null, null, null, 'Comptia A+', 'Hardware Certification');
+INSERT INTO public.erp_skill (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, description) VALUES ('01bb031d-2dc2-0e94-5871-fa496798520e', 2, '2019-12-09 15:58:52.782000', 'admin', '2020-05-06 11:00:01.151000', 'admin', null, null, 'Comptia N+', 'Networking Certiffication');
+INSERT INTO public.erp_skill (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, description) VALUES ('9cbfc46d-7e91-6f45-0fb6-4f01f13ba6a9', 1, '2020-05-06 11:00:26.215000', 'admin', '2020-05-06 11:00:26.215000', null, null, null, 'PMP', 'Project Management Certification');
+INSERT INTO public.erp_skill (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, description) VALUES ('8af0ea5d-bf9d-591f-0636-a4df5b2635e0', 1, '2020-05-06 11:00:48.740000', 'admin', '2020-05-06 11:00:48.740000', null, null, null, 'SQL', 'Database query language');
+INSERT INTO public.erp_skill (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, description) VALUES ('b0fdbd9f-8ad4-2d0f-6c17-ccb84b16b31a', 1, '2020-05-06 11:01:07.561000', 'admin', '2020-05-06 11:01:07.561000', null, null, null, 'Java', 'Programming Language.');
+INSERT INTO public.erp_education (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name) VALUES ('2796be26-e965-8875-e704-b137d9a1e978', 1, '2019-12-12 15:32:56.149000', 'admin', '2019-12-12 15:32:56.149000', null, null, null, 'Masters');
+INSERT INTO public.erp_education (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name) VALUES ('778cfd47-257a-bd3e-b906-5862f4f4f594', 1, '2019-12-12 15:33:02.567000', 'admin', '2019-12-12 15:33:02.567000', null, null, null, 'PhD');
+INSERT INTO public.erp_education (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name) VALUES ('ae65adcb-a9dc-d488-64bb-b4caa5f922f5', 1, '2019-12-12 15:32:49.412000', 'admin', '2019-12-12 15:32:49.412000', null, null, null, 'Bachelor Degree');
+INSERT INTO public.erp_education (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name) VALUES ('b0e913ae-bd99-2755-b51a-ddd8425ec4d1', 1, '2020-05-06 10:58:46.262000', 'admin', '2020-05-06 10:58:46.262000', null, null, null, 'School Certificate');
+INSERT INTO public.erp_education (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name) VALUES ('5d473bf3-8e31-d3b2-9211-8738ec3b3cc9', 1, '2020-05-06 10:59:00.439000', 'admin', '2020-05-06 10:59:00.439000', null, null, null, 'Higher School Certificate');
+INSERT INTO public.erp_language (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name) VALUES ('9a5fbf3c-ab9b-cd7d-8463-e3c1d8a6ef2e', 2, '2019-12-12 15:33:29.476000', 'admin', '2019-12-12 15:33:55.063000', 'admin', null, null, 'English');
+INSERT INTO public.erp_language (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name) VALUES ('68f112e4-65bf-75ed-8fea-dc78c9e81941', 1, '2020-05-06 11:01:44.479000', 'admin', '2020-05-06 11:01:44.479000', null, null, null, 'French');
+INSERT INTO public.erp_language (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name) VALUES ('b5c5624d-7098-d58a-4165-9a7220804a03', 1, '2020-05-06 11:01:51.693000', 'admin', '2020-05-06 11:01:51.693000', null, null, null, 'Creole');
 INSERT INTO PUBLIC.ERP_LICENSE (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME) VALUES ('5b25c3e4-5f54-94ca-362a-8fb22653b302', 1, '2019-12-12 15:34:52.613000', 'admin', '2019-12-12 15:34:52.613000', null, null, null, 'Autocycle(Automatic)');
 INSERT INTO PUBLIC.ERP_LICENSE (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME) VALUES ('f0ebe3f8-435c-c4e0-8b85-29421a38afd5', 1, '2019-12-12 15:34:33.992000', 'admin', '2019-12-12 15:34:33.992000', null, null, null, 'Autocycle(Manual)');
-INSERT INTO PUBLIC.ERP_CLIENT (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, DISPLAY_NAME, EMAIL, PREFERRED_CONTACT_PHONE, FAX_NUMBER, COUNTRY_ID, CITY_ID, SHIPPING_ADDRESS, BILLING_ADDRESS) VALUES ('90fe0ef2-b444-84a7-5367-2370fe694a13', 1, '2020-01-30 12:14:55.788000', 'admin', '2020-01-30 12:14:55.788000', null, null, null, 'PERSON', 'Doe John', 'saiyaljuttun@hotmail.com', null, null, '4238d410-7f98-f784-93fa-7c4819d12819', '0c4f4429-e812-02e1-032e-e95a2fe22b0a', '40, La Caverne, No.1', '40, La Caverne, No.1');
-INSERT INTO PUBLIC.ERP_CLIENT (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, DISPLAY_NAME, EMAIL, PREFERRED_CONTACT_PHONE, FAX_NUMBER, COUNTRY_ID, CITY_ID, SHIPPING_ADDRESS, BILLING_ADDRESS) VALUES ('a9d94307-bf47-abb5-a7d9-90e06532ecd6', 2, '2020-01-30 12:12:00.384000', 'admin', '2020-01-30 12:17:13.771000', 'admin', null, null, 'COMPANY', 'SECULOGIX LTD', 'test@email.com', '6458254', null, '4238d410-7f98-f784-93fa-7c4819d12819', '0c4f4429-e812-02e1-032e-e95a2fe22b0a', null, '39, La Caverne, No.1,
-Vacoas,
-Mauritius,');
-INSERT INTO PUBLIC.ERP_CLIENT_COMPANY (ID, COMPANY_NAME, COMPANY_ADDRESS, BRN, VAT_NUMBER, SECONDARY_EMAIL, ALTERNATE_PHONE) VALUES ('a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', '39, La Caverne, No.1', '584268', 'C244414', null, null);
-INSERT INTO PUBLIC.ERP_CLIENT_PERSON (ID, NAME_FIRST_NAME, NAME_MIDDLE_NAME, NAME_LAST_NAME, GENDER, MOBILE_PHONE, HOME_PHONE, WORK_PHONE) VALUES ('90fe0ef2-b444-84a7-5367-2370fe694a13', 'John', null, 'Doe', 10, '58792154', '6852495', null);
+--end qualifications data
 
---end use case data
+--begin person data
+INSERT INTO public.erp_person (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, name_first_name, name_middle_name, name_last_name, full_name, gender, mobile_phone, home_phone, email) VALUES ('f541103a-6b47-f501-387a-b7ef2e64d3b1', 1, '2020-05-06 07:03:05.738000', 'admin', '2020-05-06 07:03:05.738000', null, null, null, 'erp_ContactPerson', 'John', null, 'Doe', 'Doe John', 10, '58393697', null, 'ceo@seculogix.com');
+INSERT INTO public.erp_person (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, name_first_name, name_middle_name, name_last_name, full_name, gender, mobile_phone, home_phone, email) VALUES ('68216485-3545-b45a-5f8d-d78db973bbff', 2, '2020-05-06 07:04:25.617000', 'admin', '2020-05-06 07:04:44.503000', 'admin', null, null, 'erp_ContactPerson', 'Jane', null, 'Doe', 'Doe Jane', 20, '59762345', '6735697', 'janedoe@gmail.com');
+--end person data
 
---begin service request data
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('0bbe0887-ea14-d590-6b5c-43ecf898f15e', 1, '2020-02-04 21:36:57.080000', 'admin', '2020-02-04 21:36:57.080000', null, null, null, 'R9852', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', null, '6458254', null, null, '39, La Caverne, No.1,
+--begin contact person data
+INSERT INTO public.erp_contact_person (id, work_phone, preferred_phone) VALUES ('f541103a-6b47-f501-387a-b7ef2e64d3b1', null, '58393697');
+INSERT INTO public.erp_contact_person (id, work_phone, preferred_phone) VALUES ('68216485-3545-b45a-5f8d-d78db973bbff', null, '59762345');
+--end contact person data
+
+--begin client superclass data
+INSERT INTO public.erp_client (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, display_name, email, preferred_contact_phone, fax_number, country_id, city_id, shipping_address, billing_address) VALUES ('fc24fe08-b874-a494-84d3-6dc089993653', 2, '2020-05-06 06:58:44.797000', 'admin', '2020-05-06 06:59:55.971000', 'admin', null, null, 'PERSON', 'Doe Jane', 'jane.doe@gmail.com', '2528389', null, '4238d410-7f98-f784-93fa-7c4819d12819', '04c5692d-3dce-4378-d744-9d765ff0e629', 'Mrs/Miss. Doe Jane
+88, Olivier St,
+Port Louis,
+Mauritius,
+', 'Mrs/Miss. Doe Jane
+88, Olivier St,
+Port Louis,
+Mauritius,
+');
+INSERT INTO public.erp_client (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, display_name, email, preferred_contact_phone, fax_number, country_id, city_id, shipping_address, billing_address) VALUES ('90fe0ef2-b444-84a7-5367-2370fe694a13', 3, '2020-01-30 12:14:55.788000', 'admin', '2020-05-06 07:00:50.449000', 'admin', null, null, 'PERSON', 'Doe John', 'johndoe@hotmail.com', '58792154', null, '4238d410-7f98-f784-93fa-7c4819d12819', '0c4f4429-e812-02e1-032e-e95a2fe22b0a', 'Mr. Doe John
+40, La Caverne, No.1,
 Vacoas,
-Mauritius,', null, null, 'IN_PROGRESS', '2020-02-04');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('181e9e1b-75fa-c224-6f81-fca2ce50c64d', 1, '2020-02-04 21:35:10.813000', 'admin', '2020-02-04 21:35:10.813000', null, null, null, 'R9702', '90fe0ef2-b444-84a7-5367-2370fe694a13', 'Doe John', null, '6458254', null, null, '40, La Caverne, No.1', null, null, 'PENDING', '2020-02-04');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('4b148058-db93-51a6-e368-3c2cd1123835', 1, '2020-02-04 21:34:47.269000', 'admin', '2020-02-04 21:34:47.269000', null, null, null, 'R9701', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', null, '6458254', null, null, '39, La Caverne, No.1,
+Mauritius,
+', 'Mr. Doe John
+40, La Caverne, No.1,
 Vacoas,
-Mauritius,', null, null, 'PENDING', '2020-02-04');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('5341062e-a63a-8a12-1d9b-cf9c54a7f849', 2, '2020-02-04 21:37:27.176000', 'admin', '2020-02-04 21:40:35.937000', 'admin', null, null, 'R9854', null, 'Francis Benoit', null, null, null, null, null, null, null, 'IN_PROGRESS', '2020-02-03');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('6468f688-5642-40e6-96b4-85f371a41acf', 1, '2020-02-04 21:52:45.579000', 'admin', '2020-02-04 21:52:45.579000', null, null, null, 'R8726', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', null, '6458254', null, null, '39, La Caverne, No.1,
-Vacoas,
-Mauritius,', null, null, 'WAITING', '2020-02-02');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('96e9f04a-9e64-d4ea-3520-67adcbfba5d5', 3, '2020-02-04 21:35:47.168000', 'admin', '2020-02-04 21:50:12.376000', 'admin', null, null, 'R9703', '90fe0ef2-b444-84a7-5367-2370fe694a13', 'Doe John', null, null, null, null, '40, La Caverne, No.1', null, null, 'PENDING', '2020-02-02');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('a7a181f0-188e-b359-1cae-15e1893a692a', 1, '2020-02-04 21:38:24.185000', 'admin', '2020-02-04 21:38:24.185000', null, null, null, 'R8545', '90fe0ef2-b444-84a7-5367-2370fe694a13', 'Doe John', null, null, null, null, '40, La Caverne, No.1', null, null, 'WAITING', '2020-02-04');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('b5ed264c-6229-f013-17bc-ca89962f8700', 2, '2020-02-04 21:38:07.507000', 'admin', '2020-02-04 21:41:01.360000', 'admin', null, null, 'R9785', '90fe0ef2-b444-84a7-5367-2370fe694a13', 'Doe John', null, null, null, null, '40, La Caverne, No.1', null, null, 'COMPLETED', '2020-02-02');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('cb10072b-87bf-36a6-e5e8-9779a370d99b', 2, '2020-02-04 21:37:49.513000', 'admin', '2020-02-04 21:41:13.269000', 'admin', null, null, 'R8563', '90fe0ef2-b444-84a7-5367-2370fe694a13', 'Doe John', null, null, null, null, '40, La Caverne, No.1', null, null, 'COMPLETED', '2020-02-02');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('f201d6e6-a937-a4c1-d6ea-0460ebc64678', 2, '2020-02-04 21:36:29.621000', 'admin', '2020-02-04 21:48:18.776000', 'admin', null, null, 'R9754', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', null, '6458254', null, null, '39, La Caverne, No.1,
-Vacoas,
-Mauritius,', null, null, 'IN_PROGRESS', '2020-02-01');
-INSERT INTO PUBLIC.ERP_SERVICE_REQUEST (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, REFERENCE_NUMBER, EXISTING_CLIENT_ID, CUSTOMER_NAME, MOBILE_PHONE, HOME_PHONE, WORK_PHONE, EMAIL, ADDRESS, INVOICE_NUMBER, TOTAL_PRICE, STATUS, DATE_RECEIVED) VALUES ('f306ff3b-b244-5d8f-fba0-511b8f65fc01', 1, '2020-02-04 21:34:31.028000', 'admin', '2020-02-04 21:34:31.028000', null, null, null, 'R9700', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', null, '6458254', null, null, '39, La Caverne, No.1,
-Vacoas,
-Mauritius,', null, null, 'PENDING', '2020-02-04');
---end service request data
+Mauritius,
+');
+INSERT INTO public.erp_client (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, display_name, email, preferred_contact_phone, fax_number, country_id, city_id, shipping_address, billing_address) VALUES ('a9d94307-bf47-abb5-a7d9-90e06532ecd6', 5, '2020-01-30 12:12:00.384000', 'admin', '2020-05-06 07:03:30.987000', 'admin', null, null, 'COMPANY', 'SECULOGIX LTD', 'ceo@seculogix.com', '6458254', '6458254', '4238d410-7f98-f784-93fa-7c4819d12819', '8217b24c-dd38-c6af-edc6-184f3dd5dc62', 'SECULOGIX LTD,
+39, La Tour, No.1,
+La Tour Koenig,
+Mauritius,
+', 'SECULOGIX LTD,
+39, La Tour, No.1,
+La Tour Koenig,
+Mauritius,
+');
+--end client superclass data
+
+--begin client company data
+INSERT INTO public.erp_client_company (id, company_name, company_address, brn, vat_number, secondary_email, alternate_phone) VALUES ('a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', '39, La Tour, No.1', '584268', 'C244414', null, null);
+--end client company data
+
+--begin client person data
+INSERT INTO public.erp_client_person (id, name_first_name, name_middle_name, name_last_name, gender, work_phone, mobile_phone, home_phone, house_address) VALUES ('fc24fe08-b874-a494-84d3-6dc089993653', 'Jane', null, 'Doe', 20, '2528389', '7777777', '6782898', '88, Olivier St');
+INSERT INTO public.erp_client_person (id, name_first_name, name_middle_name, name_last_name, gender, work_phone, mobile_phone, home_phone, house_address) VALUES ('90fe0ef2-b444-84a7-5367-2370fe694a13', 'John', null, 'Doe', 10, null, '58792154', '6852495', '40, La Caverne, No.1');
+--end client person data
+
+--begin company contact person data
+INSERT INTO public.erp_company_contact_persons (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, client_company_id, contact_person_id, preferred_company_phone, preferred_email, job_position) VALUES ('13ce9f71-8b5c-5d4a-4d7e-aad4a6cf2823', 1, '2020-05-06 07:03:30.928000', 'admin', '2020-05-06 07:03:30.928000', null, null, null, 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'f541103a-6b47-f501-387a-b7ef2e64d3b1', '58393697', 'ceo@seculogix.com', 'CEO');
+--end company contact person data
 
 --begin product category init data
 INSERT INTO PUBLIC.ERP_PRODUCT_CATEGORY (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME) VALUES ('0051c487-1c15-1bdd-f5dd-3909c182a42c', 1, '2020-02-10 18:20:07.780000', 'admin', '2020-02-10 18:20:07.780000', null, null, null, 'PENDRIVE');
@@ -763,17 +831,33 @@ INSERT INTO PUBLIC.ERP_MAKE_MANUFACTURER (ID, VERSION, CREATE_TS, CREATED_BY, UP
 --end make_manufacturer init data
 
 --begin item data
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('022f44d6-83ff-b163-a5a5-280f14e08363', 3, '2020-02-11 20:51:57.685000', 'admin', '2020-02-11 22:36:44.512000', 'admin', null, null, 'PRODUCT', 'Lenovo V100', null, 19000.00, 23000.00, true, 26450.00);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('2332b338-c43f-48f1-9d5b-613538bf5bf6', 3, '2020-02-11 20:51:57.685000', 'admin', '2020-02-11 22:36:27.175000', 'admin', null, null, 'PRODUCT', 'HP 66 Black', null, 600.00, 700.00, true, 805.00);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('385bc185-bda4-e9b6-25ab-9cceb65d0296', 3, '2020-02-11 20:51:57.684000', 'admin', '2020-02-11 22:33:29.910000', 'admin', null, null, 'PRODUCT', 'Elitebook 300V', null, 15000.00, 18000.00, true, 20700.00);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('78871e75-d3d9-71d3-562e-ac4f7c809ceb', 3, '2020-02-11 20:51:57.685000', 'admin', '2020-02-11 22:36:12.697000', 'admin', null, null, 'PRODUCT', 'Ethernet Cable 5M', null, 100.00, 115.00, true, 132.25);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('860e845b-1191-2722-d1cd-671f617700c0', 2, '2020-02-11 20:51:57.684000', 'admin', '2020-02-11 21:01:24.349000', 'admin', null, null, 'PRODUCT', 'MSI GTX400', null, 13000.00, 14000.00, true, 16100.00);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('89ef841c-fd09-e85d-ae00-3ac01138e191', 3, '2020-02-11 20:51:57.685000', 'admin', '2020-02-11 22:36:39.593000', 'admin', null, null, 'PRODUCT', 'HP Spectre x360', null, 22500.00, 24000.00, true, 27600.00);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('cc0dde71-dc42-e98e-e0dd-d11b8b9bcfa8', 3, '2020-02-11 20:51:57.684000', 'admin', '2020-02-11 22:36:34.798000', 'admin', null, null, 'PRODUCT', 'HP ProLiant M110', null, 40000.00, 55000.00, true, 63250.00);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('daad6238-da70-f1b4-89ae-1314c739f23d', 3, '2020-02-11 20:51:57.685000', 'admin', '2020-02-11 22:36:21.115000', 'admin', null, null, 'PRODUCT', 'HP 61 Color', null, 750.00, 800.00, true, 920.00);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('ee01c6a1-5449-f18f-7c5a-22c208c23807', 3, '2020-02-11 20:51:57.683000', 'admin', '2020-02-11 20:59:57.659000', 'admin', null, null, 'PRODUCT', 'Dell G660', null, 15000.00, 18000.00, true, 20700.00);
-INSERT INTO PUBLIC.ERP_ITEM (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, DTYPE, ITEM, DESCRIPTION, COST, PRICE, APPLY_VAT, VAT_PRICE) VALUES ('fe0496f2-493f-4374-cda3-5e73ee118a5c', 5, '2020-01-30 12:22:45.541000', 'admin', '2020-02-11 22:34:34.318000', 'admin', null, 'admin', 'PRODUCT', 'RJ45 Plug', null, 100.00, 100.00, true, 115.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('2332b338-c43f-48f1-9d5b-613538bf5bf6', 3, '2020-02-11 20:51:57.685000', 'admin', '2020-02-11 22:36:27.175000', 'admin', null, null, 'PRODUCT', 'HP 66 Black', null, 600.00, 700.00, true, 805.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('385bc185-bda4-e9b6-25ab-9cceb65d0296', 3, '2020-02-11 20:51:57.684000', 'admin', '2020-02-11 22:33:29.910000', 'admin', null, null, 'PRODUCT', 'Elitebook 300V', null, 15000.00, 18000.00, true, 20700.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('860e845b-1191-2722-d1cd-671f617700c0', 2, '2020-02-11 20:51:57.684000', 'admin', '2020-02-11 21:01:24.349000', 'admin', null, null, 'PRODUCT', 'MSI GTX400', null, 13000.00, 14000.00, true, 16100.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('89ef841c-fd09-e85d-ae00-3ac01138e191', 3, '2020-02-11 20:51:57.685000', 'admin', '2020-02-11 22:36:39.593000', 'admin', null, null, 'PRODUCT', 'HP Spectre x360', null, 22500.00, 24000.00, true, 27600.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('ee01c6a1-5449-f18f-7c5a-22c208c23807', 3, '2020-02-11 20:51:57.683000', 'admin', '2020-02-11 20:59:57.659000', 'admin', null, null, 'PRODUCT', 'Dell G660', null, 15000.00, 18000.00, true, 20700.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('fe0496f2-493f-4374-cda3-5e73ee118a5c', 5, '2020-01-30 12:22:45.541000', 'admin', '2020-02-11 22:34:34.318000', 'admin', null, 'admin', 'PRODUCT', 'RJ45 Plug', null, 100.00, 100.00, true, 115.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('022f44d6-83ff-b163-a5a5-280f14e08363', 4, '2020-02-11 20:51:57.685000', 'admin', '2020-05-06 12:16:14.721000', 'admin', null, null, 'PRODUCT', 'Lenovo V100', '<p style="font-size:16px;margin:0px 0px 1.25em;padding:0px;border:0px;line-height:1.4em;font-family:&#39;arial&#39; , &#39;helvetica&#39; , sans-serif;vertical-align:baseline;color:rgb( 102 , 102 , 102 );background-color:rgb( 255 , 255 , 255 )">Lenovo V100 Specs as Reviewed:</p><ul style="font-size:16px;margin:0px 0px 1.3em;padding:0px;border:0px;line-height:inherit;font-family:&#39;arial&#39; , &#39;helvetica&#39; , sans-serif;vertical-align:baseline;list-style:none;color:rgb( 102 , 102 , 102 );background-color:rgb( 255 , 255 , 255 )"><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Processor: Intel Core Duo T2500 2.0GHz</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Screen: 12.1″ WXGA (1280 x 800) VibrantView (glossy screen)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">100GB Hitachi Hard Drive &#64;5400 RPM</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Wireless: Intel PRO/Wireless 3945ABG (802.11 a/b/g)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Bluetooth (optional)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Graphics: Intel Media Accelerator 950</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Ports: 3 USB 2.0 ports, IEEE 1394 (4 pin), VGA out, 5 in 1 Multicard Reader, Express Card 54, headphone jack, mic-in jack, power adapter jack</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Built-in Web Camera, 1.3 megapixel (optional)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Memory: 1.00GB (2GB max)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Finger print reader (optional)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Battery: 3-cell or longer life 6-cell Li-Ion battery (6-cell sticks out of the back, 3-cell is flushed)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Thinness: About 1.2″ thin</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Weight: About 4.4 lbs with 6-cell battery</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Operating System: Windows XP Pro</li></ul>', 19000.00, 23000.00, true, 26450.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('c973e65c-e101-ad8d-5bbe-6b1a538d7500', 1, '2020-05-06 11:39:05.691000', 'admin', '2020-05-06 11:39:05.691000', null, null, null, 'NON-STOCK', 'Service Charge', null, 0.00, 350.00, null, 0.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('02fbef7b-c780-8319-f47a-280d91701b69', 2, '2020-05-06 11:38:39.117000', 'admin', '2020-05-06 11:39:22.314000', 'admin', null, null, 'NON-STOCK', 'Discount', null, 1000.00, -1000.00, null, 0.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('b3d47b93-c86c-1a44-ed53-18af794c2c70', 4, '2020-05-06 11:35:57.739000', 'admin', '2020-05-06 11:54:38.375000', 'admin', null, null, 'SERVICE', 'Domain Registration .com', '1 year subscription domain with .mu extension', 1000.00, 1000.00, true, 1150.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('2fa18fde-f4f9-f164-c539-e93393257e22', 3, '2020-05-06 11:35:18.204000', 'admin', '2020-05-06 12:05:46.850000', 'admin', null, null, 'SERVICE', 'Domain Registration .mu', '1 year subscription domain with .mu extension', 3000.00, 3000.00, false, 3000.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('3424668c-9ec6-4701-0924-3f7bbb1e2d65', 6, '2020-05-06 11:37:03.554000', 'admin', '2020-05-06 12:06:00.918000', 'admin', null, null, 'SERVICE', 'HTTP Encryption Certificate', '1 Year Subscription', 2500.00, 2500.00, false, 2500.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('78871e75-d3d9-71d3-562e-ac4f7c809ceb', 4, '2020-02-11 20:51:57.685000', 'admin', '2020-05-06 12:12:37.235000', 'admin', null, null, 'PRODUCT', 'Ethernet Cable 5M', '<ul class="a-unordered-list a-vertical a-spacing-none" style="margin:0px 0px 0px 18px;color:rgb( 17 , 17 , 17 );padding:0px;font-family:&#39;amazon ember&#39; , &#39;arial&#39; , sans-serif;font-size:13px;background-color:rgb( 255 , 255 , 255 )"><li style="list-style:disc;margin:0px"><span class="a-list-item">CAT6 / CAT5e: Supports both Cat6 and Cat5e applications. The RJ45 connector used for this cable fits perfectly in both Cat6 and Cat5e ports.</span></li><li style="list-style:disc;margin:0px"><span class="a-list-item">CAPABILITY: Mediabridge Cat 6 cables can support up to 10 Gigabits per second (10 times the bandwidth of Cat5e cables). Meets or exceeds Category 6 performance in compliance with the TIA/EIA 568B.2 standard. Backwards compatible with any existing Fast Ethernet and Gigabit Ethernet.</span></li><li style="list-style:disc;margin:0px"><span class="a-list-item">CERTIFIED: This Mediabridge Cat6 Ethernet cable with CM Grade PVC Jacket is UL Listed, complies with TIA/EIA 568B.2 and adheres to ISO/IEC 11801. APPLICATIONS: High bandwidth of up to 550 MHz guarantees high-speed data transfer for server applications, cloud computing, video surveillance and online high definition video streaming.</span></li><li style="list-style:disc;margin:0px"><span class="a-list-item">CONSTRUCTION: 24AWG Stranded conductors. Each of the 4 twisted pairs are separated by PE cross insulation to prevent crosstalk. 8P8C RJ45 connector with gold-plated contacts. CM grade PVC jacket with 5.8mm outer diameter.</span></li><li style="list-style:disc;margin:0px"><span class="a-list-item">FREE VELCRO STRAP: Includes adjustable &amp; reusable Velcro cable strap for easy organization &amp; storage.</span></li></ul>', 100.00, 115.00, true, 132.25);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('daad6238-da70-f1b4-89ae-1314c739f23d', 4, '2020-02-11 20:51:57.685000', 'admin', '2020-05-06 12:15:18.787000', 'admin', null, null, 'PRODUCT', 'HP 61 Color', '<ul style="font-size:16px;margin:0px 0px 1.25rem 20px;padding:0px;color:rgb( 68 , 68 , 68 );font-family:&#39;hpsimple&#39; , &#39;malgun gothic&#39; , &#39;arial&#39;;background-color:rgb( 255 , 255 , 255 )"><li>Colour: Tri-colour</li><li>Cartridge yield (approx.): 165 pages</li><li>HP Printer Compatibility: HP Deskjet 1000, 1010, 1012, 1050, 1055, 1056, 1510, 1512, 1514, 1051, 2050, 2510, 2512, 2514, 2540, 2541, 2542, 2544, 3000, 3050, 3051, 3052, 3054, 3056, 3510, 3511, 3512, HP ENVY 4500, 4500, 4501, 4502, 4504, 4505, 5530, 5531, 5532, 5534, 5535, 5539, HP Officejet 2620, 2621, 4630, 4632, 4635</li></ul>', 750.00, 800.00, true, 920.00);
+INSERT INTO public.erp_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, dtype, item, description, cost, price, apply_vat, vat_price) VALUES ('cc0dde71-dc42-e98e-e0dd-d11b8b9bcfa8', 4, '2020-02-11 20:51:57.684000', 'admin', '2020-05-06 12:15:45.401000', 'admin', null, null, 'PRODUCT', 'HP ProLiant ML110', '<p style="font-family:&#39;arial&#39;;font-size:14pt"><font face="Verdana" size="4" color="#ff0010"><b><i>Key specs:</i></b></font></p><p style="font-family:&#39;arial&#39;;font-size:14pt"><font size="5" face="Arial">Singe Intel Xeon Quad Core </font><i style="font-family:&#39;verdana&#39;;font-size:x-large">E3-1220 </i><font size="5" face="Arial">Processor &#64; 3.1GHz, 8M Cache</font></p><p style="font-family:&#39;arial&#39;;font-size:14pt"><font size="5" face="Arial">12GB<span style="background-color:rgb( 255 , 255 , 255 )"> </span>RAM</font></p><p style="font-family:&#39;arial&#39;;font-size:14pt"><font size="5" face="Arial"> 3 x 500GB HDD</font></p><div style="font-family:&#39;arial&#39;;font-size:14pt"><font face="Arial"><span style="font-size:18.6667px"><br></span></font></div><div style="font-family:&#39;arial&#39;;font-size:14pt"><font face="Arial" size="5"><b><br></b></font></div><div style="font-family:&#39;arial&#39;;font-size:14pt"><font face="Arial" size="5"><b>Description</b></font><font face="Arial" style="font-size:14pt"><b>:</b></font></div><ul style="font-family:&#39;arial&#39;;font-size:14pt"><li style="text-align:left">The HP ProLiant ML110 G7 server provides an affordable and functional solution to small/medium businesses that are budget-conscious and who have basic or no in-house IT resources. With proven ProLiant reliability and the support for the latest Intel Xeon, Core i3, Pentium processors and RPS and 2 NICs, the ML110 G7 provides the ideal solution to the growing business. A mix of PCI-Express slots, DIMM slots, drive bays, and server options delivers the expandability needed. Integrated iLO3 remote management drives down the operational costs by reducing the number of physical visits. HP Smart Start CD enhances the installation process further. Optional TPM provides for additional level of security.</li></ul>', 40000.00, 55000.00, true, 63250.00);
 --end item data
+
+--begin non stock item data
+INSERT INTO public.erp_non_stock_item (id) VALUES ('02fbef7b-c780-8319-f47a-280d91701b69');
+INSERT INTO public.erp_non_stock_item (id) VALUES ('c973e65c-e101-ad8d-5bbe-6b1a538d7500');
+--end non-stock item data
+
+--begin services data
+INSERT INTO public.erp_service (id) VALUES ('2fa18fde-f4f9-f164-c539-e93393257e22');
+INSERT INTO public.erp_service (id) VALUES ('b3d47b93-c86c-1a44-ed53-18af794c2c70');
+INSERT INTO public.erp_service (id) VALUES ('3424668c-9ec6-4701-0924-3f7bbb1e2d65');
+--end services data
 
 --begin product init data
 INSERT INTO public.erp_product (id, product_category_id, make_manufacturer_id, qty_store1, qty_store2, qty_store3, qty_total, monitor_stock) VALUES ('2332b338-c43f-48f1-9d5b-613538bf5bf6', '178ee7b9-278c-2868-d693-c4baa87fd175', '4cd27717-a282-458e-34ed-f527ac0c1d89', 15, 0, 0, 15, null);
@@ -788,35 +872,70 @@ INSERT INTO public.erp_product (id, product_category_id, make_manufacturer_id, q
 INSERT INTO public.erp_product (id, product_category_id, make_manufacturer_id, qty_store1, qty_store2, qty_store3, qty_total, monitor_stock) VALUES ('022f44d6-83ff-b163-a5a5-280f14e08363', '99fbaba3-e367-ea2d-81f4-e8c1651cd39e', '6711ae6a-9d8d-1562-325e-c11dcab8e510', 0, 0, 0, 0, true);
 --end product init data
 
---begin order data
-INSERT INTO public.erp_order (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, order_num, client_id, order_date, delivery_date, total_amount, amount_due, status) VALUES ('c230ad75-9bd6-7498-c080-3bc5780b2dce', 2, '2020-02-04 07:47:07.360000', 'admin', '2020-02-04 07:47:07.360000', null, '2020-02-06 13:55:37.710000', 'admin', 'ORD1', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', '2020-02-04', null, 115.00, 0.00, 'Quote Request');
-INSERT INTO public.erp_order (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, order_num, client_id, order_date, delivery_date, total_amount, amount_due, status) VALUES ('c7e702c8-7b86-a7aa-5092-37df302fb8c3', 4, '2020-02-04 07:47:30.134000', 'admin', '2020-03-04 09:40:40.060000', 'admin', null, null, 'ORD2', '90fe0ef2-b444-84a7-5367-2370fe694a13', '2020-02-03', null, 115.00, 0.00, 'PAID');
-INSERT INTO public.erp_order (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, order_num, client_id, order_date, delivery_date, total_amount, amount_due, status) VALUES ('71dc0586-2464-9347-8609-2d7507776695', 6, '2020-02-07 20:45:19.185000', 'admin', '2020-03-04 11:15:10.844000', 'admin', null, null, 'ORD5', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', '2020-02-07', null, 920.00, -8280.00, 'PARTIALLY_PAID');
-INSERT INTO public.erp_order (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, order_num, client_id, order_date, delivery_date, total_amount, amount_due, status) VALUES ('fa73cc8f-2cd9-6663-f3ff-73544999a66f', 5, '2020-02-07 20:44:10.104000', 'admin', '2020-03-04 11:16:05.641000', 'admin', null, null, 'ORD3', '90fe0ef2-b444-84a7-5367-2370fe694a13', '2020-02-04', null, 25875.00, 5875.00, 'PARTIALLY_PAID');
-INSERT INTO public.erp_order (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, order_num, client_id, order_date, delivery_date, total_amount, amount_due, status) VALUES ('c28fb5a6-bdcf-fb35-6ff1-4f365f7af573', 8, '2020-02-07 20:44:44.186000', 'admin', '2020-03-04 11:16:51.542000', 'admin', null, null, 'ORD4', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', '2020-02-05', null, 21275.00, 1700.00, 'PARTIALLY_PAID');
---end order data
+--begin catalog product date
+INSERT INTO public.erp_catalog_product (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, product_id, price, description, brand_id, category_id, stock_status, image, public_image) VALUES ('a7d4fc94-159e-72d0-0c50-648aabe67859', 1, '2020-05-06 06:30:44.872000', 'admin', '2020-05-06 06:30:44.872000', null, null, null, 'Lenovo V100', '022f44d6-83ff-b163-a5a5-280f14e08363', 26450.00, '<p style="margin:0px 0px 1.25em;padding:0px;border:0px;font-size:16px;line-height:1.4em;font-family:&#39;arial&#39; , &#39;helvetica&#39; , sans-serif;vertical-align:baseline;color:rgb( 102 , 102 , 102 );background-color:rgb( 255 , 255 , 255 )">Lenovo V100 Specs as Reviewed:</p><ul style="margin:0px 0px 1.3em;padding:0px;border:0px;font-size:16px;line-height:inherit;font-family:&#39;arial&#39; , &#39;helvetica&#39; , sans-serif;vertical-align:baseline;list-style:none;color:rgb( 102 , 102 , 102 );background-color:rgb( 255 , 255 , 255 )"><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Processor: Intel Core Duo T2500 2.0GHz</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Screen: 12.1″ WXGA (1280 x 800) VibrantView (glossy screen)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">100GB Hitachi Hard Drive &#64;5400 RPM</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Wireless: Intel PRO/Wireless 3945ABG (802.11 a/b/g)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Bluetooth (optional)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Graphics: Intel Media Accelerator 950</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Ports: 3 USB 2.0 ports, IEEE 1394 (4 pin), VGA out, 5 in 1 Multicard Reader, Express Card 54, headphone jack, mic-in jack, power adapter jack</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Built-in Web Camera, 1.3 megapixel (optional)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Memory: 1.00GB (2GB max)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Finger print reader (optional)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Battery: 3-cell or longer life 6-cell Li-Ion battery (6-cell sticks out of the back, 3-cell is flushed)</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Thinness: About 1.2″ thin</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Weight: About 4.4 lbs with 6-cell battery</li><li style="margin:0px 0px 0px 17px;padding:0px 0px 0.3em;border:0px;font:inherit;vertical-align:baseline;list-style-type:disc;list-style-position:outside">Operating System: Windows XP Pro</li></ul>', '6711ae6a-9d8d-1562-325e-c11dcab8e510', '99fbaba3-e367-ea2d-81f4-e8c1651cd39e', 'AVAILABLE', '', null);
+INSERT INTO public.erp_catalog_product (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, product_id, price, description, brand_id, category_id, stock_status, image, public_image) VALUES ('160656cc-b1f2-2618-e5c5-b1b667449185', 1, '2020-05-06 06:32:30.253000', 'admin', '2020-05-06 06:32:30.253000', null, null, null, 'Ethernet Cable 5M', '78871e75-d3d9-71d3-562e-ac4f7c809ceb', 132.25, '<ul class="a-unordered-list a-vertical a-spacing-none" style="margin:0px 0px 0px 18px;color:rgb( 17 , 17 , 17 );padding:0px;font-family:&#39;amazon ember&#39; , &#39;arial&#39; , sans-serif;font-size:13px;background-color:rgb( 255 , 255 , 255 )"><li style="list-style:disc;margin:0px"><span class="a-list-item">CAT6 / CAT5e: Supports both Cat6 and Cat5e applications. The RJ45 connector used for this cable fits perfectly in both Cat6 and Cat5e ports.</span></li><li style="list-style:disc;margin:0px"><span class="a-list-item">CAPABILITY: Mediabridge Cat 6 cables can support up to 10 Gigabits per second (10 times the bandwidth of Cat5e cables). Meets or exceeds Category 6 performance in compliance with the TIA/EIA 568B.2 standard. Backwards compatible with any existing Fast Ethernet and Gigabit Ethernet.</span></li><li style="list-style:disc;margin:0px"><span class="a-list-item">CERTIFIED: This Mediabridge Cat6 Ethernet cable with CM Grade PVC Jacket is UL Listed, complies with TIA/EIA 568B.2 and adheres to ISO/IEC 11801. APPLICATIONS: High bandwidth of up to 550 MHz guarantees high-speed data transfer for server applications, cloud computing, video surveillance and online high definition video streaming.</span></li><li style="list-style:disc;margin:0px"><span class="a-list-item">CONSTRUCTION: 24AWG Stranded conductors. Each of the 4 twisted pairs are separated by PE cross insulation to prevent crosstalk. 8P8C RJ45 connector with gold-plated contacts. CM grade PVC jacket with 5.8mm outer diameter.</span></li><li style="list-style:disc;margin:0px"><span class="a-list-item">FREE VELCRO STRAP: Includes adjustable &amp; reusable Velcro cable strap for easy organization &amp; storage.</span></li></ul>', 'cb38c8b4-7c2b-2bfa-8633-6ef9d2508536', '0c7cce86-e10c-92ea-2e72-7eb67f7de542', 'AVAILABLE', '', null);
+INSERT INTO public.erp_catalog_product (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, product_id, price, description, brand_id, category_id, stock_status, image, public_image) VALUES ('a6f17aba-4943-c0bf-0c6f-60dae7b959b3', 1, '2020-05-06 06:35:04.486000', 'admin', '2020-05-06 06:35:04.486000', null, null, null, 'HP ProLiant M110', 'cc0dde71-dc42-e98e-e0dd-d11b8b9bcfa8', 63250.00, '<p style="font-family:&#39;arial&#39;;font-size:14pt"><font face="Verdana" size="4" color="#ff0010"><b><i>Key specs:</i></b></font></p><p style="font-family:&#39;arial&#39;;font-size:14pt"><font size="5" face="Arial">Singe Intel Xeon Quad Core </font><i style="font-family:&#39;verdana&#39;;font-size:x-large">E3-1220 </i><font size="5" face="Arial">Processor &#64; 3.1GHz, 8M Cache</font></p><p style="font-family:&#39;arial&#39;;font-size:14pt"><font size="5" face="Arial">12GB<span style="background-color:rgb( 255 , 255 , 255 )"> </span>RAM</font></p><p style="font-family:&#39;arial&#39;;font-size:14pt"><font size="5" face="Arial"> 3 x 500GB HDD</font></p><div style="font-family:&#39;arial&#39;;font-size:14pt"><font face="Arial"><span style="font-size:18.6667px"><br></span></font></div><div style="font-family:&#39;arial&#39;;font-size:14pt"><font face="Arial" size="5"><b><br></b></font></div><div style="font-family:&#39;arial&#39;;font-size:14pt"><font face="Arial" size="5"><b>Description</b></font><font face="Arial" style="font-size:14pt"><b>:</b></font></div><ul style="font-family:&#39;arial&#39;;font-size:14pt"><li style="text-align:left">The HP ProLiant ML110 G7 server provides an affordable and functional solution to small/medium businesses that are budget-conscious and who have basic or no in-house IT resources. With proven ProLiant reliability and the support for the latest Intel Xeon, Core i3, Pentium processors and RPS and 2 NICs, the ML110 G7 provides the ideal solution to the growing business. A mix of PCI-Express slots, DIMM slots, drive bays, and server options delivers the expandability needed. Integrated iLO3 remote management drives down the operational costs by reducing the number of physical visits. HP Smart Start CD enhances the installation process further. Optional TPM provides for additional level of security.</li></ul>', '4cd27717-a282-458e-34ed-f527ac0c1d89', '3389c284-4f5a-75e2-e2aa-3f0ae1b5eac9', 'OUT OF STOCK', '', null);
+INSERT INTO public.erp_catalog_product (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, name, product_id, price, description, brand_id, category_id, stock_status, image, public_image) VALUES ('1ae2c199-52cc-2dff-16ab-a60001c17082', 1, '2020-05-06 06:35:59.492000', 'admin', '2020-05-06 06:35:59.492000', null, null, null, 'HP 61 Color', 'daad6238-da70-f1b4-89ae-1314c739f23d', 920.00, '<ul style="margin:0px 0px 1.25rem 20px;padding:0px;color:rgb( 68 , 68 , 68 );font-family:&#39;hpsimple&#39; , &#39;malgun gothic&#39; , &#39;arial&#39;;font-size:16px;background-color:rgb( 255 , 255 , 255 )"><li>Colour: Tri-colour</li><li>Cartridge yield (approx.): 165 pages</li><li>HP Printer Compatibility: HP Deskjet 1000, 1010, 1012, 1050, 1055, 1056, 1510, 1512, 1514, 1051, 2050, 2510, 2512, 2514, 2540, 2541, 2542, 2544, 3000, 3050, 3051, 3052, 3054, 3056, 3510, 3511, 3512, HP ENVY 4500, 4500, 4501, 4502, 4504, 4505, 5530, 5531, 5532, 5534, 5535, 5539, HP Officejet 2620, 2621, 4630, 4632, 4635</li></ul>', '4cd27717-a282-458e-34ed-f527ac0c1d89', '178ee7b9-278c-2868-d693-c4baa87fd175', 'AVAILABLE', '', null);
+--end catalog product data
 
---begin order item data
-INSERT INTO public.erp_order_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, item_id, description, unit_vat_price, quantity, amount, order_id) VALUES ('1b8d204d-15c1-fc57-4eb8-88652368cfdf', 3, '2020-02-07 20:45:19.185000', 'admin', '2020-02-09 10:43:48.114000', 'admin', null, null, 'fe0496f2-493f-4374-cda3-5e73ee118a5c', null, 115.00, 8, 920.00, '71dc0586-2464-9347-8609-2d7507776695');
-INSERT INTO public.erp_order_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, item_id, description, unit_vat_price, quantity, amount, order_id) VALUES ('5f56314f-72c3-ce9b-f3a6-d469a8571168', 1, '2020-02-06 16:33:36.894000', 'admin', '2020-02-06 16:33:36.894000', null, null, null, 'fe0496f2-493f-4374-cda3-5e73ee118a5c', null, 115.00, 1, 115.00, 'c7e702c8-7b86-a7aa-5092-37df302fb8c3');
-INSERT INTO public.erp_order_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, item_id, description, unit_vat_price, quantity, amount, order_id) VALUES ('7d7c67c9-ef72-b346-26de-5d6ddf9d9fb3', 1, '2020-02-07 20:44:10.105000', 'admin', '2020-02-07 20:44:10.105000', null, null, null, 'fe0496f2-493f-4374-cda3-5e73ee118a5c', null, 115.00, 10, 1150.00, 'fa73cc8f-2cd9-6663-f3ff-73544999a66f');
-INSERT INTO public.erp_order_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, item_id, description, unit_vat_price, quantity, amount, order_id) VALUES ('9d3a943d-6516-a791-7ab6-9524e013f2a9', 1, '2020-02-07 20:44:55.591000', 'admin', '2020-02-07 20:44:55.591000', null, null, null, 'fe0496f2-493f-4374-cda3-5e73ee118a5c', null, 115.00, 5, 575.00, 'c28fb5a6-bdcf-fb35-6ff1-4f365f7af573');
-INSERT INTO public.erp_order_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, item_id, description, unit_vat_price, quantity, amount, order_id) VALUES ('4f7c56bb-0b24-c05d-799b-6bd90f963d40', 1, '2020-03-04 11:11:27.623000', 'admin', '2020-03-04 11:11:27.623000', null, null, null, '2332b338-c43f-48f1-9d5b-613538bf5bf6', null, 805.00, 5, 4025.00, 'fa73cc8f-2cd9-6663-f3ff-73544999a66f');
-INSERT INTO public.erp_order_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, item_id, description, unit_vat_price, quantity, amount, order_id) VALUES ('2cc22f9a-d8eb-6081-657b-15e63fa6e387', 1, '2020-03-04 11:11:27.623000', 'admin', '2020-03-04 11:11:27.623000', null, null, null, '385bc185-bda4-e9b6-25ab-9cceb65d0296', null, 20700.00, 1, 20700.00, 'fa73cc8f-2cd9-6663-f3ff-73544999a66f');
-INSERT INTO public.erp_order_item (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, item_id, description, unit_vat_price, quantity, amount, order_id) VALUES ('122477ba-8ac7-582c-2649-acd3ca56c760', 1, '2020-03-04 11:11:40.891000', 'admin', '2020-03-04 11:11:40.891000', null, null, null, 'ee01c6a1-5449-f18f-7c5a-22c208c23807', null, 20700.00, 1, 20700.00, 'c28fb5a6-bdcf-fb35-6ff1-4f365f7af573');
---end order item data
+--begin service request data
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('b5ed264c-6229-f013-17bc-ca89962f8700', 4, '2020-02-04 21:38:07.507000', 'admin', '2020-05-06 08:40:37.364000', 'guest', null, null, 'R9785', '90fe0ef2-b444-84a7-5367-2370fe694a13', 'Doe John', '58792154', null, null, null, 'Mr. Doe John
+40, La Caverne, No.1,
+Vacoas,
+Mauritius,
+', null, 900.00, 'WAITING', '2020-02-02');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('cb10072b-87bf-36a6-e5e8-9779a370d99b', 3, '2020-02-04 21:37:49.513000', 'admin', '2020-05-06 08:43:36.832000', 'guest', null, null, 'R8563', null, 'Ryan Reynolds', '59745265', null, null, null, '3368  Eagles Nest Drive
+Port Louis', null, 0.00, 'COMPLETED', '2020-02-02');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('6468f688-5642-40e6-96b4-85f371a41acf', 2, '2020-02-04 21:52:45.579000', 'admin', '2020-05-06 08:45:28.764000', 'guest', null, null, 'R8726', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', null, '6458254', null, null, 'SECULOGIX LTD,
+39, La Tour, No.1,
+La Tour Koenig,
+Mauritius,
+', null, 0.00, 'WAITING', '2020-02-02');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('96e9f04a-9e64-d4ea-3520-67adcbfba5d5', 4, '2020-02-04 21:35:47.168000', 'admin', '2020-05-06 08:50:20.584000', 'guest', null, null, 'R9703', '90fe0ef2-b444-84a7-5367-2370fe694a13', 'Doe John', '58792154', null, null, null, 'Mr. Doe John
+40, La Caverne, No.1,
+Vacoas,
+Mauritius,
+', null, 0.00, 'PENDING', '2020-02-02');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('4b148058-db93-51a6-e368-3c2cd1123835', 3, '2020-02-04 21:34:47.269000', 'admin', '2020-05-06 08:51:47.749000', 'guest', null, null, 'R9701', null, 'Clarity Labs Ltd', '59782435', '2109878', '2539489', null, 'Moka Business Centre', null, 0.00, 'PENDING', '2020-02-04');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('181e9e1b-75fa-c224-6f81-fca2ce50c64d', 3, '2020-02-04 21:35:10.813000', 'admin', '2020-05-06 08:51:59.483000', 'guest', null, null, 'R9702', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', '58792154', '6458254', null, null, 'SECULOGIX LTD,
+39, La Tour, No.1,
+La Tour Koenig,
+Mauritius,
+', null, 0.00, 'PENDING', '2020-02-04');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('0bbe0887-ea14-d590-6b5c-43ecf898f15e', 3, '2020-02-04 21:36:57.080000', 'admin', '2020-05-06 08:55:28.796000', 'guest', null, null, 'R9852', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', null, '6458254', null, null, 'SECULOGIX LTD,
+39, La Tour, No.1,
+La Tour Koenig,
+Mauritius,
+', 'ORD4', 0.00, 'COMPLETED', '2020-02-04');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('5341062e-a63a-8a12-1d9b-cf9c54a7f849', 3, '2020-02-04 21:37:27.176000', 'admin', '2020-05-06 08:58:15.863000', 'guest', null, null, 'R9854', null, 'Francis Benoit', '59788638', '6548808', '2432345', null, '36, Hollyrood
+Vacoas', null, 0.00, 'IN_PROGRESS', '2020-02-03');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('a7a181f0-188e-b359-1cae-15e1893a692a', 4, '2020-02-04 21:38:24.185000', 'admin', '2020-05-06 08:58:31.225000', 'guest', null, null, 'R8545', '90fe0ef2-b444-84a7-5367-2370fe694a13', 'Doe John', '58792154', null, null, null, 'Mr. Doe John
+40, La Caverne, No.1,
+Vacoas,
+Mauritius,
+', 'ORD1', 2100.00, 'COMPLETED', '2020-02-04');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('f306ff3b-b244-5d8f-fba0-511b8f65fc01', 3, '2020-02-04 21:34:31.028000', 'admin', '2020-05-06 08:58:56.688000', 'guest', null, null, 'R9700', null, 'Accenture', '55588888', null, '2227867', 'procurement@accenture.com', 'Port Louis', 'ORD2', 0.00, 'COMPLETED', '2020-02-04');
+INSERT INTO public.erp_service_request (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, reference_number, existing_client_id, customer_name, mobile_phone, home_phone, work_phone, email, address, invoice_number, total_price, status, date_received) VALUES ('f201d6e6-a937-a4c1-d6ea-0460ebc64678', 10, '2020-02-04 21:36:29.621000', 'admin', '2020-05-06 10:45:26.740000', 'admin', null, null, 'R9754', 'a9d94307-bf47-abb5-a7d9-90e06532ecd6', 'SECULOGIX LTD', null, '6458254', null, null, 'SECULOGIX LTD,
+39, La Tour, No.1,
+La Tour Koenig,
+Mauritius,
+', null, 0.00, 'IN_PROGRESS', '2020-02-01');
+--end service request data
 
---begin payment data
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('76968d31-8233-c727-dcc8-92e2137a397c', 1, '2020-03-04 09:40:09.036000', 'admin', '2020-03-04 09:40:09.036000', null, null, null, '2020-03-01 09:39:53.982000', '2020-03-01', 'CASH', 575.00, null, 'c28fb5a6-bdcf-fb35-6ff1-4f365f7af573');
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('2d768b4c-0640-cc62-a40f-016cb8053ec6', 1, '2020-03-04 09:40:40.030000', 'admin', '2020-03-04 09:40:40.030000', null, null, null, '2020-03-04 09:40:20.253000', '2020-03-04', 'CHEQUE', 115.00, '6544677', 'c7e702c8-7b86-a7aa-5092-37df302fb8c3');
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('672f4c55-059b-a854-7319-896544235c06', 1, '2020-03-04 09:41:14.145000', 'admin', '2020-03-04 09:41:14.145000', null, null, null, '2020-02-29 09:40:52.383000', '2020-02-29', 'MCB_JUICE', 200.00, null, '71dc0586-2464-9347-8609-2d7507776695');
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('3137e037-bd46-5ffe-5a18-74d4b58faec4', 2, '2020-03-04 11:13:44.786000', 'admin', '2020-03-04 11:13:54.020000', 'admin', null, null, '2020-03-02 11:13:31.997000', '2020-03-02', 'CASH', 4000.00, null, 'c28fb5a6-bdcf-fb35-6ff1-4f365f7af573');
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('e3401caf-bc19-c397-161d-e2f711755768', 1, '2020-03-04 11:14:19.966000', 'admin', '2020-03-04 11:14:19.966000', null, null, null, '2020-02-27 11:14:03.304000', '2020-02-27', 'CARD', 3000.00, null, '71dc0586-2464-9347-8609-2d7507776695');
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('102e8e60-05ed-e375-4196-965850b4313f', 1, '2020-03-04 11:15:10.649000', 'admin', '2020-03-04 11:15:10.649000', null, null, null, '2020-02-29 11:14:53.678000', '2020-02-29', 'BANK_TRANSFER', 6000.00, null, '71dc0586-2464-9347-8609-2d7507776695');
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('e63485c4-e2c1-f61d-5fcf-3d3ca04ba9ac', 1, '2020-03-04 11:15:30.332000', 'admin', '2020-03-04 11:15:30.332000', null, null, null, '2020-03-04 11:15:20.026000', '2020-03-04', 'MYT_MONEY', 5000.00, null, 'c28fb5a6-bdcf-fb35-6ff1-4f365f7af573');
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('c4b9f537-32f8-7a66-f4e6-14d3a666a6ba', 1, '2020-03-04 11:16:05.622000', 'admin', '2020-03-04 11:16:05.622000', null, null, null, '2020-03-02 11:15:43.925000', '2020-03-02', 'MCB_JUICE', 20000.00, null, 'fa73cc8f-2cd9-6663-f3ff-73544999a66f');
-INSERT INTO public.erp_payment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, execution_date, execution_date_invisible, payment_type, amount, cheque_reference, order_id) VALUES ('d97e35a2-b154-b7da-aa04-ef67973ac89c', 1, '2020-03-04 11:16:51.520000', 'admin', '2020-03-04 11:16:51.520000', null, null, null, '2020-03-01 11:16:36.163000', '2020-03-01', 'CARD', 10000.00, null, 'c28fb5a6-bdcf-fb35-6ff1-4f365f7af573');
---end payment data
+--begin equipment data
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('59876b50-decc-8607-4f12-e09e1ff66e0e', 1, '2020-05-06 08:38:08.108000', 'guest', '2020-05-06 08:38:08.108000', null, null, null, '99fbaba3-e367-ea2d-81f4-e8c1651cd39e', 'HP Probook 4540s', 'SN6536473', 'Broken Hinge', 'Keys not working.', 'Replaced Keyboard - Rs 2100', 'COMPLETED', 2100.00, 'a7a181f0-188e-b359-1cae-15e1893a692a');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('b88593fb-87b5-7439-8182-92d90b189833', 1, '2020-05-06 08:40:21.904000', 'guest', '2020-05-06 08:40:21.904000', null, null, null, '653421cc-a0e7-b3d1-4a64-9501105f659f', 'Clone PC', null, 'USB Ports broken.', 'No power.', 'Power supply faulty. Informed Client on 17/5/2020', 'WAITING', 900.00, 'b5ed264c-6229-f013-17bc-ca89962f8700');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('3767933b-67a2-7c30-9951-4fbf675dcbde', 1, '2020-05-06 08:43:36.827000', 'guest', '2020-05-06 08:43:36.827000', null, null, null, '0051c487-1c15-1bdd-f5dd-3909c182a42c', 'SP', null, null, 'No access to data.', 'Pendrive faulty. Cannot be repaired.', 'COMPLETED', 0.00, 'cb10072b-87bf-36a6-e5e8-9779a370d99b');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('095fab9c-1ec1-96d2-064e-87dca1b9cc8f', 1, '2020-05-06 08:45:28.758000', 'guest', '2020-05-06 08:45:28.758000', null, null, null, '7af03458-37b1-cc12-e446-097237310bf8', 'HP Deskjet 1150', 'SN3737489', null, 'Line on printed papers.', 'Imaging Drum Faulty. Awaiting drum from supplier.', 'IN_PROGRESS', 1100.00, '6468f688-5642-40e6-96b4-85f371a41acf');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('a5e750a5-4dfc-2bf4-231e-43ca62c000d1', 1, '2020-05-06 08:48:44.421000', 'guest', '2020-05-06 08:48:44.421000', null, null, null, '653421cc-a0e7-b3d1-4a64-9501105f659f', 'Clone Pc', null, null, 'No display.', null, 'PENDING', null, '4b148058-db93-51a6-e368-3c2cd1123835');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('9830d4f7-8d53-e6cb-04c8-12f6ee665e75', 1, '2020-05-06 08:49:27.056000', 'guest', '2020-05-06 08:49:27.056000', null, null, null, '39ad384a-7b38-fc6b-ef7f-f821877a75f5', 'Toshiba', null, null, 'Cannot access data.', null, 'PENDING', null, '181e9e1b-75fa-c224-6f81-fca2ce50c64d');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('51966223-1121-9674-b469-4e2726521dba', 1, '2020-05-06 08:50:20.579000', 'guest', '2020-05-06 08:50:20.579000', null, null, null, '0f733240-5575-58f4-bdd8-8ea5531359a7', 'Linksys L543', null, null, 'No wifi.', null, 'PENDING', null, '96e9f04a-9e64-d4ea-3520-67adcbfba5d5');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('7d7b5589-3058-8f26-2560-12eea3727e40', 1, '2020-05-06 08:53:26.688000', 'guest', '2020-05-06 08:53:26.688000', null, null, null, '70542a4b-6636-9601-9478-4923114fc173', 'Cisco SF300', 'SN6474899', null, 'SFP Ports Inaccesible.', null, 'IN_PROGRESS', null, 'f201d6e6-a937-a4c1-d6ea-0460ebc64678');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('3f383f7b-75e5-0dc5-0659-37104aa78ab1', 1, '2020-05-06 08:55:03.550000', 'guest', '2020-05-06 08:55:03.550000', null, null, null, '653421cc-a0e7-b3d1-4a64-9501105f659f', 'Clone PC', null, null, 'Windows Slow.', 'Backup and Reinstalled windows - Rs 1300', 'COMPLETED', 1300.00, '0bbe0887-ea14-d590-6b5c-43ecf898f15e');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('76acce98-c4d8-a8f0-cfe2-45a96c4bc710', 1, '2020-05-06 08:58:15.860000', 'guest', '2020-05-06 08:58:15.860000', null, null, null, '99fbaba3-e367-ea2d-81f4-e8c1651cd39e', 'Lenovo V100', 'SN547489', null, 'Reinstall Windows.', null, 'IN_PROGRESS', 700.00, '5341062e-a63a-8a12-1d9b-cf9c54a7f849');
+INSERT INTO public.erp_equipment (id, version, create_ts, created_by, update_ts, updated_by, delete_ts, deleted_by, product_category_id, make_model, serial_number, visible_defect, problem_description, technician_report, status, price, service_request_id) VALUES ('46c98a1f-681f-2e40-4be0-40805829aa8b', 2, '2020-05-06 08:47:54.625000', 'guest', '2020-05-06 08:59:10.948000', 'guest', null, null, '3389c284-4f5a-75e2-e2aa-3f0ae1b5eac9', 'HP ML310 G7', 'SN6672829', null, 'Blue Screen.', null, 'MOVED_TO_STORE', null, 'f306ff3b-b244-5d8f-fba0-511b8f65fc01');
+--end equipment data
 
 --begin sec_filter data
 INSERT INTO PUBLIC.SEC_FILTER (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, COMPONENT, NAME, CODE, XML, USER_ID, GLOBAL_DEFAULT) VALUES ('b0e70d48-8d6f-8265-4d71-816628ef51f6', '2019-12-14 13:05:30.397000', 'admin', 3, '2019-12-14 13:06:53.967000', 'admin', null, null, '[erp_Employee.browse].filter', 'Skill', null, '<?xml version="1.0" encoding="UTF-8"?>
@@ -831,126 +950,6 @@ INSERT INTO PUBLIC.SEC_FILTER (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UP
 </filter>
 ', '60885987-1b61-4247-94c7-dff348347f93', false);
 --end sec_filter data
-
---begin sec_user_setting data
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('12579df6-4fd8-ff69-a855-04aad2a0d97a', '2019-12-31 21:32:11.567000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Employee.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="filter">
-      <defaultFilter/>
-    </component>
-    <component name="employeesTable" presentation=""/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('284c5d91-ade2-00cf-a283-aec0eddb13d8', '2020-01-01 18:16:00.681000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Education.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="filter">
-      <defaultFilter/>
-    </component>
-    <component name="educationsTable" presentation=""/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('37e00d06-822f-df27-a451-540a8c65b739', '2020-01-01 19:24:31.402000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'sys$ScheduledTask.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="tasksFilter">
-      <defaultFilter/>
-    </component>
-    <component name="tasksTable" presentation=""/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('5fbf9fa4-3bb3-dae2-0511-e57b195aed6a', '2020-01-01 00:43:35.715000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_ContactPerson.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="filter">
-      <defaultFilter/>
-    </component>
-    <component name="contactPersonsTable" presentation=""/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('75690f4c-aaa7-ab54-5ca9-1def3a50aced', '2019-12-31 21:31:57.626000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Country.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="filter">
-      <defaultFilter/>
-      <maxResults>50</maxResults>
-    </component>
-    <component name="countriesTable" presentation=""/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('7aba3bf2-910c-c88a-e75b-b39309d005c3', '2020-01-01 19:03:55.598000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Skill.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="filter">
-      <defaultFilter/>
-      <maxResults>50</maxResults>
-    </component>
-    <component name="skillsTable" presentation=""/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('a7719c7f-1633-3b62-e695-667265be7eea', '2020-01-01 18:15:33.055000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_City.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="filter">
-      <defaultFilter/>
-    </component>
-    <component name="citiesTable"/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('d0b8547d-930b-5d1b-2c28-fd1fd344128f', '2020-01-01 18:57:46.085000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'appProperties', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="paramsTable">
-      <columns sortProperty="name" sortAscending="true">
-        <columns id="name" width="309" visible="true"/>
-        <columns id="displayedCurrentValue" width="264" visible="true"/>
-        <columns id="updateTs" width="297" visible="true"/>
-        <columns id="updatedBy" width="302" visible="true"/>
-      </columns>
-    </component>
-    <component name="hintBox"/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('d2d5acfd-c4ff-6a23-96dc-c183a1099dd7', '2019-12-31 21:32:20.217000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Client.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="filter">
-      <defaultFilter/>
-    </component>
-    <component name="clientsTable" presentation=""/>
-  </components>
-</settings>
-');
-INSERT INTO PUBLIC.SEC_USER_SETTING (ID, CREATE_TS, CREATED_BY, USER_ID, CLIENT_TYPE, NAME, VALUE_) VALUES ('f63dd3f4-7f2d-0061-4a88-f550debd5cf6', '2019-12-31 21:32:28.239000', 'admin', '60885987-1b61-4247-94c7-dff348347f93', 'W', 'erp_Product.browse', '<?xml version="1.0" encoding="UTF-8"?>
-
-<settings>
-  <components>
-    <component name="filter">
-      <defaultFilter/>
-    </component>
-    <component name="productsTable" presentation=""/>
-  </components>
-</settings>
-');
---end sec_user_setting data
 
 --begin sys_config data
 INSERT INTO PUBLIC.SYS_CONFIG (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, NAME, VALUE_) VALUES ('a9c712ff-4927-764c-9612-aa5bf3a01f30', '2020-01-01 18:56:13.677000', 'admin', 1, '2020-01-01 18:56:13.677000', null, 'fts.enabled', 'true');
@@ -974,6 +973,33 @@ INSERT INTO PUBLIC.SYS_SERVER (ID, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY,
 INSERT INTO PUBLIC.REPORT_GROUP (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, TITLE, CODE, LOCALE_NAMES) VALUES ('df722037-b421-4c45-bfca-6ad1313d4e62', '2020-02-17 15:41:01.053000', 'admin', 1, '2020-02-17 15:41:01.053000', null, null, null, 'Service Request', null, null);
 INSERT INTO PUBLIC.REPORT_GROUP (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, TITLE, CODE, LOCALE_NAMES) VALUES ('1a6ab57b-ed9d-58d5-4d76-c9ab81ffea1c', '2020-02-17 16:49:31.304000', 'admin', 2, '2020-02-17 16:49:44.182000', 'admin', null, null, 'Order', null, null);
 --end custom report groups data
+
+--begin sec_role data
+INSERT INTO public.sec_role (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, name, loc_name, description, is_default_role, role_type, security_scope) VALUES ('823ee32e-5aac-e11c-7d77-0de3d9eaffdc', '2020-05-06 13:02:11.691000', 'admin', 2, '2020-05-06 13:04:39.790000', 'admin', null, null, null, 'Manager', null, null, null, null, 'GENERIC_UI');
+INSERT INTO public.sec_role (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, name, loc_name, description, is_default_role, role_type, security_scope) VALUES ('3f8e6143-097b-9b5b-1907-29d1926c4390', '2020-05-06 13:05:12.422000', 'admin', 1, '2020-05-06 13:05:12.422000', null, null, null, null, 'CEO', null, null, null, null, 'GENERIC_UI');
+INSERT INTO public.sec_role (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, name, loc_name, description, is_default_role, role_type, security_scope) VALUES ('5b6911df-1efb-39d0-1a5b-c05d1b7885c4', '2020-05-06 07:07:58.016000', 'admin', 4, '2020-05-06 13:13:41.890000', 'admin', null, null, null, 'Technician', null, null, null, 0, 'GENERIC_UI');
+INSERT INTO public.sec_role (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, name, loc_name, description, is_default_role, role_type, security_scope) VALUES ('c83b02b9-d390-0374-50cc-9cc944a85cbf', '2020-05-06 13:05:05.718000', 'admin', 2, '2020-05-06 13:41:40.033000', 'admin', null, null, null, 'Systems Administrator', null, null, null, 30, 'GENERIC_UI');
+--end sec_role data
+
+--begin sec_user data
+INSERT INTO public.sec_user (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, login, login_lc, password, password_encryption, name, first_name, last_name, middle_name, position_, email, language_, time_zone, time_zone_auto, active, group_id, group_names, ip_mask, change_password_at_logon) VALUES ('248b17d7-0e47-cbeb-1ab1-ca8c45591da7', '2020-05-06 07:08:03.870000', 'admin', 9, '2020-05-06 13:24:22.922000', 'admin', null, null, null, 'demo', 'demo', '$2a$10$S0gEPzeZxQPPUxphETLdZuS9VRmQuBEikEZLTakq0FUPWyich22dS', 'bcrypt', 'Technician', 'demo', null, null, null, null, 'en', null, false, true, '0fa2b1a5-1d68-4d69-9fbd-dff348347f93', null, null, false);
+INSERT INTO public.sec_user (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, login, login_lc, password, password_encryption, name, first_name, last_name, middle_name, position_, email, language_, time_zone, time_zone_auto, active, group_id, group_names, ip_mask, change_password_at_logon) VALUES ('2f9e59d2-fc34-1d45-c4c7-6355e21a5a32', '2020-05-06 13:21:25.582000', 'admin', 2, '2020-05-06 13:24:51.152000', 'admin', null, null, null, 'demoManager', 'demomanager', '$2a$10$U9BQYYeX3z67P8x01f6EhOa2LgyF0lh/TzreKdK06amd/P0k9izUq', 'bcrypt', 'Manager', null, null, null, null, null, 'en', null, null, true, '0fa2b1a5-1d68-4d69-9fbd-dff348347f93', null, null, false);
+INSERT INTO public.sec_user (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, login, login_lc, password, password_encryption, name, first_name, last_name, middle_name, position_, email, language_, time_zone, time_zone_auto, active, group_id, group_names, ip_mask, change_password_at_logon) VALUES ('c4323844-ae58-9b83-fdc8-75de3815bdd6', '2020-05-06 13:22:39.335000', 'admin', 2, '2020-05-06 13:25:06.409000', 'admin', null, null, null, 'demoCEO', 'democeo', '$2a$10$eDViiy52kIj5co8TZd2FmeUDVI6kQGuMnwCGV/YNrQvPbR5vk5MX6', 'bcrypt', 'CEO', null, null, null, null, null, 'en', null, null, true, '0fa2b1a5-1d68-4d69-9fbd-dff348347f93', null, null, false);
+INSERT INTO public.sec_user (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, login, login_lc, password, password_encryption, name, first_name, last_name, middle_name, position_, email, language_, time_zone, time_zone_auto, active, group_id, group_names, ip_mask, change_password_at_logon) VALUES ('6752f7b6-57d2-170e-60bc-dd2b3d425d72', '2020-05-06 13:23:38.842000', 'admin', 2, '2020-05-06 13:25:30.056000', 'admin', null, null, null, 'demoSystemsAdmin', 'demosystemsadmin', '$2a$10$or5I6v1gpxTA0rhdylaW6.7351iHHbNI52OjzGj190MDIPJXwOZe6', 'bcrypt', 'Systems Admin', null, null, null, null, null, 'en', null, null, true, '0fa2b1a5-1d68-4d69-9fbd-dff348347f93', null, null, false);
+--end sec_user data
+
+--begin sec_user_substitution
+INSERT INTO public.sec_user_substitution (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, user_id, substituted_user_id, start_date, end_date) VALUES ('2f6d143d-3839-edec-76cc-9e19e8bc19c4', '2020-05-06 18:36:52.955000', 'admin', 1, '2020-05-06 18:36:52.955000', null, null, null, null, '248b17d7-0e47-cbeb-1ab1-ca8c45591da7', '2f9e59d2-fc34-1d45-c4c7-6355e21a5a32', null, null);
+INSERT INTO public.sec_user_substitution (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, user_id, substituted_user_id, start_date, end_date) VALUES ('23b648f2-12b2-5733-3034-5bda5960f61f', '2020-05-06 18:36:52.955000', 'admin', 1, '2020-05-06 18:36:52.955000', null, null, null, null, '248b17d7-0e47-cbeb-1ab1-ca8c45591da7', 'c4323844-ae58-9b83-fdc8-75de3815bdd6', null, null);
+INSERT INTO public.sec_user_substitution (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, sys_tenant_id, user_id, substituted_user_id, start_date, end_date) VALUES ('81ce6265-eb11-e153-f462-81a3b586adec', '2020-05-06 18:36:52.914000', 'admin', 1, '2020-05-06 18:36:52.914000', null, null, null, null, '248b17d7-0e47-cbeb-1ab1-ca8c45591da7', '6752f7b6-57d2-170e-60bc-dd2b3d425d72', null, null);
+--end sec_user_substitution
+
+--begin sec_user_role data
+INSERT INTO public.sec_user_role (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, user_id, role_id, role_name) VALUES ('e0160050-a702-c954-4795-fbaa5f2984e7', '2020-05-06 07:08:03.874000', 'admin', 1, '2020-05-06 07:08:03.874000', null, null, null, '248b17d7-0e47-cbeb-1ab1-ca8c45591da7', '5b6911df-1efb-39d0-1a5b-c05d1b7885c4', null);
+INSERT INTO public.sec_user_role (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, user_id, role_id, role_name) VALUES ('d7cd2102-aac9-fad1-d922-2ef7964b3cdb', '2020-05-06 13:21:25.582000', 'admin', 1, '2020-05-06 13:21:25.582000', null, null, null, '2f9e59d2-fc34-1d45-c4c7-6355e21a5a32', '823ee32e-5aac-e11c-7d77-0de3d9eaffdc', null);
+INSERT INTO public.sec_user_role (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, user_id, role_id, role_name) VALUES ('aaf8cbf1-79bc-ccb8-fc95-620da0dac08d', '2020-05-06 13:22:39.335000', 'admin', 1, '2020-05-06 13:22:39.335000', null, null, null, 'c4323844-ae58-9b83-fdc8-75de3815bdd6', '3f8e6143-097b-9b5b-1907-29d1926c4390', null);
+INSERT INTO public.sec_user_role (id, create_ts, created_by, version, update_ts, updated_by, delete_ts, deleted_by, user_id, role_id, role_name) VALUES ('472a9e16-10ec-f9b1-c769-087e76446f76', '2020-05-06 13:23:38.842000', 'admin', 1, '2020-05-06 13:23:38.842000', null, null, null, '6752f7b6-57d2-170e-60bc-dd2b3d425d72', 'c83b02b9-d390-0374-50cc-9cc944a85cbf', null);
+--end sec_user role data
 
 --begin ddcdi_import_attribute_mapper
 --end ddcdi_import_attribute_mapper
