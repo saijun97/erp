@@ -206,23 +206,11 @@ task restart(dependsOn: ['stop', ":${modulePrefix}-core:deploy", ":${modulePrefi
 }
 restart.finalizedBy start
 
-task stage(dependsOn: ['setupTomcat', ':app-core:deploy', ':app-web:deploy']) {
+task stage(dependsOn: ['setupTomcat', ":${modulePrefix}-core:deploy", ":${modulePrefix}-web:deploy"]) {
     doLast {
-        // replace context.xml with heroku-context.xml
-        def src = new File('modules/core/web/META-INF/heroku-context.xml')
-        def dst = new File('deploy/tomcat/webapps/app-core/META-INF/context.xml')
-        dst.delete()
-        dst << src.text
-
         // change port from 8080 to heroku $PORT
         def file = new File('deploy/tomcat/conf/server.xml')
         file.text = file.text.replace('8080', '${port.http}')
-
-        // add local.app.properties for core application
-        def coreConfDir = new File('deploy/tomcat/conf/app-core/')
-        coreConfDir.mkdirs()
-        def coreProperties = new File(coreConfDir, 'local.app.properties')
-        coreProperties.text = ''' cuba.automaticDatabaseUpdate = true '''
 
         // rename deploy/tomcat/webapps/app to deploy/tomcat/webapps/ROOT
         def rootFolder = new File('deploy/tomcat/webapps/ROOT')
@@ -230,7 +218,7 @@ task stage(dependsOn: ['setupTomcat', ':app-core:deploy', ':app-web:deploy']) {
             rootFolder.deleteDir()
         }
 
-        def webAppDir = new File('deploy/tomcat/webapps/app')
+        def webAppDir = new File("deploy/tomcat/webapps/${modulePrefix}")
         webAppDir.renameTo(new File(rootFolder.path))
 
         // add local.app.properties for web application
