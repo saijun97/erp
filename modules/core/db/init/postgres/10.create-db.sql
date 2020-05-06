@@ -82,6 +82,27 @@ create table ERP_COMPANY_CONTACT_PERSONS (
     primary key (ID)
 )^
 -- end ERP_COMPANY_CONTACT_PERSONS
+-- begin ERP_ORDER_ITEM
+create table ERP_ORDER_ITEM (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    ITEM_ID uuid not null,
+    DESCRIPTION text,
+    UNIT_VAT_PRICE decimal(19, 2),
+    QUANTITY integer,
+    AMOUNT decimal(19, 2),
+    ORDER_ID uuid not null,
+    --
+    primary key (ID)
+)^
+-- end ERP_ORDER_ITEM
 -- begin ERP_EMPLOYEE_SKILL
 create table ERP_EMPLOYEE_SKILL (
     ID uuid,
@@ -124,27 +145,6 @@ create table ERP_EMPLOYEE_EDUCATION (
     primary key (ID)
 )^
 -- end ERP_EMPLOYEE_EDUCATION
--- begin ERP_ORDER_ITEM
-create table ERP_ORDER_ITEM (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    ITEM_ID uuid not null,
-    DESCRIPTION text,
-    UNIT_VAT_PRICE decimal(19, 2),
-    QUANTITY integer,
-    AMOUNT decimal(19, 2),
-    ORDER_ID uuid not null,
-    --
-    primary key (ID)
-)^
--- end ERP_ORDER_ITEM
 -- begin ERP_DEPARTMENT
 create table ERP_DEPARTMENT (
     ID uuid,
