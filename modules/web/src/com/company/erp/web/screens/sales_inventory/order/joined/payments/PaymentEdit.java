@@ -27,12 +27,4 @@ public class PaymentEdit extends StandardEditor<Payment> {
 
     }
 
-    @Subscribe("executionDateField")
-    public void onExecutionDateFieldValueChange(HasValue.ValueChangeEvent<Date> event) {
-
-        getEditedEntity().setExecutionDateInvisible(getEditedEntity().getExecutionDate());
-
-    }
-
-
 }
