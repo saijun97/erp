@@ -214,7 +214,7 @@ create table ERP_TASK (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    TASK_NUM integer,
+    TASK_NUM varchar(255),
     CATEGORY varchar(50) not null,
     ORDER_NUM_ID uuid,
     PO_INVOICE_NUM varchar(255),
@@ -303,7 +303,6 @@ create table ERP_PAYMENT (
     DELETED_BY varchar(50),
     --
     EXECUTION_DATE timestamp not null,
-    EXECUTION_DATE_INVISIBLE date not null,
     PAYMENT_TYPE varchar(50) not null,
     AMOUNT decimal(19, 2) not null,
     CHEQUE_REFERENCE varchar(255),
