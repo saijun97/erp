@@ -3,12 +3,12 @@ package com.company.erp.web.screens.sales_inventory.product;
 import com.haulmont.cuba.gui.components.CheckBox;
 import com.haulmont.cuba.gui.components.CurrencyField;
 import com.haulmont.cuba.gui.components.HasValue;
-import com.haulmont.cuba.gui.components.TextField;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.sales_inventory.product.Product;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @UiController("erp_Product.edit")
 @UiDescriptor("product-edit.xml")
@@ -26,10 +26,17 @@ public class ProductEdit extends StandardEditor<Product> {
 
         BigDecimal vatValue;
 
-        if (applyVatField.getValue()) {
+        if (applyVatField.isChecked()) {
 
-            vatValue = priceField.getValue().multiply(BigDecimal.valueOf(1.15));
-            vatPriceField.setValue(vatValue);
+            try {
+
+                vatValue = (Objects.requireNonNull(priceField.getValue())).multiply(BigDecimal.valueOf(1.15));
+                vatPriceField.setValue(vatValue);
+
+            } catch (NullPointerException e) {
+
+                System.out.println("Exception Handled.");
+            }
         }
 
         else vatPriceField.setValue(priceField.getValue());

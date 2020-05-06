@@ -71,9 +71,15 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
         }
 
-        customerNameField.setValue(existingClientField.getValue().getDisplayName());
+        else try {
 
-        addressField.setValue(existingClientField.getValue().getBillingAddress());
+            customerNameField.setValue(existingClientField.getValue().getDisplayName());
+            addressField.setValue(existingClientField.getValue().getBillingAddress());
+
+        } catch (NullPointerException e) {
+
+            System.out.println("Exception Handled.");
+        }
 
         try {
 
