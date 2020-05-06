@@ -66,7 +66,7 @@
             </form>
             <form id="formDesc" dataContainer="productDc" captionPosition="TOP">
                 <column>
-                    <resizableTextArea id="descriptionField" property="description" rows="14" cols="25"/>
+                    <richTextArea id="descriptionField" property="description" height="385px"/>
                 </column>
             </form>
         </hbox>
