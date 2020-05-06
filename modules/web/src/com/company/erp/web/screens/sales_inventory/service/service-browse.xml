@@ -8,7 +8,7 @@
                     view="service-view-details">
             <loader id="servicesDl">
                 <query>
-                    <![CDATA[select e from erp_Service e]]>
+                    <![CDATA[select e from erp_Service e order by e.item asc]]>
                 </query>
             </loader>
         </collection>

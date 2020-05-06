@@ -12,7 +12,7 @@
         <collection id="itemsDc" class="com.company.erp.entity.general.superclasses.Item" view="_local">
             <loader id="itemsLc">
                 <query>
-                    <![CDATA[select e from erp_Item e]]>
+                    <![CDATA[select e from erp_Item e order by e.item ASC]]>
                 </query>
             </loader>
         </collection>

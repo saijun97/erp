@@ -9,7 +9,7 @@
                     view="country-view-details">
             <loader id="countriesDl">
                 <query>
-                    <![CDATA[select e from erp_Country e]]>
+                    <![CDATA[select e from erp_Country e order by e.country ASC]]>
                 </query>
             </loader>
         </collection>

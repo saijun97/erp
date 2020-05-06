@@ -9,7 +9,7 @@
                     view="employee-view-details">
             <loader id="employeesDl">
                 <query>
-                    <![CDATA[select e from erp_Employee e]]>
+                    <![CDATA[select e from erp_Employee e order by e.fullName ASC]]>
                 </query>
             </loader>
         </collection>

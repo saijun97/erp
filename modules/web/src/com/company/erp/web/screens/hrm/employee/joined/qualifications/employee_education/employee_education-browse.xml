@@ -9,7 +9,7 @@
                     view="employee_Education-view">
             <loader id="employee_EducationsDl">
                 <query>
-                    <![CDATA[select e from erp_Employee_Education e]]>
+                    <![CDATA[select e from erp_Employee_Education e order by e.createTs DSC]]>
                 </query>
             </loader>
         </collection>

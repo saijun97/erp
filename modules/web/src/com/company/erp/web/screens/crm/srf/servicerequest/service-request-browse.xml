@@ -9,7 +9,7 @@
                     view="serviceRequest-view-details">
             <loader id="serviceRequestsDl">
                 <query>
-                    <![CDATA[select e from erp_ServiceRequest e]]>
+                    <![CDATA[select e from erp_ServiceRequest e order by e.referenceNumber DESC]]>
                 </query>
             </loader>
         </collection>

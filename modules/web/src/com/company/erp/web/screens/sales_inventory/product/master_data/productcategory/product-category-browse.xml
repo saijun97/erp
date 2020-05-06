@@ -8,7 +8,7 @@
                     view="productCategory-view">
             <loader id="productCategoriesDl">
                 <query>
-                    <![CDATA[select e from erp_ProductCategory e]]>
+                    <![CDATA[select e from erp_ProductCategory e order by e.name ASC]]>
                 </query>
             </loader>
         </collection>

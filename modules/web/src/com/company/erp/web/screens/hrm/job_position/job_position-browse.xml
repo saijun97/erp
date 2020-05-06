@@ -1,5 +1,4 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
-        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://browseCaption"
         focusComponent="table"
         messagesPack="com.company.erp.web.screens.hrm.job_position">
@@ -9,7 +8,7 @@
                     view="job_Position-view">
             <loader id="job_PositionsDl">
                 <query>
-                    <![CDATA[select e from erp_Job_Position e]]>
+                    <![CDATA[select e from erp_Job_Position e order by e.name ASC]]>
                 </query>
             </loader>
         </collection>
@@ -35,7 +34,8 @@
                             width="100%"
                             dataContainer="job_PositionsDc"
                             multiselect="true"
-                            presentations="true">
+                            presentations="true"
+                            multiLineCells="true">
                     <actions>
                         <action id="create" type="create"/>
                         <action id="edit" type="edit"/>

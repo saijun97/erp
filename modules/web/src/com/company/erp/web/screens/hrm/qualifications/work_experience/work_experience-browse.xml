@@ -9,7 +9,7 @@
                     view="_local">
             <loader id="work_ExperiencesDl">
                 <query>
-                    <![CDATA[select e from erp_Work_Experience e]]>
+                    <![CDATA[select e from erp_Work_Experience e order by e.endDate DESC]]>
                 </query>
             </loader>
         </collection>

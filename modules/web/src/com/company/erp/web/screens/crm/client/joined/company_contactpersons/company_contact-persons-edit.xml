@@ -13,7 +13,7 @@
                     view="contactPerson-view-details">
             <loader id="contactPersonsLc">
                 <query>
-                    <![CDATA[select e from erp_ContactPerson e]]>
+                    <![CDATA[select e from erp_ContactPerson e order by e.fullName ASC]]>
                 </query>
             </loader>
         </collection>

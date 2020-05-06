@@ -14,7 +14,7 @@
                     view="_minimal">
             <loader id="productCategoriesLc">
                 <query>
-                    <![CDATA[select e from erp_ProductCategory e]]>
+                    <![CDATA[select e from erp_ProductCategory e order by e.name asc]]>
                 </query>
             </loader>
         </collection>
@@ -23,7 +23,7 @@
                     view="_minimal">
             <loader id="make_manufacturersLc">
                 <query>
-                    <![CDATA[select e from erp_Make_Manufacturer e]]>
+                    <![CDATA[select e from erp_Make_Manufacturer e order by e.name asc]]>
                 </query>
             </loader>
         </collection>

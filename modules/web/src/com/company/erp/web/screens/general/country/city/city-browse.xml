@@ -9,7 +9,7 @@
                     view="_local">
             <loader id="citiesDl">
                 <query>
-                    <![CDATA[select e from erp_City e]]>
+                    <![CDATA[select e from erp_City e order by e.city ASC]]>
                 </query>
             </loader>
         </collection>

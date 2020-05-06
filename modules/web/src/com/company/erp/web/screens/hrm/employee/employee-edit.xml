@@ -20,7 +20,7 @@
             <loader id="departmentsLc">
                 <query>
                     <![CDATA[select e from erp_Department e
-                    order by e.department]]>
+                    order by e.department ASC]]>
                 </query>
             </loader>
         </collection>
@@ -31,7 +31,7 @@
                 <query>
                     <![CDATA[select e from erp_Subunit e
                     where e.department = :container_departmentsDc
-                    order by e.subunit]]>
+                    order by e.subunit ASC]]>
                 </query>
             </loader>
         </collection>
@@ -40,7 +40,7 @@
                     view="_minimal">
             <loader>
                 <query>select e from erp_Country e
-                    order by e.country
+                    order by e.country ASC
                 </query>
             </loader>
         </collection>
@@ -50,7 +50,7 @@
             <loader>
                 <query>select e from erp_City e
                     where e.country = :container_countriesDc
-                    order by e.city
+                    order by e.city ASC
                 </query>
             </loader>
         </collection>
@@ -58,12 +58,12 @@
                     class="com.company.erp.entity.hrm.job_positions.Job_Position"
                     view="_minimal">
             <loader>
-                <query>select e from erp_Job_Position e</query>
+                <query>select e from erp_Job_Position e order by e.name asc</query>
             </loader>
         </collection>
         <collection id="usersDc" class="com.haulmont.cuba.security.entity.User" view="_minimal">
             <loader>
-                <query>select e from sec$User e</query>
+                <query>select e from sec$User e order by e.createTs DESC</query>
             </loader>
         </collection>
     </data>

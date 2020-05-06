@@ -8,7 +8,7 @@
                     view="department-view-details">
             <loader id="departmentsDl">
                 <query>
-                    <![CDATA[select e from erp_Department e]]>
+                    <![CDATA[select e from erp_Department e order by e.department ASC]]>
                 </query>
             </loader>
         </collection>

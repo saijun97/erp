@@ -9,7 +9,7 @@
                     view="_local">
             <loader id="subunitsDl">
                 <query>
-                    <![CDATA[select e from erp_Subunit e]]>
+                    <![CDATA[select e from erp_Subunit e order by e.subunit ASC]]>
                 </query>
             </loader>
         </collection>

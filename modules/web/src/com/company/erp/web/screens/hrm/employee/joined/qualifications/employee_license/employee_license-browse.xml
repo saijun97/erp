@@ -9,7 +9,7 @@
                     view="employee_License-view">
             <loader id="employee_LicensesDl">
                 <query>
-                    <![CDATA[select e from erp_Employee_License e]]>
+                    <![CDATA[select e from erp_Employee_License e order by e.createTs DSC]]>
                 </query>
             </loader>
         </collection>

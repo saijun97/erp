@@ -13,7 +13,7 @@
                     view="product-view-details">
             <loader id="productsLc">
                 <query>
-                    <![CDATA[select e from erp_Product e]]>
+                    <![CDATA[select e from erp_Product e order by e.item ASC]]>
                 </query>
             </loader>
         </collection>
@@ -21,14 +21,14 @@
                     class="com.company.erp.entity.sales_inventory.product.master_data.product_category.ProductCategory"
                     view="_minimal">
             <loader>
-                <query>select e from erp_ProductCategory e</query>
+                <query>select e from erp_ProductCategory e order by e.name ASC</query>
             </loader>
         </collection>
         <collection id="brandsDc"
                     class="com.company.erp.entity.sales_inventory.product.master_data.make_manufacturer.Make_Manufacturer"
                     view="_minimal">
             <loader>
-                <query>select e from erp_Make_Manufacturer e</query>
+                <query>select e from erp_Make_Manufacturer e order by e.name ASC</query>
             </loader>
         </collection>
     </data>
@@ -67,9 +67,9 @@
                   captionPosition="TOP"
                   width="500px">
                 <column width="500px">
-                    <textArea id="descriptionField"
-                              property="description"
-                              height="500px"/>
+                    <richTextArea id="descriptionField"
+                                  property="description"
+                                  height="518px"/>
                 </column>
             </form>
         </hbox>

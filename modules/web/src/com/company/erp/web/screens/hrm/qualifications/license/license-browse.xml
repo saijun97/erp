@@ -8,7 +8,7 @@
                     view="license-view">
             <loader id="licensesDl">
                 <query>
-                    <![CDATA[select e from erp_License e]]>
+                    <![CDATA[select e from erp_License e order by e.name asc]]>
                 </query>
             </loader>
         </collection>

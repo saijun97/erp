@@ -9,7 +9,7 @@
                     view="portalMessage-view-details">
             <loader id="portalMessagesDl">
                 <query>
-                    <![CDATA[select e from erp_PortalMessages e]]>
+                    <![CDATA[select e from erp_PortalMessages e order by e.receivedTs DESC]]>
                 </query>
             </loader>
         </collection>

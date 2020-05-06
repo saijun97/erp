@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
-        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://browseCaption"
         focusComponent="catalogProductsTable"
         messagesPack="com.company.erp.web.screens.cms.catalogproduct">
@@ -10,7 +9,7 @@
                     view="catalogProduct-view-details">
             <loader id="catalogProductsDl">
                 <query>
-                    <![CDATA[select e from erp_CatalogProduct e]]>
+                    <![CDATA[select e from erp_CatalogProduct e order by e.name ASC]]>
                 </query>
             </loader>
         </collection>

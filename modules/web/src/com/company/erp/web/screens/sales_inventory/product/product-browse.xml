@@ -9,7 +9,7 @@
                     view="product-view-details">
             <loader id="productsDl">
                 <query>
-                    <![CDATA[select e from erp_Product e order by e.item]]>
+                    <![CDATA[select e from erp_Product e order by e.item ASC]]>
                 </query>
             </loader>
         </collection>

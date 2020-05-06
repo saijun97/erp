@@ -9,7 +9,7 @@
                     view="company_ContactPersons-view">
             <loader id="company_ContactPersonsesDl">
                 <query>
-                    <![CDATA[select e from erp_Company_ContactPersons e]]>
+                    <![CDATA[select e from erp_Company_ContactPersons e order by e.contactPerson ASC]]>
                 </query>
             </loader>
         </collection>

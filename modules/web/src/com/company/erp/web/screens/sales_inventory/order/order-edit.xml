@@ -14,7 +14,7 @@
         <collection id="clientsDc" class="com.company.erp.entity.crm.client.superclasses.Client" view="_minimal">
             <loader id="clientsLc">
                 <query>
-                    <![CDATA[select e from erp_Client e]]>
+                    <![CDATA[select e from erp_Client e order by e.displayName ASC]]>
                 </query>
             </loader>
         </collection>

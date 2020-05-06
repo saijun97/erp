@@ -9,7 +9,7 @@
                     view="employee_Language-view">
             <loader id="employee_LanguagesDl">
                 <query>
-                    <![CDATA[select e from erp_Employee_Language e]]>
+                    <![CDATA[select e from erp_Employee_Language e order by e.createTs DSC]]>
                 </query>
             </loader>
         </collection>

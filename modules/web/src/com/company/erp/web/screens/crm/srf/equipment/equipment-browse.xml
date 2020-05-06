@@ -9,7 +9,7 @@
                     view="equipment-view-details">
             <loader id="equipmentsDl">
                 <query>
-                    <![CDATA[select e from erp_Equipment e]]>
+                    <![CDATA[select e from erp_Equipment e order by e.createTs ASC]]>
                 </query>
             </loader>
         </collection>

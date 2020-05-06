@@ -9,7 +9,7 @@
                     view="employee_Skill-view">
             <loader id="employee_SkillsDl">
                 <query>
-                    <![CDATA[select e from erp_Employee_Skill e]]>
+                    <![CDATA[select e from erp_Employee_Skill e order by e.createTs DSC]]>
                 </query>
             </loader>
         </collection>

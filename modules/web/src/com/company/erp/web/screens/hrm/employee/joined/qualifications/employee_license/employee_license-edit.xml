@@ -12,7 +12,7 @@
         <collection id="licensesDc" class="com.company.erp.entity.hrm.qualifications.license.License" view="_minimal">
             <loader id="licensesLc">
                 <query>
-                    <![CDATA[select e from erp_License e]]>
+                    <![CDATA[select e from erp_License e order by e.name ASC]]>
                 </query>
             </loader>
         </collection>
