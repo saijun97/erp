@@ -26,7 +26,7 @@ public class CatalogProductEdit extends StandardEditor<CatalogProduct> {
     @Inject
     private CurrencyField<BigDecimal> priceField;
     @Inject
-    private TextArea<String> descriptionField;
+    private RichTextArea descriptionField;
 
     @Subscribe("productField")
     public void onProductFieldValueChange(HasValue.ValueChangeEvent<Product> event) {
