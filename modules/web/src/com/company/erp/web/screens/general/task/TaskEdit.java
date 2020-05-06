@@ -3,7 +3,9 @@ package com.company.erp.web.screens.general.task;
 import com.company.erp.entity.crm.client.superclasses.Client;
 import com.company.erp.entity.general.country.City;
 import com.company.erp.entity.general.country.Country;
+import com.company.erp.entity.general.enums.TaskStatusSelect;
 import com.company.erp.entity.sales_inventory.order.Order;
+import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.model.CollectionContainer;
@@ -13,6 +15,7 @@ import com.company.erp.entity.general.task.Task;
 
 import javax.inject.Inject;
 import java.util.Date;
+import java.util.Objects;
 
 @UiController("erp_Task.edit")
 @UiDescriptor("task-edit.xml")
@@ -32,9 +35,13 @@ public class TaskEdit extends StandardEditor<Task> {
     @Inject
     protected CollectionContainer<Country> countriesDc;
     @Inject
-    protected LookupField<String> statusField;
+    protected LookupField<TaskStatusSelect> statusField;
     @Inject
     private Notifications notifications;
+    @Inject
+    private UniqueNumbersService uniqueNumbersService;
+    @Inject
+    private TextField<String> taskNumField;
 
     @Subscribe
     protected void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
@@ -63,7 +70,7 @@ public class TaskEdit extends StandardEditor<Task> {
         try {
             if (countryField.getValue() == null & cityField.getValue() == null) {
 
-                clientField.setValue(orderNumField.getValue().getClient());
+                clientField.setValue(Objects.requireNonNull(orderNumField.getValue()).getClient());
             }
 
         } catch (NullPointerException e) {
@@ -78,7 +85,7 @@ public class TaskEdit extends StandardEditor<Task> {
        try {
            if (countryField.getValue() == null & cityField.getValue() == null) {
 
-               countryField.setValue(clientField.getValue().getCountry());
+               countryField.setValue(Objects.requireNonNull(clientField.getValue()).getCountry());
                cityField.setValue(clientField.getValue().getCity());
 
            }
@@ -107,6 +114,24 @@ public class TaskEdit extends StandardEditor<Task> {
         cityField.clear();
         clientField.setEditable(true);
 
+    }
+
+    @Subscribe
+    public void onBeforeCommitChanges1(BeforeCommitChangesEvent event) {
+
+        generateUniqueTaskNumber();
+
+    }
+
+
+    private void generateUniqueTaskNumber () {
+
+        if (taskNumField.getValue() == null) {
+
+            String taskNumValue = "TSK" + (uniqueNumbersService.getNextNumber("taskNum"));
+            getEditedEntity().setTaskNum(taskNumValue);
+
+        }
     }
 
 }

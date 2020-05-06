@@ -22,7 +22,7 @@ public class Task extends StandardEntity {
     private static final long serialVersionUID = 8719083966825545607L;
 
     @Column(name = "TASK_NUM", unique = true)
-    protected Integer taskNum;
+    protected String taskNum;
 
     @Column(name = "CATEGORY", nullable = false)
     protected String category;
@@ -194,11 +194,11 @@ public class Task extends StandardEntity {
         this.client = client;
     }
 
-    public Integer getTaskNum() {
+    public String getTaskNum() {
         return taskNum;
     }
 
-    public void setTaskNum(Integer taskNum) {
+    public void setTaskNum(String taskNum) {
         this.taskNum = taskNum;
     }
 }
