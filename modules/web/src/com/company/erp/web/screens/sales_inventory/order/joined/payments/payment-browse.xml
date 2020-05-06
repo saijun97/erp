@@ -9,7 +9,7 @@
                     view="payment-view-details">
             <loader id="paymentsDl">
                 <query>
-                    <![CDATA[select e from erp_Payment e]]>
+                    <![CDATA[select e from erp_Payment e order by e.executionDateInvisible DESC]]>
                 </query>
             </loader>
         </collection>
