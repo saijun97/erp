@@ -9,7 +9,7 @@
                     view="task-view-details">
             <loader id="tasksDl">
                 <query>
-                    <![CDATA[select e from erp_Task e]]>
+                    <![CDATA[select e from erp_Task e order by e.taskNum DESC]]>
                 </query>
             </loader>
         </collection>

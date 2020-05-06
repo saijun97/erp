@@ -13,7 +13,7 @@
                     view="order-view-details">
             <loader id="orderNumsLc">
                 <query>
-                    <![CDATA[select e from erp_Order e]]>
+                    <![CDATA[select e from erp_Order e order by e.orderNum DESC]]>
                 </query>
             </loader>
         </collection>
@@ -21,25 +21,25 @@
                     view="client-view-details">
             <loader id="clientsLc">
                 <query>
-                    <![CDATA[select e from erp_Client e]]>
+                    <![CDATA[select e from erp_Client e order by e.displayName ASC]]>
                 </query>
             </loader>
         </collection>
         <collection id="employeesDc" class="com.company.erp.entity.hrm.employee.Employee" view="employee-view-details">
             <loader id="employeesLc">
                 <query>
-                    <![CDATA[select e from erp_Employee e]]>
+                    <![CDATA[select e from erp_Employee e order by e.fullName ASC]]>
                 </query>
             </loader>
         </collection>
         <collection id="countriesDc" class="com.company.erp.entity.general.country.Country" view="country-view-details">
             <loader>
-                <query>select e from erp_Country e</query>
+                <query>select e from erp_Country e order by e.country ASC</query>
             </loader>
         </collection>
         <collection id="citiesDc" class="com.company.erp.entity.general.country.City" view="city-view-details">
             <loader>
-                <query>select e from erp_City e where e.country = :container_countriesDc</query>
+                <query>select e from erp_City e where e.country = :container_countriesDc order by e.city ASC</query>
             </loader>
         </collection>
     </data>
