@@ -5,8 +5,11 @@ import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 
+import org.jsoup.Jsoup;
+
 import javax.inject.Inject;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @UiController("erp_OrderItem.edit")
 @UiDescriptor("order-item-edit.xml")
@@ -39,9 +42,11 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
 
         try {
 
-            if ((descriptionField.getValue() == null) && (unitVatPriceField.getValue().equals(BigDecimal.ZERO)) && amountField.getValue().equals(BigDecimal.ZERO)) {
+            if ((descriptionField.getValue() == null) && (Objects.equals(unitVatPriceField.getValue(), BigDecimal.ZERO)) && Objects.equals(amountField.getValue(), BigDecimal.ZERO)) {
 
-                descriptionField.setValue(itemField.getValue().getDescription());
+                String parsedDescription = html2text(itemField.getValue().getDescription());
+
+                descriptionField.setValue(parsedDescription);
                 unitVatPriceField.setValue(itemField.getValue().getVatPrice());
                 amountField.setValue(unitVatPriceField.getValue());
             }
@@ -57,7 +62,7 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
 
         BigDecimal amountValue;
 
-        amountValue = unitVatPriceField.getValue().multiply(BigDecimal.valueOf(quantityField.getValue()));
+        amountValue = Objects.requireNonNull(unitVatPriceField.getValue()).multiply(BigDecimal.valueOf(quantityField.getValue()));
 
         amountField.setValue(amountValue);
 
@@ -76,5 +81,10 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
 
         }
 
+    }
+
+    public static String html2text(String html) {
+
+        return Jsoup.parse(html).text();
     }
 }
