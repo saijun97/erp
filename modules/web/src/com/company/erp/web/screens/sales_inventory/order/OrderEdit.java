@@ -116,6 +116,7 @@ public class OrderEdit extends StandardEditor<Order> {
 
         BigDecimal amountDueValue = getAggregationResultFromTable(paymentsTable.getAggregationResults());
         amountDueField.setValue(getEditedEntity().getTotalAmount().subtract(amountDueValue));
+        autoSettingPaymentStatus();
 
     }
 
@@ -215,7 +216,7 @@ public class OrderEdit extends StandardEditor<Order> {
 
         try {
 
-            if ((getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0) & !(getEditedEntity().getItem().isEmpty())) {
+            if ((getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0) && !(getEditedEntity().getItem().isEmpty())) {
 
                 getEditedEntity().setStatus(OrderStatusSelect.PAID);
             }
