@@ -8,7 +8,9 @@ import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.cms.catalog_product.CatalogProduct;
 
 import javax.inject.Inject;
+import javax.validation.constraints.Null;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @UiController("erp_CatalogProduct.edit")
 @UiDescriptor("catalog-product-edit.xml")
@@ -31,17 +33,9 @@ public class CatalogProductEdit extends StandardEditor<CatalogProduct> {
     @Subscribe("productField")
     public void onProductFieldValueChange(HasValue.ValueChangeEvent<Product> event) {
 
-        if (productField.getValue() == null) {
+        productField.setEditable(false);
 
-            nameField.clear();
-            brandField.clear();
-            categoryField.clear();
-            descriptionField.clear();
-            priceField.clear();
-
-        }
-
-        nameField.setValue(productField.getValue().getItem());
+        nameField.setValue(Objects.requireNonNull(productField.getValue()).getItem());
 
         brandField.setValue(productField.getValue().getMake_manufacturer());
 
@@ -49,9 +43,20 @@ public class CatalogProductEdit extends StandardEditor<CatalogProduct> {
 
         priceField.setValue(productField.getValue().getVatPrice());
 
-        descriptionField.setValue(productField.getValue().getDescription());
+        try {
+
+            if (descriptionField.getValue().isEmpty()) {
+
+                descriptionField.setValue(productField.getValue().getDescription());
+
+            }
+
+        } catch (NullPointerException e) {
+
+            System.out.println("Description null Exception Handled.");
+        }
+
 
     }
-
 
 }
