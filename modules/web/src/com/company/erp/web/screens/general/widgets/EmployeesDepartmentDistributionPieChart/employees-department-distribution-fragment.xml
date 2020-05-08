@@ -17,7 +17,7 @@
         </keyValueCollection>
     </data>
     <layout>
-        <chart:pieChart dataContainer="employeesDepartmentDistributionDc"
+        <chart:pieChart id="employeesDistributionPieChart" dataContainer="employeesDepartmentDistributionDc"
                         creditsPosition="BOTTOM_LEFT"
                         theme="LIGHT"
                         angle="30"
@@ -33,12 +33,10 @@
             <chart:titles>
                 <chart:title alpha="1"
                              bold="true"
-                             color="DARKSLATEGREY"
                              size="20"
                              tabIndex="0"
                              text="Employees Distribution"/>
                 <chart:title alpha="0.5"
-                             color="DARKBLUE"
                              size="12"
                              text="Within Organisation"/>
             </chart:titles>

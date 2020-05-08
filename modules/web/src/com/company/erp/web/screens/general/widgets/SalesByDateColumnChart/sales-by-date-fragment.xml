@@ -6,26 +6,26 @@
             <loader id="salesByDateColumnChartLoader"
                     maxResults="31">
                 <query>
-                    <![CDATA[SELECT sum(e.amount), e.executionDate
+                    <![CDATA[SELECT sum(e.amount), e.executionDateInvisible
                          FROM erp_Payment e
-                         GROUP BY e.executionDate
-                         ORDER BY e.executionDate]]>
+                         GROUP BY e.executionDateInvisible
+                         ORDER BY e.executionDateInvisible]]>
                 </query>
             </loader>
             <properties>
                 <property class="com.company.erp.entity.sales_inventory.order.Order"
                           name="sum"/>
-                <property name="executionDate"/>
+                <property name="executionDateInvisible"/>
             </properties>
         </keyValueCollection>
     </data>
     <layout>
-        <chart:serialChart additionalFields="additional"
+        <chart:serialChart id="salesByDateColumnChart" additionalFields="additional"
                            creditsPosition="BOTTOM_RIGHT"
                            addClassNames="true"
                            byDate="true"
                            autoMargins="false"
-                           categoryField="executionDate"
+                           categoryField="executionDateInvisible"
                            dataContainer="salesByDateColumnChartDc"
                            depth3D="60"
                            angle="30"
@@ -40,12 +40,10 @@
             <chart:titles>
                 <chart:title alpha="1"
                              bold="true"
-                             color="DARKSLATEGREY"
                              size="20"
                              tabIndex="0"
                              text="Sales Income"/>
                 <chart:title alpha="0.5"
-                             color="DARKBLUE"
                              size="12"
                              text="By Date"/>
             </chart:titles>

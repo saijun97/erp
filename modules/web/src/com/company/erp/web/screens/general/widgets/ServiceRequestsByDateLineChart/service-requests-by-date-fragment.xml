@@ -35,12 +35,10 @@
             <chart:titles>
                 <chart:title alpha="1"
                              bold="true"
-                             color="DARKSLATEGREY"
                              size="20"
                              tabIndex="0"
                              text="Service Requests"/>
                 <chart:title alpha="0.5"
-                             color="DARKBLUE"
                              size="12"
                              text="By Date"/>
             </chart:titles>

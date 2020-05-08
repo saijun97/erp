@@ -22,7 +22,7 @@
         <dataLoadCoordinator auto="true"/>
     </facets>
     <layout>
-        <chart:pieChart dataContainer="topBrandsInInventoryDc"
+        <chart:pieChart id="topBrandsInInventoryPieChart" dataContainer="topBrandsInInventoryDc"
                         creditsPosition="BOTTOM_LEFT"
                         theme="LIGHT"
                         innerRadius="25"
@@ -39,12 +39,10 @@
             <chart:titles>
                 <chart:title alpha="1"
                              bold="true"
-                             color="DARKSLATEGREY"
                              size="20"
                              tabIndex="0"
                              text="Top Brands"/>
                 <chart:title alpha="0.5"
-                             color="DARKBLUE"
                              size="12"
                              text="In Inventory"/>
             </chart:titles>
