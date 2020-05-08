@@ -95,9 +95,9 @@ create table ERP_ORDER_ITEM (
     --
     ITEM_ID uuid not null,
     DESCRIPTION text,
-    UNIT_VAT_PRICE decimal(19, 2),
-    QUANTITY integer,
-    AMOUNT decimal(19, 2),
+    UNIT_VAT_PRICE decimal(19, 2) not null,
+    QUANTITY integer not null,
+    AMOUNT decimal(19, 2) not null,
     ORDER_ID uuid not null,
     --
     primary key (ID)
@@ -174,7 +174,7 @@ create table ERP_ORDER (
     --
     ORDER_NUM varchar(255),
     CLIENT_ID uuid not null,
-    ORDER_DATE date,
+    ORDER_DATE date not null,
     DELIVERY_DATE date,
     TOTAL_AMOUNT decimal(19, 2),
     AMOUNT_DUE decimal(19, 2) not null,
@@ -303,6 +303,7 @@ create table ERP_PAYMENT (
     DELETED_BY varchar(50),
     --
     EXECUTION_DATE timestamp not null,
+    EXECUTION_DATE_INVISIBLE date not null,
     PAYMENT_TYPE varchar(50) not null,
     AMOUNT decimal(19, 2) not null,
     CHEQUE_REFERENCE varchar(255),

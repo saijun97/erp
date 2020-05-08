@@ -56,7 +56,7 @@
                             property="image"
                             fileStoragePutMode="IMMEDIATE"
                             dataContainer="catalogProductDc"
-                            caption="Main Image"/>
+                            caption="Internal Image"/>
                     <richTextArea id="publicImageField"
                                   property="publicImage"
                                   height="300px"

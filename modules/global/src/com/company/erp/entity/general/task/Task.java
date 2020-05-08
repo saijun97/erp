@@ -72,11 +72,11 @@ public class Task extends StandardEntity {
     protected Employee employee;
 
     @Column(name = "STATUS", nullable = false)
-    protected String status;
+    protected String status = "PENDING";
 
     @Temporal(TemporalType.DATE)
     @Column(name = "START_DATE", nullable = false)
-    protected Date startDate;
+    protected Date startDate = new Date();
 
     @Temporal(TemporalType.DATE)
     @Column(name = "COMPLETION_DATE")

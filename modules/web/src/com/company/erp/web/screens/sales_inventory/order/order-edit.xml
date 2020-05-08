@@ -73,7 +73,7 @@
                             <columns>
                                 <column id="item"/>
                                 <column id="unitVatPrice" caption="Unit Price(VAT Incl.)"/>
-                                <column id="quantity"/>
+                                <column id="quantity" caption="Qty"/>
                                 <column id="amount">
                                     <aggregation type="SUM" valueDescription="Total"/>
                                 </column>
@@ -113,7 +113,7 @@
                                     <aggregation type="SUM" valueDescription="Total"/>
                                 </column>
                             </columns>
-                            <buttonsPanel>
+                            <buttonsPanel id="paymentButtonsPanel">
                                 <button action="paymentsTable.create"/>
                                 <button action="paymentsTable.edit"/>
                                 <button action="paymentsTable.remove"/>

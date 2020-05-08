@@ -21,6 +21,7 @@
                 <lookupField id="paymentTypeField" property="paymentType"/>
                 <currencyField id="amountField" property="amount" currency="MUR"/>
                 <textField id="chequeReferenceField" property="chequeReference" visible="false"/>
+                <dateField id="executionDateInvisibleField" property="executionDateInvisible" visible="false"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

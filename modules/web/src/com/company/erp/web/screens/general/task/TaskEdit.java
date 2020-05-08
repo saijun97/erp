@@ -14,8 +14,8 @@ import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.general.task.Task;
 
 import javax.inject.Inject;
-import java.util.Date;
-import java.util.Objects;
+import java.math.BigDecimal;
+import java.util.*;
 
 @UiController("erp_Task.edit")
 @UiDescriptor("task-edit.xml")
@@ -42,6 +42,8 @@ public class TaskEdit extends StandardEditor<Task> {
     private UniqueNumbersService uniqueNumbersService;
     @Inject
     private TextField<String> taskNumField;
+    @Inject
+    private DateField<Date> completionDateField;
 
     @Subscribe
     protected void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
@@ -65,6 +67,8 @@ public class TaskEdit extends StandardEditor<Task> {
     @Subscribe("orderNumField")
     protected void onOrderNumFieldValueChange(HasValue.ValueChangeEvent<Order> event) {
 
+        clearCommonData();
+        completionDateField.clear();
         clientField.setEditable(false);
 
         try {
@@ -73,10 +77,17 @@ public class TaskEdit extends StandardEditor<Task> {
                 clientField.setValue(Objects.requireNonNull(orderNumField.getValue()).getClient());
             }
 
+            if (getEditedEntity().getCompletionDate() == null) {
+
+                getEditedEntity().setCompletionDate(getEditedEntity().getOrderNum().getDeliveryDate());
+
+            }
+
         } catch (NullPointerException e) {
 
-            System.out.println("Order number clear operation exception for client field handled!");
+            System.out.println("Order number clear operation exception handled!");
         }
+
     }
 
     @Subscribe(id = "clientsDc", target = Target.DATA_CONTAINER)
@@ -87,8 +98,10 @@ public class TaskEdit extends StandardEditor<Task> {
 
                countryField.setValue(Objects.requireNonNull(clientField.getValue()).getCountry());
                cityField.setValue(clientField.getValue().getCity());
+               getEditedEntity().setContact(getEditedEntity().getClient().getPreferredContactPhone());
 
            }
+
        } catch (NullPointerException e) {
            System.out.println("Order number clear operation exception for country and city fields handled!");
        }
@@ -98,20 +111,16 @@ public class TaskEdit extends StandardEditor<Task> {
     @Subscribe("clientField.clear")
     protected void onClientFieldClear(Action.ActionPerformedEvent event) {
 
-        clientField.clear();
-        countryField.clear();
-        cityField.clear();
-        orderNumField.setEditable(true);
+        clearCommonData();
 
     }
 
     @Subscribe("orderNumField.clear")
     protected void onOrderNumFieldClear(Action.ActionPerformedEvent event) {
 
+        clearCommonData();
         orderNumField.clear();
-        clientField.clear();
-        countryField.clear();
-        cityField.clear();
+        completionDateField.clear();
         clientField.setEditable(true);
 
     }
@@ -132,6 +141,14 @@ public class TaskEdit extends StandardEditor<Task> {
             getEditedEntity().setTaskNum(taskNumValue);
 
         }
+    }
+
+    private void clearCommonData() {
+
+        clientField.clear();
+        countryField.clear();
+        cityField.clear();
+
     }
 
 }

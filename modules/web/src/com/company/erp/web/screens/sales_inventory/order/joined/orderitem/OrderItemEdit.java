@@ -42,13 +42,19 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
 
         try {
 
-            if ((descriptionField.getValue() == null) && (Objects.equals(unitVatPriceField.getValue(), BigDecimal.ZERO)) && Objects.equals(amountField.getValue(), BigDecimal.ZERO)) {
+            if ((descriptionField.getValue() == null) && (Objects.equals(unitVatPriceField.getValue(), BigDecimal.ZERO)) && (Objects.equals(amountField.getValue(), BigDecimal.ZERO))) {
 
-                String parsedDescription = html2text(itemField.getValue().getDescription());
-
-                descriptionField.setValue(parsedDescription);
                 unitVatPriceField.setValue(itemField.getValue().getVatPrice());
                 amountField.setValue(unitVatPriceField.getValue());
+
+
+                if (!(itemField.getValue().getDescription().isEmpty())) {
+
+                    String parsedDescription = html2text(itemField.getValue().getDescription());
+                    descriptionField.setValue(parsedDescription);
+
+                }
+
             }
 
         }catch (NullPointerException e) {
@@ -60,11 +66,12 @@ public class OrderItemEdit extends StandardEditor<OrderItem> {
     @Subscribe("quantityField")
     public void onQuantityFieldValueChange(HasValue.ValueChangeEvent<Integer> event) {
 
-        BigDecimal amountValue;
 
-        amountValue = Objects.requireNonNull(unitVatPriceField.getValue()).multiply(BigDecimal.valueOf(quantityField.getValue()));
+            BigDecimal amountValue;
 
-        amountField.setValue(amountValue);
+            amountValue = Objects.requireNonNull(unitVatPriceField.getValue()).multiply(BigDecimal.valueOf(quantityField.getValue()));
+
+            amountField.setValue(amountValue);
 
     }
 

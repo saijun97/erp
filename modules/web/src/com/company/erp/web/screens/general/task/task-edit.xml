@@ -9,19 +9,19 @@
                   view="task-view-details">
             <loader/>
         </instance>
+        <collection id="clientsDc" class="com.company.erp.entity.crm.client.superclasses.Client"
+                    view="client-view-details">
+            <loader id="clientsLc">
+                <query>
+                    <![CDATA[select e from erp_Client e order by e.displayName ASC ]]>
+                </query>
+            </loader>
+        </collection>
         <collection id="orderNumsDc" class="com.company.erp.entity.sales_inventory.order.Order"
                     view="order-view-details">
             <loader id="orderNumsLc">
                 <query>
                     <![CDATA[select e from erp_Order e order by e.orderNum DESC]]>
-                </query>
-            </loader>
-        </collection>
-        <collection id="clientsDc" class="com.company.erp.entity.crm.client.superclasses.Client"
-                    view="client-view-details">
-            <loader id="clientsLc">
-                <query>
-                    <![CDATA[select e from erp_Client e order by e.displayName ASC]]>
                 </query>
             </loader>
         </collection>
@@ -55,16 +55,22 @@
             <hbox spacing="true">
                 <form id="form" dataContainer="taskDc">
                     <column width="250px">
-                        <textField id="taskNumField" property="taskNum"/>
+                        <textField id="taskNumField"
+                                   property="taskNum"
+                                   editable="false"
+                                   caption="Task No."/>
                         <lookupField id="categoryField" property="category"/>
-                        <lookupPickerField id="orderNumField" optionsContainer="orderNumsDc" property="orderNum">
+                        <lookupPickerField id="orderNumField"
+                                           optionsContainer="orderNumsDc"
+                                           property="orderNum"
+                                           caption="Order">
                             <actions>
                                 <action id="lookup" type="picker_lookup"/>
                                 <action id="open" type="picker_open"/>
                                 <action id="clear" type="picker_clear"/>
                             </actions>
                         </lookupPickerField>
-                        <textField id="poInvoiceNumField" property="poInvoiceNum"/>
+                        <textField id="poInvoiceNumField" property="poInvoiceNum" caption="PO/Invoice No."/>
                         <lookupPickerField id="clientField" optionsContainer="clientsDc" property="client">
                             <actions>
                                 <action id="lookup" type="picker_lookup"/>

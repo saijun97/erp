@@ -33,8 +33,8 @@ public class Order extends StandardEntity {
     protected Client client;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "ORDER_DATE")
-    protected Date orderDate;
+    @Column(name = "ORDER_DATE", nullable = false)
+    protected Date orderDate = new Date();
 
     @Temporal(TemporalType.DATE)
     @Column(name = "DELIVERY_DATE")
@@ -59,7 +59,7 @@ public class Order extends StandardEntity {
     protected BigDecimal amountDue = BigDecimal.ZERO;
 
     @Column(name = "STATUS", nullable = false)
-    protected String status;
+    protected String status = "QUOTE_REQUEST";
 
     public BigDecimal getAmountDue() {
         return amountDue;

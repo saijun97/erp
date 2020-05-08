@@ -6,6 +6,8 @@ import com.company.erp.entity.sales_inventory.order.joined.order_item.OrderItem;
 import com.company.erp.entity.sales_inventory.order.joined.payment.Payment;
 import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.Notifications;
+import com.haulmont.cuba.gui.actions.list.CreateAction;
+import com.haulmont.cuba.gui.actions.list.RemoveAction;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.model.*;
 import com.haulmont.cuba.gui.screen.*;
@@ -14,6 +16,7 @@ import com.haulmont.cuba.security.entity.EntityLogItem;
 import com.haulmont.reports.gui.actions.EditorPrintFormAction;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -50,6 +53,14 @@ public class OrderEdit extends StandardEditor<Order> {
     private Table<Payment> paymentsTable;
     @Inject
     private CurrencyField<BigDecimal> amountDueField;
+    @Named("paymentsTable.create")
+    private CreateAction<Payment> paymentsTableCreate;
+    @Named("itemTable.create")
+    private CreateAction<OrderItem> itemTableCreate;
+    @Named("itemTable.remove")
+    private RemoveAction<OrderItem> itemTableRemove;
+    @Named("paymentsTable.remove")
+    private RemoveAction<Payment> paymentsTableRemove;
 
 
     @Subscribe
@@ -65,15 +76,6 @@ public class OrderEdit extends StandardEditor<Order> {
         generateReportBtn.setAction(
                 new EditorPrintFormAction(this, null)
         );
-    }
-
-
-    @Subscribe
-    protected void onInitEntity(InitEntityEvent<Order> event) {
-
-        event.getEntity().setOrderDate(new Date());
-        event.getEntity().setStatus(OrderStatusSelect.QUOTE_REQUEST);
-
     }
 
     @Subscribe
@@ -120,20 +122,11 @@ public class OrderEdit extends StandardEditor<Order> {
 
     }
 
-    @Subscribe("amountDueField")
-    public void onAmountDueFieldValueChange(HasValue.ValueChangeEvent<BigDecimal> event) {
-
-        if (getEditedEntity().getStatus() != OrderStatusSelect.QUOTE_REQUEST) {
-            autoSettingPaymentStatus();
-        }
-    }
-
     @Subscribe("statusField")
     public void onStatusFieldValueChange(HasValue.ValueChangeEvent<OrderStatusSelect> event) {
 
-        if (getEditedEntity().getStatus() == OrderStatusSelect.QUOTE_REQUEST) {
-            amountDueField.setValue(BigDecimal.ZERO);
-        }
+        preventRecordsAdditionForPaidOrders();
+
     }
 
     private void generateUniqueOrderNumber () {
@@ -164,7 +157,7 @@ public class OrderEdit extends StandardEditor<Order> {
 
     private boolean paymentStatusValidation () {
 
-        if ((getEditedEntity().getStatus() == OrderStatusSelect.PAID) & !(getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0)) {
+        if ((getEditedEntity().getStatus() == OrderStatusSelect.PAID) & (getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) > 0)) {
 
             notifications.create()
                     .withCaption("Status cannot be set to PAID if " +
@@ -216,7 +209,7 @@ public class OrderEdit extends StandardEditor<Order> {
 
         try {
 
-            if ((getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) == 0) && !(getEditedEntity().getItem().isEmpty())) {
+            if ((getEditedEntity().getAmountDue().compareTo(BigDecimal.ZERO) <= 0) && !(getEditedEntity().getItem().isEmpty())) {
 
                 getEditedEntity().setStatus(OrderStatusSelect.PAID);
             }
@@ -226,4 +219,17 @@ public class OrderEdit extends StandardEditor<Order> {
             System.out.println("Exception Handled");
         }
     }
+
+    private void preventRecordsAdditionForPaidOrders(){
+
+        if (getEditedEntity().getStatus().equals(OrderStatusSelect.PAID)) {
+
+                paymentsTableCreate.setEnabled(false);
+                paymentsTableRemove.setEnabled(false);
+                itemTableCreate.setEnabled(false);
+                itemTableCreate.setEnabled(false);
+
+        }
+    }
+
 }

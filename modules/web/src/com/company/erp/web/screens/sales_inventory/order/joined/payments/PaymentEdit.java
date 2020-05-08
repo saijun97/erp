@@ -20,30 +20,24 @@ public class PaymentEdit extends StandardEditor<Payment> {
     private TextField<String> chequeReferenceField;
 
     @Subscribe
-    public void onBeforeShow(BeforeShowEvent event) {
+    public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
 
-        if (getEditedEntity().getOrder().getAmountDue().equals(BigDecimal.ZERO)) {
+        getEditedEntity().setExecutionDateInvisible(getEditedEntity().getExecutionDate());
 
-            if (!(getEditedEntity().getOrder().getStatus().equals(OrderStatusSelect.PAID))) {
+    }
 
-                getEditedEntity().setAmount(getEditedEntity().getOrder().getTotalAmount());
 
-            }
+    @Subscribe
+    public void onInitEntity(InitEntityEvent<Payment> event) {
 
-            else {
+        if (!(getEditedEntity().getOrder().getStatus().equals(OrderStatusSelect.PAID))) {
 
-                getEditedEntity().setAmount(getEditedEntity().getOrder().getAmountDue());
-            }
-
-        }
-
-        else {
-
-            getEditedEntity().setAmount(getEditedEntity().getOrder().getAmountDue());
+            event.getEntity().setAmount(getEditedEntity().getOrder().getAmountDue());
 
         }
 
     }
+
 
     @Subscribe("paymentTypeField")
     public void onPaymentTypeFieldValueChange(HasValue.ValueChangeEvent<PaymentTypeSelect> event) {

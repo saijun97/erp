@@ -30,14 +30,14 @@ public class OrderItem extends StandardEntity {
     protected String description;
 
     @NumberFormat(pattern = "0.00")
-    @Column(name = "UNIT_VAT_PRICE")
+    @Column(name = "UNIT_VAT_PRICE", nullable = false)
     protected BigDecimal unitVatPrice = BigDecimal.ZERO;
 
-    @Column(name = "QUANTITY")
+    @Column(name = "QUANTITY", nullable = false)
     protected Integer quantity = 1;
 
     @NumberFormat(pattern = "0.00")
-    @Column(name = "AMOUNT")
+    @Column(name = "AMOUNT", nullable = false)
     protected BigDecimal amount = BigDecimal.ZERO;
 
     @OnDeleteInverse(DeletePolicy.CASCADE)

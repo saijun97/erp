@@ -23,6 +23,10 @@ public class Payment extends StandardEntity {
     @Column(name = "EXECUTION_DATE", nullable = false)
     protected Date executionDate = new Date();
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "EXECUTION_DATE_INVISIBLE", nullable = false)
+    protected Date executionDateInvisible;
+
     @Column(name = "PAYMENT_TYPE", nullable = false)
     protected String paymentType;
 
@@ -38,6 +42,14 @@ public class Payment extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ORDER_ID")
     protected Order order;
+
+    public Date getExecutionDateInvisible() {
+        return executionDateInvisible;
+    }
+
+    public void setExecutionDateInvisible(Date executionDateInvisible) {
+        this.executionDateInvisible = executionDateInvisible;
+    }
 
 
     public Order getOrder() {
