@@ -6,11 +6,11 @@
         <loader id="topCustomersByOutstandingBalancesLoader"
                 maxResults="5">
             <query>
-                <![CDATA[SELECT sum(e.totalAmount), e.client
+                <![CDATA[SELECT sum(e.amountDue), e.client
                              FROM erp_Order e
                              WHERE e.status IN ('UNPAID', 'PARTIALLY_PAID')
                              GROUP BY e.client
-                             ORDER by sum(e.totalAmount) desc]]>
+                             ORDER by sum(e.amountDue) desc]]>
             </query>
         </loader>
         <properties>
