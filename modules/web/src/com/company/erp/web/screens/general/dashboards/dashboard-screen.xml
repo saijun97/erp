@@ -110,7 +110,7 @@
                             <swr:column height="AUTO" >
                                 <swr:content>
                                     <fragment screen="erp_BestSellingProductsFragment"
-                                              height="275px"/>
+                                              height="300px"/>
                                 </swr:content>
                                 <swr:display xs="12" sm="6" md="6" lg="6"/>
                             </swr:column>
