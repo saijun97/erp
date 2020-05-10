@@ -8,6 +8,7 @@
                 <query>
                     <![CDATA[SELECT sum(e.quantity), e.item
                              FROM erp_OrderItem e
+                             WHERE e.order.status IN ('PAID', 'PARTIALLY_PAID', 'UNPAID')
                              GROUP BY e.item
                              ORDER BY sum(e.quantity) DESC]]>
                 </query>
