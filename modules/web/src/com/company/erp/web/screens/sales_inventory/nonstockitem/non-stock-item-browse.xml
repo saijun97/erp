@@ -53,7 +53,7 @@
                         <column property="item"/>
                         <column property="cost"/>
                         <column property="price"/>
-                        <column id="vatPrice"/>
+                        <column property="vatPrice"/>
                     </columns>
                     <buttonsPanel id="buttonsPanel"
                                   alwaysVisible="true">
