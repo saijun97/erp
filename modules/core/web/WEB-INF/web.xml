@@ -20,8 +20,8 @@
             org.strangeway.responsive de.diedavids.cuba.entitysoftreference com.haulmont.addon.restapi
             com.haulmont.addon.admintools de.diedavids.cuba.dataimport de.diedavids.cuba.attachable
             com.haulmont.addon.dashboardchart com.haulmont.addon.dnd com.haulmont.addon.helium
-            com.haulmont.addon.dashboard de.diedavids.cuba.userinbox com.haulmont.addon.cubajm
-            com.haulmont.addon.cubaaws</param-value>
+            com.haulmont.addon.dashboard com.haulmont.addon.cubajm com.haulmont.addon.cubaaws
+            de.diedavids.cuba.userinbox</param-value>
     </context-param>
     <listener>
         <listener-class>com.haulmont.cuba.core.sys.AppContextLoader</listener-class>

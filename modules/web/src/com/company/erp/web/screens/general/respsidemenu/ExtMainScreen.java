@@ -277,7 +277,7 @@ public class ExtMainScreen extends MainScreen {
     }
 
     @Subscribe
-    protected void onAfterShow(AfterShowEvent event) {
+    public void onAfterInit(AfterInitEvent event) {
         userInboxMessageMenuBadge.updateMessageCounter(sideMenu);
     }
 
