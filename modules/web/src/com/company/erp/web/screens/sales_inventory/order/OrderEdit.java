@@ -122,6 +122,15 @@ public class OrderEdit extends StandardEditor<Order> {
 
     }
 
+    @Subscribe("deliveryDateField")
+    public void onDeliveryDateFieldValueChange(HasValue.ValueChangeEvent<Date> event) {
+
+        autoSettingPaymentStatus();
+
+    }
+
+
+
     @Subscribe("statusField")
     public void onStatusFieldValueChange(HasValue.ValueChangeEvent<OrderStatusSelect> event) {
 
@@ -217,6 +226,11 @@ public class OrderEdit extends StandardEditor<Order> {
         } catch (NullPointerException e) {
 
             System.out.println("Exception Handled");
+        }
+
+        if ((getEditedEntity().getDeliveryDate() != null) && (getEditedEntity().getStatus().equals(OrderStatusSelect.QUOTE_REQUEST))) {
+
+            getEditedEntity().setStatus(OrderStatusSelect.UNPAID);
         }
     }
 
