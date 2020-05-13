@@ -44,7 +44,11 @@
                         <textField id="emailField" property="email"/>
                         <textArea id="addressField" property="address" rows="5"/>
                         <textField id="invoiceNumberField" property="invoiceNumber"/>
-                        <currencyField id="totalPriceField" property="totalPrice" currency="MUR" datatype="decimal"/>
+                        <currencyField id="totalPriceField"
+                                       property="totalPrice"
+                                       currency="MUR"
+                                       datatype="decimal"
+                                       editable="false"/>
                         <lookupField id="statusField" property="status"/>
                     </column>
                 </form>
@@ -55,7 +59,9 @@
                                dataContainer="equipmentDc"
                                width="500px"
                                height="200px"
-                               multiLineCells="true">
+                               multiLineCells="true"
+                               aggregatable="true"
+                               aggregationStyle="BOTTOM">
                             <actions>
                                 <action id="create" type="create"/>
                                 <action id="edit" type="edit"/>
@@ -64,7 +70,9 @@
                             <columns>
                                 <column id="productCategory"/>
                                 <column id="makeModel" caption="Make &amp; Model"/>
-                                <column id="price"/>
+                                <column id="price">
+                                <aggregation type="SUM" valueDescription="Total"/>
+                                </column>>
                                 <column id="status"/>
                             </columns>
                             <buttonsPanel>

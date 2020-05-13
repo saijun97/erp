@@ -1,19 +1,21 @@
 package com.company.erp.web.screens.crm.srf.servicerequest;
 
 import com.company.erp.entity.crm.client.superclasses.Client;
+import com.company.erp.entity.crm.srf.Equipment;
 import com.company.erp.entity.general.enums.ServiceRequestStatusSelect;
 import com.haulmont.cuba.core.app.EmailService;
 import com.haulmont.cuba.core.global.EmailInfo;
 import com.haulmont.cuba.core.global.EmailInfoBuilder;
 import com.haulmont.cuba.gui.Dialogs;
 import com.haulmont.cuba.gui.components.*;
+import com.haulmont.cuba.gui.model.CollectionContainer;
 import com.haulmont.reports.gui.actions.EditorPrintFormAction;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.erp.entity.crm.srf.ServiceRequest;
 
 import javax.inject.Inject;
-import java.util.Collections;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.util.*;
 
 @UiController("erp_ServiceRequest.edit")
 @UiDescriptor("service-request-edit.xml")
@@ -43,6 +45,8 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
     private Button generateReportBtn;
 
     private boolean completed;
+    @Inject
+    private Table<Equipment> equipmentTable;
 
     @Subscribe
     public void onInit(InitEvent event) {
@@ -100,6 +104,16 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
 
     }
 
+    @Subscribe(id = "equipmentDc", target = Target.DATA_CONTAINER)
+    public void onEquipmentDcCollectionChange(CollectionContainer.CollectionChangeEvent<Equipment> event) {
+
+        BigDecimal totalAmount = getAggregationResultFromTable(equipmentTable.getAggregationResults());
+        getEditedEntity().setTotalPrice(totalAmount);
+
+    }
+
+
+
     @Subscribe("statusField")
     public void onStatusFieldValueChange(HasValue.ValueChangeEvent<ServiceRequestStatusSelect> event) {
 
@@ -144,4 +158,18 @@ public class ServiceRequestEdit extends StandardEditor<ServiceRequest> {
                 .build();
         emailService.sendEmailAsync(emailInfo);
     }
+
+    private BigDecimal getAggregationResultFromTable(Map<Object, Object> aggregationResults) {
+        BigDecimal amountValue = BigDecimal.ZERO;
+
+        for (int i = 0; i< aggregationResults.size(); i++){
+            Set<Object> set = aggregationResults.keySet();
+            Iterator itr = set.iterator();
+            Object string = itr.next();
+            amountValue = (BigDecimal) aggregationResults.get(string);
+
+        }
+        return amountValue;
+    }
+
 }
