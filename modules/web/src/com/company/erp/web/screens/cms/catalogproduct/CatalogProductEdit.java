@@ -45,9 +45,9 @@ public class CatalogProductEdit extends StandardEditor<CatalogProduct> {
 
         try {
 
-            if (descriptionField.getValue().isEmpty()) {
+            if (descriptionField.getValue() == null) {
 
-                descriptionField.setValue(productField.getValue().getDescription());
+                descriptionField.setValue(getEditedEntity().getProduct().getDescription());
 
             }
 
