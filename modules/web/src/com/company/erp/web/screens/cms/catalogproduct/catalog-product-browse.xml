@@ -7,7 +7,7 @@
         <collection id="catalogProductsDc"
                     class="com.company.erp.entity.cms.catalog_product.CatalogProduct"
                     view="catalogProduct-view-details">
-            <loader id="catalogProductsDl">
+            <loader id="catalogProductsDl" softDeletion="false">
                 <query>
                     <![CDATA[select e from erp_CatalogProduct e order by e.name ASC]]>
                 </query>
