@@ -21,6 +21,10 @@ A Web-based ERP System that was developed for my final year dissertation project
 Jmix: https://www.jmix.io/framework/
 ## Infrastructure
 
+<div align="center">
+  <a <img src="https://github.com/saijun97/erp/blob/master/Infrastructure.png" alt="Infrastructure"></a>
+</div>
+
 ![App Screenshot](https://github.com/saijun97/erp/blob/master/Infrastructure.png)
 
 ## Features
@@ -38,10 +42,14 @@ The system's main features included:
 - Analytics Dashboard
 - Flexible Reporting Capabilities
 
+![App Screenshot](https://github.com/saijun97/erp/blob/master/Context%20Diagram.png)
+
+<div align="center">
+  <a <img src="https://github.com/saijun97/erp/blob/master/Context%20Diagram.png" alt="ContextDiag"></a>
+</div>
 
 ## Demo
-
-Click Image to Play Demo Video:
+Click Image to Play Demo Video
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=fAWBPhSbU6k"><img src="https://img.youtube.com/vi/fAWBPhSbU6k/0.jpg" alt="Dissertation Demo - ERP System"></a>
