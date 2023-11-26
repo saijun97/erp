@@ -40,8 +40,9 @@ The system's main features included:
 
 
 ## Demo
-
+<div align="center">
 [![Dissertation Demo - ERP System](http://img.youtube.com/vi/fAWBPhSbU6k/0.jpg)](http://www.youtube.com/watch?v=fAWBPhSbU6k "Dissertation Demo - ERP System")
+</div>
 
 Click Image to Play Demo Video
 
